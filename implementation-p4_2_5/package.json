@@ -1,0 +1,14 @@
+{
+  "name": "atmos-wallpaper-host",
+  "version": "0.4.2-5",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prepare": "node scripts/prepare.mjs",
+    "dev": "node src/dev.mjs",
+    "test": "node --test --test-reporter=tap tests/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

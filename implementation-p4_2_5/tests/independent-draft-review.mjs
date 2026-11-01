@@ -1,0 +1,11 @@
+import fs from 'node:fs';import vm from 'node:vm';import assert from 'node:assert/strict';import {createHash} from 'node:crypto';import {DraftState} from '../src/draft-state.mjs';
+const source=fs.readFileSync(new URL('../src/bridge-client.js',import.meta.url),'utf8');
+const readonlySource=source.slice(source.indexOf('function readonly()'),source.indexOf('\nnew MutationObserver'));
+const attributes=new Map();const input={disabled:false,closest:()=>null,hasAttribute:k=>attributes.has(k),setAttribute:(k,v)=>attributes.set(k,v),getAttribute:k=>attributes.get(k),removeAttribute:k=>attributes.delete(k)};
+const position={...input,attrs:new Map()};const ids={calendarWidth:input,clockX:position,clockY:position,calendarY:position};
+const context={ready:true,pendingKey:'sync',drafts:{inflight:null},matchMedia:()=>({matches:true}),document:{getElementById:id=>ids[id],querySelectorAll:()=>[input],querySelector:s=>s==='main'?{}:null}};vm.createContext(context);vm.runInContext(readonlySource+';readonly()',context);
+// A responsive render occurs while synchronization is locked. Its intrinsic disabled is now true.
+input.disabled=true;context.pendingKey=null;vm.runInContext('readonly()',context);
+const disabledAfterUnlock=input.disabled;assert.equal(disabledAfterUnlock,true);assert.equal(position.disabled,false);
+const d=new DraftState();d.establish({revision:1},{visual:{theme:'natural',intensity:50},widgets:{todos:[]}});d.mark();d.capture({visual:{theme:'warm',intensity:50},widgets:{todos:[]}});d.incoming({revision:2,desired:{visual:{theme:'natural',intensity:90}}});d.rebase();const command=d.command('same-id');assert.deepEqual(command.changes,{visual:{theme:'warm'}});assert.equal(command.expectedRevision,2);d.unknown();assert.deepEqual(d.command('different-id'),command);assert.throws(()=>d.discard());
+const report={kind:'Pure isolated readonly function and DraftState test; not browser QA',sourceSha256:createHash('sha256').update(source).digest('hex'),results:{logicalDisabledAfterRenderWasTrue:true,disabledAfterUnlock,disabledPreserved:disabledAfterUnlock===true,positionSlidersRemainEnabled:position.disabled===false,rebaseMinimalDiff:true,unknownRetainsExactCommand:true}};fs.writeFileSync(new URL('../evidence/independent-draft-review.json',import.meta.url),JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));

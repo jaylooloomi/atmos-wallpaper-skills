@@ -1,0 +1,38 @@
+body[data-render-mode=manager] #previewResolutionControls{display:grid;grid-template-columns:minmax(140px,1.6fr) minmax(65px,1fr) minmax(65px,1fr) auto;gap:8px;align-items:end;background:var(--glass);border:1px solid var(--line);border-radius:9px;padding:10px;margin-bottom:8px;font:11px/1.4 system-ui}
+body[data-render-mode=manager] #previewResolutionControls label{margin:0;min-width:0;display:flex;flex-direction:column;gap:4px}#previewResolutionControls input,#previewResolutionControls select,#previewResolutionControls button{min-width:0;width:100%;font:12px/1.4 system-ui;padding:7px;border:1px solid var(--line);border-radius:5px;color:inherit;background:var(--field)}#previewResolutionMessage{grid-column:1/-1;margin:0;overflow-wrap:anywhere}#previewResolutionMessage:empty{display:none}
+body[data-theme=natural][data-render-mode=manager] #previewResolutionControls{background:#f8faf5;color:#304437;--line:#cbd4c7;--field:#fff}
+@media(max-width:600px){body[data-render-mode=manager] #previewResolutionControls{grid-template-columns:1fr 1fr}#previewResolutionControls>label:first-child,#previewResolutionControls>button{grid-column:1/-1}}
+
+/* One language control, moved beside target-preview configuration. */
+body[data-render-mode=manager] #previewResolutionControls{grid-template-columns:repeat(4,minmax(0,1fr))}
+#previewResolutionControls>label:first-child{grid-column:1/3;grid-row:1}
+#previewResolutionControls>#localeControl{grid-column:3/5;grid-row:1;display:flex;flex-direction:row;justify-content:flex-end;align-items:center;gap:8px;margin:0}
+#previewResolutionControls>#localeControl select{min-width:0;width:auto;max-width:150px}
+#previewResolutionControls>label:nth-child(2){grid-column:1;grid-row:2}#previewResolutionControls>label:nth-child(3){grid-column:2;grid-row:2}
+#previewResolutionControls>#applyPreviewResolution{grid-column:3/5;grid-row:2}
+@media(max-width:600px){body[data-render-mode=manager] #previewResolutionControls{grid-template-columns:1fr 1fr}#previewResolutionControls>label:first-child{grid-column:1/-1;grid-row:1}#previewResolutionControls>#localeControl{grid-column:1/-1;grid-row:2;justify-content:flex-start}#previewResolutionControls>label:nth-child(2){grid-column:1;grid-row:3}#previewResolutionControls>label:nth-child(3){grid-column:2;grid-row:3}#previewResolutionControls>#applyPreviewResolution{grid-column:1/-1;grid-row:4}}
+
+body[data-theme=natural][data-render-mode=manager] #previewResolutionControls{--text:#304437;--muted:#71806a;--control:#fff}
+body[data-theme=natural][data-render-mode=manager] #previewResolutionControls :is(label,input,select,option){color:#304437!important}
+/* P4.2.3: one non-wrapping resolution row, separate language panel to its right.
+   Overflow belongs to this toolbar only, never the page or target canvas. */
+body[data-render-mode=manager] #previewSettingsRow{display:flex;flex-wrap:nowrap;align-items:stretch;gap:10px;max-width:100%;min-width:0;overflow-x:auto;overscroll-behavior-x:contain;margin-bottom:8px;padding-bottom:2px}
+body[data-render-mode=manager] #previewResolutionControls{display:flex!important;flex:1 0 470px;min-width:470px;flex-wrap:nowrap;align-items:flex-end;gap:8px;margin:0}
+body[data-render-mode=manager] #previewResolutionControls>label{display:flex;flex-direction:column;flex:0 0 72px;min-width:0;white-space:nowrap;grid-column:auto!important;grid-row:auto!important}
+body[data-render-mode=manager] #previewResolutionControls>label:first-child{flex:1 1 150px;min-width:135px}
+body[data-render-mode=manager] #previewResolutionControls>#applyPreviewResolution{flex:0 0 auto;width:auto;min-width:110px;white-space:nowrap;grid-column:auto!important;grid-row:auto!important}
+body[data-render-mode=manager] #previewLanguagePanel{flex:0 0 auto;display:flex;align-items:center;border:1px solid var(--line);border-radius:9px;padding:10px 12px;background:var(--glass);color:var(--text)}
+body[data-render-mode=manager] #previewLanguagePanel #localeControl{display:flex;flex-direction:row;align-items:center;gap:8px;margin:0;white-space:nowrap;font:12px/1.4 system-ui}
+body[data-render-mode=manager] #previewLanguagePanel #localeControl select{width:130px;min-width:130px;padding:7px;color:inherit;background:var(--field);border:1px solid var(--line);border-radius:5px}
+body[data-theme=natural][data-render-mode=manager] #previewLanguagePanel{--text:#304437;--line:#cbd4c7;--field:#fff;background:#f8faf5;color:#304437}
+body[data-render-mode=manager] #previewResolutionMessage{font:12px/1.5 system-ui;margin:0 0 8px;max-width:100%;overflow-wrap:anywhere}
+body[data-render-mode=manager] #previewResolutionMessage:empty{display:none}
+/* Whole accordion header focus: title, chevron and independent switch share one highlight.
+   The replacement visible outline is on the complete row, not removed altogether. */
+body[data-render-mode=manager] .inspect-row:focus-within{background:var(--inspect-open);box-shadow:inset 0 0 0 1px var(--accent)}
+body[data-render-mode=manager] .inspect-row:has(:focus-visible){outline:2px solid var(--accent);outline-offset:-2px}
+body[data-render-mode=manager] .inspect-row .inspect-title:is(:focus,:focus-visible){outline:none;background:transparent;box-shadow:none;border-radius:0}
+body[data-render-mode=manager] .inspect-row .inspect-toggle:focus-visible+.inspect-switch-track{outline:none}
+/* A switch can hold focus while the sibling title does not: transparency is
+   unconditional on the title, so the entire row paints the shared focus state. */
+body[data-render-mode=manager] .atmos-inspector .inspect-row button.inspect-title{background:transparent!important;box-shadow:none!important;border-radius:0}

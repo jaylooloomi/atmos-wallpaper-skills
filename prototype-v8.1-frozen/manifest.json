@@ -1,0 +1,165 @@
+{
+  "version": "v8.1-inline-controls-optional-widgets",
+  "files": [
+    {
+      "path": "README.txt",
+      "bytes": 4234,
+      "sha256": "e76e43f2919877e51cad8ecfabaa59fe501ca47abcdc82e7510531c1850bd0d7"
+    },
+    {
+      "path": "app.js",
+      "bytes": 29764,
+      "sha256": "22b44ec119f16ae7666a317ac74d6d1e1b11f9838067e6443923bf4ea3af8bda"
+    },
+    {
+      "path": "assets/FONT-LICENSE.txt",
+      "bytes": 12547,
+      "sha256": "9599e4cd85c1901a0b71f8a893a4a8e862e2a5bafee1c469759283389d11d976"
+    },
+    {
+      "path": "assets/alpine-dawn.png",
+      "bytes": 2478933,
+      "sha256": "93695c25dbd56f60cd9c36ebbcf8daa3da39b60c5b2c47585769ac3dc5861cae"
+    },
+    {
+      "path": "assets/clock-light.woff",
+      "bytes": 3960,
+      "sha256": "ec0b782e9823a25d5d671824fb351582ef77c297bc76562d6a29369b14e3daf9"
+    },
+    {
+      "path": "assets/clock-warm.woff",
+      "bytes": 3968,
+      "sha256": "e3576bbbe77200da44f376cb5f00f0c91c1e05bd8433e0669d9a6fd63be95434"
+    },
+    {
+      "path": "assets/coastal-bay.png",
+      "bytes": 2927105,
+      "sha256": "29aff59ab35aa21e98a4c5b48fa4329ab499118462f917323faf8a875b12db38"
+    },
+    {
+      "path": "assets/desert-milky-way.png",
+      "bytes": 2392787,
+      "sha256": "920b163f8835b33f0cfe0a5110ff1de59bb44e1e63c530401ef0da923854ddbf"
+    },
+    {
+      "path": "assets/future-neon-clean.png",
+      "bytes": 2729825,
+      "sha256": "b97e9481b5a1c2740d15b35d497d6e4bb809e930cb098fc596c73c7bd115ff60"
+    },
+    {
+      "path": "assets/modern-city.png",
+      "bytes": 2494616,
+      "sha256": "0761600a466d5fa889a192fb1a507fa4bdb4cf8eee6ef84d6c8c695c7e2f4610"
+    },
+    {
+      "path": "assets/nature-twilight-clean.png",
+      "bytes": 2521860,
+      "sha256": "41d433c5a80072c281c82c6966ca1f50b63f1666cbf5b5176689d666d60ef541"
+    },
+    {
+      "path": "assets/warm-header.svg",
+      "bytes": 381,
+      "sha256": "7385bab259a1d01473a84296cbe09c1a20cc402c0f67984184bd58928a2e88de"
+    },
+    {
+      "path": "assets/warm-illustration-clean.png",
+      "bytes": 2908961,
+      "sha256": "79061a85e5883168493dd6ec43178d2ee07c50ab7cc66107f901bda280c7b4a3"
+    },
+    {
+      "path": "hifi.css",
+      "bytes": 26747,
+      "sha256": "188a4eec4e76e361607e54c4dd31f060757bf8123da2ced15f239dd4c4ad91a6"
+    },
+    {
+      "path": "index.html",
+      "bytes": 23851,
+      "sha256": "ab969de357165068901521a10e1579f5e5c159d7a2c4e2b0fb22ab978977c2c8"
+    },
+    {
+      "path": "review.html",
+      "bytes": 2371,
+      "sha256": "36ef3818986d6967c58b29eaca2c27938ace6840f492aa4a528f5bd9c2cee992"
+    },
+    {
+      "path": "widgets.css",
+      "bytes": 3963,
+      "sha256": "85b5997528e741b8d8c142436278443bce6a30ca9f92b1f181db561c553dcf18"
+    },
+    {
+      "path": "widgets.js",
+      "bytes": 22513,
+      "sha256": "64f99705009772008c11a0cdcd6aecf27e0c689b7da751d9dc286b2f3e67db0a"
+    },
+    {
+      "path": "驗證紀錄/CHANGE-AND-TEST-MAPPING.md",
+      "bytes": 892,
+      "sha256": "4d84295251b45230625464bc7d729fc8d564e3149454a1290055758eda9961f7"
+    },
+    {
+      "path": "驗證紀錄/FINAL-desktop-inline.png",
+      "bytes": 120309,
+      "sha256": "261cfc06e989e0460ceee31f9d880ee7d765d129982abf4f9c5dd6b44f900610"
+    },
+    {
+      "path": "驗證紀錄/FINAL-mobile-inline.png",
+      "bytes": 43400,
+      "sha256": "2f47d904e827025d74941ec1a38cb823dfe5c3210c008de5bf30a35f9d2c38c3"
+    },
+    {
+      "path": "驗證紀錄/QA-FINAL.md",
+      "bytes": 2591,
+      "sha256": "0046a007f9bf15d6c8022b055c76c3d6dffe5cafd49d794e469eefe7bb98ee19"
+    },
+    {
+      "path": "驗證紀錄/artwork-unit-results.json",
+      "bytes": 977,
+      "sha256": "c93b25bbd971c1f588c46d6faa04311d1f6f3408639da50418bb7da5bc001cbd"
+    },
+    {
+      "path": "驗證紀錄/asset-results.json",
+      "bytes": 1340,
+      "sha256": "ccab1c5f5bed46e572d8a2302fb1b37bc898e71f140aebec21f1eafa981a3824"
+    },
+    {
+      "path": "驗證紀錄/final-hashes.txt",
+      "bytes": 625,
+      "sha256": "fd413752d22888983ffbbc901d3fccdb5978c3bb6babb70ca6c1caf09d06606b"
+    },
+    {
+      "path": "驗證紀錄/inline-static-results.json",
+      "bytes": 1847,
+      "sha256": "e9a5f20bc8c202d33413a0dca91d5f83365cc97494d3de45c7ee24e4561ca729"
+    },
+    {
+      "path": "驗證紀錄/logic-test-results.json",
+      "bytes": 3255,
+      "sha256": "deb9a0c9415654e48486de9693669e2a6c574bb0ed9e413da3a7a6e5d94806bf"
+    },
+    {
+      "path": "驗證紀錄/open-close-boxes.json",
+      "bytes": 3109,
+      "sha256": "7fef31438cce09d8c7bd7312fa330e8ef84193458cccff705afde76da745fea5"
+    },
+    {
+      "path": "驗證紀錄/scenes-v7-manifest.json",
+      "bytes": 11083,
+      "sha256": "6d654c7ec92841883ddea773cbae773cc1283e12d0524fe2f3accf1a43ec39d1"
+    },
+    {
+      "path": "驗證紀錄/theme-boxes.json",
+      "bytes": 2260,
+      "sha256": "17862d95f0c1801780cb64e9eea9b6dbe704a489789c66f6095bf979e186ab85"
+    },
+    {
+      "path": "驗證紀錄/v8-baseline-browser-QA.md",
+      "bytes": 2521,
+      "sha256": "8cd47da27f0edc935f5733137177e2ad24c11942f33f03199d885b4b88b385a3"
+    },
+    {
+      "path": "驗證紀錄/widget-unit-results.json",
+      "bytes": 3680,
+      "sha256": "4b99a4afe5036242b824f66c892dcc1eed2f1fa912df83cfcef90c8f80ecd8ee"
+    }
+  ]
+}

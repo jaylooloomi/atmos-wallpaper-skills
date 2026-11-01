@@ -1,0 +1,3 @@
+export function clockText(date){return [date.getHours(),date.getMinutes(),date.getSeconds()].map(v=>String(v).padStart(2,'0')).join(':')}
+export function snapClock(x,y,width,height,{snapPx=8,guidePx=14}={}){if(![x,y,width,height].every(Number.isFinite)||width<=0||height<=0)return {x,y,guideX:false,guideY:false,snappedX:false,snappedY:false};const dx=Math.abs(x-50)*width/100,dy=Math.abs(y-50)*height/100;return {x:dx<=snapPx+1e-7?50:x,y:dy<=snapPx+1e-7?50:y,guideX:dx<=guidePx+1e-7,guideY:dy<=guidePx+1e-7,snappedX:dx<=snapPx+1e-7,snappedY:dy<=snapPx+1e-7}}
+export function centeredClock(visual,mobile,both=false){const next={...visual};next[mobile?'mobileClockX':'clockX']=50;if(both)next[mobile?'mobileClockY':'clockY']=50;return next}

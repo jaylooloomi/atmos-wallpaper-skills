@@ -1,0 +1,12 @@
+/* Host display mode: same real scene/widgets, no copied state or management panels. */
+body[data-render-mode=wallpaper]{margin:0;min-height:100vh;overflow-x:hidden;background:#101820}
+body[data-render-mode=wallpaper]>header,body[data-render-mode=wallpaper] .side,body[data-render-mode=wallpaper] #themeSettings,body[data-render-mode=wallpaper] .promptbox,body[data-render-mode=wallpaper] .scene-footer,body[data-render-mode=wallpaper] .bridge-commands,body[data-render-mode=wallpaper] #bridgeEvidence,body[data-render-mode=wallpaper] .drag-handle,body[data-render-mode=wallpaper] .widget-drag,body[data-render-mode=wallpaper] .widget-actions,body[data-render-mode=wallpaper] [data-open-manager]{display:none!important}
+body[data-render-mode=wallpaper] main{display:block!important;max-width:none!important;width:100%;margin:0!important;padding:0!important;gap:0!important}
+body[data-render-mode=wallpaper] main>section:first-child{width:100%;min-width:0;display:flex;flex-direction:column;min-height:100vh;margin:0!important}
+body[data-render-mode=wallpaper] .scene{width:100%;height:100vh!important;min-height:400px!important;border:0!important;border-radius:0!important;box-shadow:none!important;flex:none}
+body[data-render-mode=wallpaper] .widget-mobile-host{margin:0!important;border-radius:0!important;border-width:0!important;background:#17232bd9}
+body[data-render-mode=wallpaper] .wall-widget [data-todo-toggle]{pointer-events:none}
+body[data-render-mode=wallpaper] .wallpaper-connection-status{opacity:.85;font-size:10px!important;max-width:70vw!important}
+body[data-render-mode=wallpaper] main>section:first-child:has(.widget-mobile-host:not([hidden])) .scene{height:max(400px,calc(100vh - var(--host-tray-height,300px)))!important}
+
+body[data-render-mode=wallpaper] .below-preview{display:none!important;margin:0!important}

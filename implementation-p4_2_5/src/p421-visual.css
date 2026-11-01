@@ -1,0 +1,875 @@
+/* P4.2.1 manager chrome.
+   Shared geometry for all four skins. Never restyles scene clock/calendar/widgets.
+   Natural sage is scoped to controls, not global theme variables used by artwork. */
+
+body[data-render-mode="manager"] {
+  --manager-gap: 22px;
+  --manager-gutter: 32px;
+  --manager-panel-width: 510px;
+}
+
+body[data-render-mode="manager"] > header {
+  height: auto !important;
+  min-height: 84px;
+  padding: 22px var(--manager-gutter) 18px !important;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+body[data-render-mode="manager"] > header h1 {
+  flex: 0 0 auto;
+  margin: 0;
+  font-family: system-ui, "Noto Sans CJK TC", sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 2px;
+}
+
+body[data-render-mode="manager"] > header h1::after {
+  display: none;
+}
+
+body[data-render-mode="manager"] > header .prototype-tag {
+  flex: 1 1 230px;
+  min-width: 0;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+body[data-render-mode="manager"] #localeControl {
+  flex: 0 1 auto;
+  gap: 9px;
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+body[data-render-mode="manager"] #localeControl select {
+  min-width: 128px;
+  width: auto;
+  padding: 8px 10px;
+}
+
+body[data-render-mode="manager"] main {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) var(--manager-panel-width) !important;
+  align-items: start !important;
+  gap: var(--manager-gap) !important;
+  padding: 0 var(--manager-gutter) !important;
+  margin: 0;
+}
+
+body[data-render-mode="manager"] main > section {
+  min-width: 0;
+}
+
+body[data-render-mode="manager"] .side {
+  width: var(--manager-panel-width) !important;
+  min-width: 0 !important;
+  /* Full-page approved composition: the target canvas stays independent. */
+  height: 900px !important;
+  min-height: 0 !important;
+  display: flex !important;
+  flex-direction: column;
+  padding: 0 !important;
+  border: 1px solid var(--chrome-line, var(--line));
+  border-radius: 14px;
+  overflow: hidden;
+  color: var(--chrome-ink, var(--ink));
+  font-family: system-ui, "Noto Sans CJK TC", "Microsoft JhengHei", sans-serif;
+}
+
+body[data-render-mode="manager"] .panel-title {
+  flex: 0 0 auto;
+  min-height: 66px;
+  padding: 17px 20px;
+  margin: 0;
+  border-bottom: 1px solid var(--chrome-line, var(--line));
+  align-items: center;
+}
+
+body[data-render-mode="manager"] .panel-title h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: 0;
+}
+
+body[data-render-mode="manager"] .panel-sub {
+  display: none;
+}
+
+body[data-render-mode="manager"] .panel-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 16px 20px 22px !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  scrollbar-gutter: stable;
+}
+
+body[data-render-mode="manager"] .panel-scroll > section,
+body[data-render-mode="manager"] .panel-scroll > div {
+  min-width: 0;
+}
+
+body[data-render-mode="manager"] .component-section {
+  height: auto !important;
+  max-height: none !important;
+  padding-top: 17px;
+  overflow: visible !important;
+}
+
+body[data-render-mode="manager"] #widgetManager {
+  max-height: none !important;
+  height: auto !important;
+  overflow: visible !important;
+}
+
+/* Banner previews have their own palettes, regardless of the current skin. */
+body[data-render-mode="manager"] #themeSettings.theme-banner {
+  margin: 0 var(--manager-gutter) 18px !important;
+}
+
+body[data-render-mode="manager"] #themeSettings.theme-banner > .theme-section {
+  padding: 16px 18px;
+  border-radius: 15px;
+  border: 1px solid var(--chrome-line, var(--line));
+  background: var(--chrome-panel, var(--glass));
+  color: var(--chrome-ink, var(--ink));
+}
+
+body[data-render-mode="manager"] .theme-banner h2 {
+  margin: 0 0 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+body[data-render-mode="manager"] .theme-banner .theme-options {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+}
+
+body[data-render-mode="manager"] .theme-banner .theme-choice {
+  height: auto !important;
+  min-height: 70px !important;
+  min-width: 0;
+  padding: 12px 16px;
+  border: 1px solid #bfc9c0;
+  border-radius: 10px;
+  font-family: system-ui, "Noto Sans CJK TC", sans-serif;
+  line-height: 1.4;
+  text-align: left;
+  overflow: visible;
+}
+
+body[data-render-mode="manager"] .theme-banner .theme-choice .swatch {
+  display: none;
+}
+
+body[data-render-mode="manager"] .theme-banner .theme-choice > span {
+  min-width: 0;
+}
+
+body[data-render-mode="manager"] .theme-banner .theme-choice b {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: normal;
+}
+
+body[data-render-mode="manager"] .theme-banner .theme-choice small {
+  display: block;
+  margin-top: 3px;
+  font-size: 11px;
+  line-height: 1.45;
+  white-space: normal;
+  color: inherit;
+  opacity: .8;
+}
+
+body[data-render-mode="manager"] .theme-choice[data-theme="natural"] {
+  color: #30432d;
+  background: #e1e9d9;
+}
+
+body[data-render-mode="manager"] .theme-choice[data-theme="neon"] {
+  color: #d9f4ff;
+  background: #19334a;
+  border-color: #527187;
+}
+
+body[data-render-mode="manager"] .theme-choice[data-theme="warm"] {
+  color: #755239;
+  background: #f4e7cf;
+  border-color: #d5c9af;
+}
+
+body[data-render-mode="manager"] .theme-choice[data-theme="minimal"] {
+  color: #39423e;
+  background: #f0f1ef;
+  border-color: #c8cfca;
+}
+
+body[data-render-mode="manager"] .theme-banner .theme-choice[aria-checked="true"] {
+  outline: 2px solid var(--chrome-accent, var(--accent));
+  outline-offset: 2px;
+}
+
+body[data-render-mode="manager"] .theme-banner .theme-status {
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  margin-top: 9px;
+  padding: 0;
+  font-size: 11px;
+  line-height: 1.6;
+  overflow: visible;
+  overflow-wrap: anywhere;
+}
+
+body[data-render-mode="manager"] .theme-banner details {
+  margin-top: 9px;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+body[data-render-mode="manager"] .theme-banner details summary {
+  cursor: pointer;
+}
+
+/* Target metadata and explanation are outside the scaled target canvas. */
+body[data-render-mode="manager"] #monitorStatus,
+body[data-render-mode="manager"] .preview-explanation {
+  border: 1px solid var(--chrome-line, var(--line));
+  border-radius: 9px;
+  background: var(--chrome-panel, var(--glass));
+  color: var(--chrome-ink, var(--ink));
+  font-family: system-ui, "Noto Sans CJK TC", sans-serif;
+  overflow-wrap: anywhere;
+}
+
+body[data-render-mode="manager"] #monitorStatus {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+  padding: 10px 13px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+body[data-render-mode="manager"] #monitorStatus > span {
+  font-weight: 600;
+}
+
+body[data-render-mode="manager"] #monitorStatus small {
+  font-size: 11px;
+  color: inherit;
+  opacity: .75;
+}
+
+body[data-render-mode="manager"] .preview-explanation {
+  padding: 16px 18px;
+  margin-top: 15px;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+body[data-render-mode="manager"] .preview-explanation h3,
+body[data-render-mode="manager"] .preview-explanation p {
+  margin: 0 0 7px;
+}
+
+body[data-render-mode="manager"] .preview-explanation > :last-child {
+  margin-bottom: 0;
+}
+
+body[data-render-mode="manager"] .scene-footer,
+body[data-render-mode="manager"] .caption,
+body[data-render-mode="manager"] .layout-note {
+  display: none !important;
+}
+
+/* Inspector spacing keeps long English labels readable without shrinking text. */
+body[data-render-mode="manager"] .inspect-heading {
+  display: grid;
+  grid-template-columns: 1fr;
+  height: auto;
+  min-height: 0;
+  gap: 3px;
+  margin: 0 0 12px;
+}
+
+body[data-render-mode="manager"] .inspect-heading h3 {
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+body[data-render-mode="manager"] .inspect-heading small {
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: normal;
+}
+
+body[data-render-mode="manager"] .inspect-card {
+  margin-bottom: 9px;
+  border-radius: 8px;
+}
+
+body[data-render-mode="manager"] .inspect-row {
+  min-height: 50px;
+  padding: 0 13px;
+  gap: 12px;
+}
+
+body[data-render-mode="manager"] .inspect-title {
+  min-width: 0;
+  padding: 12px 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  white-space: normal;
+}
+
+body[data-render-mode="manager"] .inspect-title::after {
+  flex: 0 0 auto;
+}
+
+body[data-render-mode="manager"] .inspect-props {
+  padding: 15px 13px;
+}
+
+body[data-render-mode="manager"] .inspect-fields {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: end;
+  gap: 14px 10px;
+}
+
+body[data-render-mode="manager"] .inspect-label,
+body[data-render-mode="manager"] .inspect-field {
+  font-size: 12px;
+  line-height: 1.55;
+  white-space: normal;
+}
+
+body[data-render-mode="manager"] .inspect-label {
+  margin-bottom: 6px;
+}
+
+body[data-render-mode="manager"] .inspect-field > input,
+body[data-render-mode="manager"] .inspect-field > select {
+  height: 38px;
+  padding: 7px 8px;
+  font-size: 13px;
+  line-height: 1.4;
+  background: var(--chrome-field, var(--field));
+}
+
+body[data-render-mode="manager"] .inspect-align {
+  gap: 9px;
+  margin-top: 14px;
+  align-items: stretch;
+}
+
+body[data-render-mode="manager"] .inspect-action {
+  padding: 9px 11px;
+  min-height: 36px;
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: normal;
+}
+
+body[data-render-mode="manager"] .inspect-palette {
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+body[data-render-mode="manager"] .inspect-swatch {
+  width: 21px;
+  height: 21px;
+  flex: 0 0 21px;
+}
+
+body[data-render-mode="manager"] .inspect-palette > input[type="color"] {
+  flex: 0 0 34px;
+  width: 34px;
+  height: 32px;
+  padding: 3px;
+}
+
+body[data-render-mode="manager"] .inspect-palette > input[type="text"] {
+  flex: 1 1 115px;
+  width: auto;
+  min-width: 9ch;
+  max-width: 100%;
+  padding: 7px 8px;
+  font-size: 12px;
+  line-height: 1.5;
+  background: var(--chrome-field, var(--field));
+}
+
+body[data-render-mode="manager"] .inspect-reset {
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  margin-top: 14px;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+body[data-render-mode="manager"] .inspect-reset > .inspect-action {
+  font-size: 12px;
+  padding: 7px 10px;
+}
+
+body[data-render-mode="manager"] .inspect-helper,
+body[data-render-mode="manager"] .inspect-contrast,
+body[data-render-mode="manager"] .inspect-operations .widget-help {
+  font-size: 12px;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+
+body[data-render-mode="manager"] .inspect-operations {
+  margin-top: 16px;
+  padding-top: 14px;
+}
+
+body[data-render-mode="manager"] .inspect-operations h3 {
+  margin-bottom: 10px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+body[data-render-mode="manager"] .inspect-operations input,
+body[data-render-mode="manager"] .inspect-operations select,
+body[data-render-mode="manager"] .inspect-operations button {
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* Scene thumbnails and external-AI prompt share the same two-column grid. */
+body[data-render-mode="manager"] .settings-bottom {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--manager-panel-width);
+  gap: var(--manager-gap);
+  align-items: start;
+  margin: 18px var(--manager-gutter) 28px;
+}
+
+body[data-render-mode="manager"] .settings-bottom > div {
+  min-width: 0;
+  padding: 17px !important;
+  border: 1px solid var(--chrome-line, var(--line));
+  border-radius: 13px;
+  background: var(--chrome-panel, var(--glass));
+  color: var(--chrome-ink, var(--ink));
+}
+
+body[data-render-mode="manager"] .settings-bottom h2,
+body[data-render-mode="manager"] .settings-bottom h3 {
+  margin: 0 0 10px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+body[data-render-mode="manager"] .settings-bottom .segmented {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 8px;
+}
+
+body[data-render-mode="manager"] .settings-bottom .scene-thumb {
+  height: auto;
+  min-width: 0;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 6px;
+  font-size: 11px;
+  line-height: 1.45;
+  white-space: normal;
+}
+
+body[data-render-mode="manager"] .scene-thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 1;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+body[data-render-mode="manager"] .scene-thumb .scene-thumb-label,
+body[data-render-mode="manager"] .scene-thumb > span:last-child {
+  display: block;
+  min-height: 32px;
+  padding: 7px 3px;
+  line-height: 1.4;
+}
+
+body[data-render-mode="manager"] .scene-thumb[aria-pressed="true"] {
+  outline: 2px solid var(--chrome-accent, var(--accent));
+  outline-offset: 1px;
+}
+
+body[data-render-mode="manager"] .promptbox .row {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+}
+
+body[data-render-mode="manager"] .promptbox .row > * {
+  flex: none;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+}
+
+body[data-render-mode="manager"] .promptbox input,
+body[data-render-mode="manager"] .promptbox button {
+  padding: 10px 12px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+body[data-render-mode="manager"] .promptbox .help {
+  font-size: 11px;
+  line-height: 1.65;
+  margin-top: 10px;
+}
+
+/* Light sage only for the natural management chrome.
+   These variables never reach .preview-canvas/.scene. */
+body[data-render-mode="manager"][data-theme="natural"] {
+  background: #e9ede8;
+}
+
+body[data-render-mode="manager"][data-theme="natural"] > header {
+  color: #294034;
+}
+
+body[data-render-mode="manager"][data-theme="natural"] > header .prototype-tag {
+  color: #6d7e6c;
+}
+
+body[data-render-mode="manager"][data-theme="natural"] :is(
+  .side,
+  #themeSettings,
+  .settings-bottom,
+  #monitorStatus,
+  .preview-explanation,
+  .bridge-commands,
+  .diagnostics,
+  #localeControl
+) {
+  --chrome-panel: #f8faf5;
+  --chrome-field: #ffffff;
+  --chrome-ink: #304437;
+  --text: #304437;
+  --control: #eef3e9;
+  --selected: #dce7d1;
+  --selected-border: #8ca477;
+  --chrome-line: #cbd4c7;
+  --chrome-accent: #7f9c66;
+  --accent: #7f9c66;
+  --ink: #304437;
+  --muted: #71806a;
+  --soft: #71806a;
+  --line: #cbd4c7;
+  --border: #cbd4c7;
+  --field: #ffffff;
+  --button: #edf2e5;
+  --hover: #e2ebd8;
+  --glass: #f8faf5;
+  --panel: #f8faf5;
+  color: #304437;
+}
+
+body[data-render-mode="manager"][data-theme="natural"] .side {
+  background: #f8faf5;
+  box-shadow: 0 1px 1px #31473308;
+}
+
+body[data-render-mode="manager"][data-theme="natural"] .inspect-card {
+  background: #fcfdf9;
+  border-color: #d0d9c9;
+}
+
+body[data-render-mode="manager"][data-theme="natural"] .inspect-card.is-open {
+  border-color: #9caf8d;
+  background: #f5f8ee;
+}
+
+body[data-render-mode="manager"][data-theme="natural"] .is-open > .inspect-row {
+  background: #e7eedb;
+  border-color: #c3cdb7;
+}
+
+body[data-render-mode="manager"][data-theme="natural"] .inspect-switch-track {
+  background: #d4dbce;
+  border-color: #c7d0bf;
+}
+
+body[data-render-mode="manager"][data-theme="natural"] .inspect-toggle:checked + .inspect-switch-track {
+  background: #7f9e65;
+  border-color: #7f9e65;
+}
+
+body[data-render-mode="manager"][data-theme="natural"] .inspect-action,
+body[data-render-mode="manager"][data-theme="natural"] #parse {
+  background: #eef3e5;
+  color: #475d37;
+  border-color: #b7c4a9;
+}
+
+body[data-render-mode="manager"][data-theme="natural"] .inspect-contrast {
+  background: #f6f0dc;
+  color: #80744b;
+  border-color: #eee5c7;
+}
+
+body[data-render-mode="manager"][data-theme="natural"] .side input[type="range"] {
+  accent-color: #7f9c66;
+}
+
+body[data-render-mode="manager"][data-theme="natural"] #localeControl select {
+  background: #f8faf5;
+  color: #304437;
+  border: 1px solid #cbd4c7;
+}
+
+body[data-render-mode="manager"] .diagnostics {
+  margin: 12px var(--manager-gutter) 24px;
+  border: 1px solid var(--chrome-line, var(--line));
+  border-radius: 9px;
+  background: var(--chrome-panel, var(--glass));
+  color: var(--chrome-ink, var(--ink));
+}
+
+body[data-render-mode="manager"] .diagnostics > summary {
+  padding: 11px 14px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+body[data-render-mode="manager"] .diagnostics pre {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 999px) {
+  body[data-render-mode="manager"] {
+    --manager-gutter: 22px;
+  }
+
+  body[data-render-mode="manager"] main,
+  body[data-render-mode="manager"] .settings-bottom {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+  body[data-render-mode="manager"] .side {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible;
+  }
+
+  body[data-render-mode="manager"] .panel-scroll {
+    flex: none;
+    overflow: visible !important;
+    scrollbar-gutter: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  body[data-render-mode="manager"] {
+    --manager-gutter: 14px;
+    --manager-gap: 16px;
+  }
+
+  body[data-render-mode="manager"] > header {
+    gap: 12px;
+    padding-top: 18px !important;
+    padding-bottom: 16px !important;
+  }
+
+  body[data-render-mode="manager"] > header h1 {
+    font-size: 27px;
+  }
+
+  body[data-render-mode="manager"] > header .prototype-tag {
+    flex-basis: calc(100% - 140px);
+  }
+
+  body[data-render-mode="manager"] .theme-banner .theme-options {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+  }
+
+  body[data-render-mode="manager"] .theme-banner .theme-choice {
+    padding: 11px 12px;
+    min-height: 78px !important;
+  }
+
+  body[data-render-mode="manager"] .theme-banner .theme-choice b {
+    font-size: 14px;
+  }
+
+  body[data-render-mode="manager"] #themeSettings.theme-banner > .theme-section {
+    padding: 13px;
+  }
+
+  body[data-render-mode="manager"] .panel-scroll {
+    padding: 15px !important;
+  }
+
+  body[data-render-mode="manager"] .inspect-fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body[data-render-mode="manager"] .inspect-fields .inspect-field:nth-child(2) {
+    grid-column: 1 / -1;
+  }
+
+  body[data-render-mode="manager"] .settings-bottom .segmented {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  body[data-render-mode="manager"] .scene-thumb .scene-thumb-label,
+  body[data-render-mode="manager"] .scene-thumb > span:last-child {
+    min-height: 34px;
+    font-size: 11px;
+  }
+}
+
+/* Integration hooks supplied by the manager DOM, not a second settings surface. */
+body[data-render-mode="manager"] .inspect-title::after {
+  display: none;
+}
+
+body[data-render-mode="manager"] .inspect-chevron {
+  width: 16px;
+  height: 16px;
+  margin-left: 9px;
+  flex: 0 0 16px;
+  transition: transform .15s ease;
+}
+
+body[data-render-mode="manager"] .inspect-title[aria-expanded="true"] .inspect-chevron {
+  transform: rotate(180deg);
+}
+
+body[data-render-mode="manager"] .component-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 14px;
+  height: auto;
+}
+
+body[data-render-mode="manager"] .component-tools button {
+  height: auto;
+  min-height: 36px;
+  padding: 8px 12px;
+  font-size: 12px;
+  line-height: 1.5;
+  white-space: normal;
+}
+
+body[data-render-mode="manager"] #props-calendar .calendar-section {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+  width: 100%;
+  min-width: 0;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  padding-top: 15px;
+  margin-top: 15px;
+  border-top: 1px solid var(--chrome-line, var(--line));
+  overflow: visible !important;
+}
+
+body[data-render-mode="manager"] #props-calendar .calendar-section > h3,
+body[data-render-mode="manager"] #props-calendar .calendar-section > p {
+  grid-column: 1 / -1;
+  height: auto;
+  margin: 0;
+  white-space: normal;
+}
+
+body[data-render-mode="manager"] #props-calendar .provider {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  align-items: center;
+  justify-items: start;
+  column-gap: 8px;
+  row-gap: 3px;
+  height: auto !important;
+  min-height: 62px;
+  min-width: 0;
+  padding: 10px;
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.4;
+  white-space: normal;
+  text-align: left;
+}
+
+body[data-render-mode="manager"] #props-calendar .provider > :first-child {
+  grid-row: 1 / 3;
+}
+
+body[data-render-mode="manager"] #props-calendar .provider .login-status {
+  grid-column: 2;
+  font-size: 11px;
+  line-height: 1.4;
+  white-space: normal;
+}
+
+body[data-render-mode="manager"] #props-calendar .calendar-disclaimer {
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body[data-render-mode="manager"] .inspect-chevron {
+    transition: none;
+  }
+}
+
+/* Explicit legacy heading paint is scoped away from the rendered wallpaper. */
+body[data-render-mode="manager"][data-theme="natural"] :is(#themeHeading,.settings-bottom h2,.settings-bottom h3,.scene-thumb-label,.intensity-row,.weather-options button){color:#304437!important}
+body[data-render-mode="manager"] .inspect-fields{grid-auto-rows:min-content;align-content:start}
+body[data-render-mode="manager"] .inspect-field{height:auto!important;min-height:0!important;margin:0!important;align-self:start}
+
+/* Final density pass: controls remain real and keyboard reachable. */
+body[data-render-mode="manager"] .inspect-heading{grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:4px 10px;margin-bottom:10px}
+body[data-render-mode="manager"] .inspect-heading small{grid-column:1;grid-row:2;font-size:10px}
+body[data-render-mode="manager"] .inspect-heading .component-tools{grid-column:2;grid-row:1/3;margin:0;padding:0;gap:5px}
+body[data-render-mode="manager"] .inspect-heading .component-tools button{height:32px;min-height:32px;padding:4px 9px;font-size:11px;flex:none}
+body[data-render-mode="manager"] .theme-banner .theme-section{position:relative;padding:13px 18px!important}
+body[data-render-mode="manager"] .theme-information{margin-top:5px!important;font-size:10px!important}
+body[data-render-mode="manager"] .bridge-commands{margin:0 32px 12px!important;padding:7px 10px!important;gap:6px!important;font-size:11px!important}
+body[data-render-mode="manager"] .bridge-commands button{padding:6px 10px!important;font-size:11px!important;min-height:30px!important}
+body[data-render-mode="manager"] .promptbox #status:empty{display:none}
+body[data-render-mode="manager"] .promptbox #promptResult[hidden]{display:none!important}
+body[data-render-mode="manager"] .promptbox{min-height:0!important}
+body[data-render-mode="manager"] .promptbox .help{margin-bottom:0}
+@media(max-width:600px){body[data-render-mode="manager"] .bridge-commands{margin-left:12px!important;margin-right:12px!important}}
+
+/* Defaults scale with the target canvas, not the manager viewport. Manual font overrides remain exact. */
+.scene #clock .date{font-size:var(--clock-date-size,24px)!important;line-height:1.5;height:auto}
+.scene .calendar[data-custom-size="false"]{font-size:calc(16px * var(--calendar-default-scale,1));padding:calc(16px * var(--calendar-default-scale,1)) calc(18px * var(--calendar-default-scale,1))}
+.scene .calendar[data-custom-size="false"] h3{font-size:calc(22px * var(--calendar-default-scale,1));height:auto;line-height:1.35;margin-bottom:calc(7px * var(--calendar-default-scale,1))}
+.scene .calendar[data-custom-size="false"] .demo-label{font-size:calc(14px * var(--calendar-default-scale,1));line-height:1.4;padding-bottom:calc(8px * var(--calendar-default-scale,1));margin-bottom:calc(8px * var(--calendar-default-scale,1))}
+.scene .calendar[data-custom-size="false"] .event{font-size:calc(16px * var(--calendar-default-scale,1));height:auto;line-height:1.5;margin:calc(8px * var(--calendar-default-scale,1)) 0;gap:calc(10px * var(--calendar-default-scale,1))}

@@ -1,0 +1,9 @@
+import fs from 'node:fs';import path from 'node:path';import {fileURLToPath} from 'node:url';const root=fileURLToPath(new URL('../',import.meta.url)),dist=path.join(root,'dist'),read=n=>fs.readFileSync(path.join(dist,n),'utf8'),src=n=>fs.readFileSync(path.join(root,'src',n),'utf8'),write=(n,s)=>fs.writeFileSync(path.join(dist,n),s);
+let app=read('app.js').replace('const defaults={locale:',"let themeFeedback='';const defaults={previewMode:'auto',previewWidth:1920,previewHeight:1080,locale:").replaceAll('lockScene:false','lockScene:true').replaceAll("$('themeStatus').textContent=",'themeFeedback=');
+app=app.replace("$('lockScene').checked=state.lockScene;",'').replace("$('lockScene').onchange=()=>{state.lockScene=$('lockScene').checked;persistSettings()};",'');
+app=app.replace('state.lockScene?state.background:recommendedScene(key)','state.background').replace('if(!state.lockScene)state.background=recommendedScene(key);','state.lockScene=true;');write('app.js',app);
+write('widgets.js',read('widgets.js').replace('window.atmosBridgeWidgets={','window.atmosBridgeWidgets={syncGeometry:()=>renderCards(),'));
+for(const n of ['p422-copy.js','p422-ui.js'])write(n,(n==='p422-ui.js'?'(()=>{'+src('panel-align.mjs').replace(/\bexport /g,'')+';window.atmosPanelHeight=panelHeightForBottom;})();\n':'')+src(n));
+write('bridge-client.js',read('bridge-client.js').replace("await load('i18n-catalog.js');","await load('i18n-catalog.js');await load('p422-copy.js');").replace("await load('p421-ui.js');","await load('p421-ui.js');await load('p422-ui.js');"));
+write('hifi.css',read('hifi.css')+'\n'+src('p422-ui.css'));
+for(const n of ['review.html','review-wallpaper.html'])write(n,read(n).replace('<option value="1672,941">','<option value="1876,1080">1876×1080</option><option value="1876,2200">1876×2200（完整頁）</option><option value="1180,757">1180×757</option><option value="1672,941">'));

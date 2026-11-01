@@ -1,0 +1,7 @@
+// Evaluated inside the renderer scope; no clock tick changes product state.
+const clockTools=document.createElement('div');clockTools.className='clock-align-tools';clockTools.innerHTML='<button id="clockCenterX" type="button" aria-label="時鐘水平置中，保留高度">水平置中</button><button id="clockCenterXY" type="button" aria-label="時鐘移到畫面正中央">正中央</button>';clockTools.prepend($('clockDrag'));$('clock').append(clockTools);
+for(const axis of ['X','Y']){const line=document.createElement('div');line.id='clockGuide'+axis;line.className='clock-center-guide axis-'+axis.toLowerCase();line.hidden=true;line.setAttribute('aria-hidden','true');$('scene').append(line)}
+function showClockGuides(x=false,y=false){$('clockGuideX').hidden=!x;$('clockGuideY').hidden=!y}
+function centerClock(both){if(document.body.dataset.renderMode==='wallpaper'||!editingPositions)return;endDrag();state=centeredClock(state,matchMedia('(max-width:600px)').matches,both);syncPositions();persistSettings();showClockGuides(true,both);clearTimeout(centerClock.guideTimer);centerClock.guideTimer=setTimeout(()=>showClockGuides(),700)}
+$('clockCenterX').onclick=()=>centerClock(false);$('clockCenterXY').onclick=()=>centerClock(true);
+window.atmosSetPositionEditing=value=>{if(document.body.dataset.renderMode==='wallpaper')return;editingPositions=!!value;$('editPositions').checked=editingPositions;$('positionTool').setAttribute('aria-pressed',String(editingPositions));if(!editingPositions)endDrag();syncPositions()};

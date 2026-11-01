@@ -1,0 +1,13 @@
+# P4.2.2 additional preview and locked-scene contract
+
+User-approved scope: remove the whole Style/scene details disclosure; four themes and six scenes remain. lockScene is fixed true. New false requests reject FIXED_SETTING. Valid format2 records are authenticated with the frozen state-v2 validator, original live bytes/history retained, then migrated to inner desired format3 with lockScene true and auto preview defaults. No scene, intensity, XY, font, todo or timer values are reset. Outer schemaVersion remains1. Backup/rollback/recovery follow the same explicit normalization.
+
+New typed visual settings: previewMode auto/manual, previewWidth and previewHeight integers320..7680. Defaults auto/1920/1080. Auto uses actual monitor adapter or honest unavailable fallback. Manual uses only explicitly selected target-preview dimensions, source marked Manual preview; it is not monitor detection or an OS resolution change. Derived CSS display size is read-only metadata. Actual wallpaper viewport remains controlled by the host, not this manager-only preview choice.
+
+Preset/custom inputs are pending form values until Apply preview size. Invalid input leaves canvas/state unchanged and shows a localized error. Valid form Apply creates local draft; existing global Apply performs the shared CAS transaction. Cancel/reload follow current snapshot. Width/height do not rewrite component XY or typography. The full target canvas contains its tray and scales proportionally; screen CSS snap distances remain6/10.
+
+Desktop right panel height follows the left column's metadata+preview+explanation bottom. This is a documented reversible layout interpretation of the user's screenshot, not a claim of exact annotated coordinates. Canvas dimensions are never derived from the panel. Panel inner scroll remains independent; mobile uses natural single-column page flow.
+
+Five-language copy is in p422-copy.js. Source runtime changes require an official daemon restart so format3 core and generated UI agree. Do not run old and new services on one store concurrently.
+
+Test mapping: existing P4.2 contract checks now expect current format3 instead of format2 and use99 as the unsupported future version. Old format2 acceptance is tested through the frozen validator/migration path, not by weakening the current validator. Nine new preview-settings tests verify boundaries, fixed lock, preservation of v2 originals and transactional backup/restore. The first added projection unit used strict floating equality and observed3.999999999999986; it was corrected to an arithmetic tolerance1e-10, while browser pointer evidence remains independently measured.
