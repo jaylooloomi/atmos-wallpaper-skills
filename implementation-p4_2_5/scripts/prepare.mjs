@@ -37,3 +37,10 @@ await import("./prepare-p422.mjs");
 await import("./prepare-p423.mjs");
 
 fs.copyFileSync(path.join(root,'src/session-recovery.js'),path.join(dist,'session-recovery.js'));
+fs.copyFileSync(path.join(root,'src/calendar-client.js'),path.join(dist,'calendar-client.js'));
+let calendarBridge=fs.readFileSync(path.join(dist,'bridge-client.js'),'utf8');
+if(!calendarBridge.includes("await load('p423-ui.js');"))throw Error('Calendar boot hook missing');
+calendarBridge=calendarBridge.replace("await load('p423-ui.js');","await load('p423-ui.js');await load('calendar-client.js');window.AtmosCalendar.start({headers,wallpaper:wallpaperMode});");
+fs.writeFileSync(path.join(dist,'bridge-client.js'),calendarBridge);
+fs.appendFileSync(path.join(dist,'hifi.css'),'\n.calendar-section input{width:100%;min-width:0;box-sizing:border-box;padding:8px;border:1px solid #aab7a5;border-radius:6px}.calendar-section button{padding:8px;border:1px solid #aab7a5;border-radius:6px}.calendar-section p,.calendar-section small{overflow-wrap:anywhere}#calendar [data-real-calendar] .event{display:block;white-space:normal;overflow-wrap:anywhere;margin:10px 0}#calendar [data-real-calendar] .event span{display:block;font-size:.8em;opacity:.8}');fs.copyFileSync(path.join(root,'src/calendar-copy.js'),path.join(dist,'calendar-copy.js'));
+fs.writeFileSync(path.join(dist,'bridge-client.js'),fs.readFileSync(path.join(dist,'bridge-client.js'),'utf8').replace("await load('i18n-catalog.js');","await load('i18n-catalog.js');await load('calendar-copy.js');"));

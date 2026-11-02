@@ -1,4 +1,7 @@
 # Atmos P4.2.5 — 全部顯示／隱藏與分隔線修正
+
+已新增 ICS 匯入／訂閱，首次執行請先 `npm ci --ignore-scripts`。操作與資料隱私見 [ICS-CALENDAR.md](docs/ICS-CALENDAR.md)。以下版本歷史中「日曆僅示範」描述不包含本次新增功能；Google／Microsoft OAuth 仍未實作。
+
 沿已交 P4.2.4 增量修正；歷史 P4、P4.1、P4.2、P4.2.1、P4.2.2、P4.2.3 與原型保持凍結。P4.2 功能驗收不代表已符合確認圖，本批按使用者確認圖修正。所有新功能先是草稿，按「套用」才經版本／requestId／CAS 寫入同一本機核心。管理頁 `/manager`，只讀顯示頁 `/wallpaper`。
 
 ## 本批最新修正

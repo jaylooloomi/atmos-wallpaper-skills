@@ -51,5 +51,14 @@ test('Windows HTTP runtime serves both roles and enforces authenticated writes',
  assert.equal(after.desired.visual.effect,'snow');
  assert.equal(JSON.parse(fs.readFileSync(path.join(store,'live.json'))).revision,1);
  assert.equal((await fetch(origin+'/api/commands',{method:'POST',headers:headers('manager'),body:'x'.repeat(32769)})).status,413);
+ const date=new Date();date.setHours(date.getHours()+1);
+ const stamp=date.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}Z$/,'Z');
+ const calendar='BEGIN:VCALENDAR\r\nVERSION:2.0\r\nBEGIN:VEVENT\r\nUID:runtime\r\nDTSTART:'+stamp+'\r\nSUMMARY:Runtime calendar\r\nCOMMENT:'+'x'.repeat(40000)+'\r\nEND:VEVENT\r\nEND:VCALENDAR';
+ assert.equal((await fetch(origin+'/api/calendar/import',{method:'POST',headers:headers('wallpaper'),body:JSON.stringify({text:calendar})})).status,403);
+ const imported=await fetch(origin+'/api/calendar/import',{method:'POST',headers:headers('manager'),body:JSON.stringify({name:'Runtime',text:calendar})});
+ assert.equal(imported.status,200,await imported.text());
+ const events=await (await fetch(origin+'/api/calendar/events',{headers:headers('wallpaper')})).json();
+ assert.equal(events.events[0].title,'Runtime calendar');assert.equal(Object.hasOwn(events,'text'),false);
+ assert.equal((await fetch(origin+'/api/calendar/disconnect',{method:'POST',headers:headers('manager'),body:'{}'})).status,200);
  for(const route of ['/app.js','/widgets.js','/bridge-client.js'])assert.equal((await fetch(origin+route)).status,200);
 });

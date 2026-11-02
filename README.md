@@ -23,10 +23,11 @@ prototype-v8.1-frozen/   凍結前端基底、字體授權與原始場景素材
 
 ## 重建及測試
 
-環境：**Node.js >= 22**、已安裝 **Python 3 + Pillow**。無 npm 套件依賴，不需要 `npm install`。請先自行備妥依賴；腳本不會代為安裝。
+環境：**Node.js >= 22**、已安裝 **Python 3 + Pillow**。ICS 日曆新增 npm 依賴；首次請在產品目錄執行 `npm ci --ignore-scripts`，之後再建置與測試。請先自行備妥依賴；腳本不會代為安裝。
 
 ```sh
 cd implementation-p4_2_5
+npm ci --ignore-scripts
 npm run prepare -- --assets-only
 npm test
 node bin/atmos.mjs --help
@@ -73,3 +74,9 @@ node src\windows-runtime.mjs --host 127.0.0.1 --port 4173 --strictPort --start-l
 ## 素材與授權
 
 字體授權見 [FONT-LICENSE.txt](prototype-v8.1-frozen/assets/FONT-LICENSE.txt)。本次匯入未擅自新增整個專案的開源授權；公開可見不等於授予任意再授權。
+
+## ICS 日曆（2026-11-03）
+
+已實作免登入的 ICS 檔案匯入與 HTTPS／webcal 訂閱，顯示未來七天行程。開啟管理頁的日曆面板，匯入或訂閱後按「套用變更」。Google／Microsoft OAuth 仍未實作。操作、私密連結注意事項與依賴安裝見 [ICS 日曆說明](implementation-p4_2_5/docs/ICS-CALENDAR.md)。
+
+本次耗用測試依使用者要求停止，僅取得約 36 分鐘資料，未完成兩小時、也未證明無洩漏；鎖屏由本人確認恢復，真睡眠受韌體不支援限制。[實機結果](implementation-p4_2_5/docs/WINDOWS-HOST-VALIDATION-2026-11-03.md)。

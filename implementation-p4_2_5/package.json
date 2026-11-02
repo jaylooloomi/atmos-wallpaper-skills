@@ -10,5 +10,12 @@
   },
   "engines": {
     "node": ">=22"
+  },
+  "dependencies": {
+    "ical.js": "2.2.1",
+    "luxon": "3.7.2"
+  },
+  "devDependencies": {
+    "linkedom": "0.18.12"
   }
 }

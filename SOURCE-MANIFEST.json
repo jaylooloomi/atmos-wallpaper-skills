@@ -17,9 +17,9 @@
     },
     {
       "path": "README.md",
-      "bytes": 5488,
-      "sha256": "6d3ff76cc8e451b9086a8e06ba8f813517e4165a291f819b57adf9d27a37336e",
-      "git_blob_sha": "3e7c90f6b81b6cdc6f368090507f66fadd232adc"
+      "bytes": 6209,
+      "sha256": "5f6f6496606286f1ec3bdffd5f89edabd0b07bcbba0340d352181ca22e20fe8c",
+      "git_blob_sha": "d369643696008748f2b95a095d8ad05bb8a2c3c9"
     },
     {
       "path": "implementation-p1/bin/atmos.mjs",
@@ -293,9 +293,9 @@
     },
     {
       "path": "implementation-p4_2_5/README.md",
-      "bytes": 9296,
-      "sha256": "47a6a8a79c582a216042348363ba24c9b7041fbfaa4f1fab159375391e21f91d",
-      "git_blob_sha": "bbd36f06a5ac3db5e0b38e5dc6b4b30cd3a347da"
+      "bytes": 9563,
+      "sha256": "827d0fea3c72c3bc7aaad35019e060b28dd9810001361fe15a27b7acf4d46a0a",
+      "git_blob_sha": "3df8ca8654928e25f9f1576720b95903b4d74680"
     },
     {
       "path": "implementation-p4_2_5/Start-Atmos.cmd",
@@ -320,6 +320,12 @@
       "bytes": 5837,
       "sha256": "8efb845776ef76fdc69c98e1ed35dc967ee36da6918565fcb72858d845e40be2",
       "git_blob_sha": "b2f5b7e959828e652545d55832a950c9604092e9"
+    },
+    {
+      "path": "implementation-p4_2_5/docs/ICS-CALENDAR.md",
+      "bytes": 4285,
+      "sha256": "58920f3170d8fc45fa90ebaa36b34870b95ea4dfcd5729df903f966ce889fbf0",
+      "git_blob_sha": "82d839d02c920125dcc7239deb5c656b4c8dd3c3"
     },
     {
       "path": "implementation-p4_2_5/docs/LEGACY-EFFECT-REVIEW.md",
@@ -444,8 +450,8 @@
     {
       "path": "implementation-p4_2_5/evidence/verification.json",
       "bytes": 601,
-      "sha256": "c85e3ab02655f15d73ebc7aff44ad6c3a9195853c2d58dd9886904c1804864a8",
-      "git_blob_sha": "993635084a6c45cae5e731386f489fda55402a4c"
+      "sha256": "4a43676692a13542b4b230945888f9a94c5777a8006702e4c8ace8a92a14696f",
+      "git_blob_sha": "f8676e6dc0025e6dfed47f47b2e4249421186a2a"
     },
     {
       "path": "implementation-p4_2_5/evidence/windows-host-partial-2026-11-03.json",
@@ -454,10 +460,16 @@
       "git_blob_sha": "214f2b794c1323e6d9960d300f020318cbf00d46"
     },
     {
+      "path": "implementation-p4_2_5/package-lock.json",
+      "bytes": 8071,
+      "sha256": "64938b0b2a325a8bde4fdf3403737324c50cc2b73d35f7908aaab69ec7af77d0",
+      "git_blob_sha": "9c2e84e6a94eb0be8e6c29fa105f905ab0feaf0f"
+    },
+    {
       "path": "implementation-p4_2_5/package.json",
-      "bytes": 296,
-      "sha256": "966c5f498c60713f2e52e251bd8b14c705e6a482b21e70eba911499ed8d0e4bc",
-      "git_blob_sha": "8a1cd8ae617ad58bb0164d743a41bf538b49684d"
+      "bytes": 420,
+      "sha256": "96c46da9c7ff3a7c2b29063ba5f036ba12d79d94ffd80dd0c34256b1a2304e7c",
+      "git_blob_sha": "490db59e9830851ed9617df86af4e3979018f119"
     },
     {
       "path": "implementation-p4_2_5/scripts/measure-windows-host.ps1",
@@ -491,9 +503,9 @@
     },
     {
       "path": "implementation-p4_2_5/scripts/prepare.mjs",
-      "bytes": 12826,
-      "sha256": "8faa674205522714d288d3c20a1fc800800617c5db391d9e098f7706ce0cc6e1",
-      "git_blob_sha": "1f0efedbb3023433920aed3a84d453ce9b972dc2"
+      "bytes": 14184,
+      "sha256": "d1c514d28212508b969f6adf6dd2a5341be3261eaa6589036f2c668b99012a1a",
+      "git_blob_sha": "3d958955973ed844679abe11fcfbf40a9d9788d0"
     },
     {
       "path": "implementation-p4_2_5/scripts/read-windows-lifecycle-events.ps1",
@@ -530,6 +542,42 @@
       "bytes": 15192,
       "sha256": "72834e7265a8ffd4fd58af27997b81809713744b19ed8f7916fb1d3342279bd9",
       "git_blob_sha": "948157b28c70f614abca5fe444c7c0314a47426b"
+    },
+    {
+      "path": "implementation-p4_2_5/src/calendar-client.js",
+      "bytes": 6553,
+      "sha256": "7c0510790031a502c2e38119e0b5bbfd49a08b6f2616ce96d69339e294646dba",
+      "git_blob_sha": "6adf1979c96fe0faa12ffa53b9af8dfc00930bfe"
+    },
+    {
+      "path": "implementation-p4_2_5/src/calendar-copy.js",
+      "bytes": 2995,
+      "sha256": "e50ca99f4a0a1735b258309e29bd01a644b22bf8a8d37ab00030d813e3c6fc07",
+      "git_blob_sha": "27230a3b7e9fc88fbae30deafdb253e0723b6952"
+    },
+    {
+      "path": "implementation-p4_2_5/src/calendar-fetch.mjs",
+      "bytes": 2936,
+      "sha256": "fa9b9adf4ded5bc2da17ad95cfad992e897c2ef40abc9465d8875acd2baafbd6",
+      "git_blob_sha": "0c42e3fde4037c9c3db22c1a173c00ac92937c65"
+    },
+    {
+      "path": "implementation-p4_2_5/src/calendar-parse.mjs",
+      "bytes": 3193,
+      "sha256": "710180b1957bd86adf28076adc6efaf58d2540f91c9ed8523c44c91d63828e9e",
+      "git_blob_sha": "183648c7a27cf39020295f974e2776327b0a79b9"
+    },
+    {
+      "path": "implementation-p4_2_5/src/calendar-service.mjs",
+      "bytes": 4273,
+      "sha256": "3ad31af77102ea9cbd742fc08e0087dd9cb0063d964a16376ee8e76748c5df1d",
+      "git_blob_sha": "7fc59b9e120d2881d6aa878a3a47e4714a2f8596"
+    },
+    {
+      "path": "implementation-p4_2_5/src/calendar-worker.mjs",
+      "bytes": 278,
+      "sha256": "214cf86091d9ebd7e140479c4e78536e922ae3de12bf0317cfb953dc76e9c513",
+      "git_blob_sha": "9d35355c1f1d27c6a6ccc5e607bb7bd3e1504f7b"
     },
     {
       "path": "implementation-p4_2_5/src/clock-dom.js",
@@ -611,9 +659,9 @@
     },
     {
       "path": "implementation-p4_2_5/src/inspector.js",
-      "bytes": 10905,
-      "sha256": "a47e8af7841182c8a6094d2617f1bc96925f0686dad31c7dfe4abf6095c56a26",
-      "git_blob_sha": "77acb588808901873d4ea00897498bbb3ebc45ce"
+      "bytes": 10933,
+      "sha256": "95098219a6d1952b9bcc632abbbd34e884e2d6229a3e4470e795a8e9d8382e93",
+      "git_blob_sha": "0edd2a476ef6a0df4e0ac2dbad4da20aaf259ff8"
     },
     {
       "path": "implementation-p4_2_5/src/legacy-config.mjs",
@@ -725,9 +773,9 @@
     },
     {
       "path": "implementation-p4_2_5/src/router.mjs",
-      "bytes": 10273,
-      "sha256": "7f238124190edde7b18f74023ea425233da2c47b9269ca528bffe037c3893bf9",
-      "git_blob_sha": "ac8e376b7a3223ff731815c5c84a55341e10dad6"
+      "bytes": 11453,
+      "sha256": "126e38e9e79ec5aeb5e748280ca27f00ca79f460b98e6bbe221ac33a3992fc31",
+      "git_blob_sha": "98157407172dd4ddd84f9f3d8f57c33d4a7fa98d"
     },
     {
       "path": "implementation-p4_2_5/src/runtime-options.mjs",
@@ -755,9 +803,9 @@
     },
     {
       "path": "implementation-p4_2_5/src/state.mjs",
-      "bytes": 7775,
-      "sha256": "f6ba576b7c836b5838cf4410148f6b0f4aa3aaae20e4c1215ed93105fd94da5c",
-      "git_blob_sha": "fa494473c47c469a1b13abb6616fbf55c79eeb25"
+      "bytes": 7781,
+      "sha256": "64771ff17b4d4961816a2f1653b8acfaa249040854490220fc7a810cca0f61e8",
+      "git_blob_sha": "81f485b8c734236ee5cde4cd45d8415f2acc9091"
     },
     {
       "path": "implementation-p4_2_5/src/wallpaper.css",
@@ -767,15 +815,27 @@
     },
     {
       "path": "implementation-p4_2_5/src/windows-runtime.mjs",
-      "bytes": 3058,
-      "sha256": "1873d3cbe90935211bd78b72d75153e94b0627c5ff55d6db659a7dbf5fd7084f",
-      "git_blob_sha": "1531acf4d0e027171e88b5e0330cece190867632"
+      "bytes": 3103,
+      "sha256": "71e28607681215d14c4c233bb1ab640e97fe405f0a8577358c58ad4e02e2f105",
+      "git_blob_sha": "22d694d03067a1937121b415007234a65439edab"
     },
     {
       "path": "implementation-p4_2_5/tests/bulk-visibility.test.mjs",
       "bytes": 1602,
       "sha256": "4d151962faed4c7ead8140ea3ae8ace8ca30ce08694af81e35a514ae73c1149c",
       "git_blob_sha": "7428d040b981684205f0bab17f5e294a511efbfc"
+    },
+    {
+      "path": "implementation-p4_2_5/tests/calendar-client.test.mjs",
+      "bytes": 2886,
+      "sha256": "8a9bbb2bdae8a9622e0bfe50a8b1c1dfe1106896c0417d9f560c39b1a05e61ed",
+      "git_blob_sha": "d9f62ce17f1e65c84a7879f7daba16d988113065"
+    },
+    {
+      "path": "implementation-p4_2_5/tests/calendar.test.mjs",
+      "bytes": 9691,
+      "sha256": "244f1c2c487b327a8741553005ee41212ac3ee16bc24479c6f711693ffe934d7",
+      "git_blob_sha": "c174b84d8afadaf3d9f269ff42a5c58353b7dd4f"
     },
     {
       "path": "implementation-p4_2_5/tests/clock-format.test.mjs",
@@ -911,9 +971,9 @@
     },
     {
       "path": "implementation-p4_2_5/tests/windows-runtime.test.mjs",
-      "bytes": 4022,
-      "sha256": "0957b3eee6a46d92f8ea362d3138207d5b31a183726b0b9bfd16d1ffa691dd18",
-      "git_blob_sha": "f6b8fd865d76bd553e96b1a3f2f82f29d7b27178"
+      "bytes": 5058,
+      "sha256": "02192ae8bb4580ab2abeb965cd1af50643838fbdeb1264750db28bba2d2dbd68",
+      "git_blob_sha": "948258a864b16815e74e6390044226f87cf902c0"
     },
     {
       "path": "prototype-v8.1-frozen/app.js",
