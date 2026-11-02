@@ -17,9 +17,9 @@
     },
     {
       "path": "README.md",
-      "bytes": 6209,
-      "sha256": "5f6f6496606286f1ec3bdffd5f89edabd0b07bcbba0340d352181ca22e20fe8c",
-      "git_blob_sha": "d369643696008748f2b95a095d8ad05bb8a2c3c9"
+      "bytes": 6799,
+      "sha256": "77445f3e6dbe4355a7753c2cf25e1f2bceb56e745d6eae034a8f98d7e7353b4f",
+      "git_blob_sha": "89dde6e12025abd0410d4dcd00ce012918f37cfe"
     },
     {
       "path": "implementation-p1/bin/atmos.mjs",
@@ -328,10 +328,22 @@
       "git_blob_sha": "82d839d02c920125dcc7239deb5c656b4c8dd3c3"
     },
     {
+      "path": "implementation-p4_2_5/docs/LAYOUT-VERIFICATION-2026-11-03.md",
+      "bytes": 2153,
+      "sha256": "427c6eabf8daeb21bdad2d271d865f5d3dade37df619943624d2e3048b89c527",
+      "git_blob_sha": "dcac4aeae8e2152518ca67a35143be9f7289b864"
+    },
+    {
       "path": "implementation-p4_2_5/docs/LEGACY-EFFECT-REVIEW.md",
       "bytes": 3097,
       "sha256": "75fedc0097ee6e94c049d8ae845a8268629d2b104ffdbfeb098dd24ceea883f3",
       "git_blob_sha": "75f46262b0f9a8388063cbb7ec445539f88614d5"
+    },
+    {
+      "path": "implementation-p4_2_5/docs/LIVELY-AND-STANDALONE-HOST.md",
+      "bytes": 12765,
+      "sha256": "17f97437597569db43c15e4bb33b980b17700906e8a5f9cd4352c09b8311102a",
+      "git_blob_sha": "d0304ab065365f6bda458996ff1941b6e1716669"
     },
     {
       "path": "implementation-p4_2_5/docs/MONITOR-ADAPTER.md",
@@ -436,6 +448,24 @@
       "git_blob_sha": "2b54e48a0acaae73f7673c45e94ec9a6c8b70890"
     },
     {
+      "path": "implementation-p4_2_5/evidence/layout/layout-1876-natural.png",
+      "bytes": 1378178,
+      "sha256": "01536e7bb66dd9963256fe74726337edf33874dd9093281c9b179d7325369d71",
+      "git_blob_sha": "8b9c38f23aac5e8dfa23221eaf1f3d1c2961e22a"
+    },
+    {
+      "path": "implementation-p4_2_5/evidence/layout/layout-390-neon.png",
+      "bytes": 219813,
+      "sha256": "cf5fcbc8612fc4019d91792cb6468807de3225d284535c47b3645769d4aa3f4e",
+      "git_blob_sha": "2a37433a54572872991d2bf0a5c2792e4d7f83e2"
+    },
+    {
+      "path": "implementation-p4_2_5/evidence/layout/report.json",
+      "bytes": 112188,
+      "sha256": "5c6e472b4876e43ba065bc66b83d88eacfde653a38be4f3613579717411eebff",
+      "git_blob_sha": "93ba915088469585d5c8d84f054a8b6f445f8299"
+    },
+    {
       "path": "implementation-p4_2_5/evidence/manager-browser.png",
       "bytes": 106874,
       "sha256": "3fd12c597cd19fb0596e45e6c8862105f2928ce7b08b2b79508eef0e11920c0d",
@@ -467,9 +497,15 @@
     },
     {
       "path": "implementation-p4_2_5/package.json",
-      "bytes": 420,
-      "sha256": "96c46da9c7ff3a7c2b29063ba5f036ba12d79d94ffd80dd0c34256b1a2304e7c",
-      "git_blob_sha": "490db59e9830851ed9617df86af4e3979018f119"
+      "bytes": 473,
+      "sha256": "26e4c0abd3be7dde4bbfbc1fd2ee007b1a089334a69bee82e3b4f8b76f3372f7",
+      "git_blob_sha": "f4f521cf21de9bb0fac4d657d5d057cf5c007676"
+    },
+    {
+      "path": "implementation-p4_2_5/scripts/audit-layout.mjs",
+      "bytes": 7324,
+      "sha256": "717664d6917ea27b69f6f83f85698ba13d2d69dc14f3de66efc6cfb028829e12",
+      "git_blob_sha": "0d44c595e16c63fb323f43af4f4e512302e59f98"
     },
     {
       "path": "implementation-p4_2_5/scripts/measure-windows-host.ps1",
@@ -713,9 +749,9 @@
     },
     {
       "path": "implementation-p4_2_5/src/p422-ui.css",
-      "bytes": 6812,
-      "sha256": "f6dc07b56224ba256c2474dc08b24fb06be001d2bd2f0399608fe5996480e635",
-      "git_blob_sha": "a3a145e598721543cfcf8cb297ee4f5843618896"
+      "bytes": 7450,
+      "sha256": "b7bf1928d8fe46128e45579b447134004661f34f4cee401527f806a0344be246",
+      "git_blob_sha": "79467bf3b1cdba689956bbf52e247191411d8ff7"
     },
     {
       "path": "implementation-p4_2_5/src/p422-ui.js",
@@ -731,9 +767,9 @@
     },
     {
       "path": "implementation-p4_2_5/src/p423-ui.css",
-      "bytes": 8563,
-      "sha256": "eda139052e10f62d62a474f5aab6ac69b125bcfee85455d0d82b92b2ac3bfbc0",
-      "git_blob_sha": "7e0f7be55bf208a32ecf0095f3570e9ec0484140"
+      "bytes": 8628,
+      "sha256": "3d5035be1753526545abca87d7cb4b5c4e81b7cfe97738d6654b6fa3548a521d",
+      "git_blob_sha": "06bc1d217b347c61bdc10a841838ce6b6ec1cb3f"
     },
     {
       "path": "implementation-p4_2_5/src/p423-ui.js",

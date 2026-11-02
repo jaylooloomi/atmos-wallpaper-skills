@@ -80,3 +80,9 @@ node src\windows-runtime.mjs --host 127.0.0.1 --port 4173 --strictPort --start-l
 已實作免登入的 ICS 檔案匯入與 HTTPS／webcal 訂閱，顯示未來七天行程。開啟管理頁的日曆面板，匯入或訂閱後按「套用變更」。Google／Microsoft OAuth 仍未實作。操作、私密連結注意事項與依賴安裝見 [ICS 日曆說明](implementation-p4_2_5/docs/ICS-CALENDAR.md)。
 
 本次耗用測試依使用者要求停止，僅取得約 36 分鐘資料，未完成兩小時、也未證明無洩漏；鎖屏由本人確認恢復，真睡眠受韌體不支援限制。[實機結果](implementation-p4_2_5/docs/WINDOWS-HOST-VALIDATION-2026-11-03.md)。
+
+## 場景排版與獨立宿主規劃
+
+場景區位於預覽解析度上方；預覽／語言與元件工具列在空間不足時換行，不依賴橫向捲軸。[實際 Chromium 排版量測](implementation-p4_2_5/docs/LAYOUT-VERIFICATION-2026-11-03.md) 可用 `npm run audit:layout` 重跑。
+
+[Lively 功能盤點與 Atmos 獨立宿主規劃](implementation-p4_2_5/docs/LIVELY-AND-STANDALONE-HOST.md) 說明如何保留目前網頁並新增自己的 Windows 桌布層。這是已完成的原始碼研究與開發規劃；目前尚未提供不依賴 Lively 的原生宿主／安裝器。

@@ -14,16 +14,15 @@ body[data-render-mode=manager] #previewResolutionControls{grid-template-columns:
 
 body[data-theme=natural][data-render-mode=manager] #previewResolutionControls{--text:#304437;--muted:#71806a;--control:#fff}
 body[data-theme=natural][data-render-mode=manager] #previewResolutionControls :is(label,input,select,option){color:#304437!important}
-/* P4.2.3: one non-wrapping resolution row, separate language panel to its right.
-   Overflow belongs to this toolbar only, never the page or target canvas. */
-body[data-render-mode=manager] #previewSettingsRow{display:flex;flex-wrap:nowrap;align-items:stretch;gap:10px;max-width:100%;min-width:0;overflow-x:auto;overscroll-behavior-x:contain;margin-bottom:8px;padding-bottom:2px}
-body[data-render-mode=manager] #previewResolutionControls{display:flex!important;flex:1 0 470px;min-width:470px;flex-wrap:nowrap;align-items:flex-end;gap:8px;margin:0}
-body[data-render-mode=manager] #previewResolutionControls>label{display:flex;flex-direction:column;flex:0 0 72px;min-width:0;white-space:nowrap;grid-column:auto!important;grid-row:auto!important}
-body[data-render-mode=manager] #previewResolutionControls>label:first-child{flex:1 1 150px;min-width:135px}
+/* Wrap whole tool panels when the preview column narrows; never scroll sideways. */
+body[data-render-mode=manager] #previewSettingsRow{display:flex;flex-wrap:wrap;align-items:stretch;gap:10px;max-width:100%;min-width:0;overflow:visible;margin-bottom:8px;padding-bottom:2px}
+body[data-render-mode=manager] #previewResolutionControls{display:grid!important;grid-template-columns:minmax(0,1.5fr) minmax(0,.7fr) minmax(0,.7fr) auto;flex:1 1 470px;min-width:0;align-items:end;gap:8px;margin:0}
+body[data-render-mode=manager] #previewResolutionControls>label{display:flex;flex-direction:column;min-width:0;white-space:normal;grid-column:auto!important;grid-row:auto!important}
+body[data-render-mode=manager] #previewResolutionControls>label:first-child{min-width:0}
 body[data-render-mode=manager] #previewResolutionControls>#applyPreviewResolution{flex:0 0 auto;width:auto;min-width:110px;white-space:nowrap;grid-column:auto!important;grid-row:auto!important}
-body[data-render-mode=manager] #previewLanguagePanel{flex:0 0 auto;display:flex;align-items:center;border:1px solid var(--line);border-radius:9px;padding:10px 12px;background:var(--glass);color:var(--text)}
+body[data-render-mode=manager] #previewLanguagePanel{flex:0 1 210px;min-width:0;max-width:100%;display:flex;align-items:center;border:1px solid var(--line);border-radius:9px;padding:10px 12px;background:var(--glass);color:var(--text)}
 body[data-render-mode=manager] #previewLanguagePanel #localeControl{display:flex;flex-direction:row;align-items:center;gap:8px;margin:0;white-space:nowrap;font:12px/1.4 system-ui}
-body[data-render-mode=manager] #previewLanguagePanel #localeControl select{width:130px;min-width:130px;padding:7px;color:inherit;background:var(--field);border:1px solid var(--line);border-radius:5px}
+body[data-render-mode=manager] #previewLanguagePanel #localeControl select{width:130px;min-width:0;max-width:100%;padding:7px;color:inherit;background:var(--field);border:1px solid var(--line);border-radius:5px}
 body[data-theme=natural][data-render-mode=manager] #previewLanguagePanel{--text:#304437;--line:#cbd4c7;--field:#fff;background:#f8faf5;color:#304437}
 body[data-render-mode=manager] #previewResolutionMessage{font:12px/1.5 system-ui;margin:0 0 8px;max-width:100%;overflow-wrap:anywhere}
 body[data-render-mode=manager] #previewResolutionMessage:empty{display:none}
@@ -45,5 +44,12 @@ body[data-render-mode=manager] .scene-picker-top{
 body[data-render-mode=manager] .scene-picker-top h3{margin:0 0 10px;font-size:14px;line-height:1.5;color:inherit}
 body[data-render-mode=manager] .scene-picker-top #sceneOptions{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;min-width:0;padding:3px}
 body[data-render-mode=manager] .scene-picker-top .scene-thumb{height:auto;min-width:0;padding:0;overflow:hidden;border-radius:6px;font-size:11px;line-height:1.45;white-space:normal}
+body[data-render-mode=manager][data-theme=natural] .scene-picker-top{--chrome-panel:#f8faf5;--chrome-ink:#304437;--chrome-line:#cbd4c7;--chrome-accent:#7d9d68;--field:#fff}
+body[data-render-mode=manager][data-theme=natural] .scene-picker-top .scene-thumb{background:#fff;color:#304437}
 @media(max-width:1100px){body[data-render-mode=manager] .scene-picker-top #sceneOptions{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:600px){body[data-render-mode=manager] .scene-picker-top{padding:12px!important;margin-bottom:12px}body[data-render-mode=manager] .scene-picker-top #sceneOptions{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}}
+@media(max-width:700px){
+ body[data-render-mode=manager] #previewResolutionControls{grid-template-columns:repeat(2,minmax(0,1fr));flex-basis:100%}
+ body[data-render-mode=manager] #previewResolutionControls>label:first-child,body[data-render-mode=manager] #previewResolutionControls>#applyPreviewResolution{grid-column:1/-1!important}
+ body[data-render-mode=manager] #previewLanguagePanel{flex:1 1 100%}
+}

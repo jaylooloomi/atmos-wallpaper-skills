@@ -51,8 +51,8 @@ body[data-render-mode=manager][data-theme=minimal] #previewResolutionMessage:not
 body[data-render-mode=manager] .inspect-heading{grid-template-columns:minmax(0,1fr) auto;gap:4px 8px}
 body[data-render-mode=manager] .inspect-heading h3{grid-column:1;grid-row:1}
 body[data-render-mode=manager] .inspect-heading small{grid-column:2;grid-row:1}
-body[data-render-mode=manager] .inspect-heading .component-tools{grid-column:1/-1;grid-row:2;display:flex;flex-wrap:nowrap;justify-content:flex-start;max-width:100%;min-width:0;overflow-x:auto;gap:6px;padding:2px 0}
-body[data-render-mode=manager] .inspect-heading .component-tools button{flex:0 0 auto;white-space:nowrap}
+body[data-render-mode=manager] .inspect-heading .component-tools{grid-column:1/-1;grid-row:2;display:flex;flex-wrap:wrap;justify-content:flex-start;max-width:100%;min-width:0;overflow:visible;gap:6px;padding:2px 0}
+body[data-render-mode=manager] .inspect-heading .component-tools button{flex:0 1 auto;max-width:100%;height:auto;min-height:32px;white-space:normal;overflow-wrap:anywhere}
 /* One spacing token for canvas→note and note→bottom scene/prompt row. */
 body[data-render-mode=manager]{--preview-stack-gap:15px}
 body[data-render-mode=manager] .preview-explanation{margin-top:var(--preview-stack-gap)!important}
