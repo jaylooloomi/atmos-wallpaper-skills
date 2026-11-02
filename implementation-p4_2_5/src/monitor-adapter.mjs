@@ -1,5 +1,6 @@
 // Read-only host metadata. Never use a browser viewport as evidence of a target monitor.
 import {spawnSync} from 'node:child_process';
+import path from 'node:path';
 const fallback=()=>({width:1920,height:1080,source:'default-aspect',detected:false});
 const idOK=id=>typeof id==='string'&&/^\\\\\.\\DISPLAY[1-9][0-9]{0,3}$/i.test(id);
 const dimension=n=>Number.isInteger(n)&&n>=1&&n<=65536;
@@ -70,7 +71,8 @@ export function readMonitorMetadata({targetId=null,runner,fixture,now=()=>new Da
  if(!runner&&process.platform!=='win32')return unavailable('WINDOWS_ADAPTER_UNAVAILABLE');
  try{
   const run=runner||spawnSync;
-  const result=run('powershell.exe',['-NoLogo','-NoProfile','-NonInteractive','-EncodedCommand',Buffer.from(WINDOWS_MONITOR_SCRIPT,'utf16le').toString('base64')],{encoding:'utf8',windowsHide:true,timeout:8000,maxBuffer:128*1024,shell:false});
+  const executable=!runner&&process.platform==='win32'&&process.env.SystemRoot?path.join(process.env.SystemRoot,'System32','WindowsPowerShell','v1.0','powershell.exe'):'powershell.exe';
+  const result=run(executable,['-NoLogo','-NoProfile','-NonInteractive','-EncodedCommand',Buffer.from(WINDOWS_MONITOR_SCRIPT,'utf16le').toString('base64')],{encoding:'utf8',windowsHide:true,timeout:8000,maxBuffer:128*1024,shell:false});
   if(result.error||result.status!==0)return unavailable('MONITOR_QUERY_FAILED');
   if(typeof result.stdout!=='string'||Buffer.byteLength(result.stdout)>128*1024)return unavailable('MONITOR_RESPONSE_INVALID');
   const raw=JSON.parse(result.stdout.replace(/^\uFEFF/,''));

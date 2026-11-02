@@ -36,7 +36,7 @@ node bin/atmos.mjs --help
 
 ## Windows 本機啟動
 
-此倉庫提供 Windows 入口，但**本次公開版本未重新進行 Windows 實機驗證**。請確認 Node、Python/Pillow 已存在並指向正確路徑。以下由你在自己的 Windows 命令提示字元執行：
+此倉庫提供 Windows 入口，已於 2026-11-02 驗證本機服務、核心測試及瀏覽器主要操作；OS 桌布宿主與外部服務仍不在通過範圍。請確認 Node、Python/Pillow 已存在並指向正確路徑。以下由你在自己的 Windows 命令提示字元執行：
 
 ```bat
 cd implementation-p4_2_5
@@ -63,6 +63,12 @@ node src\windows-runtime.mjs --host 127.0.0.1 --port 4173 --strictPort --start-l
 ## 本次驗證（2026-11-01）
 
 對公開倉庫的乾淨選取源碼重新執行：prepare 成功、產品測試 **167/167**、共用核心 **42/42**、CLI help 成功；生成的 35 個 dist 檔與正式凍結版本逐位元組一致。獨立正式 UI QA 另驗證七卡顯示／隱藏與草稿／套用、非顯示資料及 timer deadline 保留、行內展開／分隔線、五語工具列、Enter／Space，以及 390×844 和 1876×1080 畫面。這是本批影響範圍驗證，不代表所有歷史瀏覽器測試或全平台通過。未重跑 Windows 實機或真外部服務整合。
+
+## Windows 重跑驗證（2026-11-02）
+
+在 `implementation-p4_2_5` 執行 `node scripts/verify.mjs`，可依序重建素材、執行產品及共用核心測試、獨立草稿／路徑檢查及 CLI help；結果寫入 `evidence/verification.json`，各項完整輸出寫入被 Git 忽略的 `.log`。Windows 請先設定 `ATMOS_PYTHON` 為已安裝的 Python 完整路徑，並確認 Pillow 可用。
+
+本次 Node 24.13.0、Python 3.14、Pillow 12.1.0：產品測試 166 通過、2 跳過；核心測試 41 通過、2 跳過，均無失敗。跳過項為缺少建立檔案符號連結權限，以及 Windows 不適用的 POSIX FIFO；目錄 junction 拒絕另有實際通過案例。詳細修正、瀏覽器檢查與驗證界線見 [Windows 驗證紀錄](implementation-p4_2_5/docs/WINDOWS-VERIFICATION-2026-11-02.md)。
 
 ## 素材與授權
 

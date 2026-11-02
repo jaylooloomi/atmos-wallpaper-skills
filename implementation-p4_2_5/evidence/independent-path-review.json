@@ -1,0 +1,31 @@
+{
+  "kind": "Pure path-string validation; no Windows filesystem, listener or browser",
+  "sourceSha256": "6b894b03861b6cff5ed699cb8f808e6ff1e3dd80ff6603fdf478da1dcd615414",
+  "results": [
+    {
+      "kind": "relative",
+      "value": "imports/COM¹.png",
+      "rejected": true,
+      "code": "PATH_REJECTED"
+    },
+    {
+      "kind": "relative",
+      "value": "imports/LPT².txt",
+      "rejected": true,
+      "code": "PATH_REJECTED"
+    },
+    {
+      "kind": "root",
+      "value": "C:\\data:stream",
+      "rejected": true,
+      "code": "PATH_REJECTED"
+    },
+    {
+      "kind": "root",
+      "value": "C:\\NUL\\data",
+      "rejected": true,
+      "code": "PATH_REJECTED"
+    }
+  ],
+  "allRejected": true
+}

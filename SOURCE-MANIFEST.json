@@ -1,8 +1,14 @@
 {
   "version": "0.4.2-5",
-  "note": "Lists all published files except this manifest itself. Generated dist and runtime data are excluded.",
+  "note": "Lists all published files except this manifest itself. Hashes describe LF-normalized Git content. source_release_sha256 identifies the original imported release, not the subsequent Windows fixes. Generated dist, runtime data and test logs are excluded.",
   "source_release_sha256": "7627f8759ef8f48d66463ce8c12232b4dd3e4fc11d7ca1a6d4fd5ae890f17398",
   "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 44,
+      "sha256": "980462bc6ed74ac7741daea76c945f172be91d0b86c7c3502c9ce2d0837bc121",
+      "git_blob_sha": "ed1d769b779ecfc17076fbb5fb73611b9af49398"
+    },
     {
       "path": ".gitignore",
       "bytes": 142,
@@ -11,9 +17,9 @@
     },
     {
       "path": "README.md",
-      "bytes": 4597,
-      "sha256": "6a815b5c607ec07c71c58eff1493288fb4cb9308fb30b5052829a4a13dfb80df",
-      "git_blob_sha": "6c0acc667d0e38dbeb94e4b479f4146d4fcdac6d"
+      "bytes": 5488,
+      "sha256": "6d3ff76cc8e451b9086a8e06ba8f813517e4165a291f819b57adf9d27a37336e",
+      "git_blob_sha": "3e7c90f6b81b6cdc6f368090507f66fadd232adc"
     },
     {
       "path": "implementation-p1/bin/atmos.mjs",
@@ -59,9 +65,9 @@
     },
     {
       "path": "implementation-p1/src/core.mjs",
-      "bytes": 14120,
-      "sha256": "1a46237ace791f5d8a49252a33ecb5c69dbbe970907778cf8227558d665755ff",
-      "git_blob_sha": "b1f48b41375c95d859205ef1271478b62707c8f0"
+      "bytes": 14266,
+      "sha256": "106516131fac1ac47719c3075bff4238d4eccd054291dac8dc4797b926a5f6ad",
+      "git_blob_sha": "515afb203798b4b55f71f3e4e5ee82739f9871b1"
     },
     {
       "path": "implementation-p1/src/decode-image.py",
@@ -83,15 +89,15 @@
     },
     {
       "path": "implementation-p1/src/store.mjs",
-      "bytes": 5251,
-      "sha256": "3f6088adb45e52bb8a73773d28e9572af5e63f1f8a79199806dbce62b61eac16",
-      "git_blob_sha": "f4079fe6eb68286bdfd0ae72b86b79cf34f39852"
+      "bytes": 5283,
+      "sha256": "fb81fc8702344919c96743e1b0bd525725e02939c01087f421d64f9d9acfc9af",
+      "git_blob_sha": "b21664885b9d69fa6b3d74ca26cb5bf0c12dee74"
     },
     {
       "path": "implementation-p1/tests/core.test.mjs",
-      "bytes": 16892,
-      "sha256": "6a6d964ff365318c6ff1264d064b2f3064b2e60df40eda5570a48a3fb4a24b15",
-      "git_blob_sha": "169be4fe8bbf1e35527abe1f65d8215130cf3691"
+      "bytes": 17943,
+      "sha256": "b5f2947a134964a16fe0422bf653a2d3c3c733f87feeb41337c9a501d92673bc",
+      "git_blob_sha": "bc788c18d0d809b1a8375cf78ef9f98859125186"
     },
     {
       "path": "implementation-p4_2_1/src/appearance.js",
@@ -394,6 +400,48 @@
       "git_blob_sha": "9fcc8778893b48d1e140e71ec70f6a37ee0523e2"
     },
     {
+      "path": "implementation-p4_2_5/docs/WINDOWS-VERIFICATION-2026-11-02.md",
+      "bytes": 3672,
+      "sha256": "5e4867935dcb0827ac96ce48445530e8fd0d669a7bce6cd06aff39c55be9123a",
+      "git_blob_sha": "7c2cb158188b735a5684e024b441955738db466b"
+    },
+    {
+      "path": "implementation-p4_2_5/evidence/desktop-1876.png",
+      "bytes": 134050,
+      "sha256": "966a732931dc4150ce5ea4966a119b938c26004e6ac82cea5945a0a361f7619f",
+      "git_blob_sha": "b3825724cff9eca6d0a0f2e8d53cb2bec6e20ffc"
+    },
+    {
+      "path": "implementation-p4_2_5/evidence/independent-draft-review.json",
+      "bytes": 412,
+      "sha256": "40f343afdde0d9ac0430cb5273f794ce490de0538f598706e3ba1f38d994abd1",
+      "git_blob_sha": "64c5a6eb87945609430f73422e766e23ba3ae6ef"
+    },
+    {
+      "path": "implementation-p4_2_5/evidence/independent-path-review.json",
+      "bytes": 717,
+      "sha256": "d433682742639495ba5c7b3934641c4a9cdd0f422ec1d5a0b23cf01b42bb09fd",
+      "git_blob_sha": "2b54e48a0acaae73f7673c45e94ec9a6c8b70890"
+    },
+    {
+      "path": "implementation-p4_2_5/evidence/manager-browser.png",
+      "bytes": 106874,
+      "sha256": "3fd12c597cd19fb0596e45e6c8862105f2928ce7b08b2b79508eef0e11920c0d",
+      "git_blob_sha": "ae6423be84589b873a435bf01ee52f940182bc04"
+    },
+    {
+      "path": "implementation-p4_2_5/evidence/mobile-390.png",
+      "bytes": 72902,
+      "sha256": "8577d0aa74bb562d9e0642924d832a783f21a1af26655c532902f0b296c688ee",
+      "git_blob_sha": "d90fa9064a83b975b3d78aee1fe3d030f8e4daaf"
+    },
+    {
+      "path": "implementation-p4_2_5/evidence/verification.json",
+      "bytes": 601,
+      "sha256": "3539f5f9aaf4a1ab5d3c4b9a421155b5eeb1d805a4cf388e32700737005c1a18",
+      "git_blob_sha": "f4e1d3d30cb82c539a4b70a2c1fb06ec20fcc5e2"
+    },
+    {
       "path": "implementation-p4_2_5/package.json",
       "bytes": 296,
       "sha256": "966c5f498c60713f2e52e251bd8b14c705e6a482b21e70eba911499ed8d0e4bc",
@@ -428,6 +476,12 @@
       "bytes": 12727,
       "sha256": "91e128ddf33648c6a257c5ef8c0d9e43000142311826bc49bd18a97bd5a3a632",
       "git_blob_sha": "90dd11ac4b999fea3d5f86fb57f9d4f18d259f3e"
+    },
+    {
+      "path": "implementation-p4_2_5/scripts/verify.mjs",
+      "bytes": 1763,
+      "sha256": "4c949a6cc828b901238e9c89c6f782680f23568d2ade08474bb4058b3ec7ee9c",
+      "git_blob_sha": "2d8d106c1d503005d1e037704f8972b7afe75ae4"
     },
     {
       "path": "implementation-p4_2_5/src/appearance.js",
@@ -545,9 +599,9 @@
     },
     {
       "path": "implementation-p4_2_5/src/monitor-adapter.mjs",
-      "bytes": 6811,
-      "sha256": "144cd230ebee4912aeb5aac344e178ac483c8bbb05b5de5132fabcc9080465df",
-      "git_blob_sha": "301250ab2e7f80fe1f1559c5d6f907478faad68f"
+      "bytes": 7021,
+      "sha256": "8645f4d7dbd5fb7cd0369eeb96efe54b07d158e6da045a85e8c12d8162027f1a",
+      "git_blob_sha": "21d4e25fcadeeabd6e569c383a23fe4fe8ff6c42"
     },
     {
       "path": "implementation-p4_2_5/src/p42-ui.js",
@@ -743,15 +797,15 @@
     },
     {
       "path": "implementation-p4_2_5/tests/independent-draft-review.mjs",
-      "bytes": 2355,
-      "sha256": "8a7179a1f6730cf7e820d7928f601e2dbd3f5f09ec31164f8e20fe945a8b2efa",
-      "git_blob_sha": "076e01211d9a1376b75def7a1f9315472e40e8ac"
+      "bytes": 2456,
+      "sha256": "bd96c23b063163c41c26359bdc18c31fab1383687a782bf48ba062473625b7cb",
+      "git_blob_sha": "c8a9df6c8e76e263086f00105b6641b246a568d9"
     },
     {
       "path": "implementation-p4_2_5/tests/independent-path-review.mjs",
-      "bytes": 1217,
-      "sha256": "d2b6d88f87df893786ff1c79b6718cdf3e6df01146ec7f404e432687079b1183",
-      "git_blob_sha": "e33a76c5fdb33c8413dde21b06ae6045a8ef94d2"
+      "bytes": 1288,
+      "sha256": "8c5e0cdbacd401be4124fc80f6e84ae4bd287a928013fe39bce6be43de26f841",
+      "git_blob_sha": "b384002add4b3af5f49474322e20ff9468ae26d8"
     },
     {
       "path": "implementation-p4_2_5/tests/legacy-effect.test.mjs",
@@ -806,6 +860,12 @@
       "bytes": 766,
       "sha256": "f4f69c2953334f02bf274ef4216092dfea3f87c2a42a9ae9759f1a261770172c",
       "git_blob_sha": "504b512c9fad32d880b6406f0361e4d7ee8897d0"
+    },
+    {
+      "path": "implementation-p4_2_5/tests/windows-runtime.test.mjs",
+      "bytes": 4022,
+      "sha256": "0957b3eee6a46d92f8ea362d3138207d5b31a183726b0b9bfd16d1ffa691dd18",
+      "git_blob_sha": "f6b8fd865d76bd553e96b1a3f2f82f29d7b27178"
     },
     {
       "path": "prototype-v8.1-frozen/app.js",

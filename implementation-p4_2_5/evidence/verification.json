@@ -1,0 +1,39 @@
+{
+  "platform": "win32",
+  "node": "v24.13.0",
+  "checks": [
+    {
+      "name": "prepare",
+      "exitCode": 0
+    },
+    {
+      "name": "product-tests",
+      "exitCode": 0,
+      "tests": 168,
+      "pass": 166,
+      "fail": 0,
+      "skipped": 2
+    },
+    {
+      "name": "core-tests",
+      "exitCode": 0,
+      "tests": 43,
+      "pass": 41,
+      "fail": 0,
+      "skipped": 2
+    },
+    {
+      "name": "draft-review",
+      "exitCode": 0
+    },
+    {
+      "name": "path-review",
+      "exitCode": 0
+    },
+    {
+      "name": "cli-help",
+      "exitCode": 0
+    }
+  ],
+  "passed": true
+}
