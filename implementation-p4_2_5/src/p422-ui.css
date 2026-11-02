@@ -36,3 +36,14 @@ body[data-render-mode=manager] .inspect-row .inspect-toggle:focus-visible+.inspe
 /* A switch can hold focus while the sibling title does not: transparency is
    unconditional on the title, so the entire row paints the shared focus state. */
 body[data-render-mode=manager] .atmos-inspector .inspect-row button.inspect-title{background:transparent!important;box-shadow:none!important;border-radius:0}
+/* Full-width scene strip shares the preview area's outer gutters. */
+body[data-render-mode=manager] .scene-picker-top{
+ min-width:0;margin:0 var(--manager-gutter,20px) 16px;padding:17px!important;
+ border:1px solid var(--chrome-line,var(--line));border-radius:13px;
+ background:var(--chrome-panel,var(--glass));color:var(--chrome-ink,var(--ink));
+}
+body[data-render-mode=manager] .scene-picker-top h3{margin:0 0 10px;font-size:14px;line-height:1.5;color:inherit}
+body[data-render-mode=manager] .scene-picker-top #sceneOptions{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;min-width:0;padding:3px}
+body[data-render-mode=manager] .scene-picker-top .scene-thumb{height:auto;min-width:0;padding:0;overflow:hidden;border-radius:6px;font-size:11px;line-height:1.45;white-space:normal}
+@media(max-width:1100px){body[data-render-mode=manager] .scene-picker-top #sceneOptions{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:600px){body[data-render-mode=manager] .scene-picker-top{padding:12px!important;margin-bottom:12px}body[data-render-mode=manager] .scene-picker-top #sceneOptions{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}}
