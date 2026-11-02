@@ -400,6 +400,12 @@
       "git_blob_sha": "9fcc8778893b48d1e140e71ec70f6a37ee0523e2"
     },
     {
+      "path": "implementation-p4_2_5/docs/WINDOWS-HOST-VALIDATION-2026-11-03.md",
+      "bytes": 5187,
+      "sha256": "383c761d32a41715f4f816cb910cfb1d32ea9d4ec759a412fd9236b4ae9000bd",
+      "git_blob_sha": "34555691d17ff65b3b23f55fe4812bab3c54289e"
+    },
+    {
       "path": "implementation-p4_2_5/docs/WINDOWS-VERIFICATION-2026-11-02.md",
       "bytes": 3672,
       "sha256": "5e4867935dcb0827ac96ce48445530e8fd0d669a7bce6cd06aff39c55be9123a",
@@ -414,8 +420,8 @@
     {
       "path": "implementation-p4_2_5/evidence/independent-draft-review.json",
       "bytes": 412,
-      "sha256": "40f343afdde0d9ac0430cb5273f794ce490de0538f598706e3ba1f38d994abd1",
-      "git_blob_sha": "64c5a6eb87945609430f73422e766e23ba3ae6ef"
+      "sha256": "54282c5b546900874a0fec522fbf67e07e66ef9742ff35fd0a1cc7a2c44714ec",
+      "git_blob_sha": "7c3da7ca4fa524a1fe119333663e2ec02f60ac6a"
     },
     {
       "path": "implementation-p4_2_5/evidence/independent-path-review.json",
@@ -438,14 +444,26 @@
     {
       "path": "implementation-p4_2_5/evidence/verification.json",
       "bytes": 601,
-      "sha256": "3539f5f9aaf4a1ab5d3c4b9a421155b5eeb1d805a4cf388e32700737005c1a18",
-      "git_blob_sha": "f4e1d3d30cb82c539a4b70a2c1fb06ec20fcc5e2"
+      "sha256": "c85e3ab02655f15d73ebc7aff44ad6c3a9195853c2d58dd9886904c1804864a8",
+      "git_blob_sha": "993635084a6c45cae5e731386f489fda55402a4c"
+    },
+    {
+      "path": "implementation-p4_2_5/evidence/windows-host-partial-2026-11-03.json",
+      "bytes": 1377,
+      "sha256": "55b9c7521d13bea9215da1b85b2011c1e3aafea372bc83e7657be94d29df565a",
+      "git_blob_sha": "214f2b794c1323e6d9960d300f020318cbf00d46"
     },
     {
       "path": "implementation-p4_2_5/package.json",
       "bytes": 296,
       "sha256": "966c5f498c60713f2e52e251bd8b14c705e6a482b21e70eba911499ed8d0e4bc",
       "git_blob_sha": "8a1cd8ae617ad58bb0164d743a41bf538b49684d"
+    },
+    {
+      "path": "implementation-p4_2_5/scripts/measure-windows-host.ps1",
+      "bytes": 5043,
+      "sha256": "2f38569460940b641d811e798cc3ccd26e055d26e86b9679c19ef651a5353f13",
+      "git_blob_sha": "cb74b328710daea6addebb948e1459d0268b3892"
     },
     {
       "path": "implementation-p4_2_5/scripts/prepare-p42.mjs",
@@ -473,9 +491,21 @@
     },
     {
       "path": "implementation-p4_2_5/scripts/prepare.mjs",
-      "bytes": 12727,
-      "sha256": "91e128ddf33648c6a257c5ef8c0d9e43000142311826bc49bd18a97bd5a3a632",
-      "git_blob_sha": "90dd11ac4b999fea3d5f86fb57f9d4f18d259f3e"
+      "bytes": 12826,
+      "sha256": "8faa674205522714d288d3c20a1fc800800617c5db391d9e098f7706ce0cc6e1",
+      "git_blob_sha": "1f0efedbb3023433920aed3a84d453ce9b972dc2"
+    },
+    {
+      "path": "implementation-p4_2_5/scripts/read-windows-lifecycle-events.ps1",
+      "bytes": 1598,
+      "sha256": "96d57e5532a26fd369a4c95139e2e9003ab9bf9a7a6cb8d554025463c775508b",
+      "git_blob_sha": "22a016b9e49af05ff439a7fd9dae4df350574021"
+    },
+    {
+      "path": "implementation-p4_2_5/scripts/summarize-windows-host.mjs",
+      "bytes": 3985,
+      "sha256": "c0043918362023e9de991d59e61886b10d90dd47f9ea07ccb5dc9c77c6b92472",
+      "git_blob_sha": "36d601f983b4728932df9f16c6382db5795f0cd4"
     },
     {
       "path": "implementation-p4_2_5/scripts/verify.mjs",
@@ -497,9 +527,9 @@
     },
     {
       "path": "implementation-p4_2_5/src/bridge-client.js",
-      "bytes": 14821,
-      "sha256": "710ce79a2845920e30ee8121ed359adeca5562e7205e0ec87366c699dda26b87",
-      "git_blob_sha": "444eae2df5daa1f8e8b6a8ece21db198bf558940"
+      "bytes": 15192,
+      "sha256": "72834e7265a8ffd4fd58af27997b81809713744b19ed8f7916fb1d3342279bd9",
+      "git_blob_sha": "948157b28c70f614abca5fe444c7c0314a47426b"
     },
     {
       "path": "implementation-p4_2_5/src/clock-dom.js",
@@ -706,6 +736,12 @@
       "git_blob_sha": "d30bb8f8d4fa5eb21cb22062c9f5cd2ba826f9e0"
     },
     {
+      "path": "implementation-p4_2_5/src/session-recovery.js",
+      "bytes": 1024,
+      "sha256": "037d90719e6b42de75168aa299aaf0f6f36695ce677e8f61ceda9650d72ca92e",
+      "git_blob_sha": "9a6495deff5fbfd61d9fc8209705103b0a78631f"
+    },
+    {
       "path": "implementation-p4_2_5/src/state-v2.mjs",
       "bytes": 7290,
       "sha256": "ee5df400a1efe9a32538110f1cec14d6cb5f6bfb2d78e13625835c8c83fa6bd4",
@@ -731,9 +767,9 @@
     },
     {
       "path": "implementation-p4_2_5/src/windows-runtime.mjs",
-      "bytes": 2898,
-      "sha256": "541176e6a88ee3912efe82220426da7b42698d1a96833611fd4adf6de317d543",
-      "git_blob_sha": "bcdb617d92b87b0bccb3ab6d30655624f1893e2d"
+      "bytes": 3058,
+      "sha256": "1873d3cbe90935211bd78b72d75153e94b0627c5ff55d6db659a7dbf5fd7084f",
+      "git_blob_sha": "1531acf4d0e027171e88b5e0330cece190867632"
     },
     {
       "path": "implementation-p4_2_5/tests/bulk-visibility.test.mjs",
@@ -788,6 +824,12 @@
       "bytes": 14382,
       "sha256": "2ecc73d07decda8e015f8b409225ed9ed98912b159446a784699f32b4a338190",
       "git_blob_sha": "69b6049b4f816147d8a1dac96abeaf5a72afcff3"
+    },
+    {
+      "path": "implementation-p4_2_5/tests/host-summary.test.mjs",
+      "bytes": 2237,
+      "sha256": "2e6f0c08b406734c8688eae1ca2d90ec31ebc16a081e9acb9ac4fdfc326f5ac3",
+      "git_blob_sha": "8252ae34387a3e62bc9e1d2e8571fa8f7ed9d15c"
     },
     {
       "path": "implementation-p4_2_5/tests/i18n.test.mjs",
@@ -848,6 +890,12 @@
       "bytes": 3538,
       "sha256": "29a4158265727a44965d8bf3c0c95e0800e524bc64422e4d2d4d6f3df94d8156",
       "git_blob_sha": "8068814eebba47508ac2541b6292cedfc52c186b"
+    },
+    {
+      "path": "implementation-p4_2_5/tests/session-recovery.test.mjs",
+      "bytes": 2359,
+      "sha256": "ee8b8e63b5cd40ef615e0eec60bce7b4a06f6c3df471a28260b36c6e3d3572fa",
+      "git_blob_sha": "b33dfaebad0f4e3cc29a8545bf39e6e8e658be29"
     },
     {
       "path": "implementation-p4_2_5/tests/shared-core-regression.test.mjs",

@@ -35,3 +35,5 @@ await import("./prepare-p421.mjs");
 await import("./prepare-p422.mjs");
 
 await import("./prepare-p423.mjs");
+
+fs.copyFileSync(path.join(root,'src/session-recovery.js'),path.join(dist,'session-recovery.js'));

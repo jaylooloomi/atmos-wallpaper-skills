@@ -1,0 +1,39 @@
+{
+  "status": "stopped-at-user-request",
+  "requestedSeconds": 7200,
+  "observedSeconds": 2171.59,
+  "sampleCount": 158,
+  "completedFullDuration": false,
+  "httpErrorSamples": 0,
+  "noRecentAckSamples": 0,
+  "missingPlayerSamples": 0,
+  "metrics": {
+    "server": {
+      "samples": 158,
+      "peakPrivateMiB": 53.02734375,
+      "peakWorkingSetMiB": 87.51953125,
+      "cpuOneCorePercentP50": 0.7510987501716798,
+      "cpuOneCorePercentP95": 1.408340844484504,
+      "cpuMachinePercentP95": 0.025148943651509,
+      "privateMiBMedianGrowth": 1.46484375,
+      "handleMedianGrowth": 1
+    },
+    "wallpaper": {
+      "samples": 158,
+      "peakPrivateMiB": 467.046875,
+      "peakWorkingSetMiB": 566.5234375,
+      "cpuOneCorePercentP50": 27.831645478704303,
+      "cpuOneCorePercentP95": 33.534068737805796,
+      "cpuMachinePercentP95": 0.5988226560322464,
+      "privateMiBMedianGrowth": 85.8359375,
+      "handleMedianGrowth": 1670
+    }
+  },
+  "manualWallpaperConfirmed": true,
+  "manualLockUnlockConfirmed": true,
+  "sleepVerified": false,
+  "sleepLimitation": "Firmware does not support S0/S1/S2/S3; no sleep/resume OS events",
+  "gpuMeasured": false,
+  "energyMeasured": false,
+  "conclusion": "Functional host and service restart checks passed. Partial soak only; observed memory/handle growth needs a longer investigation and does not prove leak-free operation."
+}
