@@ -1,10 +1,10 @@
-# Atmos Wallpaper Windows 安裝版 0.3.6
+# Atmos Wallpaper Windows 安裝版 0.3.7
 
 Tauri 2＋Rust、Windows x64、單主螢幕桌布。保留現有管理頁、場景、元件與 ICS 日曆，由自己的 WebView2 宿主套用，**不使用 Lively**。
 
 ## 安裝與操作
 
-執行 `Atmos Wallpaper_0.3.6_x64-setup.exe`，完成頁預設勾選啟動 Atmos；按完成後自動套用主螢幕桌布。安裝器包含 Node、隔離的 Python＋Pillow，以及官方離線 WebView2 安裝程式；一般使用者不必另外安裝 Node、Python 或 Lively，也不需要 Rust 開發工具。
+執行 `Atmos Wallpaper_0.3.7_x64-setup.exe`，完成頁預設勾選啟動 Atmos；按完成後自動套用主螢幕桌布。安裝器包含 Node、隔離的 Python＋Pillow，以及官方離線 WebView2 安裝程式；一般使用者不必另外安裝 Node、Python 或 Lively，也不需要 Rust 開發工具。
 
 - 在目前使用者範圍安裝，預設 `%LOCALAPPDATA%\Atmos Wallpaper`；不新增系統 PATH 或 Windows Service。
 - 系統匣「開啟管理頁」調整設定，按「套用變更」保存；再次啟動 Atmos 捷徑也會開啟現有管理頁。
@@ -99,3 +99,5 @@ Agent 實機整合測試（會暫時變更強度再以交易還原）：node scr
 0.3.5 安裝版管理視窗隱藏重複的 Atmos 頁首與說明列，使用原生視窗標題；單獨瀏覽器開啟仍保留頁面標題。原雙欄與對齊不變。[頁首驗證](docs/NATIVE-MANAGER-HEADER-2026-11-04.md)。
 
 0.3.6 說明卡片依文字內容決定高度，不再被右側面板撐高；預覽比例與雙欄頂端對齊保留。[說明卡片驗證](docs/COMPACT-EXPLANATION-2026-11-04.md)。
+
+0.3.7 修正浮動工具列提示文字在深色風格下對比不足：使用獨立深色文字、完整不透明度與 11px 字級。[文字對比驗證](docs/TOOLBAR-CONTRAST-2026-11-04.md)。

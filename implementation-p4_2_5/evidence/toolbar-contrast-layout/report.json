@@ -1,0 +1,2246 @@
+{
+  "kind": "Isolated Chromium CLI render; synthetic fixture only; no user browser/desktop automation",
+  "cases": [
+    {
+      "width": 320,
+      "height": 160,
+      "theme": "minimal",
+      "pageWidth": 305,
+      "pageClientWidth": 305,
+      "scene": {
+        "left": 14,
+        "right": 291,
+        "top": 382.53125,
+        "bottom": 744.28125,
+        "width": 277,
+        "height": 361.75
+      },
+      "columns": 2,
+      "cards": [
+        {
+          "left": 30,
+          "right": 148.5,
+          "top": 429.53125,
+          "bottom": 523.78125,
+          "width": 118.5,
+          "height": 94.25,
+          "contentWidth": 117,
+          "clientWidth": 117,
+          "title": "Forest"
+        },
+        {
+          "left": 156.5,
+          "right": 275,
+          "top": 429.53125,
+          "bottom": 523.78125,
+          "width": 118.5,
+          "height": 94.25,
+          "contentWidth": 117,
+          "clientWidth": 117,
+          "title": "City"
+        },
+        {
+          "left": 30,
+          "right": 148.5,
+          "top": 531.78125,
+          "bottom": 626.03125,
+          "width": 118.5,
+          "height": 94.25,
+          "contentWidth": 117,
+          "clientWidth": 117,
+          "title": "Future city"
+        },
+        {
+          "left": 156.5,
+          "right": 275,
+          "top": 531.78125,
+          "bottom": 626.03125,
+          "width": 118.5,
+          "height": 94.25,
+          "contentWidth": 117,
+          "clientWidth": 117,
+          "title": "Coast"
+        },
+        {
+          "left": 30,
+          "right": 148.5,
+          "top": 634.03125,
+          "bottom": 728.28125,
+          "width": 118.5,
+          "height": 94.25,
+          "contentWidth": 117,
+          "clientWidth": 117,
+          "title": "Snowy mountains"
+        },
+        {
+          "left": 156.5,
+          "right": 275,
+          "top": 634.03125,
+          "bottom": 728.28125,
+          "width": 118.5,
+          "height": 94.25,
+          "contentWidth": 117,
+          "clientWidth": 117,
+          "title": "Desert night sky"
+        }
+      ],
+      "toolbar": {
+        "left": 14,
+        "right": 291,
+        "top": 756.28125,
+        "bottom": 958.875,
+        "width": 277,
+        "height": 202.59375,
+        "contentWidth": 277,
+        "clientWidth": 277,
+        "minInputWidth": 60,
+        "inlineLabels": true,
+        "singleRow": false
+      },
+      "side": {
+        "left": 14,
+        "right": 291,
+        "top": 1563.265625,
+        "bottom": 2810.609375,
+        "width": 277,
+        "height": 1247.34375
+      },
+      "toolbarInPreviewColumn": true,
+      "brandHeader": {
+        "display": "none",
+        "height": 0,
+        "native": true
+      },
+      "sceneBeforePreview": true,
+      "horizontalScrollContainers": [],
+      "overflows": [],
+      "applyToolbar": {
+        "position": "sticky",
+        "scrollY": 600,
+        "top": 12,
+        "width": 281,
+        "height": 108,
+        "contentWidth": 279,
+        "clientWidth": 279,
+        "buttonOnTop": true,
+        "initialTop": 262.53125
+      },
+      "explanation": {
+        "height": 298.296875,
+        "naturalHeight": 298.296875
+      },
+      "toolbarContrast": [
+        {
+          "theme": "natural",
+          "text": [
+            {
+              "element": "strong",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "draftStatus",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "small",
+              "color": "rgb(67, 84, 99)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 6.94271844510759
+            }
+          ],
+          "enabledButtons": [
+            {
+              "element": "applyDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            },
+            {
+              "element": "cancelDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            },
+            {
+              "element": "rebaseDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            },
+            {
+              "element": "retryDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            }
+          ]
+        },
+        {
+          "theme": "neon",
+          "text": [
+            {
+              "element": "strong",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "draftStatus",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "small",
+              "color": "rgb(67, 84, 99)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 6.94271844510759
+            }
+          ],
+          "enabledButtons": [
+            {
+              "element": "applyDraft",
+              "color": "rgb(32, 43, 50)",
+              "background": "rgb(240, 243, 244)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 12.96029676839524
+            },
+            {
+              "element": "cancelDraft",
+              "color": "rgb(32, 43, 50)",
+              "background": "rgb(240, 243, 244)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 12.96029676839524
+            },
+            {
+              "element": "rebaseDraft",
+              "color": "rgb(32, 43, 50)",
+              "background": "rgb(240, 243, 244)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 12.96029676839524
+            },
+            {
+              "element": "retryDraft",
+              "color": "rgb(32, 43, 50)",
+              "background": "rgb(240, 243, 244)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 12.96029676839524
+            }
+          ]
+        },
+        {
+          "theme": "warm",
+          "text": [
+            {
+              "element": "strong",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "draftStatus",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "small",
+              "color": "rgb(67, 84, 99)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 6.94271844510759
+            }
+          ],
+          "enabledButtons": [
+            {
+              "element": "applyDraft",
+              "color": "rgb(32, 43, 50)",
+              "background": "rgb(240, 243, 244)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 12.96029676839524
+            },
+            {
+              "element": "cancelDraft",
+              "color": "rgb(32, 43, 50)",
+              "background": "rgb(240, 243, 244)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 12.96029676839524
+            },
+            {
+              "element": "rebaseDraft",
+              "color": "rgb(32, 43, 50)",
+              "background": "rgb(240, 243, 244)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 12.96029676839524
+            },
+            {
+              "element": "retryDraft",
+              "color": "rgb(32, 43, 50)",
+              "background": "rgb(240, 243, 244)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 12.96029676839524
+            }
+          ]
+        },
+        {
+          "theme": "minimal",
+          "text": [
+            {
+              "element": "strong",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "draftStatus",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "small",
+              "color": "rgb(67, 84, 99)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 6.94271844510759
+            }
+          ],
+          "enabledButtons": [
+            {
+              "element": "applyDraft",
+              "color": "rgb(32, 43, 50)",
+              "background": "rgb(240, 243, 244)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 12.96029676839524
+            },
+            {
+              "element": "cancelDraft",
+              "color": "rgb(32, 43, 50)",
+              "background": "rgb(240, 243, 244)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 12.96029676839524
+            },
+            {
+              "element": "rebaseDraft",
+              "color": "rgb(32, 43, 50)",
+              "background": "rgb(240, 243, 244)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 12.96029676839524
+            },
+            {
+              "element": "retryDraft",
+              "color": "rgb(32, 43, 50)",
+              "background": "rgb(240, 243, 244)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 12.96029676839524
+            }
+          ]
+        },
+        {
+          "theme": "natural",
+          "text": [
+            {
+              "element": "strong",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "draftStatus",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "small",
+              "color": "rgb(67, 84, 99)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 6.94271844510759
+            }
+          ],
+          "enabledButtons": [
+            {
+              "element": "applyDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            },
+            {
+              "element": "cancelDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            },
+            {
+              "element": "rebaseDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            },
+            {
+              "element": "retryDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            }
+          ]
+        }
+      ],
+      "resizeObserverWarnings": 0,
+      "failures": []
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "theme": "neon",
+      "pageWidth": 375,
+      "pageClientWidth": 375,
+      "scene": {
+        "left": 14,
+        "right": 361,
+        "top": 396.53125,
+        "bottom": 810.78125,
+        "width": 347,
+        "height": 414.25
+      },
+      "columns": 2,
+      "cards": [
+        {
+          "left": 30,
+          "right": 183.5,
+          "top": 443.53125,
+          "bottom": 555.28125,
+          "width": 153.5,
+          "height": 111.75,
+          "contentWidth": 152,
+          "clientWidth": 152,
+          "title": "Forest"
+        },
+        {
+          "left": 191.5,
+          "right": 345,
+          "top": 443.53125,
+          "bottom": 555.28125,
+          "width": 153.5,
+          "height": 111.75,
+          "contentWidth": 152,
+          "clientWidth": 152,
+          "title": "City"
+        },
+        {
+          "left": 30,
+          "right": 183.5,
+          "top": 563.28125,
+          "bottom": 675.03125,
+          "width": 153.5,
+          "height": 111.75,
+          "contentWidth": 152,
+          "clientWidth": 152,
+          "title": "Future city"
+        },
+        {
+          "left": 191.5,
+          "right": 345,
+          "top": 563.28125,
+          "bottom": 675.03125,
+          "width": 153.5,
+          "height": 111.75,
+          "contentWidth": 152,
+          "clientWidth": 152,
+          "title": "Coast"
+        },
+        {
+          "left": 30,
+          "right": 183.5,
+          "top": 683.03125,
+          "bottom": 794.78125,
+          "width": 153.5,
+          "height": 111.75,
+          "contentWidth": 152,
+          "clientWidth": 152,
+          "title": "Snowy mountains"
+        },
+        {
+          "left": 191.5,
+          "right": 345,
+          "top": 683.03125,
+          "bottom": 794.78125,
+          "width": 153.5,
+          "height": 111.75,
+          "contentWidth": 152,
+          "clientWidth": 152,
+          "title": "Desert night sky"
+        }
+      ],
+      "toolbar": {
+        "left": 14,
+        "right": 361,
+        "top": 822.78125,
+        "bottom": 1025.375,
+        "width": 347,
+        "height": 202.59375,
+        "contentWidth": 347,
+        "clientWidth": 347,
+        "minInputWidth": 93.390625,
+        "inlineLabels": true,
+        "singleRow": false
+      },
+      "side": {
+        "left": 14,
+        "right": 361,
+        "top": 1577.921875,
+        "bottom": 2935.78125,
+        "width": 347,
+        "height": 1357.859375
+      },
+      "toolbarInPreviewColumn": true,
+      "brandHeader": {
+        "display": "none",
+        "height": 0,
+        "native": true
+      },
+      "sceneBeforePreview": true,
+      "horizontalScrollContainers": [],
+      "overflows": [],
+      "applyToolbar": {
+        "position": "sticky",
+        "scrollY": 600,
+        "top": 12,
+        "width": 351,
+        "height": 122,
+        "contentWidth": 349,
+        "clientWidth": 349,
+        "buttonOnTop": true,
+        "initialTop": 262.53125
+      },
+      "explanation": {
+        "height": 228.125,
+        "naturalHeight": 228.125
+      },
+      "toolbarContrast": [
+        {
+          "theme": "natural",
+          "text": [
+            {
+              "element": "strong",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "draftStatus",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "small",
+              "color": "rgb(67, 84, 99)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 6.94271844510759
+            }
+          ],
+          "enabledButtons": [
+            {
+              "element": "applyDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            },
+            {
+              "element": "cancelDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            },
+            {
+              "element": "rebaseDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            },
+            {
+              "element": "retryDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            }
+          ]
+        },
+        {
+          "theme": "neon",
+          "text": [
+            {
+              "element": "strong",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "draftStatus",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "small",
+              "color": "rgb(67, 84, 99)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 6.94271844510759
+            }
+          ],
+          "enabledButtons": [
+            {
+              "element": "applyDraft",
+              "color": "rgb(232, 249, 255)",
+              "background": "rgb(17, 43, 67)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 13.39283815516504
+            },
+            {
+              "element": "cancelDraft",
+              "color": "rgb(232, 249, 255)",
+              "background": "rgb(17, 43, 67)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 13.39283815516504
+            },
+            {
+              "element": "rebaseDraft",
+              "color": "rgb(232, 249, 255)",
+              "background": "rgb(17, 43, 67)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 13.39283815516504
+            },
+            {
+              "element": "retryDraft",
+              "color": "rgb(232, 249, 255)",
+              "background": "rgb(17, 43, 67)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 13.39283815516504
+            }
+          ]
+        },
+        {
+          "theme": "warm",
+          "text": [
+            {
+              "element": "strong",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "draftStatus",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "small",
+              "color": "rgb(67, 84, 99)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 6.94271844510759
+            }
+          ],
+          "enabledButtons": [
+            {
+              "element": "applyDraft",
+              "color": "rgb(232, 249, 255)",
+              "background": "rgb(17, 43, 67)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 13.39283815516504
+            },
+            {
+              "element": "cancelDraft",
+              "color": "rgb(232, 249, 255)",
+              "background": "rgb(17, 43, 67)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 13.39283815516504
+            },
+            {
+              "element": "rebaseDraft",
+              "color": "rgb(232, 249, 255)",
+              "background": "rgb(17, 43, 67)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 13.39283815516504
+            },
+            {
+              "element": "retryDraft",
+              "color": "rgb(232, 249, 255)",
+              "background": "rgb(17, 43, 67)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 13.39283815516504
+            }
+          ]
+        },
+        {
+          "theme": "minimal",
+          "text": [
+            {
+              "element": "strong",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "draftStatus",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "small",
+              "color": "rgb(67, 84, 99)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 6.94271844510759
+            }
+          ],
+          "enabledButtons": [
+            {
+              "element": "applyDraft",
+              "color": "rgb(232, 249, 255)",
+              "background": "rgb(17, 43, 67)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 13.39283815516504
+            },
+            {
+              "element": "cancelDraft",
+              "color": "rgb(232, 249, 255)",
+              "background": "rgb(17, 43, 67)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 13.39283815516504
+            },
+            {
+              "element": "rebaseDraft",
+              "color": "rgb(232, 249, 255)",
+              "background": "rgb(17, 43, 67)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 13.39283815516504
+            },
+            {
+              "element": "retryDraft",
+              "color": "rgb(232, 249, 255)",
+              "background": "rgb(17, 43, 67)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 13.39283815516504
+            }
+          ]
+        },
+        {
+          "theme": "natural",
+          "text": [
+            {
+              "element": "strong",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "draftStatus",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "small",
+              "color": "rgb(67, 84, 99)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 6.94271844510759
+            }
+          ],
+          "enabledButtons": [
+            {
+              "element": "applyDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            },
+            {
+              "element": "cancelDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            },
+            {
+              "element": "rebaseDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            },
+            {
+              "element": "retryDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            }
+          ]
+        }
+      ],
+      "resizeObserverWarnings": 0,
+      "failures": []
+    },
+    {
+      "width": 1280,
+      "height": 900,
+      "theme": "natural",
+      "pageWidth": 1265,
+      "pageClientWidth": 1265,
+      "scene": {
+        "left": 32,
+        "right": 1233,
+        "top": 205.5,
+        "bottom": 403.921875,
+        "width": 1201,
+        "height": 198.421875
+      },
+      "columns": 6,
+      "cards": [
+        {
+          "left": 53,
+          "right": 237.828125,
+          "top": 257.5,
+          "bottom": 382.921875,
+          "width": 184.828125,
+          "height": 125.421875,
+          "contentWidth": 183,
+          "clientWidth": 183,
+          "title": "Forest"
+        },
+        {
+          "left": 247.828125,
+          "right": 432.65625,
+          "top": 257.5,
+          "bottom": 382.921875,
+          "width": 184.828125,
+          "height": 125.421875,
+          "contentWidth": 183,
+          "clientWidth": 183,
+          "title": "City"
+        },
+        {
+          "left": 442.65625,
+          "right": 627.484375,
+          "top": 257.5,
+          "bottom": 382.921875,
+          "width": 184.828125,
+          "height": 125.421875,
+          "contentWidth": 183,
+          "clientWidth": 183,
+          "title": "Future city"
+        },
+        {
+          "left": 637.484375,
+          "right": 822.328125,
+          "top": 257.5,
+          "bottom": 382.921875,
+          "width": 184.84375,
+          "height": 125.421875,
+          "contentWidth": 183,
+          "clientWidth": 183,
+          "title": "Coast"
+        },
+        {
+          "left": 832.328125,
+          "right": 1017.15625,
+          "top": 257.5,
+          "bottom": 382.921875,
+          "width": 184.828125,
+          "height": 125.421875,
+          "contentWidth": 183,
+          "clientWidth": 183,
+          "title": "Snowy mountains"
+        },
+        {
+          "left": 1027.15625,
+          "right": 1211.984375,
+          "top": 257.5,
+          "bottom": 382.921875,
+          "width": 184.828125,
+          "height": 125.421875,
+          "contentWidth": 183,
+          "clientWidth": 183,
+          "title": "Desert night sky"
+        }
+      ],
+      "toolbar": {
+        "left": 32,
+        "right": 701,
+        "top": 419.921875,
+        "bottom": 541.921875,
+        "width": 669,
+        "height": 122,
+        "contentWidth": 669,
+        "clientWidth": 669,
+        "minInputWidth": 65.5,
+        "inlineLabels": true,
+        "singleRow": false
+      },
+      "side": {
+        "left": 723,
+        "right": 1233,
+        "top": 419.921875,
+        "bottom": 1563.921875,
+        "width": 510,
+        "height": 1144
+      },
+      "toolbarInPreviewColumn": true,
+      "brandHeader": {
+        "display": "none",
+        "height": 0,
+        "native": true
+      },
+      "sceneBeforePreview": true,
+      "horizontalScrollContainers": [],
+      "overflows": [],
+      "applyToolbar": {
+        "position": "sticky",
+        "scrollY": 600,
+        "top": 12,
+        "width": 1201,
+        "height": 46.5,
+        "contentWidth": 1199,
+        "clientWidth": 1199,
+        "buttonOnTop": true,
+        "initialTop": 147
+      },
+      "explanation": {
+        "height": 157.953125,
+        "naturalHeight": 157.953125
+      },
+      "toolbarContrast": [
+        {
+          "theme": "natural",
+          "text": [
+            {
+              "element": "strong",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "draftStatus",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "small",
+              "color": "rgb(67, 84, 99)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 6.94271844510759
+            }
+          ],
+          "enabledButtons": [
+            {
+              "element": "applyDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            },
+            {
+              "element": "cancelDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            },
+            {
+              "element": "rebaseDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            },
+            {
+              "element": "retryDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            }
+          ]
+        },
+        {
+          "theme": "neon",
+          "text": [
+            {
+              "element": "strong",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "draftStatus",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "small",
+              "color": "rgb(67, 84, 99)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 6.94271844510759
+            }
+          ],
+          "enabledButtons": [
+            {
+              "element": "applyDraft",
+              "color": "rgb(231, 240, 234)",
+              "background": "rgb(35, 54, 51)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 10.959705979457839
+            },
+            {
+              "element": "cancelDraft",
+              "color": "rgb(231, 240, 234)",
+              "background": "rgb(35, 54, 51)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 10.959705979457839
+            },
+            {
+              "element": "rebaseDraft",
+              "color": "rgb(231, 240, 234)",
+              "background": "rgb(35, 54, 51)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 10.959705979457839
+            },
+            {
+              "element": "retryDraft",
+              "color": "rgb(231, 240, 234)",
+              "background": "rgb(35, 54, 51)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 10.959705979457839
+            }
+          ]
+        },
+        {
+          "theme": "warm",
+          "text": [
+            {
+              "element": "strong",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "draftStatus",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "small",
+              "color": "rgb(67, 84, 99)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 6.94271844510759
+            }
+          ],
+          "enabledButtons": [
+            {
+              "element": "applyDraft",
+              "color": "rgb(231, 240, 234)",
+              "background": "rgb(35, 54, 51)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 10.959705979457839
+            },
+            {
+              "element": "cancelDraft",
+              "color": "rgb(231, 240, 234)",
+              "background": "rgb(35, 54, 51)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 10.959705979457839
+            },
+            {
+              "element": "rebaseDraft",
+              "color": "rgb(231, 240, 234)",
+              "background": "rgb(35, 54, 51)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 10.959705979457839
+            },
+            {
+              "element": "retryDraft",
+              "color": "rgb(231, 240, 234)",
+              "background": "rgb(35, 54, 51)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 10.959705979457839
+            }
+          ]
+        },
+        {
+          "theme": "minimal",
+          "text": [
+            {
+              "element": "strong",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "draftStatus",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "small",
+              "color": "rgb(67, 84, 99)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 6.94271844510759
+            }
+          ],
+          "enabledButtons": [
+            {
+              "element": "applyDraft",
+              "color": "rgb(231, 240, 234)",
+              "background": "rgb(35, 54, 51)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 10.959705979457839
+            },
+            {
+              "element": "cancelDraft",
+              "color": "rgb(231, 240, 234)",
+              "background": "rgb(35, 54, 51)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 10.959705979457839
+            },
+            {
+              "element": "rebaseDraft",
+              "color": "rgb(231, 240, 234)",
+              "background": "rgb(35, 54, 51)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 10.959705979457839
+            },
+            {
+              "element": "retryDraft",
+              "color": "rgb(231, 240, 234)",
+              "background": "rgb(35, 54, 51)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 10.959705979457839
+            }
+          ]
+        },
+        {
+          "theme": "natural",
+          "text": [
+            {
+              "element": "strong",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "draftStatus",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "small",
+              "color": "rgb(67, 84, 99)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 6.94271844510759
+            }
+          ],
+          "enabledButtons": [
+            {
+              "element": "applyDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            },
+            {
+              "element": "cancelDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            },
+            {
+              "element": "rebaseDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            },
+            {
+              "element": "retryDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            }
+          ]
+        }
+      ],
+      "resizeObserverWarnings": 0,
+      "failures": []
+    },
+    {
+      "width": 1280,
+      "height": 900,
+      "theme": "warm",
+      "pageWidth": 1265,
+      "pageClientWidth": 1265,
+      "scene": {
+        "left": 32,
+        "right": 1233,
+        "top": 205.5,
+        "bottom": 403.921875,
+        "width": 1201,
+        "height": 198.421875
+      },
+      "columns": 6,
+      "cards": [
+        {
+          "left": 53,
+          "right": 237.828125,
+          "top": 257.5,
+          "bottom": 382.921875,
+          "width": 184.828125,
+          "height": 125.421875,
+          "contentWidth": 183,
+          "clientWidth": 183,
+          "title": "Forest"
+        },
+        {
+          "left": 247.828125,
+          "right": 432.65625,
+          "top": 257.5,
+          "bottom": 382.921875,
+          "width": 184.828125,
+          "height": 125.421875,
+          "contentWidth": 183,
+          "clientWidth": 183,
+          "title": "City"
+        },
+        {
+          "left": 442.65625,
+          "right": 627.484375,
+          "top": 257.5,
+          "bottom": 382.921875,
+          "width": 184.828125,
+          "height": 125.421875,
+          "contentWidth": 183,
+          "clientWidth": 183,
+          "title": "Future city"
+        },
+        {
+          "left": 637.484375,
+          "right": 822.328125,
+          "top": 257.5,
+          "bottom": 382.921875,
+          "width": 184.84375,
+          "height": 125.421875,
+          "contentWidth": 183,
+          "clientWidth": 183,
+          "title": "Coast"
+        },
+        {
+          "left": 832.328125,
+          "right": 1017.15625,
+          "top": 257.5,
+          "bottom": 382.921875,
+          "width": 184.828125,
+          "height": 125.421875,
+          "contentWidth": 183,
+          "clientWidth": 183,
+          "title": "Snowy mountains"
+        },
+        {
+          "left": 1027.15625,
+          "right": 1211.984375,
+          "top": 257.5,
+          "bottom": 382.921875,
+          "width": 184.828125,
+          "height": 125.421875,
+          "contentWidth": 183,
+          "clientWidth": 183,
+          "title": "Desert night sky"
+        }
+      ],
+      "toolbar": {
+        "left": 32,
+        "right": 701,
+        "top": 419.921875,
+        "bottom": 540.921875,
+        "width": 669,
+        "height": 121,
+        "contentWidth": 669,
+        "clientWidth": 669,
+        "minInputWidth": 65.5,
+        "inlineLabels": true,
+        "singleRow": false
+      },
+      "side": {
+        "left": 723,
+        "right": 1233,
+        "top": 419.921875,
+        "bottom": 1563.921875,
+        "width": 510,
+        "height": 1144
+      },
+      "toolbarInPreviewColumn": true,
+      "brandHeader": {
+        "display": "none",
+        "height": 0,
+        "native": true
+      },
+      "sceneBeforePreview": true,
+      "horizontalScrollContainers": [],
+      "overflows": [],
+      "applyToolbar": {
+        "position": "sticky",
+        "scrollY": 600,
+        "top": 12,
+        "width": 1201,
+        "height": 46.5,
+        "contentWidth": 1199,
+        "clientWidth": 1199,
+        "buttonOnTop": true,
+        "initialTop": 147
+      },
+      "explanation": {
+        "height": 157.953125,
+        "naturalHeight": 157.953125
+      },
+      "toolbarContrast": [
+        {
+          "theme": "natural",
+          "text": [
+            {
+              "element": "strong",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "draftStatus",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "small",
+              "color": "rgb(67, 84, 99)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 6.94271844510759
+            }
+          ],
+          "enabledButtons": [
+            {
+              "element": "applyDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            },
+            {
+              "element": "cancelDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            },
+            {
+              "element": "rebaseDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            },
+            {
+              "element": "retryDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            }
+          ]
+        },
+        {
+          "theme": "neon",
+          "text": [
+            {
+              "element": "strong",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "draftStatus",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "small",
+              "color": "rgb(67, 84, 99)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 6.94271844510759
+            }
+          ],
+          "enabledButtons": [
+            {
+              "element": "applyDraft",
+              "color": "rgb(71, 56, 46)",
+              "background": "rgb(242, 223, 196)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 8.61040339350817
+            },
+            {
+              "element": "cancelDraft",
+              "color": "rgb(71, 56, 46)",
+              "background": "rgb(242, 223, 196)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 8.61040339350817
+            },
+            {
+              "element": "rebaseDraft",
+              "color": "rgb(71, 56, 46)",
+              "background": "rgb(242, 223, 196)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 8.61040339350817
+            },
+            {
+              "element": "retryDraft",
+              "color": "rgb(71, 56, 46)",
+              "background": "rgb(242, 223, 196)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 8.61040339350817
+            }
+          ]
+        },
+        {
+          "theme": "warm",
+          "text": [
+            {
+              "element": "strong",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "draftStatus",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "small",
+              "color": "rgb(67, 84, 99)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 6.94271844510759
+            }
+          ],
+          "enabledButtons": [
+            {
+              "element": "applyDraft",
+              "color": "rgb(71, 56, 46)",
+              "background": "rgb(242, 223, 196)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 8.61040339350817
+            },
+            {
+              "element": "cancelDraft",
+              "color": "rgb(71, 56, 46)",
+              "background": "rgb(242, 223, 196)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 8.61040339350817
+            },
+            {
+              "element": "rebaseDraft",
+              "color": "rgb(71, 56, 46)",
+              "background": "rgb(242, 223, 196)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 8.61040339350817
+            },
+            {
+              "element": "retryDraft",
+              "color": "rgb(71, 56, 46)",
+              "background": "rgb(242, 223, 196)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 8.61040339350817
+            }
+          ]
+        },
+        {
+          "theme": "minimal",
+          "text": [
+            {
+              "element": "strong",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "draftStatus",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "small",
+              "color": "rgb(67, 84, 99)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 6.94271844510759
+            }
+          ],
+          "enabledButtons": [
+            {
+              "element": "applyDraft",
+              "color": "rgb(71, 56, 46)",
+              "background": "rgb(242, 223, 196)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 8.61040339350817
+            },
+            {
+              "element": "cancelDraft",
+              "color": "rgb(71, 56, 46)",
+              "background": "rgb(242, 223, 196)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 8.61040339350817
+            },
+            {
+              "element": "rebaseDraft",
+              "color": "rgb(71, 56, 46)",
+              "background": "rgb(242, 223, 196)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 8.61040339350817
+            },
+            {
+              "element": "retryDraft",
+              "color": "rgb(71, 56, 46)",
+              "background": "rgb(242, 223, 196)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 8.61040339350817
+            }
+          ]
+        },
+        {
+          "theme": "natural",
+          "text": [
+            {
+              "element": "strong",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "draftStatus",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "small",
+              "color": "rgb(67, 84, 99)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 6.94271844510759
+            }
+          ],
+          "enabledButtons": [
+            {
+              "element": "applyDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            },
+            {
+              "element": "cancelDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            },
+            {
+              "element": "rebaseDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            },
+            {
+              "element": "retryDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            }
+          ]
+        }
+      ],
+      "resizeObserverWarnings": 0,
+      "failures": []
+    },
+    {
+      "width": 1876,
+      "height": 1080,
+      "theme": "minimal",
+      "pageWidth": 1861,
+      "pageClientWidth": 1861,
+      "scene": {
+        "left": 32,
+        "right": 1829,
+        "top": 205.5,
+        "bottom": 453.578125,
+        "width": 1797,
+        "height": 248.078125
+      },
+      "columns": 6,
+      "cards": [
+        {
+          "left": 53,
+          "right": 337.15625,
+          "top": 257.5,
+          "bottom": 432.578125,
+          "width": 284.15625,
+          "height": 175.078125,
+          "contentWidth": 282,
+          "clientWidth": 282,
+          "title": "Forest"
+        },
+        {
+          "left": 347.15625,
+          "right": 631.328125,
+          "top": 257.5,
+          "bottom": 432.578125,
+          "width": 284.171875,
+          "height": 175.078125,
+          "contentWidth": 282,
+          "clientWidth": 282,
+          "title": "City"
+        },
+        {
+          "left": 641.328125,
+          "right": 925.484375,
+          "top": 257.5,
+          "bottom": 432.578125,
+          "width": 284.15625,
+          "height": 175.078125,
+          "contentWidth": 282,
+          "clientWidth": 282,
+          "title": "Future city"
+        },
+        {
+          "left": 935.484375,
+          "right": 1219.65625,
+          "top": 257.5,
+          "bottom": 432.578125,
+          "width": 284.171875,
+          "height": 175.078125,
+          "contentWidth": 282,
+          "clientWidth": 282,
+          "title": "Coast"
+        },
+        {
+          "left": 1229.65625,
+          "right": 1513.828125,
+          "top": 257.5,
+          "bottom": 432.578125,
+          "width": 284.171875,
+          "height": 175.078125,
+          "contentWidth": 282,
+          "clientWidth": 282,
+          "title": "Snowy mountains"
+        },
+        {
+          "left": 1523.828125,
+          "right": 1807.984375,
+          "top": 257.5,
+          "bottom": 432.578125,
+          "width": 284.15625,
+          "height": 175.078125,
+          "contentWidth": 282,
+          "clientWidth": 282,
+          "title": "Desert night sky"
+        }
+      ],
+      "toolbar": {
+        "left": 32,
+        "right": 1297,
+        "top": 469.578125,
+        "bottom": 526.578125,
+        "width": 1265,
+        "height": 57,
+        "contentWidth": 1265,
+        "clientWidth": 1265,
+        "minInputWidth": 140.6875,
+        "inlineLabels": true,
+        "singleRow": true
+      },
+      "side": {
+        "left": 1319,
+        "right": 1829,
+        "top": 469.578125,
+        "bottom": 1613.578125,
+        "width": 510,
+        "height": 1144
+      },
+      "toolbarInPreviewColumn": true,
+      "brandHeader": {
+        "display": "none",
+        "height": 0,
+        "native": true
+      },
+      "sceneBeforePreview": true,
+      "horizontalScrollContainers": [],
+      "overflows": [],
+      "applyToolbar": {
+        "position": "sticky",
+        "scrollY": 600,
+        "top": 12,
+        "width": 1797,
+        "height": 46.5,
+        "contentWidth": 1795,
+        "clientWidth": 1795,
+        "buttonOnTop": true,
+        "initialTop": 147
+      },
+      "explanation": {
+        "height": 111.171875,
+        "naturalHeight": 111.171875
+      },
+      "toolbarContrast": [
+        {
+          "theme": "natural",
+          "text": [
+            {
+              "element": "strong",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "draftStatus",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "small",
+              "color": "rgb(67, 84, 99)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 6.94271844510759
+            }
+          ],
+          "enabledButtons": [
+            {
+              "element": "applyDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            },
+            {
+              "element": "cancelDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            },
+            {
+              "element": "rebaseDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            },
+            {
+              "element": "retryDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            }
+          ]
+        },
+        {
+          "theme": "neon",
+          "text": [
+            {
+              "element": "strong",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "draftStatus",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "small",
+              "color": "rgb(67, 84, 99)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 6.94271844510759
+            }
+          ],
+          "enabledButtons": [
+            {
+              "element": "applyDraft",
+              "color": "rgb(32, 43, 50)",
+              "background": "rgb(240, 243, 244)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 12.96029676839524
+            },
+            {
+              "element": "cancelDraft",
+              "color": "rgb(32, 43, 50)",
+              "background": "rgb(240, 243, 244)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 12.96029676839524
+            },
+            {
+              "element": "rebaseDraft",
+              "color": "rgb(32, 43, 50)",
+              "background": "rgb(240, 243, 244)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 12.96029676839524
+            },
+            {
+              "element": "retryDraft",
+              "color": "rgb(32, 43, 50)",
+              "background": "rgb(240, 243, 244)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 12.96029676839524
+            }
+          ]
+        },
+        {
+          "theme": "warm",
+          "text": [
+            {
+              "element": "strong",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "draftStatus",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "small",
+              "color": "rgb(67, 84, 99)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 6.94271844510759
+            }
+          ],
+          "enabledButtons": [
+            {
+              "element": "applyDraft",
+              "color": "rgb(32, 43, 50)",
+              "background": "rgb(240, 243, 244)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 12.96029676839524
+            },
+            {
+              "element": "cancelDraft",
+              "color": "rgb(32, 43, 50)",
+              "background": "rgb(240, 243, 244)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 12.96029676839524
+            },
+            {
+              "element": "rebaseDraft",
+              "color": "rgb(32, 43, 50)",
+              "background": "rgb(240, 243, 244)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 12.96029676839524
+            },
+            {
+              "element": "retryDraft",
+              "color": "rgb(32, 43, 50)",
+              "background": "rgb(240, 243, 244)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 12.96029676839524
+            }
+          ]
+        },
+        {
+          "theme": "minimal",
+          "text": [
+            {
+              "element": "strong",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "draftStatus",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "small",
+              "color": "rgb(67, 84, 99)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 6.94271844510759
+            }
+          ],
+          "enabledButtons": [
+            {
+              "element": "applyDraft",
+              "color": "rgb(32, 43, 50)",
+              "background": "rgb(240, 243, 244)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 12.96029676839524
+            },
+            {
+              "element": "cancelDraft",
+              "color": "rgb(32, 43, 50)",
+              "background": "rgb(240, 243, 244)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 12.96029676839524
+            },
+            {
+              "element": "rebaseDraft",
+              "color": "rgb(32, 43, 50)",
+              "background": "rgb(240, 243, 244)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 12.96029676839524
+            },
+            {
+              "element": "retryDraft",
+              "color": "rgb(32, 43, 50)",
+              "background": "rgb(240, 243, 244)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 12.96029676839524
+            }
+          ]
+        },
+        {
+          "theme": "natural",
+          "text": [
+            {
+              "element": "strong",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "draftStatus",
+              "color": "rgb(23, 33, 45)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 14.44018718333077
+            },
+            {
+              "element": "small",
+              "color": "rgb(67, 84, 99)",
+              "background": "rgb(238, 242, 245)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 6.94271844510759
+            }
+          ],
+          "enabledButtons": [
+            {
+              "element": "applyDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            },
+            {
+              "element": "cancelDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            },
+            {
+              "element": "rebaseDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            },
+            {
+              "element": "retryDraft",
+              "color": "rgb(48, 68, 55)",
+              "background": "rgb(237, 242, 229)",
+              "opacity": 1,
+              "fontSize": "11px",
+              "contrast": 9.18128332388297
+            }
+          ]
+        }
+      ],
+      "resizeObserverWarnings": 1,
+      "failures": []
+    }
+  ],
+  "passed": true
+}

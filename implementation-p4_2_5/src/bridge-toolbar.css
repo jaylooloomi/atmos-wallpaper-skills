@@ -19,3 +19,11 @@ body[data-render-mode="manager"] .bridge-commands > * {
 body[data-render-mode="manager"] .bridge-commands button {
   white-space: normal;
 }
+/* The toolbar has its own light surface; body-theme secondary text is unsuitable. */
+body[data-render-mode="manager"] .bridge-commands small {
+  color: #435463;
+  opacity: 1;
+  font-size: 11px;
+  line-height: 1.5;
+  text-shadow: none;
+}
