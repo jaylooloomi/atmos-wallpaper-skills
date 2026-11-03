@@ -1,5 +1,7 @@
 # Lively 功能盤點與 Atmos 獨立桌布宿主規劃
 
+最新交付 0.2.1：已增加目前帳戶的 Windows 登入啟動、背景自動套用及管理頁即時開關；見 [登入啟動驗證](../../desktop-host/docs/WINDOWS-STARTUP-VALIDATION-2026-11-04.md)。未將同指令呼叫測試當作真正重開機驗證。
+
 2026-11-04 後續交付：已完成 [Windows x64 安裝版 0.2.0](../../desktop-host/README.md)，內含 Node／Python／Pillow 與離線 WebView2 安裝程式，安裝後預設啟動並套用單主螢幕。實際驗證與限制見 [安裝版報告](../../desktop-host/docs/WINDOWS-INSTALLER-VALIDATION-2026-11-04.md)。以下原型／架構研究保留其歷史範圍，不代表安裝版尚未實作。
 
 2026-11-04 更新：使用者選定 **Tauri 2＋Rust**，已新增 [Windows 單主螢幕原型](../../desktop-host/README.md)。以下保留 11-03 的研究與階段規劃；其中 C# 是當時的評估選項，不再是目前原型的技術選擇。原型使用 Windows 10 x64 實測，不能把規劃中的 Windows 11、安裝器、多螢幕或 macOS 能力列為已驗證。

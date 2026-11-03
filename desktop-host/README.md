@@ -1,20 +1,24 @@
-# Atmos Wallpaper Windows 安裝版 0.2.0
+# Atmos Wallpaper Windows 安裝版 0.2.1
 
 Tauri 2＋Rust、Windows x64、單主螢幕桌布。保留現有管理頁、場景、元件與 ICS 日曆，由自己的 WebView2 宿主套用，**不使用 Lively**。
 
 ## 安裝與操作
 
-執行 `Atmos Wallpaper_0.2.0_x64-setup.exe`，完成頁預設勾選啟動 Atmos；按完成後自動套用主螢幕桌布。安裝器包含 Node、隔離的 Python＋Pillow，以及官方離線 WebView2 安裝程式；一般使用者不必另外安裝 Node、Python 或 Lively，也不需要 Rust 開發工具。
+執行 `Atmos Wallpaper_0.2.1_x64-setup.exe`，完成頁預設勾選啟動 Atmos；按完成後自動套用主螢幕桌布。安裝器包含 Node、隔離的 Python＋Pillow，以及官方離線 WebView2 安裝程式；一般使用者不必另外安裝 Node、Python 或 Lively，也不需要 Rust 開發工具。
 
 - 在目前使用者範圍安裝，預設 `%LOCALAPPDATA%\Atmos Wallpaper`；不新增系統 PATH 或 Windows Service。
 - 系統匣「開啟管理頁」調整設定，按「套用變更」保存；再次啟動 Atmos 捷徑也會開啟現有管理頁。
 - 系統匣「退出並還原桌布」移除 Atmos 自有層，顯示原桌布。正式啟動沒有原型的十分鐘期限。
 - 使用 Windows「應用程式與功能」解除安裝。更新／解除安裝會先正常關閉這份 Atmos，不以通用程序名稱終止 Node、Python 或其他桌布軟體。
 - 使用者資料在 `%LOCALAPPDATA%\io.atmos.wallpaper\store`，診斷在同層 `runs`。預設解除安裝保留資料；GUI 的「刪除應用程式資料」選項才會移除對應資料目錄。
-- 本版沒有設定登入自啟；安裝完成啟動與登入自啟是不同功能。
+- 新增目前使用者的 **Windows 登入後自動啟動並套用桌布**，首次安裝／首次升級此功能預設開啟。管理頁「Windows 啟動」可開關，立即生效，不需要按桌布「套用變更」。關閉後重啟／重裝仍保留選擇。
+- 登入啟動只在背景套用，不彈出管理頁；若程式已運作，不重建桌布、不搶焦點。這是登入目前帳戶後啟動，不是在登入前或 Windows 鎖定畫面顯示桌布。
+- 系統匣退出只停止這次執行，不取消下次登入啟動；解除安裝則移除屬於這份安裝的啟動項目。開關選擇留在 HKCU 的 Atmos 偏好中，供重裝保留。
 - 新安裝不會自動搬移舊開發 store，也不會關掉已在使用的舊管理服務；可另以管理頁的備份／還原搬移設定，ICS 來源須另行匯入。
 
 安裝包尚未做發行者程式碼簽章，Windows 可能顯示未識別發行者。Microsoft WebView2 子安裝程式本身有有效 Microsoft 簽章。安裝包附 `SHA256SUMS.txt`，雜湊不能取代發行者簽章。
+
+開關讀寫 Windows 目前帳戶的 `Run` 登錄，並非只改畫面或瀏覽器儲存。Windows「啟動應用程式」與組織政策仍可能覆蓋登錄；程式不修改 StartupApproved 或繞過政策。介面以「已登錄登入啟動」描述狀態，不把它當成已觀測到真正登入啟動。
 
 ## 從源碼重建安裝程式
 
@@ -43,19 +47,25 @@ payload 只包含已追蹤的產品源碼、凍結素材、生成的 web assets�
 & "$env:LOCALAPPDATA\Atmos Wallpaper\atmos-wallpaper.exe" --inspect-desktop
 & "$env:LOCALAPPDATA\Atmos Wallpaper\atmos-wallpaper.exe" --manager
 & "$env:LOCALAPPDATA\Atmos Wallpaper\atmos-wallpaper.exe" --quit
+& "$env:LOCALAPPDATA\Atmos Wallpaper\atmos-wallpaper.exe" --autostart status
 ```
 
 `--check-install` 驗證 payload、內嵌 Node／Python／Pillow，不套用桌布。`--quit` 使用同使用者、同 session、同執行檔路徑的原生 event 關閉自身實例，不暴露網頁 shell／檔案權限。
+
+`--autostart enable`／`disable` 是原生設定操作；管理頁只透過有 manager session、同來源驗證的白名單 API 呼叫這兩種操作。桌布角色不具備這項權限。啟動偏好獨立於桌布設定，不包含於設定草稿、備份或離線匯出。
 
 ```powershell
 cargo test --locked
 cargo clippy --locked --all-targets -- -D warnings
 node scripts/test-installer.mjs --install-and-apply
+node scripts/test-startup.mjs --configure-login-startup
 ```
 
 整合測試會實際安裝、套用、重裝、解除安裝，最後重新安裝並保留 Atmos 運作。為避免覆寫既有使用者安裝，測試預設拒絕已有的 Atmos 安裝。原生四情境測試另見 `scripts/test-windows-host.mjs --apply-to-primary`，可用 `ATMOS_HOST_EXE` 指定 release／已安裝執行檔；執行前須先退出 Atmos。兩者只用 CLI、真實 renderer ack、Win32 metadata 與程序／port 檢查，不操作瀏覽器或桌面 UI。
 
 如需觀察既有 Atmos 桌布在測試前後的回報，可設定 `ATMOS_BASELINE_PORT`；這只做唯讀健康檢查，不是產品相依。沒有既有管理服務也可以測安裝版。Git clone 的封裝採追蹤檔案列表；來源 ZIP 沒有 `.git` 時，改採 SOURCE-MANIFEST 的已發佈檔案列表。
+
+登入啟動測試需要已有的安裝，會重設 Atmos 自己的新功能偏好作為測試起點、切換實際登錄、重裝／解除安裝，最後保留已安裝且啟動開關開啟的程式。它會執行登錄中的同一條指令，**不重開機、不登出，也不將此模擬呼叫標成真正 Windows 登入實測**。
 
 保留 `scripts/run-prototype.ps1 -RunSeconds 600` 的開發模式：明確指定既有 Node／Python 與獨立測試 store，期限 5..3600 秒，不代表安裝版仍需系統執行環境。
 
@@ -68,4 +78,4 @@ node scripts/test-installer.mjs --install-and-apply
 - 真實 renderer ack 與 native 掛載分開記錄；初始化無 ack 會失敗退出。啟動完成後遇到鎖屏／遮蔽節流只記錄 stale，不因短期無 ack 永久退出；不把 stale 當成畫面正常。
 - 管理頁與桌布角色仍分離，未授予網頁任何原生檔案／shell capabilities；導覽限制於自己的 loopback 頁面。
 
-Windows 10 x64 build 19045 已實測；詳見 [安裝版報告](docs/WINDOWS-INSTALLER-VALIDATION-2026-11-04.md) 與 [先前原型報告](docs/WINDOWS-PROTOTYPE-VALIDATION-2026-11-04.md)。Windows 11、全新無 WebView2 的 VM、混合 DPI／多螢幕、Explorer 重啟、真正睡眠、GPU／耗電與長時間測試仍有未驗證項。macOS 桌布 adapter 尚未實作。
+Windows 10 x64 build 19045 已實測；詳見 [登入啟動報告](docs/WINDOWS-STARTUP-VALIDATION-2026-11-04.md)、[0.2.0 安裝版報告](docs/WINDOWS-INSTALLER-VALIDATION-2026-11-04.md) 與 [先前原型報告](docs/WINDOWS-PROTOTYPE-VALIDATION-2026-11-04.md)。真正重開機／重新登入、Windows 11、全新無 WebView2 的 VM、混合 DPI／多螢幕、Explorer 重啟、真正睡眠、GPU／耗電與長時間測試仍有未驗證項。macOS 桌布 adapter 尚未實作。

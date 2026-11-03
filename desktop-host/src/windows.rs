@@ -171,6 +171,12 @@ pub fn desktop_parent() -> Result<isize, String> {
         .ok_or("No supported background WorkerW found; desktop was not replaced".into())
 }
 
+pub fn shell_ready() -> bool {
+    desktop_windows()
+        .iter()
+        .any(|w| w.class == "SHELLDLL_DefView")
+}
+
 fn existing_desktop_parent() -> Option<isize> {
     unsafe {
         let windows = desktop_windows();

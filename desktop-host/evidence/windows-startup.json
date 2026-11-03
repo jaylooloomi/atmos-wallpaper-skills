@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-04",
+  "version": "0.2.1",
+  "installer": {
+    "name": "Atmos Wallpaper_0.2.1_x64-setup.exe",
+    "bytes": 292172774,
+    "sha256": "8d35022ff684ba7ef748283c9e2c7e306a17738f70ed96ed9afdfb071282a1e5"
+  },
+  "method": "Actual HKCU registry, installed manager HTTP, native CLI and NSIS; no UI automation",
+  "checks": [
+    {
+      "name": "installer-initializes-current-user-logon-registration",
+      "passed": true,
+      "settingsPreserved": true
+    },
+    {
+      "name": "manager-api-on-off-and-wallpaper-denied",
+      "passed": true,
+      "actualRegistryVerified": true,
+      "visualDesiredUnchanged": true
+    },
+    {
+      "name": "registered-command-background-apply",
+      "passed": true,
+      "genuineWallpaperAck": true,
+      "noManagerRenderer": true,
+      "duplicateDoesNotRestart": true,
+      "actualWindowsLogin": false
+    },
+    {
+      "name": "disabled-choice-survives-restart-and-reinstall",
+      "passed": true
+    },
+    {
+      "name": "uninstall-removes-own-startup-entry",
+      "passed": true,
+      "userDataPreserved": true,
+      "unrelatedNodePreserved": true
+    },
+    {
+      "name": "reinstall-restores-enabled-choice",
+      "passed": true,
+      "otherStartupEntriesUnchanged": true,
+      "leftInstalledEnabledAndApplied": true
+    }
+  ],
+  "passed": true,
+  "limitations": [
+    "Exact registered command executed successfully; no actual Windows reboot/logoff performed",
+    "Windows Startup Apps/policy can override Run registration and are not modified",
+    "Visual UI confirmation recorded separately",
+    "No fresh VM, Windows 11 or long-duration validation"
+  ]
+}

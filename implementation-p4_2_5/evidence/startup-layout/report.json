@@ -1,0 +1,218 @@
+{
+  "kind": "Isolated Chromium CLI render; synthetic fixture only; no user browser/desktop automation",
+  "cases": [
+    {
+      "width": 390,
+      "height": 844,
+      "theme": "neon",
+      "pageWidth": 375,
+      "pageClientWidth": 375,
+      "scene": {
+        "left": 14,
+        "right": 361,
+        "top": 479.03125,
+        "bottom": 893.28125,
+        "width": 347,
+        "height": 414.25
+      },
+      "columns": 2,
+      "cards": [
+        {
+          "left": 30,
+          "right": 183.5,
+          "top": 526.03125,
+          "bottom": 637.78125,
+          "width": 153.5,
+          "height": 111.75,
+          "contentWidth": 152,
+          "clientWidth": 152,
+          "title": "Forest"
+        },
+        {
+          "left": 191.5,
+          "right": 345,
+          "top": 526.03125,
+          "bottom": 637.78125,
+          "width": 153.5,
+          "height": 111.75,
+          "contentWidth": 152,
+          "clientWidth": 152,
+          "title": "City"
+        },
+        {
+          "left": 30,
+          "right": 183.5,
+          "top": 645.78125,
+          "bottom": 757.53125,
+          "width": 153.5,
+          "height": 111.75,
+          "contentWidth": 152,
+          "clientWidth": 152,
+          "title": "Future city"
+        },
+        {
+          "left": 191.5,
+          "right": 345,
+          "top": 645.78125,
+          "bottom": 757.53125,
+          "width": 153.5,
+          "height": 111.75,
+          "contentWidth": 152,
+          "clientWidth": 152,
+          "title": "Coast"
+        },
+        {
+          "left": 30,
+          "right": 183.5,
+          "top": 765.53125,
+          "bottom": 877.28125,
+          "width": 153.5,
+          "height": 111.75,
+          "contentWidth": 152,
+          "clientWidth": 152,
+          "title": "Snowy mountains"
+        },
+        {
+          "left": 191.5,
+          "right": 345,
+          "top": 765.53125,
+          "bottom": 877.28125,
+          "width": 153.5,
+          "height": 111.75,
+          "contentWidth": 152,
+          "clientWidth": 152,
+          "title": "Desert night sky"
+        }
+      ],
+      "toolbar": {
+        "left": 14,
+        "right": 361,
+        "top": 905.28125,
+        "bottom": 1146.65625,
+        "width": 347,
+        "height": 241.375,
+        "contentWidth": 347,
+        "clientWidth": 347
+      },
+      "side": {
+        "left": 14,
+        "right": 361,
+        "top": 1699.203125,
+        "bottom": 3057.0625,
+        "width": 347,
+        "height": 1357.859375
+      },
+      "sceneBeforePreview": true,
+      "horizontalScrollContainers": [],
+      "overflows": [],
+      "failures": []
+    },
+    {
+      "width": 1280,
+      "height": 900,
+      "theme": "natural",
+      "pageWidth": 1265,
+      "pageClientWidth": 1265,
+      "scene": {
+        "left": 32,
+        "right": 1233,
+        "top": 289.5,
+        "bottom": 487.921875,
+        "width": 1201,
+        "height": 198.421875
+      },
+      "columns": 6,
+      "cards": [
+        {
+          "left": 53,
+          "right": 237.828125,
+          "top": 341.5,
+          "bottom": 466.921875,
+          "width": 184.828125,
+          "height": 125.421875,
+          "contentWidth": 183,
+          "clientWidth": 183,
+          "title": "Forest"
+        },
+        {
+          "left": 247.828125,
+          "right": 432.65625,
+          "top": 341.5,
+          "bottom": 466.921875,
+          "width": 184.828125,
+          "height": 125.421875,
+          "contentWidth": 183,
+          "clientWidth": 183,
+          "title": "City"
+        },
+        {
+          "left": 442.65625,
+          "right": 627.484375,
+          "top": 341.5,
+          "bottom": 466.921875,
+          "width": 184.828125,
+          "height": 125.421875,
+          "contentWidth": 183,
+          "clientWidth": 183,
+          "title": "Future city"
+        },
+        {
+          "left": 637.484375,
+          "right": 822.328125,
+          "top": 341.5,
+          "bottom": 466.921875,
+          "width": 184.84375,
+          "height": 125.421875,
+          "contentWidth": 183,
+          "clientWidth": 183,
+          "title": "Coast"
+        },
+        {
+          "left": 832.328125,
+          "right": 1017.15625,
+          "top": 341.5,
+          "bottom": 466.921875,
+          "width": 184.828125,
+          "height": 125.421875,
+          "contentWidth": 183,
+          "clientWidth": 183,
+          "title": "Snowy mountains"
+        },
+        {
+          "left": 1027.15625,
+          "right": 1211.984375,
+          "top": 341.5,
+          "bottom": 466.921875,
+          "width": 184.828125,
+          "height": 125.421875,
+          "contentWidth": 183,
+          "clientWidth": 183,
+          "title": "Desert night sky"
+        }
+      ],
+      "toolbar": {
+        "left": 32,
+        "right": 701,
+        "top": 503.921875,
+        "bottom": 645.3125,
+        "width": 669,
+        "height": 141.390625,
+        "contentWidth": 669,
+        "clientWidth": 669
+      },
+      "side": {
+        "left": 723,
+        "right": 1233,
+        "top": 503.921875,
+        "bottom": 1253.171875,
+        "width": 510,
+        "height": 749.25
+      },
+      "sceneBeforePreview": true,
+      "horizontalScrollContainers": [],
+      "overflows": [],
+      "failures": []
+    }
+  ],
+  "passed": true
+}

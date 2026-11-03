@@ -52,6 +52,10 @@ impl Runtime {
             .current_dir(&options.runtime_root)
             .env("ATMOS_STORE", &options.store)
             .env("ATMOS_PYTHON", &options.python)
+            .env(
+                "ATMOS_DESKTOP_HOST_EXE",
+                std::env::current_exe().map_err(|e| e.to_string())?,
+            )
             .env_remove("ATMOS_TARGET_MONITOR")
             .env_remove("PORT")
             .env_remove("NODE_OPTIONS")

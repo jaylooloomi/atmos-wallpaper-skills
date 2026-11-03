@@ -11,6 +11,8 @@ mod options;
 #[cfg(windows)]
 mod runtime;
 #[cfg(windows)]
+mod startup;
+#[cfg(windows)]
 mod windows;
 
 #[cfg(not(windows))]
@@ -25,6 +27,18 @@ fn main() {
         Ok(code) => std::process::exit(code),
         Err(error) => {
             eprintln!("Atmos: {error}");
+            if let Some(local) = std::env::var_os("LOCALAPPDATA") {
+                use std::io::Write;
+                let dir = std::path::PathBuf::from(local).join("io.atmos.wallpaper");
+                let _ = std::fs::create_dir_all(&dir);
+                if let Ok(mut log) = std::fs::OpenOptions::new()
+                    .create(true)
+                    .append(true)
+                    .open(dir.join("startup-errors.log"))
+                {
+                    let _ = writeln!(log, "{} {error}", journal::now_ms());
+                }
+            }
             // Only direct user launches get a dialog; CLI checks never do.
             if std::env::args().len() == 1 {
                 windows::show_error(&error);
@@ -39,11 +53,26 @@ fn run() -> Result<i32, String> {
     use serde_json::json;
     let args: Vec<String> = std::env::args().skip(1).collect();
     if args == ["--help"] {
-        println!("Atmos Wallpaper\nNo arguments: verify bundled resources, launch embedded runtimes and apply to the primary monitor until tray Exit.\n--quit: close only this executable's instance (upgrade/uninstall).\n--manager: open the running manager, or start and open it.\n--check-install: verify payload and embedded runtimes without applying wallpaper.\n--inspect-desktop: read native desktop metadata.\nDeveloper mode: --runtime-root DIR --node EXE --python EXE --store DIR --status FILE [--run-seconds 5..3600].\nInstalled mode also accepts --store, --status and --run-seconds for diagnostics.");
+        println!("Atmos Wallpaper\nNo arguments: verify bundled resources, launch embedded runtimes and apply to the primary monitor until tray Exit.\n--autostart status|enable|disable: manage sign-in registration.\n--autostart-launch: background logon entry (waits for Explorer).\n--quit: close only this executable's instance (upgrade/uninstall).\n--manager: open the running manager, or start and open it.\n--check-install: verify payload and embedded runtimes without applying wallpaper.\n--inspect-desktop: read native desktop metadata.\nDeveloper mode: --runtime-root DIR --node EXE --python EXE --store DIR --status FILE [--run-seconds 5..3600].\nInstalled mode also accepts --store, --status and --run-seconds for diagnostics.");
         return Ok(0);
     }
     if args == ["--quit"] {
         control::quit()?;
+        return Ok(0);
+    }
+    if args.len() == 2 && args[0] == "--autostart" {
+        let result = match args[1].as_str() {
+            "status" => startup::status()?,
+            "enable" => startup::set(true)?,
+            "disable" => startup::set(false)?,
+            "initialize" => startup::initialize()?,
+            "remove" => {
+                startup::remove()?;
+                startup::status()?
+            }
+            _ => return Err("Unknown startup action".into()),
+        };
+        println!("{}", serde_json::to_string(&result).unwrap());
         return Ok(0);
     }
     if args == ["--inspect-desktop"] {
@@ -67,10 +96,18 @@ fn run() -> Result<i32, String> {
         return Ok(0);
     }
     let manager = args == ["--manager"];
-    let args = if manager { Vec::new() } else { args };
+    let autostart = args == ["--autostart-launch"];
+    let args = if manager || autostart {
+        Vec::new()
+    } else {
+        args
+    };
     let _singleton = match windows::singleton() {
         Ok(handle) => handle,
         Err(error) => {
+            if autostart && error == "Atmos is already running" {
+                return Ok(0);
+            }
             if args.is_empty() && control::signal("manager")? {
                 return Ok(0);
             }
@@ -84,6 +121,18 @@ fn run() -> Result<i32, String> {
     // Publish the control event first, and honor it before starting a renderer.
     if control::requested(quit_event.0) {
         return Ok(0);
+    }
+    if autostart {
+        let started = std::time::Instant::now();
+        while !windows::shell_ready() {
+            if control::requested(quit_event.0) {
+                return Ok(0);
+            }
+            if started.elapsed() > std::time::Duration::from_secs(60) {
+                return Err("Explorer desktop not ready after logon".into());
+            }
+            std::thread::sleep(std::time::Duration::from_millis(500));
+        }
     }
     app::launch(options, quit_event.0, manager_event.0, manager)
 }

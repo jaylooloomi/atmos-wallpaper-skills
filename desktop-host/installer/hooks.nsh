@@ -19,5 +19,20 @@
       SetErrorLevel 2
       Abort "Atmos could not close safely. Exit Atmos and uninstall again."
     ${EndIf}
+    nsExec::ExecToLog '"$INSTDIR\atmos-wallpaper.exe" --autostart remove'
+    Pop $0
+    ${If} $0 != 0
+      SetErrorLevel 2
+      Abort "Atmos startup registration could not be removed."
+    ${EndIf}
+  ${EndIf}
+!macroend
+
+!macro NSIS_HOOK_POSTINSTALL
+  nsExec::ExecToLog '"$INSTDIR\atmos-wallpaper.exe" --autostart initialize'
+  Pop $0
+  ${If} $0 != 0
+    SetErrorLevel 2
+    Abort "Atmos startup registration could not be configured."
   ${EndIf}
 !macroend
