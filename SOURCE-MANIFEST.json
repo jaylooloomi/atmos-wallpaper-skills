@@ -18,32 +18,32 @@
     {
       "path": "README.md",
       "bytes": 7770,
-      "sha256": "0c667270a31ec7e5f9747be7e510b8cad2fe49a7ba0a714556df51c3962d571f",
-      "git_blob_sha": "29150135764c654eb557c3a4118984128bbed815"
+      "sha256": "d0970237ec3ce6c2d850841c9213e96818f1a8232248f6871ea3f684b23d160c",
+      "git_blob_sha": "484e0d50a8ab0328cac5e098d2e75cb4a6931c0d"
     },
     {
       "path": "TODO.md",
-      "bytes": 12311,
-      "sha256": "ed26b81ee502667e9ca5ff90305bc9f4af2a393d7b8d970d71ff661d0edfaa82",
-      "git_blob_sha": "1b6e0566b96f3168725a6cfd8c40fcf9e97de519"
+      "bytes": 12407,
+      "sha256": "392672e1efe791ae139b8fa08cc7ccd9774a6b3b7662c2e4e90f1a43112618b2",
+      "git_blob_sha": "0455a377ee7c23793682ad53ae8de275dea98d09"
     },
     {
       "path": "desktop-host/Cargo.lock",
       "bytes": 104046,
-      "sha256": "e832e5be297cb40648d939d7811b6e4dc691c6894bc2255ab0c9b218bd75f25f",
-      "git_blob_sha": "e245abe35defc3cb4c156c305d7205151eed1837"
+      "sha256": "092bb96d132bc022afbf53d09a152aae5ffdb5561c56d1fabaa2af4c6b323cca",
+      "git_blob_sha": "adfe72e058e33b6f52380e0c08efe4e4571fae9f"
     },
     {
       "path": "desktop-host/Cargo.toml",
       "bytes": 720,
-      "sha256": "9284f60c0fb830a695d97f37cebf040b4c6882377e0922c411130781244956f4",
-      "git_blob_sha": "067498ee42c6ed1ae7b79f557ccca78ac7c3ad4d"
+      "sha256": "613fb345985c886fc5ad9a0398b033844d05e8070d46023cc2369c7eddbbea94",
+      "git_blob_sha": "90bedf4664e742242bdc94821afd746cb3f99b9e"
     },
     {
       "path": "desktop-host/README.md",
-      "bytes": 9833,
-      "sha256": "28b29d0870509ffcc3b048320227ab7c3532d55816f10b8a395de5f3125a8510",
-      "git_blob_sha": "96331b5cdb0a907ce3f8daf7b893df92f13192a3"
+      "bytes": 10018,
+      "sha256": "c01cd21bbb64834bc016450a5f32156b3cb332c5f5e3407dad8c2a172345e40b",
+      "git_blob_sha": "213dbb60b090fc8e63e3c24d45820019f524808b"
     },
     {
       "path": "desktop-host/build.rs",
@@ -62,6 +62,12 @@
       "bytes": 7552,
       "sha256": "6c25f6240a4c6de215ac3674eb168de98017d79ef80da06f53cc53ae53124a1a",
       "git_blob_sha": "b6625bb7ae7ea9e2fe993d69b9a3833a232126b9"
+    },
+    {
+      "path": "desktop-host/docs/COMPACT-EXPLANATION-2026-11-04.md",
+      "bytes": 3060,
+      "sha256": "d96d81dc21fac120081e9ef6ed6cbdc33da7dbeb985ffadb014718a2d241c9d4",
+      "git_blob_sha": "f9ccd14c444f9e31b1994dc7b1feec7436248331"
     },
     {
       "path": "desktop-host/docs/NATIVE-MANAGER-HEADER-2026-11-04.md",
@@ -134,6 +140,12 @@
       "bytes": 691,
       "sha256": "12641327e29644daa30068ffba4bd3b2fd5d2c77f5c613782edbf5df69c084d7",
       "git_blob_sha": "f2e2916cd0fc32795eb8251035ce63d57cf96cd6"
+    },
+    {
+      "path": "desktop-host/evidence/compact-explanation-upgrade.json",
+      "bytes": 796,
+      "sha256": "6bb85a248d3a68c182f9001fd5e0f32f948c05e89fd081de3058efe22a54b47a",
+      "git_blob_sha": "819a3f2223404d57efc1c7a4104c046a1173f3b6"
     },
     {
       "path": "desktop-host/evidence/native-manager-upgrade.json",
@@ -228,14 +240,14 @@
     {
       "path": "desktop-host/package-lock.json",
       "bytes": 7246,
-      "sha256": "dda6197df8720f555cb58bbc54eb23643371795db345260e8decd57c42be744e",
-      "git_blob_sha": "0650d770010bf3e3ede50eae03c5efd350c98260"
+      "sha256": "fb9d61a1da80a2a19ed05552ae37ba2656bf24799315c06512703b36124529db",
+      "git_blob_sha": "a88de7718ff00ff27852f0798258a974b54bae32"
     },
     {
       "path": "desktop-host/package.json",
       "bytes": 278,
-      "sha256": "67b2274836bc58550ae5f1c45266555197cc073fdaffd8763f7798a6c0e2078e",
-      "git_blob_sha": "ab8e0b54287b8ad0684bf7a8a0a629dbe01e2981"
+      "sha256": "e6733ff529efcc4dc1b1997a406a159d2cda8439f21508573a652512e6ffba44",
+      "git_blob_sha": "a8bb894841d0d609cf9345f1867dccc472e3b008"
     },
     {
       "path": "desktop-host/scripts/build-installer.mjs",
@@ -354,8 +366,8 @@
     {
       "path": "desktop-host/tauri.conf.json",
       "bytes": 779,
-      "sha256": "b1da87c8fe4c38cc1d38158aa5df201f210e01c886d12febe23d84814825f590",
-      "git_blob_sha": "6391e04c88b69dcd82a3c2e4a98b5d8f831f9ea2"
+      "sha256": "d38785a862e5354db453b3e8386b4ff919f62af114d2f75fe493138611b27e0a",
+      "git_blob_sha": "826e1382c36236c6b22be307832f309845461c37"
     },
     {
       "path": "desktop-host/ui/index.html",
@@ -796,6 +808,30 @@
       "git_blob_sha": "a2631d9a8fbad813cbbc53d120b973186a20ab2f"
     },
     {
+      "path": "implementation-p4_2_5/evidence/compact-explanation-layout/layout-1280-natural.png",
+      "bytes": 274152,
+      "sha256": "879263fd7d4abe053cedf2968b77393edb46de905f60081776932b606f254ce5",
+      "git_blob_sha": "6acb8e48676bc1e60507fba20d2e9429c6f5d254"
+    },
+    {
+      "path": "implementation-p4_2_5/evidence/compact-explanation-layout/layout-1876-natural.png",
+      "bytes": 1033839,
+      "sha256": "efe99e6df489c0d105444081630c48b215e572bf6bfa5767ff481127b8fd08b2",
+      "git_blob_sha": "e96bdb44be0292d03207eb141f904440fea47706"
+    },
+    {
+      "path": "implementation-p4_2_5/evidence/compact-explanation-layout/layout-390-neon.png",
+      "bytes": 125924,
+      "sha256": "c2bc13969adc9aee74cd74b054eba7649573ec5b06eed6aef1fb470661c0f486",
+      "git_blob_sha": "740cecb61f75df1b86d86160694eb51b9236e64f"
+    },
+    {
+      "path": "implementation-p4_2_5/evidence/compact-explanation-layout/report.json",
+      "bytes": 13442,
+      "sha256": "a3aed6235a2becc14371401c8b75890efd45d1bc8e780dc0e07b16d7abbff8ac",
+      "git_blob_sha": "7cf7ddc6697ea92b60ca049c55e9b05d35ce5da5"
+    },
+    {
       "path": "implementation-p4_2_5/evidence/desktop-1876.png",
       "bytes": 134050,
       "sha256": "966a732931dc4150ce5ea4966a119b938c26004e6ac82cea5945a0a361f7619f",
@@ -1032,8 +1068,8 @@
     {
       "path": "implementation-p4_2_5/evidence/verification.json",
       "bytes": 601,
-      "sha256": "9a86d9302fd8395c254a271325dbdd51b96556decda1fa08782e86ea5877aca3",
-      "git_blob_sha": "45b38d6220af88d98e3aaca854a9098763015a4d"
+      "sha256": "229dc2cab9825fc894064d621dec7f2e25c4aac2ca7e1ee33a71944673f9a7be",
+      "git_blob_sha": "598146910af2dd7bbc18567201c7ef2a2b7a80bc"
     },
     {
       "path": "implementation-p4_2_5/evidence/windows-host-partial-2026-11-03.json",
@@ -1061,9 +1097,9 @@
     },
     {
       "path": "implementation-p4_2_5/scripts/audit-layout.mjs",
-      "bytes": 10900,
-      "sha256": "ad65871b04dfd505e31daf4aa8518096c989e3cbcf7831fa9466d4b85178bc8d",
-      "git_blob_sha": "1af86cc0157f9e8ad6dcbb38ce325599f2cb43e5"
+      "bytes": 12843,
+      "sha256": "6ef3dc9b6a5ff1756bf970a820bbe64043a7969b8e57ff6b220e62eb2a03f93d",
+      "git_blob_sha": "48f1655d3d4e8cdb5c07d60552f518a18befdc5f"
     },
     {
       "path": "implementation-p4_2_5/scripts/measure-windows-host.ps1",
@@ -1349,9 +1385,9 @@
     },
     {
       "path": "implementation-p4_2_5/src/p422-ui.js",
-      "bytes": 5784,
-      "sha256": "6d1626a2a15a10716907a422db8d7d5ae7d88611bb1e9e877a8af599db64661d",
-      "git_blob_sha": "f2c40a3bcda518ca5c58a9ae7550b52967fbc268"
+      "bytes": 5680,
+      "sha256": "c4b83b80ccd36e4605a1434dec10bdee3981583d1bbe4e732bb02f4794489bd1",
+      "git_blob_sha": "5ed6c102bd0a9e6eb0f8a10d9afb2310437e440c"
     },
     {
       "path": "implementation-p4_2_5/src/p423-copy.js",
@@ -1361,9 +1397,9 @@
     },
     {
       "path": "implementation-p4_2_5/src/p423-ui.css",
-      "bytes": 8628,
-      "sha256": "3d5035be1753526545abca87d7cb4b5c4e81b7cfe97738d6654b6fa3548a521d",
-      "git_blob_sha": "06bc1d217b347c61bdc10a841838ce6b6ec1cb3f"
+      "bytes": 8816,
+      "sha256": "74aba8f3d574d838d04731801adf21ba322212c0d1244ffb9579fa686461e57d",
+      "git_blob_sha": "0664a0f7e66b19ab572ebad975c5d16cc72f94b4"
     },
     {
       "path": "implementation-p4_2_5/src/p423-ui.js",
@@ -1532,6 +1568,12 @@
       "bytes": 3365,
       "sha256": "63f21193e2b737b7ceb42a8620823289cf1f426ed471db97ae42817f7c9739d6",
       "git_blob_sha": "92776fe73d69a2149bf0026c91a71354c04bdfb1"
+    },
+    {
+      "path": "implementation-p4_2_5/tests/explanation-height.test.mjs",
+      "bytes": 1587,
+      "sha256": "d699a39628493309a744c9dd22badc4dc16f2aff23b30b09c91b334c851d879f",
+      "git_blob_sha": "391999daf9b50357ae10c3b8f2500c78615582ff"
     },
     {
       "path": "implementation-p4_2_5/tests/fixtures/monitor-4x3.json",

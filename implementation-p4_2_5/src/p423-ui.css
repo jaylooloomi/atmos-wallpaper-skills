@@ -72,3 +72,6 @@ body[data-render-mode=manager] .settings-bottom{margin-top:var(--preview-stack-g
    nested separators (operations + legacy widget-config ID-specific border). */
 body[data-render-mode=manager] #widgetManager .inspect-operations{border:0;padding-top:0}
 body[data-render-mode=manager] #widgetManager .inspect-operations>.widget-config{border:0;padding:0;margin:0}
+
+/* Explanatory copy is content-sized; panel minimum height must never stretch it. */
+body[data-render-mode=manager] .preview-explanation{height:auto;min-height:0!important;flex:0 0 auto}
