@@ -10,5 +10,7 @@ apply.onclick=()=>{const width=Number(w.value),height=Number(h.value);if(select.
  if(!scenes||!main)return;
  const previous=scenes.parentElement;
  scenes.classList.add('scene-picker-top');main.before(scenes);
+ const previewRow=document.getElementById('previewSettingsRow'),previewMessage=document.getElementById('previewResolutionMessage');
+ if(previewRow){main.before(previewRow);if(previewMessage)main.before(previewMessage)}
  if(previous?.classList.contains('settings-bottom')&&!previous.children.length)previous.remove();
 })();
