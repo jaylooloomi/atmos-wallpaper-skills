@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-04",
+  "version": "0.2.2",
+  "installer": {
+    "bytes": 292172099,
+    "sha256": "99ca89fa35bab12110b5d80cba7c91fcb6b56d946bb78ff22e10f7a5eff19944"
+  },
+  "checks": {
+    "silentUpgrade": true,
+    "savedSettingsPreserved": true,
+    "startupPreferencePreserved": true,
+    "payloadAndEmbeddedRuntimesVerified": true,
+    "installedWidgetsMatchSourceBuild": true,
+    "nativeWorkerWAttachment": true,
+    "genuineWallpaperAck": true,
+    "genuineManagerAck": true
+  },
+  "limitations": [
+    "Position interaction tested using synthetic DOM and actual JSON transactions; no UI automation or new manual visual confirmation.",
+    "No new reboot, sleep, GPU or long-duration test."
+  ]
+}

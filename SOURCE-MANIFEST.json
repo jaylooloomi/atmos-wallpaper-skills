@@ -18,32 +18,38 @@
     {
       "path": "README.md",
       "bytes": 7257,
-      "sha256": "0ab0d3b9166b6151cbd201bf5fef1a625adc4bb5d521df15fc2417fb55cd38e7",
-      "git_blob_sha": "5d50bf31a14c47f76464a43eccd9329fd97a583d"
+      "sha256": "4d09c00569f45cf97daa853025bb3c0d787c05c73c017d4b173c975d208cd577",
+      "git_blob_sha": "ea219d7c66f27272cb5ab2486797d24c7cfdc98e"
     },
     {
       "path": "desktop-host/Cargo.lock",
       "bytes": 104046,
-      "sha256": "023b4b08bef15900df7910d9f42536ede0f1443825ae65d51b8670d40c170c00",
-      "git_blob_sha": "7e74e0fbda14c2bfe6eb1253d94885f62e335494"
+      "sha256": "ab7df319d5093e9e34e78dc5ab6b78a3a24e672c7a33b63f43281cc89fe28887",
+      "git_blob_sha": "bf2645bfc8987507d1f7423b056c1ca7cefa3f72"
     },
     {
       "path": "desktop-host/Cargo.toml",
       "bytes": 720,
-      "sha256": "8be1f01c2842ed42c67e8d10f96e8a0ca049cc39b6d27419fd6b5ba51e381acb",
-      "git_blob_sha": "3cdc330e8a1a32245d8bef60d6ee6a9a6612f92a"
+      "sha256": "6cd05035f884ecd21bd6e80da6af3e292280e5d2126a6b627f4a927ba65cd19f",
+      "git_blob_sha": "10433b57b37bbb90144400d8746d30d4869a0270"
     },
     {
       "path": "desktop-host/README.md",
-      "bytes": 8004,
-      "sha256": "f2ddf4d8f396a2ef35baaecd5f32dfefa355d113bac3e6bedf2e2eab53da4790",
-      "git_blob_sha": "a064c64293eef72e5a47d132f44abc80308b5d6b"
+      "bytes": 8187,
+      "sha256": "bc50993d9323254e64be3867af9cc524e7c77195dd8e95697842887ecf863f9e",
+      "git_blob_sha": "fde20f82e5be7031ad1c801b5fc9c3ad63baafb3"
     },
     {
       "path": "desktop-host/build.rs",
       "bytes": 39,
       "sha256": "487059eaf8a947b80f20a9aacac038a5047b2ad69d2401b827376c67d6fe847f",
       "git_blob_sha": "d860e1e6a7cac333c3cc0bc9cb67faf286b07d69"
+    },
+    {
+      "path": "desktop-host/docs/WIDGET-POSITION-FIX-2026-11-04.md",
+      "bytes": 2347,
+      "sha256": "6634ccd5b8aa2df48405a892d63b232fe36b657b8d102c31a4e0576a43adedb6",
+      "git_blob_sha": "d9c24016628966bf1f918cfd964546fc58669a2a"
     },
     {
       "path": "desktop-host/docs/WINDOWS-INSTALLER-VALIDATION-2026-11-04.md",
@@ -68,6 +74,12 @@
       "bytes": 152,
       "sha256": "49f5f6241acfd93216e27fe6bf40d1fbb1550e9416f7cde4ac6e639c3f48881e",
       "git_blob_sha": "ff950d177107cb7b254aab9c3131b9d1fad46d65"
+    },
+    {
+      "path": "desktop-host/evidence/widget-position-upgrade.json",
+      "bytes": 730,
+      "sha256": "379adf4f39c65abaabece089b0f49d1631bafc4ef898e53ca6565c22576293fa",
+      "git_blob_sha": "1bc5d4baf877def195225195eede48f7022c526c"
     },
     {
       "path": "desktop-host/evidence/windows-installer.json",
@@ -114,14 +126,14 @@
     {
       "path": "desktop-host/package-lock.json",
       "bytes": 7246,
-      "sha256": "bee9f4012859279c523d1f66e0cb9890de3c38752b4239a7a023d5364bed7051",
-      "git_blob_sha": "1fd25dc236d97c5f6c17187bb5eeccfa12dd88dc"
+      "sha256": "57304d717cffaf056d8d1d8324c6c92c66fe6e695770afe53214537bdf40cce3",
+      "git_blob_sha": "4259bd4a42b0ed608b528aa35c06242e9a26d503"
     },
     {
       "path": "desktop-host/package.json",
       "bytes": 278,
-      "sha256": "42d6966fd2d05c1ff639986700032f1282614b1775d0abfa669602f5ae889d6b",
-      "git_blob_sha": "d178e171958a60832fd225db2026154532a57148"
+      "sha256": "76c3a78c635d7c931616994fdbcdbe9c231be94da0ca22d4e87375d547f31c69",
+      "git_blob_sha": "48fd32f46fc21742905d022573a537366892e323"
     },
     {
       "path": "desktop-host/scripts/build-installer.mjs",
@@ -228,8 +240,8 @@
     {
       "path": "desktop-host/tauri.conf.json",
       "bytes": 779,
-      "sha256": "b4b1adc0b5d3c0b0fffef16778e0906e161d8d2b2227e24983363f897b508c72",
-      "git_blob_sha": "ec22af5d4b72b9671aceecf39272e41ae4e6a85f"
+      "sha256": "e605fefecc959f6052594531ce52d78e62d509549e2116d494039d5d2ecf39e4",
+      "git_blob_sha": "e36f7c7c9d92d1680db5ef58ee3fa708b12e73b9"
     },
     {
       "path": "desktop-host/ui/index.html",
@@ -708,8 +720,8 @@
     {
       "path": "implementation-p4_2_5/evidence/verification.json",
       "bytes": 601,
-      "sha256": "63d50337f97912a7ead8a925d005eab4f1c6fec83b04549973592740f6475790",
-      "git_blob_sha": "4dc1e5afed044f04c8e448b68db7fa473baf9dfe"
+      "sha256": "801922200bce836c668992df1505806f5824f6eb25c8496f7bcb7caa6e81a9d6",
+      "git_blob_sha": "27d384880e3331b0662f0bb49e504e4e7fbca430"
     },
     {
       "path": "implementation-p4_2_5/evidence/windows-host-partial-2026-11-03.json",
@@ -761,9 +773,9 @@
     },
     {
       "path": "implementation-p4_2_5/scripts/prepare-p423.mjs",
-      "bytes": 2387,
-      "sha256": "c0df14dac2d59113747b203a0adeee05e505897c4a01ed7c522d39666a4075be",
-      "git_blob_sha": "9b1ae9225a73609481d3ed91e79ba3a2de6af74b"
+      "bytes": 3909,
+      "sha256": "b4c58fc850e73e425bab35d9c5b33a303a8dc97fca3368cb4bb347c564013780",
+      "git_blob_sha": "5f55d7bfcfec4544e21030de1518edad7fa2f275"
     },
     {
       "path": "implementation-p4_2_5/scripts/prepare.mjs",
@@ -1090,6 +1102,12 @@
       "git_blob_sha": "6de86e684e171fcda9391c076489a1f5bedb0337"
     },
     {
+      "path": "implementation-p4_2_5/src/widget-geometry.js",
+      "bytes": 1430,
+      "sha256": "3ae6b480bba1871c11dce05c73a6eba8d46b4f37bc933dcc83752415849a869b",
+      "git_blob_sha": "51bb8681af862b22aeb7dd82b419fbc07cbafef4"
+    },
+    {
       "path": "implementation-p4_2_5/src/windows-runtime.mjs",
       "bytes": 3254,
       "sha256": "1a8c0cbf277eb22940ae56737250fc8746d0e528132cd8a7c6f6b402742158b1",
@@ -1256,6 +1274,12 @@
       "bytes": 766,
       "sha256": "f4f69c2953334f02bf274ef4216092dfea3f87c2a42a9ae9759f1a261770172c",
       "git_blob_sha": "504b512c9fad32d880b6406f0361e4d7ee8897d0"
+    },
+    {
+      "path": "implementation-p4_2_5/tests/widget-position.test.mjs",
+      "bytes": 7796,
+      "sha256": "d8abcd220648a89a379cb97dfe4cd4558720c37e71a81d26d9ad83a55583e5ca",
+      "git_blob_sha": "a7d190e1bec100c7e02b34fe02d7b16397daac69"
     },
     {
       "path": "implementation-p4_2_5/tests/windows-runtime.test.mjs",

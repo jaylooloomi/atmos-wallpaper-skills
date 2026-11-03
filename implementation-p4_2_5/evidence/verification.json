@@ -1,6 +1,6 @@
 {
   "platform": "win32",
-  "node": "v24.22.2",
+  "node": "v24.13.0",
   "checks": [
     {
       "name": "prepare",
@@ -9,8 +9,8 @@
     {
       "name": "product-tests",
       "exitCode": 0,
-      "tests": 200,
-      "pass": 198,
+      "tests": 206,
+      "pass": 204,
       "fail": 0,
       "skipped": 2
     },

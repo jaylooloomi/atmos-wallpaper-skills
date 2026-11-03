@@ -11,4 +11,14 @@ w=w.replace('syncManager();renderCards();bridgeAppliedDesired=', 'syncManager();
 w=w.replace("if(active)endDrag(true);renderCards()});document.addEventListener", "if(active)endDrag(true);renderCards(true)});document.addEventListener");
 w=w.replace("Object.assign(data.cards[id],patch);renderCards();syncManager();save()", "Object.assign(data.cards[id],patch);renderCards(!Object.keys(patch).some(k=>['x','y','mx','my','size','font','fontSize'].includes(k)));syncManager();save()");
 w=w.replace("c.custom=false;c.mobileCustom=false}renderCards();save();syncManager()", "c.custom=false;c.mobileCustom=false}renderCards(false);save();syncManager()");
+function geometryReplace(from,to){if(!w.includes(from))throw Error('Widget geometry hook missing: '+from);w=w.replace(from,to)}
+geometryReplace('for(const [id,p] of Object.entries(autoPlan)){data.cards[id].x=', 'for(const [id,p] of Object.entries(autoPlan)){if(data.cards[id].custom)continue;data.cards[id].x=');
+geometryReplace('for(const id of Object.keys(specs)){const p=gridPoint(id);', 'for(const id of Object.keys(specs)){if(data.cards[id].custom)continue;const p=gridPoint(id);');
+geometryReplace('function move(id,dx,dy){const c=', 'function move(id,dx,dy){if(!active)commitRenderedGeometry(id);const c=');
+geometryReplace('const id=h.dataset.widgetDrag;active={id,', 'const id=h.dataset.widgetDrag,before=geometrySnapshot();commitRenderedGeometry(id);active={before,moved:false,id,');
+geometryReplace('const [rawX,rawY]=keys();', 'if(e.clientX!==active.x||e.clientY!==active.y)active.moved=true;if(!active.moved)return;const [rawX,rawY]=keys();');
+const dragStart=w.indexOf('function endDrag(cancel=false){'),dragEnd=w.indexOf("layer.addEventListener('pointerup'",dragStart);
+if(dragStart<0||dragEnd<0)throw Error('Widget end-drag hook missing');w=w.slice(0,dragStart)+src('widget-geometry.js')+'\n'+w.slice(dragEnd);
+geometryReplace('updateCard:(id,patch)=>{Object.assign', "updateCard:(id,patch)=>{if(Object.keys(patch).some(k=>['x','y','mx','my'].includes(k)))commitRenderedGeometry(id);Object.assign");
+geometryReplace('center:(id,both)=>{const c=', 'center:(id,both)=>{commitRenderedGeometry(id);const c=');
 write('widgets.js',w);
