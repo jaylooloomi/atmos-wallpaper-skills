@@ -1,0 +1,4 @@
+/* The native window already supplies the app title. Keep the browser header. */
+body[data-render-mode="manager"][data-native-manager="true"] > header {
+ display: none !important;
+}

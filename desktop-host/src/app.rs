@@ -35,6 +35,8 @@ fn open_manager(app: &tauri::AppHandle, port: u16, store: &Path) -> Result<(), S
         WebviewUrl::External(format!("{origin}/manager").parse().unwrap()),
     )
     .title("Atmos Wallpaper 管理")
+    // Cosmetic host marker only; it grants no native capabilities or permissions.
+    .initialization_script("window.__ATMOS_NATIVE_MANAGER__ = true;")
     .inner_size(1100.0, 800.0)
     .data_directory(store.join("manager-webview2"))
     .devtools(false)
