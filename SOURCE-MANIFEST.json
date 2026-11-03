@@ -17,9 +17,15 @@
     },
     {
       "path": "README.md",
-      "bytes": 7548,
-      "sha256": "4d834b19338533c33da0a99ba6929df9c4d1101b3adc366b925b81b8ed3f4812",
-      "git_blob_sha": "49fb13e011470d871534ad933e2c8965eaed4fb6"
+      "bytes": 7770,
+      "sha256": "dcf9a4206f997376f331013c8023c6bbb0029b278d06fa334ba9e8420316f01d",
+      "git_blob_sha": "bd463ffb6a271cf0fcd2b5287b9f2fdca1ade109"
+    },
+    {
+      "path": "TODO.md",
+      "bytes": 11897,
+      "sha256": "baf7db3717104e36d8bd272231d4ecd05c98e8183d33dd8ef72551f7da1dde18",
+      "git_blob_sha": "1bb85d34107a43b9b5d00d7ac83f95de1e637e21"
     },
     {
       "path": "desktop-host/Cargo.lock",

@@ -92,3 +92,7 @@ node src\windows-runtime.mjs --host 127.0.0.1 --port 4173 --strictPort --start-l
 ## Agent JSON 控制
 
 Windows 0.3.0 提供原生命令讀取狀態、JSON 預檢／提交與 receipt 查詢，並以 --agent-help 和 --agent-schema 自我描述。[操作教學、格式與規則](desktop-host/docs/AGENT-API.md)。不需點擊管理頁，不直接改寫內部 live.json。
+
+## 後續功能規劃
+
+多螢幕、放置模式、螢幕保護程式、音訊、素材目錄與 Agent 後續擴充的盤點、執行順序及驗收條件，統一維護於 [TODO](TODO.md)。未勾選項目尚未實作。
