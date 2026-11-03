@@ -18,26 +18,26 @@
     {
       "path": "README.md",
       "bytes": 7548,
-      "sha256": "10ce90de5c27bc127be62e70f01622f2ee61478f73842b8a34cb3b50214d2c61",
-      "git_blob_sha": "6ac3f5cd66cbffc893dd7bbe41085c4ec16c06c2"
+      "sha256": "9c14fc449f8382472f2f66da7867da540241e1a326fdc860c6a69bef24f821f1",
+      "git_blob_sha": "89e1a39571026a13d67f18c3a690837b16009512"
     },
     {
       "path": "desktop-host/Cargo.lock",
       "bytes": 104046,
-      "sha256": "c75a9e35dce769e7d16f8d8626e1d8efe7b0e02b2a6efc8f71a472ba1d4f18b0",
-      "git_blob_sha": "db8414354451f6297c913ce2a8f16fe4bc338be1"
+      "sha256": "209d1d84985331f01aabbe02f507f52cb724bafbe32276d16862c37ca14b73f4",
+      "git_blob_sha": "0cc7b5c36d96b04afd43429d0ad3c2d03bdbfd66"
     },
     {
       "path": "desktop-host/Cargo.toml",
       "bytes": 720,
-      "sha256": "bab2529c2a48395061ed8ff35d10eb65ab15845bcb3a15ebf407e4933a3a8033",
-      "git_blob_sha": "3fa3c7313a3c3d8e6147865b9722c5d215fcc5e8"
+      "sha256": "a179471043749c529346347dd401754307aac59383e6d629dd140083721c33f7",
+      "git_blob_sha": "44b7e6608134d29ede609131a0766ae2c0150718"
     },
     {
       "path": "desktop-host/README.md",
-      "bytes": 9003,
-      "sha256": "ab1ace7e133fa5cb0e171eddcce43ecbec3b743a9f562b2789c10271fe6dd985",
-      "git_blob_sha": "595b986c139a8a555b9754330e024ccc17d2568f"
+      "bytes": 9159,
+      "sha256": "5255dc14b41a189113b15e9f68ef1d33b433ab7382fcfea14e8de3c9eb66cab1",
+      "git_blob_sha": "d7332933673303b7c40a2827634f2ac417f8cc69"
     },
     {
       "path": "desktop-host/build.rs",
@@ -68,6 +68,12 @@
       "bytes": 1894,
       "sha256": "6007c7aedf2c7d0048bbf3b4bc5e64b785964f40c181c2520134b4480b49415f",
       "git_blob_sha": "d2dfb10b5a32bfb234070899773100e622b3c5ac"
+    },
+    {
+      "path": "desktop-host/docs/TOOLBAR-GAP-2026-11-04.md",
+      "bytes": 1864,
+      "sha256": "1e7a32bb5a6c8d99763f81fb927f121dd96409f3369b1a39b79d69ee5b8ecfce",
+      "git_blob_sha": "f8682a7f8a56e94753849c2fb7821b729b50657c"
     },
     {
       "path": "desktop-host/docs/WIDGET-POSITION-FIX-2026-11-04.md",
@@ -124,6 +130,12 @@
       "git_blob_sha": "2042c60f0c20d6de3992d0ee0ce0f5b996ead1f6"
     },
     {
+      "path": "desktop-host/evidence/toolbar-gap-upgrade.json",
+      "bytes": 730,
+      "sha256": "b82d1e8fa13d86f36c8c35df7c6889b9d9bb95a0720697e514f863730ce8a1c8",
+      "git_blob_sha": "b204e0f03f073b6a54d674bb70dad776299ef09f"
+    },
+    {
       "path": "desktop-host/evidence/widget-position-upgrade.json",
       "bytes": 730,
       "sha256": "379adf4f39c65abaabece089b0f49d1631bafc4ef898e53ca6565c22576293fa",
@@ -174,14 +186,14 @@
     {
       "path": "desktop-host/package-lock.json",
       "bytes": 7246,
-      "sha256": "ceaba205271d00555c64d803badbe17bec4992ea01f931e8636805e1dc3b9a78",
-      "git_blob_sha": "8c4c783b8332aba915477e0e9558cd16f7e4269c"
+      "sha256": "53025164a72aca59c0f08d93eb580a783bf5fce66219c401bafec55752e65353",
+      "git_blob_sha": "5656d8d4bad5a18687a625b47eb6e596fb591797"
     },
     {
       "path": "desktop-host/package.json",
       "bytes": 278,
-      "sha256": "e19ba02c5752801ae7645776e486e318f2b46297a01bf7ef309b31ded15cda95",
-      "git_blob_sha": "3d32d9626aecd86a94f69ec86a4126761580a147"
+      "sha256": "d799ec09ba0be469db0757b2a5e04474e1961e035f69e8057ba79dd8cfcc433b",
+      "git_blob_sha": "0c38a6868cf4032c566240a16e11a8e67560b758"
     },
     {
       "path": "desktop-host/scripts/build-installer.mjs",
@@ -300,8 +312,8 @@
     {
       "path": "desktop-host/tauri.conf.json",
       "bytes": 779,
-      "sha256": "5b6324c25f879cc9adc4470b6c89e386f16a9215158c26a75991eb4521b00a18",
-      "git_blob_sha": "ce21b026687173b9b059b6761eb9465613f958b9"
+      "sha256": "bbb65b524a1a109bb206f15dcd7bdc62784c360c76971e1f660d946f2a662b2f",
+      "git_blob_sha": "264be32f3ab280ce2f4023698f4fb2b05662e83c"
     },
     {
       "path": "desktop-host/ui/index.html",
@@ -808,6 +820,24 @@
       "git_blob_sha": "2c9857573c99fbd9c7cdf18e0d6b2d5d66fa10a0"
     },
     {
+      "path": "implementation-p4_2_5/evidence/toolbar-gap-layout/layout-1280-natural.png",
+      "bytes": 540778,
+      "sha256": "be808e94e2625930ae235934f31eea6d0ab6d41bc383aa93bb2f7c140bb31941",
+      "git_blob_sha": "7d16f71e795bc46051a14200e9237f1da90cb703"
+    },
+    {
+      "path": "implementation-p4_2_5/evidence/toolbar-gap-layout/layout-390-neon.png",
+      "bytes": 254825,
+      "sha256": "805009a7dc783dc841a9aa9fcedf1dcbbcc2907bf77a8466b0bb05598f6355ab",
+      "git_blob_sha": "89a9999dc6b00b2042d5c187cc6958e7b22cb7c4"
+    },
+    {
+      "path": "implementation-p4_2_5/evidence/toolbar-gap-layout/report.json",
+      "bytes": 11772,
+      "sha256": "96b9eae36c1202b9a51812f862164ad7fc201e282946b244576d902f4165ff46",
+      "git_blob_sha": "632ad5959b5e60c2fdc7eee780d6f11d579507cb"
+    },
+    {
       "path": "implementation-p4_2_5/evidence/verification.json",
       "bytes": 601,
       "sha256": "98edc4007b8141ac108317de8f84601b557612ed16d8a45f88aa1d689ff5b642",
@@ -833,9 +863,9 @@
     },
     {
       "path": "implementation-p4_2_5/scripts/audit-layout.mjs",
-      "bytes": 9331,
-      "sha256": "0638c4ec5ec5d00b504e319ad7f422fce79b10631593e662afac6d84f8848ac4",
-      "git_blob_sha": "8418ef653579f8fb0e641baf3735222f627594c3"
+      "bytes": 9509,
+      "sha256": "c66a31075a1277389b93ff155ae63ae618b57eb145b19f3b6a98e568d32df19f",
+      "git_blob_sha": "adf4bde55c3cbf49ccd0b999910370342041ab15"
     },
     {
       "path": "implementation-p4_2_5/scripts/measure-windows-host.ps1",
@@ -923,9 +953,9 @@
     },
     {
       "path": "implementation-p4_2_5/src/bridge-toolbar.css",
-      "bytes": 629,
-      "sha256": "0026fba6b6d6f94fc0f71dc0730fb118f49c327055ccfac5988e4ab70f875378",
-      "git_blob_sha": "db543e6070c8301f05c86e400aaddb43cd846195"
+      "bytes": 643,
+      "sha256": "83fe46e5056c327e9fb679efe211e3fdd2f3b63ffb1dd8bc76e4e8532d9085cb",
+      "git_blob_sha": "9555c18b2adfb5866e202fc486356f5613adc6b6"
     },
     {
       "path": "implementation-p4_2_5/src/calendar-client.js",

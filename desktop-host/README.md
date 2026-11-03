@@ -1,10 +1,10 @@
-# Atmos Wallpaper Windows 安裝版 0.3.1
+# Atmos Wallpaper Windows 安裝版 0.3.2
 
 Tauri 2＋Rust、Windows x64、單主螢幕桌布。保留現有管理頁、場景、元件與 ICS 日曆，由自己的 WebView2 宿主套用，**不使用 Lively**。
 
 ## 安裝與操作
 
-執行 `Atmos Wallpaper_0.3.1_x64-setup.exe`，完成頁預設勾選啟動 Atmos；按完成後自動套用主螢幕桌布。安裝器包含 Node、隔離的 Python＋Pillow，以及官方離線 WebView2 安裝程式；一般使用者不必另外安裝 Node、Python 或 Lively，也不需要 Rust 開發工具。
+執行 `Atmos Wallpaper_0.3.2_x64-setup.exe`，完成頁預設勾選啟動 Atmos；按完成後自動套用主螢幕桌布。安裝器包含 Node、隔離的 Python＋Pillow，以及官方離線 WebView2 安裝程式；一般使用者不必另外安裝 Node、Python 或 Lively，也不需要 Rust 開發工具。
 
 - 在目前使用者範圍安裝，預設 `%LOCALAPPDATA%\Atmos Wallpaper`；不新增系統 PATH 或 Windows Service。
 - 系統匣「開啟管理頁」調整設定，按「套用變更」保存；再次啟動 Atmos 捷徑也會開啟現有管理頁。
@@ -89,3 +89,5 @@ Windows 10 x64 build 19045 已實測；詳見 [登入啟動報告](docs/WINDOWS-
 Agent 實機整合測試（會暫時變更強度再以交易還原）：node scripts/test-agent-installed.mjs --apply-and-restore。結果與界線見 [0.3.0 驗證報告](docs/AGENT-API-VALIDATION-2026-11-04.md)。
 
 0.3.1 將預覽解析度、寬高、套用按鈕與語言改為桌面單排控制列；窄屏仍自動換行，避免擠壓。[版面驗證](docs/PREVIEW-TOOLBAR-2026-11-04.md)。
+
+0.3.2 為浮動套用工具列加入頂部 12px 留白與安全區偏移，小視窗保留底部空間。[間距驗證](docs/TOOLBAR-GAP-2026-11-04.md)。

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-04",
+  "version": "0.3.2",
+  "installer": {
+    "bytes": 292187429,
+    "sha256": "0925b84355e86723de6161e6aebc667b832346fd92f59444f81807c0571ef03e"
+  },
+  "checks": {
+    "silentUpgrade": true,
+    "savedSettingsPreserved": true,
+    "startupPreferencePreserved": true,
+    "payloadAndEmbeddedRuntimesVerified": true,
+    "installedStylesMatchSourceBuild": true,
+    "nativeWorkerWAttachment": true,
+    "genuineWallpaperAck": true,
+    "genuineManagerAck": true
+  },
+  "limitations": [
+    "Toolbar gap checked with isolated Chromium CLI fixtures including a 160px-high viewport; no user browser or desktop UI automation.",
+    "No new reboot, sleep, GPU or long-duration test."
+  ]
+}
