@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-04",
+  "version": "0.2.3",
+  "installer": {
+    "bytes": 292171918,
+    "sha256": "40761306192689fc532e1eb460cdc0f474bd33078ebae6499aa59c1be1c5c67e"
+  },
+  "checks": {
+    "silentUpgrade": true,
+    "savedSettingsPreserved": true,
+    "startupPreferencePreserved": true,
+    "payloadAndEmbeddedRuntimesVerified": true,
+    "installedStylesMatchSourceBuild": true,
+    "nativeWorkerWAttachment": true,
+    "genuineWallpaperAck": true,
+    "genuineManagerAck": true
+  },
+  "limitations": [
+    "Sticky toolbar checked using isolated Chromium CLI fixtures at 320, 390 and 1280 pixels; no user browser or desktop UI automation.",
+    "No new reboot, sleep, GPU or long-duration test."
+  ]
+}

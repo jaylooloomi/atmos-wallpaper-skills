@@ -1,0 +1,21 @@
+/* Remain in document flow, then pin the apply controls above the preview. */
+body[data-render-mode="manager"] .bridge-commands {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 1100;
+  box-sizing: border-box;
+  min-width: 0;
+  max-height: calc(100dvh - env(safe-area-inset-top, 0px) - 8px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  box-shadow: 0 5px 16px #0003;
+}
+body[data-render-mode="manager"] .bridge-commands > * {
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
+}
+body[data-render-mode="manager"] .bridge-commands button {
+  white-space: normal;
+}
