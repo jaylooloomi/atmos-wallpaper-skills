@@ -9,7 +9,7 @@ Atmos 動態桌布管理介面、唯讀桌布 renderer 與本機 CLI。此倉庫
 - 五語介面（繁中、簡中、英文、日文、韓文）、12／24 小時及秒數設定。
 - 管理頁 `/manager` 的修改先成草稿，再按套用提交；`/wallpaper` 為唯讀顯示頁。
 - 本機圖片匯入、備份、還原、版本遷移、離線匯出與受限 CLI。
-- Windows x64 安裝版 0.2.3：Tauri 2＋Rust、獨立 WebView2、托盤與退出還原；安裝後預設啟動並套用主螢幕，新增登入 Windows 後背景自動套用與管理頁即時開關。內含 Node／Python／Pillow 與離線 WebView2 安裝程式，不需另外安裝 Node、Python 或 Lively。[安裝、重建與限制](desktop-host/README.md)。
+- Windows x64 安裝版 0.3.0：Tauri 2＋Rust、獨立 WebView2、托盤與退出還原；安裝後預設啟動並套用主螢幕，新增登入 Windows 後背景自動套用與管理頁即時開關。內含 Node／Python／Pillow 與離線 WebView2 安裝程式，不需另外安裝 Node、Python 或 Lively。[安裝、重建與限制](desktop-host/README.md)。
 
 ## 目錄
 
@@ -88,3 +88,7 @@ node src\windows-runtime.mjs --host 127.0.0.1 --port 4173 --strictPort --start-l
 場景區位於預覽解析度上方；預覽／語言與元件工具列在空間不足時換行，不依賴橫向捲軸。[實際 Chromium 排版量測](implementation-p4_2_5/docs/LAYOUT-VERIFICATION-2026-11-03.md) 可用 `npm run audit:layout` 重跑。
 
 [Lively 功能盤點與 Atmos 獨立宿主規劃](implementation-p4_2_5/docs/LIVELY-AND-STANDALONE-HOST.md) 說明如何保留目前網頁並新增自己的 Windows 桌布層。這是已完成的原始碼研究與開發規劃；目前尚未提供不依賴 Lively 的原生宿主／安裝器。
+
+## Agent JSON 控制
+
+Windows 0.3.0 提供原生命令讀取狀態、JSON 預檢／提交與 receipt 查詢，並以 --agent-help 和 --agent-schema 自我描述。[操作教學、格式與規則](desktop-host/docs/AGENT-API.md)。不需點擊管理頁，不直接改寫內部 live.json。

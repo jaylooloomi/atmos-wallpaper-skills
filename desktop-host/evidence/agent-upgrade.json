@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-04",
+  "version": "0.3.0",
+  "installer": {
+    "bytes": 292186862,
+    "sha256": "3735a9476389203dfd0521fd8aac3bbefe7f8abaf6ed4bb5a8b43eecfe798c54"
+  },
+  "checks": {
+    "silentUpgrade": true,
+    "savedSettingsPreserved": true,
+    "startupPreferencePreserved": true,
+    "payloadAndEmbeddedRuntimesVerified": true,
+    "installedStylesMatchSourceBuild": true,
+    "nativeWorkerWAttachment": true,
+    "genuineWallpaperAck": true,
+    "genuineManagerAck": true
+  },
+  "limitations": [
+    "Native JSON agent commands are tested separately; no user browser or desktop UI automation.",
+    "No new reboot, sleep, GPU or long-duration test."
+  ]
+}

@@ -1,5 +1,7 @@
 #![cfg_attr(all(windows, not(debug_assertions)), windows_subsystem = "windows")]
 #[cfg(windows)]
+mod agent;
+#[cfg(windows)]
 mod app;
 #[cfg(windows)]
 mod control;
@@ -52,8 +54,11 @@ fn main() {
 fn run() -> Result<i32, String> {
     use serde_json::json;
     let args: Vec<String> = std::env::args().skip(1).collect();
+    if args.first().is_some_and(|v| agent::is_action(v)) {
+        return agent::run(args);
+    }
     if args == ["--help"] {
-        println!("Atmos Wallpaper\nNo arguments: verify bundled resources, launch embedded runtimes and apply to the primary monitor until tray Exit.\n--autostart status|enable|disable: manage sign-in registration.\n--autostart-launch: background logon entry (waits for Explorer).\n--quit: close only this executable's instance (upgrade/uninstall).\n--manager: open the running manager, or start and open it.\n--check-install: verify payload and embedded runtimes without applying wallpaper.\n--inspect-desktop: read native desktop metadata.\nDeveloper mode: --runtime-root DIR --node EXE --python EXE --store DIR --status FILE [--run-seconds 5..3600].\nInstalled mode also accepts --store, --status and --run-seconds for diagnostics.");
+        println!("Atmos Wallpaper\nAgent JSON API: --agent-help, --agent-schema, --get-state, --validate-json FILE, --apply-json FILE [--wait-ms 0..30000], --get-result REQUEST_ID [--wait-ms 0..30000].\nNo arguments: verify bundled resources, launch embedded runtimes and apply to the primary monitor until tray Exit.\n--autostart status|enable|disable: manage sign-in registration.\n--autostart-launch: background logon entry (waits for Explorer).\n--quit: close only this executable's instance (upgrade/uninstall).\n--manager: open the running manager, or start and open it.\n--check-install: verify payload and embedded runtimes without applying wallpaper.\n--inspect-desktop: read native desktop metadata.\nDeveloper mode: --runtime-root DIR --node EXE --python EXE --store DIR --status FILE [--run-seconds 5..3600].\nInstalled mode also accepts --store, --status and --run-seconds for diagnostics.");
         return Ok(0);
     }
     if args == ["--quit"] {

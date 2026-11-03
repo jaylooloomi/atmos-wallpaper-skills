@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-04",
+  "version": "0.3.0",
+  "method": "Installed native CLI, real core CAS/receipts and genuine wallpaper-role reports; no UI automation",
+  "checks": [
+    {
+      "name": "native-machine-discovery",
+      "passed": true
+    },
+    {
+      "name": "native-validation-replay-conflicts-and-errors",
+      "passed": true,
+      "isolatedStore": true,
+      "noFakeAcknowledgement": true
+    },
+    {
+      "name": "live-native-json-commit-and-genuine-wallpaper-ack",
+      "passed": true
+    },
+    {
+      "name": "restore-original-desired-and-genuine-wallpaper-ack",
+      "passed": true
+    },
+    {
+      "name": "documented-powershell-utf8-json-pipeline",
+      "passed": true
+    }
+  ],
+  "limitations": [
+    "Renderer acknowledgement is not OS presentation or manual visual proof.",
+    "No new reboot, sleep, multi-monitor, GPU or long-duration measurement.",
+    "No automatic file watcher is enabled."
+  ]
+}
