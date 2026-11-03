@@ -54,6 +54,6 @@ let bootHtml=fs.readFileSync(path.join(dist,'index.html'),'utf8');
 if(!bootHtml.includes('<html lang="zh-Hant">')||!bootHtml.includes('<header>'))throw Error('Initial visibility hooks missing');
 bootHtml=bootHtml.replace('<html lang="zh-Hant">','<html lang="zh-Hant" data-atmos-loading="true">');
 bootHtml=bootHtml.replace('<style>','<style>'+fs.readFileSync(path.join(root,'src/boot-visibility.css'),'utf8')+'</style><style>');
-bootHtml=bootHtml.replace('<header>','<section id="atmosBootNotice" role="status" aria-live="polite"><p id="atmosBootMessage">正在載入 Atmos，請稍候…</p><a href="">重新載入</a></section><header>');
+bootHtml=bootHtml.replace('<header>',fs.readFileSync(path.join(root,'src/boot-loader.html'),'utf8')+'<header>');
 fs.writeFileSync(path.join(dist,'index.html'),bootHtml);
 fs.writeFileSync(path.join(dist,'bridge-client.js'),fs.readFileSync(path.join(root,'src/boot-visibility.js'),'utf8')+'\n'+fs.readFileSync(path.join(dist,'bridge-client.js'),'utf8'));

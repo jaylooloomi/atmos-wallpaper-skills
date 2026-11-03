@@ -1,0 +1,117 @@
+<!doctype html><html data-atmos-loading="true"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Atmos loading effect preview</title><style>html,body{margin:0;width:100%;height:100%;overflow:hidden}/* Inline and self-contained: hide staged UI even if external assets fail. */
+html[data-atmos-loading] { background:#07151d; }
+html[data-atmos-loading] body { background:#07151d !important; }
+html[data-atmos-loading] body * { visibility: hidden !important; }
+html[data-atmos-loading] #atmosBootNotice,html[data-atmos-loading] #atmosBootNotice * { visibility:visible !important; }
+#atmosBootNotice{position:fixed;inset:0;z-index:2147483000;isolation:isolate;display:grid;place-items:center;align-items:safe center;overflow:auto;overscroll-behavior:contain;padding:32px 20px;margin:0;background:#07151d;color:#e7fff5;text-align:center;font:14px/1.6 system-ui,sans-serif}
+#atmosBootNotice *,#atmosBootNotice *::before,#atmosBootNotice *::after{box-sizing:border-box}
+#atmosBootNotice .boot-atmosphere{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 50% 43%,#12343a55,transparent 62%),linear-gradient(#07101c,#071d23)}
+#atmosBootNotice .boot-aurora{position:absolute;display:block;width:min(78vw,640px);height:min(65vw,520px);border-radius:50%;opacity:.6;will-change:transform}
+#atmosBootNotice .boot-aurora-a{left:-12%;top:4%;background:radial-gradient(ellipse,#1bbcae2e,transparent 67%);animation:boot-drift-a 14s ease-in-out infinite alternate}
+#atmosBootNotice .boot-aurora-b{right:-8%;top:15%;background:radial-gradient(ellipse,#4779d538,transparent 67%);animation:boot-drift-b 18s ease-in-out infinite alternate}
+#atmosBootNotice .boot-stars{position:absolute;inset:0;opacity:.24;background-image:radial-gradient(circle,#afffeb 1px,transparent 1.5px),radial-gradient(circle,#8ab0d0 1px,transparent 1.5px);background-size:137px 127px,211px 193px;background-position:24px 28px,93px 77px;mask-image:linear-gradient(transparent,#0009 20%,#0003 75%,transparent)}
+#atmosBootNotice .boot-landscape{position:absolute;bottom:-1px;left:0;width:100%;height:62%;min-height:270px}
+#atmosBootNotice .boot-content{display:flex;flex-direction:column;align-items:center;gap:14px;width:min(420px,100%);padding:18px 12px;animation:boot-enter .45s ease-out both}
+#atmosBootNotice .boot-emblem{position:relative;flex:none;width:220px;height:220px;margin-bottom:6px}
+#atmosBootNotice .boot-halo{position:absolute;inset:5%;border-radius:50%;background:radial-gradient(circle,#49ebc927,transparent 67%);animation:boot-breathe 4.2s ease-in-out infinite}
+#atmosBootNotice .boot-orbit{position:absolute;inset:0;width:100%;height:100%;overflow:visible;transform-origin:center;transform-box:view-box;animation:boot-orbit 7s linear infinite}
+#atmosBootNotice .boot-orbit-inner{inset:14px;width:calc(100% - 28px);height:calc(100% - 28px);animation-direction:reverse;animation-duration:22s}
+#atmosBootNotice .boot-core{position:absolute;inset:44px;border:1px solid #99ffe72b;border-radius:32px;background:linear-gradient(145deg,#23474b85,#10262d9c);box-shadow:inset 0 1px #d7fff317,0 12px 52px #00141966}
+#atmosBootNotice .boot-mark{width:100%;height:100%;filter:drop-shadow(0 0 8px #56e5cb33)}
+#atmosBootNotice .boot-trace{stroke-dasharray:1;stroke-dashoffset:0;animation:boot-trace 3.8s ease-in-out infinite}
+#atmosBootNotice .boot-sun{transform-box:fill-box;transform-origin:center;animation:boot-sun 4.2s ease-in-out infinite}
+#atmosBootNotice .boot-wordmark{padding-left:.34em;font-size:34px;font-weight:500;line-height:1.2;letter-spacing:.34em;color:#e5fff4;text-shadow:0 0 30px #7cebd733}
+#atmosBootNotice p{margin:0;max-width:100%;overflow-wrap:anywhere}
+#atmosBootNotice #atmosBootMessage{color:#d8f2eb;font-size:14px;font-weight:500;line-height:1.65}
+#atmosBootNotice .boot-caption{font-size:12px;line-height:1.5;color:#91b6bd}
+#atmosBootNotice .boot-track{position:relative;width:168px;height:2px;margin:4px 0 0;overflow:hidden;border-radius:2px;background:#75d5c61c}
+#atmosBootNotice .boot-track span{position:absolute;left:-45%;width:45%;height:100%;background:linear-gradient(90deg,transparent,#88f5dc,#ffe1a1);animation:boot-scan 2.6s cubic-bezier(.4,0,.2,1) infinite}
+#atmosBootNotice .boot-steps{display:flex;align-items:center;gap:12px;color:#7fa3ad;font-size:11px;letter-spacing:.12em}
+#atmosBootNotice .boot-steps i{width:16px;height:1px;background:#638c913d}
+#atmosBootNotice[data-stage="connect"] [data-step="connect"],#atmosBootNotice[data-stage="scene"] [data-step="scene"],#atmosBootNotice[data-stage="layout"] [data-step="layout"]{color:#c6ffe6;text-shadow:0 0 12px #7cf1cb77}
+#atmosBootNotice a{display:inline-flex;align-items:center;justify-content:center;gap:7px;color:#b8e0dd;padding:7px 14px;margin-top:7px;border:1px solid #557c8059;border-radius:999px;background:#112e354d;font:12px/1.5 system-ui,sans-serif;text-decoration:none}
+#atmosBootNotice a svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+#atmosBootNotice a:hover{color:#effff6;border-color:#83dcca8c;background:#234e5370}
+#atmosBootNotice a:focus-visible{outline:3px solid #ffdaa0;outline-offset:4px}
+#atmosBootNotice[data-state="error"] *{animation-play-state:paused !important}
+#atmosBootNotice[data-state="error"] .boot-content{animation:none !important;opacity:1;transform:none}
+#atmosBootNotice[data-state="error"] #atmosBootMessage{color:#ffdda5}
+#atmosBootNotice[data-state="error"] .boot-caption{color:#c4bfb1}
+#atmosBootNotice[data-state="error"] a{color:#ffebc8;border-color:#e1b97d99;background:#3b30266e}
+#atmosBootNotice[data-state="error"] .boot-track{opacity:.25}
+@keyframes boot-orbit{to{transform:rotate(360deg)}}
+@keyframes boot-drift-a{to{transform:translate(20%,12%) rotate(14deg) scale(1.12)}}
+@keyframes boot-drift-b{to{transform:translate(-16%,-8%) rotate(-18deg) scale(1.08)}}
+@keyframes boot-breathe{50%{transform:scale(1.1);opacity:.55}}
+@keyframes boot-sun{50%{transform:scale(.92);opacity:.82}}
+@keyframes boot-trace{0%{stroke-dashoffset:1;opacity:.35}48%,80%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:.35}}
+@keyframes boot-scan{to{transform:translateX(325%)}}
+@keyframes boot-enter{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:380px){#atmosBootNotice{padding:20px 16px}#atmosBootNotice .boot-emblem{width:180px;height:180px}#atmosBootNotice .boot-core{inset:36px;border-radius:26px}#atmosBootNotice .boot-wordmark{font-size:29px}}
+@media(max-height:480px){#atmosBootNotice{padding:12px}#atmosBootNotice .boot-content{padding:8px;gap:8px}#atmosBootNotice .boot-emblem{width:134px;height:134px;margin:0}#atmosBootNotice .boot-core{inset:27px;border-radius:20px}#atmosBootNotice .boot-wordmark{font-size:24px}#atmosBootNotice .boot-steps{display:none}#atmosBootNotice a{margin-top:0}}
+@media(max-height:260px){#atmosBootNotice .boot-emblem,#atmosBootNotice .boot-caption{display:none}#atmosBootNotice .boot-wordmark{font-size:20px}#atmosBootNotice .boot-content{gap:6px}#atmosBootNotice .boot-track{width:130px}}
+@media(prefers-reduced-motion:reduce){#atmosBootNotice *,#atmosBootNotice *::before,#atmosBootNotice *::after{animation:none !important;transition:none !important}#atmosBootNotice .boot-track span{left:28%;transform:none}}
+</style><section id="atmosBootNotice" role="status" aria-live="polite" aria-busy="true" data-state="loading" data-stage="connect">
+ <div class="boot-atmosphere" aria-hidden="true">
+  <i class="boot-aurora boot-aurora-a"></i><i class="boot-aurora boot-aurora-b"></i><div class="boot-stars"></div>
+  <svg class="boot-landscape" viewBox="0 0 1440 650" preserveAspectRatio="xMidYMax slice">
+   <path d="M-100 650V428L130 250L276 372L515 95L731 345L920 215L1170 414L1400 247L1540 399V650Z" fill="#123b46" opacity=".38"/>
+   <path d="M-80 650V490L172 382L346 480L640 226L824 410L1062 305L1317 492L1510 406V650Z" fill="#12454b" opacity=".3"/>
+   <path d="M-90 575C230 433 411 577 704 487S1191 429 1530 538" stroke="#5bd8cf" stroke-width="1.5" opacity=".22"/>
+   <path d="M-90 610C230 468 411 612 704 522S1191 464 1530 573" stroke="#5bd8cf" stroke-width="1" opacity=".1"/>
+  </svg>
+ </div>
+ <div class="boot-content">
+  <div class="boot-emblem" aria-hidden="true">
+   <div class="boot-halo"></div>
+   <svg class="boot-orbit" viewBox="0 0 220 220">
+    <defs><linearGradient id="boot-orbit-light"><stop stop-color="#53ddcb" stop-opacity="0"/><stop offset="1" stop-color="#8cf3df"/></linearGradient></defs>
+    <circle cx="110" cy="110" r="99" stroke="#6bd9d0" stroke-opacity=".12" fill="none"/>
+    <circle cx="110" cy="110" r="99" stroke="url(#boot-orbit-light)" stroke-width="2" stroke-dasharray="160 463" fill="none"/>
+    <circle cx="110" cy="11" r="3.8" fill="#ffe0a1"/>
+   </svg>
+   <svg class="boot-orbit boot-orbit-inner" viewBox="0 0 220 220"><circle cx="110" cy="110" r="97" stroke="#5da8c9" stroke-opacity=".24" stroke-dasharray="3 15" fill="none"/></svg>
+   <div class="boot-core"><svg class="boot-mark" viewBox="0 0 512 512">
+    <defs><linearGradient id="boot-peak" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#d0fff0"/><stop offset="1" stop-color="#55d7c6"/></linearGradient><linearGradient id="boot-wave"><stop stop-color="#42c5c0"/><stop offset="1" stop-color="#6ce1ce"/></linearGradient></defs>
+    <path d="M103 373L221 158L339 373" stroke="#39766f" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path class="boot-trace" d="M103 373L221 158L339 373" pathLength="1" stroke="url(#boot-peak)" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle class="boot-sun" cx="359" cy="147" r="53" fill="#ffcf82"/>
+    <path d="M359 115V147L381 159" stroke="#243747" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M82 373C149 325 205 330 272 359C331 385 373 386 429 348V391C369 435 311 418 255 393C193 365 139 365 82 409Z" fill="url(#boot-wave)"/>
+   </svg></div>
+  </div>
+  <div class="boot-wordmark" aria-hidden="true">ATMOS</div>
+  <p id="atmosBootMessage">正在載入 Atmos，請稍候…</p>
+  <p id="atmosBootStage" class="boot-caption">正在連接本機設定</p>
+  <div class="boot-track" aria-hidden="true"><span></span></div>
+  <div class="boot-steps" aria-hidden="true"><span data-step="connect">連接</span><i></i><span data-step="scene">場景</span><i></i><span data-step="layout">就位</span></div>
+  <a id="atmosBootRetry" href=""><svg aria-hidden="true" viewBox="0 0 20 20"><path d="M15.8 7A6 6 0 1 0 16 12M16 3v4h-4"/></svg>重新載入</a>
+ </div>
+</section>
+<script>// Initial-page gate only. Preserve layout measurements while concealing staged UI.
+(()=>{
+ const root=document.documentElement,loading=()=>root.hasAttribute('data-atmos-loading');
+ const frame=()=>new Promise(resolve=>requestAnimationFrame(resolve));
+ const text=(id,message)=>{const node=document.getElementById(id);if(node&&node.textContent!==message)node.textContent=message};
+ const stage=phase=>{if(!loading())return;const node=document.getElementById('atmosBootNotice');if(!node||node.dataset.state==='error')return;const labels={connect:'正在連接本機設定',scene:'正在同步場景與圖片',layout:'正在整理字型與版面'};if(!labels[phase])return;node.dataset.stage=phase;text('atmosBootStage',labels[phase])};
+ window.AtmosBootVisibility={
+  stage,
+  async settle(){
+   if(!loading())return;
+   stage('layout');
+   let timer;
+   try{await Promise.race([(async()=>{
+    for(const link of document.querySelectorAll('link[rel="stylesheet"]'))if(!link.sheet||!link.sheet.cssRules.length)throw Error('Required stylesheet failed to load');
+    await document.fonts?.ready;
+    const node=document.getElementById('atmosBootNotice');if(node?.dataset.state==='error'){node.dataset.state='loading';node.setAttribute('aria-busy','true');text('atmosBootMessage','正在載入 Atmos，請稍候…');stage('layout')}
+    await Promise.allSettled([...document.querySelectorAll('.scene-picker-top img')].map(image=>image.decode()));
+    await document.fonts?.ready;
+    window.AtmosCanvas?.resize();window.atmosBridgeApp?.syncGeometry();window.atmosBridgeWidgets?.syncGeometry();window.atmosSchedulePanelAlign?.();
+    await frame();await frame();
+   })(),new Promise((_,reject)=>{timer=setTimeout(()=>reject(Error('Initial layout readiness timed out')),10000)})])}finally{clearTimeout(timer)}
+  },
+  reveal(){root.removeAttribute('data-atmos-loading');document.getElementById('atmosBootNotice')?.remove()},
+  fail(){if(!loading())return;const node=document.getElementById('atmosBootNotice');if(node){node.dataset.state='error';node.setAttribute('aria-busy','false')}text('atmosBootMessage','Atmos 尚未完成載入。請檢查連線後重新載入。');text('atmosBootStage','確認連線後，可以重新嘗試。')}
+ };
+})();
+</script><script>window.AtmosBootVisibility.stage('scene');</script></html>

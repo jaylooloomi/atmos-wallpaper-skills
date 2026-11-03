@@ -1,0 +1,186 @@
+{
+  "kind": "Standalone original SVG/CSS loading fixtures rendered by isolated Chromium CLI; not actual loading progress or user desktop proof",
+  "cases": [
+    {
+      "name": "desktop",
+      "width": 1280,
+      "height": 800,
+      "viewport": [
+        1280,
+        800
+      ],
+      "keyframeSampling": true,
+      "contentOpacity": "1",
+      "state": "loading",
+      "stage": "scene",
+      "reduced": false,
+      "animations": 9,
+      "motionChanged": true,
+      "paused": false,
+      "retry": {
+        "left": 590,
+        "top": 594.234375,
+        "right": 690,
+        "bottom": 628.234375,
+        "width": 100,
+        "height": 34
+      },
+      "message": {
+        "left": 555.40625,
+        "top": 466.546875,
+        "right": 724.578125,
+        "bottom": 489.640625,
+        "width": 169.171875,
+        "height": 23.09375
+      },
+      "contentWidth": 1280,
+      "clientWidth": 1280,
+      "failures": []
+    },
+    {
+      "name": "phone",
+      "width": 390,
+      "height": 844,
+      "viewport": [
+        390,
+        844
+      ],
+      "keyframeSampling": true,
+      "contentOpacity": "1",
+      "state": "loading",
+      "stage": "scene",
+      "reduced": false,
+      "animations": 9,
+      "motionChanged": true,
+      "paused": false,
+      "retry": {
+        "left": 145,
+        "top": 616.234375,
+        "right": 245,
+        "bottom": 650.234375,
+        "width": 100,
+        "height": 34
+      },
+      "message": {
+        "left": 110.40625,
+        "top": 488.546875,
+        "right": 279.578125,
+        "bottom": 511.640625,
+        "width": 169.171875,
+        "height": 23.09375
+      },
+      "contentWidth": 390,
+      "clientWidth": 390,
+      "failures": []
+    },
+    {
+      "name": "compact",
+      "width": 320,
+      "height": 160,
+      "viewport": [
+        320,
+        160
+      ],
+      "keyframeSampling": true,
+      "contentOpacity": "1",
+      "state": "loading",
+      "stage": "scene",
+      "reduced": false,
+      "animations": 4,
+      "motionChanged": true,
+      "paused": false,
+      "retry": {
+        "left": 110,
+        "top": 98.546875,
+        "right": 210,
+        "bottom": 132.546875,
+        "width": 100,
+        "height": 34
+      },
+      "message": {
+        "left": 75.40625,
+        "top": 57.453125,
+        "right": 244.578125,
+        "bottom": 80.546875,
+        "width": 169.171875,
+        "height": 23.09375
+      },
+      "contentWidth": 320,
+      "clientWidth": 320,
+      "failures": []
+    },
+    {
+      "name": "reduced",
+      "width": 1280,
+      "height": 800,
+      "viewport": [
+        1280,
+        800
+      ],
+      "keyframeSampling": true,
+      "contentOpacity": "1",
+      "state": "loading",
+      "stage": "scene",
+      "reduced": true,
+      "animations": 0,
+      "motionChanged": false,
+      "paused": true,
+      "retry": {
+        "left": 590,
+        "top": 594.234375,
+        "right": 690,
+        "bottom": 628.234375,
+        "width": 100,
+        "height": 34
+      },
+      "message": {
+        "left": 555.40625,
+        "top": 466.546875,
+        "right": 724.578125,
+        "bottom": 489.640625,
+        "width": 169.171875,
+        "height": 23.09375
+      },
+      "contentWidth": 1280,
+      "clientWidth": 1280,
+      "failures": []
+    },
+    {
+      "name": "error",
+      "width": 1280,
+      "height": 800,
+      "viewport": [
+        1280,
+        800
+      ],
+      "keyframeSampling": true,
+      "contentOpacity": "1",
+      "state": "error",
+      "stage": "connect",
+      "reduced": false,
+      "animations": 8,
+      "motionChanged": false,
+      "paused": true,
+      "retry": {
+        "left": 590,
+        "top": 594.234375,
+        "right": 690,
+        "bottom": 628.234375,
+        "width": 100,
+        "height": 34
+      },
+      "message": {
+        "left": 490.859375,
+        "top": 466.546875,
+        "right": 789.125,
+        "bottom": 489.640625,
+        "width": 298.265625,
+        "height": 23.09375
+      },
+      "contentWidth": 1280,
+      "clientWidth": 1280,
+      "failures": []
+    }
+  ],
+  "passed": true
+}

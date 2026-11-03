@@ -2,3 +2,4 @@
 *.png -text
 *.woff -text
 *.ico -text
+*.gif -text

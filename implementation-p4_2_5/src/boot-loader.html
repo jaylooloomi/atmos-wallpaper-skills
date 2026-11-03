@@ -1,0 +1,37 @@
+<section id="atmosBootNotice" role="status" aria-live="polite" aria-busy="true" data-state="loading" data-stage="connect">
+ <div class="boot-atmosphere" aria-hidden="true">
+  <i class="boot-aurora boot-aurora-a"></i><i class="boot-aurora boot-aurora-b"></i><div class="boot-stars"></div>
+  <svg class="boot-landscape" viewBox="0 0 1440 650" preserveAspectRatio="xMidYMax slice">
+   <path d="M-100 650V428L130 250L276 372L515 95L731 345L920 215L1170 414L1400 247L1540 399V650Z" fill="#123b46" opacity=".38"/>
+   <path d="M-80 650V490L172 382L346 480L640 226L824 410L1062 305L1317 492L1510 406V650Z" fill="#12454b" opacity=".3"/>
+   <path d="M-90 575C230 433 411 577 704 487S1191 429 1530 538" stroke="#5bd8cf" stroke-width="1.5" opacity=".22"/>
+   <path d="M-90 610C230 468 411 612 704 522S1191 464 1530 573" stroke="#5bd8cf" stroke-width="1" opacity=".1"/>
+  </svg>
+ </div>
+ <div class="boot-content">
+  <div class="boot-emblem" aria-hidden="true">
+   <div class="boot-halo"></div>
+   <svg class="boot-orbit" viewBox="0 0 220 220">
+    <defs><linearGradient id="boot-orbit-light"><stop stop-color="#53ddcb" stop-opacity="0"/><stop offset="1" stop-color="#8cf3df"/></linearGradient></defs>
+    <circle cx="110" cy="110" r="99" stroke="#6bd9d0" stroke-opacity=".12" fill="none"/>
+    <circle cx="110" cy="110" r="99" stroke="url(#boot-orbit-light)" stroke-width="2" stroke-dasharray="160 463" fill="none"/>
+    <circle cx="110" cy="11" r="3.8" fill="#ffe0a1"/>
+   </svg>
+   <svg class="boot-orbit boot-orbit-inner" viewBox="0 0 220 220"><circle cx="110" cy="110" r="97" stroke="#5da8c9" stroke-opacity=".24" stroke-dasharray="3 15" fill="none"/></svg>
+   <div class="boot-core"><svg class="boot-mark" viewBox="0 0 512 512">
+    <defs><linearGradient id="boot-peak" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#d0fff0"/><stop offset="1" stop-color="#55d7c6"/></linearGradient><linearGradient id="boot-wave"><stop stop-color="#42c5c0"/><stop offset="1" stop-color="#6ce1ce"/></linearGradient></defs>
+    <path d="M103 373L221 158L339 373" stroke="#39766f" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path class="boot-trace" d="M103 373L221 158L339 373" pathLength="1" stroke="url(#boot-peak)" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <circle class="boot-sun" cx="359" cy="147" r="53" fill="#ffcf82"/>
+    <path d="M359 115V147L381 159" stroke="#243747" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <path d="M82 373C149 325 205 330 272 359C331 385 373 386 429 348V391C369 435 311 418 255 393C193 365 139 365 82 409Z" fill="url(#boot-wave)"/>
+   </svg></div>
+  </div>
+  <div class="boot-wordmark" aria-hidden="true">ATMOS</div>
+  <p id="atmosBootMessage">正在載入 Atmos，請稍候…</p>
+  <p id="atmosBootStage" class="boot-caption">正在連接本機設定</p>
+  <div class="boot-track" aria-hidden="true"><span></span></div>
+  <div class="boot-steps" aria-hidden="true"><span data-step="connect">連接</span><i></i><span data-step="scene">場景</span><i></i><span data-step="layout">就位</span></div>
+  <a id="atmosBootRetry" href=""><svg aria-hidden="true" viewBox="0 0 20 20"><path d="M15.8 7A6 6 0 1 0 16 12M16 3v4h-4"/></svg>重新載入</a>
+ </div>
+</section>
