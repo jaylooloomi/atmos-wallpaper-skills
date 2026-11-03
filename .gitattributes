@@ -1,3 +1,4 @@
 * text=auto eol=lf
 *.png -text
 *.woff -text
+*.ico -text

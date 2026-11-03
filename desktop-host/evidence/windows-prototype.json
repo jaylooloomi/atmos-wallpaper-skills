@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-04",
+  "platform": "win32",
+  "architecture": "x64",
+  "tauri": "2.12.5",
+  "target": {
+    "selection": "primary",
+    "width": 1920,
+    "height": 1080
+  },
+  "method": "real Tauri/WebView2 + Win32 metadata, process/port checks; no UI automation",
+  "livelyInvokedByTestOrHost": false,
+  "checks": [
+    {
+      "name": "normal-exit-and-singleton",
+      "passed": true,
+      "nativeAttachment": true,
+      "genuineRendererAck": true,
+      "ownWindowRemoved": true,
+      "ownedRuntimeStopped": true,
+      "ownedWebViewProcessesStopped": true,
+      "ownedPortClosed": true,
+      "originalVisibleDesktopWindowsPreserved": true,
+      "originalWallpaperAckBeforeAndAfter": true,
+      "duplicateRejected": true,
+      "ongoingRendererAck": true,
+      "staticWallpaperUnchanged": true,
+      "exitCode": 0
+    },
+    {
+      "name": "bounded-timer-exit",
+      "passed": true,
+      "nativeAttachment": true,
+      "genuineRendererAck": true,
+      "ownWindowRemoved": true,
+      "ownedRuntimeStopped": true,
+      "ownedWebViewProcessesStopped": true,
+      "ownedPortClosed": true,
+      "originalVisibleDesktopWindowsPreserved": true,
+      "originalWallpaperAckBeforeAndAfter": true,
+      "staticWallpaperUnchanged": true,
+      "exitCode": 0
+    },
+    {
+      "name": "backend-failure-restores",
+      "passed": true,
+      "nativeAttachment": true,
+      "genuineRendererAck": true,
+      "ownWindowRemoved": true,
+      "ownedRuntimeStopped": true,
+      "ownedWebViewProcessesStopped": true,
+      "ownedPortClosed": true,
+      "originalVisibleDesktopWindowsPreserved": true,
+      "originalWallpaperAckBeforeAndAfter": true,
+      "staticWallpaperUnchanged": true,
+      "exitCode": 2
+    },
+    {
+      "name": "forced-host-termination",
+      "passed": true,
+      "nativeAttachment": true,
+      "genuineRendererAck": true,
+      "ownWindowRemoved": true,
+      "ownedRuntimeStopped": true,
+      "ownedWebViewProcessesStopped": true,
+      "ownedPortClosed": true,
+      "originalVisibleDesktopWindowsPreserved": true,
+      "originalWallpaperAckBeforeAndAfter": true,
+      "restorationEvidence": "OS removed owned window; original desktop windows retained; no graceful journal on forced termination",
+      "exitCode": null
+    }
+  ],
+  "passed": true,
+  "limitations": [
+    "Visual correctness requires human observation",
+    "Baseline acknowledgements do not establish visible presentation",
+    "No macOS adapter or macOS test",
+    "No supported suspend on this machine",
+    "No Explorer restart, hotplug, mixed-DPI, GPU/power, long-duration or clean-machine installer validation"
+  ]
+}
