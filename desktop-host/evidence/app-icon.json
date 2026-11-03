@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-04",
+  "version": "0.3.8",
+  "method": "System.Drawing resource extraction from installed application, NSIS installer and uninstaller; no UI automation",
+  "sourceIconSha256": "9d41b68b6ce70d4dc4f7624df53ccf2693b763846e0fa1815abd3064aa3468a5",
+  "checks": [
+    {
+      "binary": "application",
+      "size": [
+        32,
+        32
+      ],
+      "transparentCorner": true,
+      "opaquePixelMeanError": 0,
+      "matchesSource": true
+    },
+    {
+      "binary": "installer",
+      "size": [
+        32,
+        32
+      ],
+      "transparentCorner": true,
+      "opaquePixelMeanError": 0,
+      "matchesSource": true
+    },
+    {
+      "binary": "uninstaller",
+      "size": [
+        32,
+        32
+      ],
+      "transparentCorner": true,
+      "opaquePixelMeanError": 0,
+      "matchesSource": true
+    }
+  ],
+  "passed": true,
+  "limitations": [
+    "Resource verification is not manual observation of Windows icon caches or notification-area rendering."
+  ]
+}

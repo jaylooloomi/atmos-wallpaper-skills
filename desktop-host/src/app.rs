@@ -60,7 +60,10 @@ fn setup_tray(app: &tauri::App, port: u16, store: PathBuf, state: Arc<State>) ->
     )?;
     let exit = MenuItem::with_id(app, "exit", "退出並還原桌布 / Exit", true, None::<&str>)?;
     let menu = Menu::with_items(app, &[&open, &exit])?;
-    let icon = tauri::image::Image::new_owned([32u8, 165, 185, 255].repeat(32 * 32), 32, 32);
+    let icon = app
+        .default_window_icon()
+        .cloned()
+        .ok_or_else(|| tauri::Error::AssetNotFound("application icon".into()))?;
     TrayIconBuilder::new()
         .icon(icon)
         .tooltip("Atmos Wallpaper")

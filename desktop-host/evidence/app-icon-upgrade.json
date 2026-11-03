@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-04",
+  "version": "0.3.8",
+  "installer": {
+    "bytes": 292402038,
+    "sha256": "5590dd14f4b27120903bd05bd314bebdbec696222ed8bba81ad8ea7297d186ff"
+  },
+  "checks": {
+    "silentUpgrade": true,
+    "savedSettingsPreserved": true,
+    "startupPreferencePreserved": true,
+    "payloadAndEmbeddedRuntimesVerified": true,
+    "installedStylesMatchSourceBuild": true,
+    "installedBootMatchesSourceBuild": true,
+    "nativeWorkerWAttachment": true,
+    "genuineWallpaperAck": true,
+    "genuineManagerAck": true
+  },
+  "limitations": [
+    "Application icon resource verification is recorded separately; no user browser or desktop UI automation.",
+    "No new reboot, sleep, GPU or long-duration test."
+  ]
+}
