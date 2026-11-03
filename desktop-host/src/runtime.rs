@@ -56,6 +56,8 @@ impl Runtime {
             .env_remove("PORT")
             .env_remove("NODE_OPTIONS")
             .env_remove("NODE_PATH")
+            .env_remove("PYTHONHOME")
+            .env_remove("PYTHONPATH")
             .stdin(Stdio::piped())
             .stdout(Stdio::from(log.try_clone().map_err(|e| e.to_string())?))
             .stderr(Stdio::from(log))
@@ -103,6 +105,28 @@ impl Drop for Runtime {
         let _ = self.child.kill();
         let _ = self.child.wait();
     }
+}
+
+pub fn check_embedded(root: &std::path::Path) -> Result<(), String> {
+    let node = Command::new(root.join("runtime/node/node.exe"))
+        .arg("--version")
+        .creation_flags(0x08000000)
+        .output()
+        .map_err(|e| e.to_string())?;
+    let python = Command::new(root.join("runtime/python/python.exe"))
+        .args([
+            "-I",
+            "-B",
+            "-c",
+            "from PIL import Image,features;assert features.check('webp')",
+        ])
+        .creation_flags(0x08000000)
+        .output()
+        .map_err(|e| e.to_string())?;
+    if !node.status.success() || !python.status.success() {
+        return Err("Bundled Node/Python/Pillow self-check failed".into());
+    }
+    Ok(())
 }
 fn ready(port: u16) -> bool {
     let address = ([127, 0, 0, 1], port).into();

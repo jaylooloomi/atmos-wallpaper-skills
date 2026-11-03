@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "node": {
+    "version": "24.22.2",
+    "url": "https://nodejs.org/download/release/v24.22.2/node-v24.22.2-win-x64.zip",
+    "sha256": "ca1bff5d8ead13c9f2ea404a176db46bd430704d5b5113734049fa365e7799e2",
+    "source": "https://nodejs.org/download/release/v24.22.2/SHASUMS256.txt"
+  },
+  "python": {
+    "version": "3.14.10",
+    "url": "https://www.python.org/ftp/python/3.14.10/python-3.14.10-embeddable-amd64.zip",
+    "sha256": "b553e7dac884469b40e0740bb527271c3378f700b427e0485835f1bb6424361c",
+    "source": "https://www.python.org/ftp/python/3.14.10/windows-3.14.10.json"
+  },
+  "pillow": {
+    "version": "13.0.0",
+    "url": "https://files.pythonhosted.org/packages/50/e2/7ad17747517e4c813dca78257d6bb593466f8231baf1384bc98d92745edb/pillow-13.0.0-cp314-cp314-win_amd64.whl",
+    "sha256": "f7cbb7a64e7ec664775195e4f81923bc8a93d9451b963f844e59118f63147a7a",
+    "source": "https://pypi.org/pypi/Pillow/13.0.0/json"
+  }
+}

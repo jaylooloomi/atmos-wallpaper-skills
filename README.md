@@ -9,13 +9,13 @@ Atmos 動態桌布管理介面、唯讀桌布 renderer 與本機 CLI。此倉庫
 - 五語介面（繁中、簡中、英文、日文、韓文）、12／24 小時及秒數設定。
 - 管理頁 `/manager` 的修改先成草稿，再按套用提交；`/wallpaper` 為唯讀顯示頁。
 - 本機圖片匯入、備份、還原、版本遷移、離線匯出與受限 CLI。
-- Windows 單主螢幕 Tauri 2＋Rust 桌布原型：獨立 WebView2、托盤、受控核心程序與退出還原。仍是需開發環境的原型，尚非安裝版；[啟動與限制](desktop-host/README.md)。
+- Windows x64 安裝版 0.2.0：Tauri 2＋Rust、獨立 WebView2、托盤與退出還原；完成安裝後預設啟動並套用主螢幕，內含 Node／Python／Pillow 與離線 WebView2 安裝程式，不需另外安裝 Node、Python 或 Lively。[安裝、重建與限制](desktop-host/README.md)。
 
 ## 目錄
 
 ```text
 implementation-p4_2_5/    目前產品：src、scripts、tests、CLI、Windows 入口與技術文件
-desktop-host/            Tauri 2＋Rust Windows 單螢幕原型、鎖定相依與原生整合測試
+desktop-host/            Tauri 2＋Rust Windows 單螢幕安裝版、封裝工具與原生整合測試
 implementation-p1/       共用核心、解碼器與基礎回歸測試（仍為必要依賴）
 implementation-p4_2_1/src/ 舊格式相容／遷移測試所需凍結實作
 prototype-v8.1-frozen/   凍結前端基底、字體授權與原始場景素材

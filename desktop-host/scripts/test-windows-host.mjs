@@ -10,7 +10,7 @@ import http from 'node:http';
 
 if(process.platform!=='win32'||!process.argv.includes('--apply-to-primary'))throw Error('Windows and explicit --apply-to-primary required');
 const root=fileURLToPath(new URL('../',import.meta.url)),repo=path.dirname(root);
-const exe=path.join(root,'target/debug/atmos-desktop-prototype.exe');
+const exe=process.env.ATMOS_HOST_EXE||path.join(root,'target/debug/atmos-wallpaper.exe');
 const python=process.env.ATMOS_PYTHON||'C:\\Python314\\python.exe';
 const privateRoot=path.join(process.env.LOCALAPPDATA,'AtmosWallpaper/native-prototype-validation',new Date().toISOString().replaceAll(':','-'));
 fs.mkdirSync(privateRoot,{recursive:true});

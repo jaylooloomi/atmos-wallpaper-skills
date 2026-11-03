@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-04",
+  "platform": "win32",
+  "architecture": "x64",
+  "installer": {
+    "name": "Atmos Wallpaper_0.2.0_x64-setup.exe",
+    "bytes": 292145369,
+    "sha256": "2e8dbc1ecb5733b10d77c1058eb2bf057bb39580bfeb160ce7c668f84eb82b52",
+    "signed": false
+  },
+  "method": "Actual NSIS /S /R and native CLI + genuine renderer acks; no UI automation",
+  "checks": [
+    {
+      "name": "silent-install-and-auto-apply",
+      "passed": true,
+      "persistent": true,
+      "bundledNodeImage": true,
+      "payloadAndRuntimeSelfCheck": true,
+      "minimalPath": true,
+      "syntheticFeatureProbe": {
+        "node": "v24.22.2",
+        "pythonAndPillowBundled": true,
+        "imageFormats": [
+          "PNG",
+          "JPEG",
+          "WEBP"
+        ],
+        "unicodePaths": true,
+        "assetApplyAndBackupRestore": true,
+        "icsImportWorkerAndDpapiRestart": true
+      }
+    },
+    {
+      "name": "installed-manager-cli",
+      "passed": true,
+      "genuineManagerAck": true
+    },
+    {
+      "name": "payload-corruption-fails-closed",
+      "passed": true
+    },
+    {
+      "name": "running-reinstall",
+      "passed": true,
+      "oldRuntimeClosed": true,
+      "oldPortClosed": true,
+      "settingsPreserved": true,
+      "unrelatedNodePreserved": true
+    },
+    {
+      "name": "running-uninstall",
+      "passed": true,
+      "applicationRemoved": true,
+      "ownedRuntimeClosed": true,
+      "portClosed": true,
+      "userDataPreserved": true,
+      "unrelatedNodePreserved": true,
+      "originalWallpaperStillAcknowledging": true
+    },
+    {
+      "name": "final-install-auto-applied",
+      "passed": true,
+      "persistent": true
+    }
+  ],
+  "passed": true,
+  "leftInstalledAndApplied": true,
+  "limitations": [
+    "Test host already had global runtimes and WebView2; product was verified using bundled executable paths and minimal PATH, not a pristine VM",
+    "Offline WebView2 missing-runtime branch is bundled but not executed on this host",
+    "Visual presentation needs user confirmation",
+    "No Windows 11, supported sleep, GPU/power or long-duration validation"
+  ]
+}

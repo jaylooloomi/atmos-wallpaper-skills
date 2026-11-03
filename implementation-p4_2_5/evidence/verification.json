@@ -1,6 +1,6 @@
 {
   "platform": "win32",
-  "node": "v24.13.0",
+  "node": "v24.22.2",
   "checks": [
     {
       "name": "prepare",

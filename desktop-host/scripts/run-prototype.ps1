@@ -16,10 +16,15 @@ if($LASTEXITCODE -ne 0){throw 'Python requires Pillow'}
 if($LASTEXITCODE -ne 0){throw 'Asset preparation failed; run npm ci --ignore-scripts in implementation-p4_2_5 first'}
 if(!$SkipBuild){
  if(!(Test-Path -LiteralPath $cargo)){throw 'Install Rust and Microsoft C++ Build Tools first; see desktop-host/README.md'}
- & $cargo build --locked --manifest-path (Join-Path $hostRoot 'Cargo.toml')
- if($LASTEXITCODE -ne 0){throw 'Rust build failed'}
+ $previousConfig=$env:TAURI_CONFIG
+ try {
+  # Explicit developer mode does not need the distributable runtime payload.
+  $env:TAURI_CONFIG='{"bundle":{"resources":[]}}'
+  & $cargo build --locked --manifest-path (Join-Path $hostRoot 'Cargo.toml')
+  if($LASTEXITCODE -ne 0){throw 'Rust build failed'}
+ } finally {$env:TAURI_CONFIG=$previousConfig}
 }
-$exe=Join-Path $hostRoot 'target\debug\atmos-desktop-prototype.exe'
+$exe=Join-Path $hostRoot 'target\debug\atmos-wallpaper.exe'
 if(!(Test-Path -LiteralPath $exe)){throw 'Build the prototype first'}
 $localRoot=Join-Path $env:LOCALAPPDATA 'AtmosWallpaper\native-prototype'
 $status=Join-Path $localRoot ('runs\'+(Get-Date -Format 'yyyyMMdd-HHmmss')+'\status.json')

@@ -1,13 +1,28 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "Atmos Desktop Prototype",
-  "version": "0.1.0",
-  "identifier": "io.atmos.wallpaper.prototype",
+  "productName": "Atmos Wallpaper",
+  "version": "0.2.0",
+  "identifier": "io.atmos.wallpaper",
   "build": { "frontendDist": "ui" },
   "app": {
     "windows": [],
     "security": { "capabilities": [], "csp": null },
     "withGlobalTauri": false
   },
-  "bundle": { "active": false }
+  "bundle": {
+    "active": true,
+    "targets": ["nsis"],
+    "icon": ["icons/icon.ico"],
+    "resources": { "payload/": "payload/" },
+    "windows": {
+      "webviewInstallMode": { "type": "offlineInstaller", "silent": true },
+      "nsis": {
+        "installMode": "currentUser",
+        "compression": "zlib",
+        "languages": ["TradChinese", "English"],
+        "installerHooks": "installer/hooks.nsh",
+        "startMenuFolder": "Atmos Wallpaper"
+      }
+    }
+  }
 }

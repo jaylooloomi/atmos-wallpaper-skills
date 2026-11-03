@@ -36,7 +36,7 @@ impl Drop for OwnedHandle {
 }
 
 pub fn singleton() -> Result<OwnedHandle, String> {
-    named_singleton("Local\\AtmosDesktopPrototype.SingleInstance")
+    named_singleton("Local\\AtmosWallpaperDesktop.SingleInstance")
 }
 
 fn named_singleton(name: &str) -> Result<OwnedHandle, String> {
@@ -47,7 +47,7 @@ fn named_singleton(name: &str) -> Result<OwnedHandle, String> {
         }
         if GetLastError() == ERROR_ALREADY_EXISTS {
             CloseHandle(h);
-            return Err("Atmos prototype is already running".into());
+            return Err("Atmos is already running".into());
         }
         Ok(OwnedHandle(h as isize))
     }
@@ -291,6 +291,20 @@ pub fn static_wallpaper() -> Result<String, String> {
         }
         let n = text.iter().position(|v| *v == 0).unwrap_or(text.len());
         Ok(String::from_utf16_lossy(&text[..n]))
+    }
+}
+
+pub fn show_error(message: &str) {
+    unsafe {
+        MessageBoxW(
+            null_mut(),
+            wide(&format!(
+                "Atmos 無法啟動。請重新安裝或查看本機診斷紀錄。\n\n{message}"
+            ))
+            .as_ptr(),
+            wide("Atmos Wallpaper").as_ptr(),
+            MB_OK | MB_ICONERROR,
+        );
     }
 }
 

@@ -1,0 +1,10 @@
+{
+  "legacyPillow": "12.1.0",
+  "bundledPillow": "13.0.0",
+  "backupAssetHashesPreserved": true,
+  "formats": [
+    "PNG",
+    "JPEG",
+    "WEBP"
+  ]
+}

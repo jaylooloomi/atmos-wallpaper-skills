@@ -7,7 +7,7 @@ pub struct Options {
     pub python: PathBuf,
     pub store: PathBuf,
     pub status: PathBuf,
-    pub seconds: u64,
+    pub seconds: Option<u64>,
 }
 
 pub fn parse(args: impl IntoIterator<Item = String>) -> Result<Options, String> {
@@ -53,7 +53,7 @@ pub fn parse(args: impl IntoIterator<Item = String>) -> Result<Options, String> 
         python: get_path("--python")?,
         store: get_path("--store")?,
         status: get_path("--status")?,
-        seconds,
+        seconds: Some(seconds),
     })
 }
 
@@ -102,6 +102,6 @@ mod tests {
     #[cfg(windows)]
     #[test]
     fn valid_explicit_configuration() {
-        assert_eq!(parse(args()).unwrap().seconds, 600);
+        assert_eq!(parse(args()).unwrap().seconds, Some(600));
     }
 }
