@@ -1,0 +1,95 @@
+{
+  "kind": "Synthetic delayed-load/reload/failure fixtures in isolated Chromium CLI; not user desktop or actual installed visual proof",
+  "cases": [
+    {
+      "scenario": "slow",
+      "runs": [
+        {
+          "scenario": "slow",
+          "samples": 396,
+          "violations": 0,
+          "firstVisible": {
+            "theme": "warm",
+            "background": "future",
+            "fonts": "loaded",
+            "sceneLoaded": true,
+            "picker": true,
+            "toolbarOutsideMain": true
+          },
+          "ready": true,
+          "loading": false
+        }
+      ],
+      "failures": []
+    },
+    {
+      "scenario": "reload",
+      "runs": [
+        {
+          "scenario": "reload",
+          "samples": 339,
+          "violations": 0,
+          "firstVisible": {
+            "theme": "warm",
+            "background": "future",
+            "fonts": "loaded",
+            "sceneLoaded": true,
+            "picker": true,
+            "toolbarOutsideMain": true
+          },
+          "ready": true,
+          "loading": false
+        },
+        {
+          "scenario": "reload",
+          "samples": 249,
+          "violations": 0,
+          "firstVisible": {
+            "theme": "warm",
+            "background": "future",
+            "fonts": "loaded",
+            "sceneLoaded": true,
+            "picker": true,
+            "toolbarOutsideMain": true
+          },
+          "ready": true,
+          "loading": false
+        }
+      ],
+      "failures": []
+    },
+    {
+      "scenario": "failure",
+      "runs": [
+        {
+          "scenario": "failure",
+          "samples": 991,
+          "violations": 0,
+          "firstVisible": null,
+          "ready": false,
+          "loading": true,
+          "errorVisible": true,
+          "message": "Atmos 尚未完成載入。請檢查連線後重新載入。"
+        }
+      ],
+      "failures": []
+    },
+    {
+      "scenario": "style-failure",
+      "runs": [
+        {
+          "scenario": "style-failure",
+          "samples": 996,
+          "violations": 0,
+          "firstVisible": null,
+          "ready": false,
+          "loading": true,
+          "errorVisible": true,
+          "message": "Atmos 尚未完成載入。請檢查連線後重新載入。"
+        }
+      ],
+      "failures": []
+    }
+  ],
+  "passed": true
+}

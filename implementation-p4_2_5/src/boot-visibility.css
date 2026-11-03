@@ -1,0 +1,15 @@
+/* Inline in the initial HTML: never paint the frozen prototype while booting. */
+html[data-atmos-loading] { background: #101b1c; }
+html[data-atmos-loading] body { background: #101b1c !important; }
+html[data-atmos-loading] body * { visibility: hidden !important; }
+html[data-atmos-loading] #atmosBootNotice,
+html[data-atmos-loading] #atmosBootNotice * { visibility: visible !important; }
+#atmosBootNotice {
+ position: fixed; inset: 0; z-index: 2147483000;
+ display: flex; flex-direction: column; align-items: center; justify-content: center;
+ gap: 12px; padding: 24px; margin: 0; background: #101b1c; color: #e7f0ea;
+ text-align: center; font: 14px/1.6 system-ui, sans-serif;
+}
+#atmosBootNotice p { margin: 0; }
+#atmosBootNotice a { color: #c9e8dd; padding: 8px 14px; border: 1px solid #52615b; border-radius: 8px; }
+#atmosBootNotice a:focus-visible { outline: 3px solid #e4c68c; outline-offset: 3px; }

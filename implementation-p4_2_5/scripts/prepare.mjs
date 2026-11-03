@@ -48,3 +48,11 @@ fs.copyFileSync(path.join(root,'src/startup-client.js'),path.join(dist,'startup-
 fs.appendFileSync(path.join(dist,'hifi.css'),'\n'+fs.readFileSync(path.join(root,'src/bridge-toolbar.css'),'utf8'));
 fs.writeFileSync(path.join(dist,'bridge-client.js'),fs.readFileSync(path.join(dist,'bridge-client.js'),'utf8').replace('window.AtmosCalendar.start({headers,wallpaper:wallpaperMode});','window.AtmosCalendar.start({headers,wallpaper:wallpaperMode});try{await load(\'startup-client.js\');window.AtmosStartup.start({headers,wallpaper:wallpaperMode});}catch{console.warn(\'Native startup controls unavailable in this runtime\')}'));
 fs.appendFileSync(path.join(dist,'hifi.css'),'\n.startup-settings{min-width:0;box-sizing:border-box;margin:12px 0;padding:14px;border:1px solid var(--line,#637787);border-radius:12px;background:var(--control,transparent);color:var(--text,inherit)}.startup-settings h3{margin:0 0 12px}.startup-settings label{display:flex;align-items:flex-start;gap:10px;min-width:0}.startup-settings input{flex:0 0 auto;width:20px;height:20px;margin:0}.startup-settings span,.startup-settings p,.startup-settings small{min-width:0;overflow-wrap:anywhere;white-space:normal}.startup-settings small{display:block;line-height:1.6}.startup-settings p{margin:10px 0;font-size:.9em}');
+// Gate from the first HTML parse, before scripts can expose intermediate layouts.
+let bootHtml=fs.readFileSync(path.join(dist,'index.html'),'utf8');
+if(!bootHtml.includes('<html lang="zh-Hant">')||!bootHtml.includes('<header>'))throw Error('Initial visibility hooks missing');
+bootHtml=bootHtml.replace('<html lang="zh-Hant">','<html lang="zh-Hant" data-atmos-loading="true">');
+bootHtml=bootHtml.replace('<style>','<style>'+fs.readFileSync(path.join(root,'src/boot-visibility.css'),'utf8')+'</style><style>');
+bootHtml=bootHtml.replace('<header>','<section id="atmosBootNotice" role="status" aria-live="polite"><p id="atmosBootMessage">正在載入 Atmos，請稍候…</p><a href="">重新載入</a></section><header>');
+fs.writeFileSync(path.join(dist,'index.html'),bootHtml);
+fs.writeFileSync(path.join(dist,'bridge-client.js'),fs.readFileSync(path.join(root,'src/boot-visibility.js'),'utf8')+'\n'+fs.readFileSync(path.join(dist,'bridge-client.js'),'utf8'));
