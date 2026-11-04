@@ -7,7 +7,10 @@
     "prepare": "node scripts/prepare.mjs",
     "dev": "node src/dev.mjs",
     "test": "node --test --test-reporter=tap tests/*.test.mjs",
-    "audit:layout": "node scripts/audit-layout.mjs"
+    "audit:layout": "node scripts/audit-layout.mjs",
+    "verify": "node scripts/verify.mjs",
+    "verify:unit": "node scripts/verify.mjs --unit-only",
+    "test:layout": "node scripts/verify-layout.mjs"
   },
   "engines": {
     "node": ">=22"

@@ -1,4 +1,5 @@
 {
+  "layoutRequired": true,
   "platform": "win32",
   "node": "v24.13.0",
   "checks": [
@@ -9,8 +10,8 @@
     {
       "name": "product-tests",
       "exitCode": 0,
-      "tests": 407,
-      "pass": 404,
+      "tests": 412,
+      "pass": 409,
       "fail": 0,
       "skipped": 3
     },
@@ -32,6 +33,10 @@
     },
     {
       "name": "cli-help",
+      "exitCode": 0
+    },
+    {
+      "name": "layout-regression",
       "exitCode": 0
     }
   ],

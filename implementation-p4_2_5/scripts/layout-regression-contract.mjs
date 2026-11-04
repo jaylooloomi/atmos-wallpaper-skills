@@ -1,0 +1,8 @@
+export const layoutRegressionCases=Object.freeze([[320,844,'natural','zh-TW'],[390,844,'neon','en'],[600,900,'warm','zh-TW'],[768,900,'minimal','en'],[1000,900,'natural','zh-TW'],[1001,900,'neon','en'],[1100,900,'warm','zh-TW'],[1101,900,'minimal','en'],[1280,900,'neon','zh-TW'],[1440,900,'warm','en'],[1876,1080,'minimal','zh-TW'],[1280,600,'natural','en']].map(Object.freeze));
+const requiredPairs=new Set(['natural','neon','warm','minimal'].flatMap(t=>['clock','calendar','weather','todo','timer','system','media'].map(c=>t+':'+c)));
+export function summarizeLayoutReport(report){
+ const reject=()=>{throw Error('LAYOUT_COVERAGE_INCOMPLETE')};
+ if(report?.passed!==true||!Array.isArray(report.cases)||report.cases.length!==12)reject();
+ const seen=new Set();for(const c of report.cases){const key=JSON.stringify([c.width,c.height,c.theme,c.locale]);if(seen.has(key)||!layoutRegressionCases.some(v=>JSON.stringify(v)===key)||!Array.isArray(c.failures)||c.failures.length||c.regression?.passed!==true||!Array.isArray(c.regression.failures)||c.regression.failures.length||c.regression.states?.length!==28)reject();seen.add(key);const pairs=new Set(c.regression.states.map(s=>s.theme+':'+s.card));if(pairs.size!==28||[...pairs].some(p=>!requiredPairs.has(p)))reject()}
+ return {schemaVersion:1,kind:'isolated-layout-regression-gate',passed:true,status:'complete',viewports:12,componentThemeStates:336,cases:report.cases.map(c=>({width:c.width,height:c.height,theme:c.theme,locale:c.locale,failures:c.failures,states:c.regression.states.length})),limitations:['Synthetic fixture only; no user browser/desktop automation or live renderer ACKs.','Geometry checks cannot guarantee every pixel, device or future change.']};
+}

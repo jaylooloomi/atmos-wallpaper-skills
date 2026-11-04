@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "kind": "isolated-layout-regression-gate",
+  "passed": true,
+  "status": "complete",
+  "viewports": 12,
+  "componentThemeStates": 336,
+  "cases": [
+    {
+      "width": 320,
+      "height": 844,
+      "theme": "natural",
+      "locale": "zh-TW",
+      "failures": [],
+      "states": 28
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "theme": "neon",
+      "locale": "en",
+      "failures": [],
+      "states": 28
+    },
+    {
+      "width": 600,
+      "height": 900,
+      "theme": "warm",
+      "locale": "zh-TW",
+      "failures": [],
+      "states": 28
+    },
+    {
+      "width": 768,
+      "height": 900,
+      "theme": "minimal",
+      "locale": "en",
+      "failures": [],
+      "states": 28
+    },
+    {
+      "width": 1000,
+      "height": 900,
+      "theme": "natural",
+      "locale": "zh-TW",
+      "failures": [],
+      "states": 28
+    },
+    {
+      "width": 1001,
+      "height": 900,
+      "theme": "neon",
+      "locale": "en",
+      "failures": [],
+      "states": 28
+    },
+    {
+      "width": 1100,
+      "height": 900,
+      "theme": "warm",
+      "locale": "zh-TW",
+      "failures": [],
+      "states": 28
+    },
+    {
+      "width": 1101,
+      "height": 900,
+      "theme": "minimal",
+      "locale": "en",
+      "failures": [],
+      "states": 28
+    },
+    {
+      "width": 1280,
+      "height": 900,
+      "theme": "neon",
+      "locale": "zh-TW",
+      "failures": [],
+      "states": 28
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "theme": "warm",
+      "locale": "en",
+      "failures": [],
+      "states": 28
+    },
+    {
+      "width": 1876,
+      "height": 1080,
+      "theme": "minimal",
+      "locale": "zh-TW",
+      "failures": [],
+      "states": 28
+    },
+    {
+      "width": 1280,
+      "height": 600,
+      "theme": "natural",
+      "locale": "en",
+      "failures": [],
+      "states": 28
+    }
+  ],
+  "limitations": [
+    "Synthetic fixture only; no user browser/desktop automation or live renderer ACKs.",
+    "Geometry checks cannot guarantee every pixel, device or future change."
+  ],
+  "negativeControl": {
+    "passed": true,
+    "expectedOverlapRejected": true
+  }
+}

@@ -16,10 +16,16 @@
       "git_blob_sha": "0e20e1123f2d9ce247b7a53044f47057bd1a7f63"
     },
     {
+      "path": "AGENTS.md",
+      "bytes": 1410,
+      "sha256": "42711e15f001730b6514df27862e56ca1c209232d8fae4e5b416a39465ce37d6",
+      "git_blob_sha": "4c5f9cc1014c06b37ac18cda184b9b000012a328"
+    },
+    {
       "path": "README.md",
-      "bytes": 10443,
-      "sha256": "14d2b6c61b7b6627a97347c71e7fe92ce251c0846578ead188b0a7aa0016167e",
-      "git_blob_sha": "15408a7689664bb575c1d39f064996ece27f9489"
+      "bytes": 10671,
+      "sha256": "dfa56f785a14baf036d507e1f140d65d869e544de1f0229873be4be7ba8e84db",
+      "git_blob_sha": "2b03c1f28749120a8bcb8f74bded925c87e0265f"
     },
     {
       "path": "TODO.md",
@@ -659,9 +665,9 @@
     },
     {
       "path": "desktop-host/scripts/build-installer.mjs",
-      "bytes": 1449,
-      "sha256": "1b50ee016c279c5fbfffaacb93a9e8238f11697453a1b2d3aa8d5187349f56c7",
-      "git_blob_sha": "bbe422d6360509cffb04da311b51c79c13970829"
+      "bytes": 1765,
+      "sha256": "262a214d0b8e00ff9c05dacf0197a2586c760529da0a4397e32367bd2c8ab72a",
+      "git_blob_sha": "0b3a8ee1c41daed5da3526afdcb83e821432d30c"
     },
     {
       "path": "desktop-host/scripts/fixtures/screensaver-parent.rs",
@@ -860,6 +866,12 @@
       "bytes": 3108,
       "sha256": "dea9a6eab7d01a5050ee2289d14e05af83cf7a109c1632202821511d72f6c699",
       "git_blob_sha": "127ff42b99498827e96ed56d85df51d2b264e95b"
+    },
+    {
+      "path": "desktop-host/scripts/verify-reused-payload.mjs",
+      "bytes": 947,
+      "sha256": "082878af0b5b7dcaa6e7b4c6336f7ec0187564a1a896003e215652c1392869d7",
+      "git_blob_sha": "7c0b573846dcc368352bf1b053ee52337f8c478e"
     },
     {
       "path": "desktop-host/scripts/windows-owned-processes.ps1",
@@ -1342,6 +1354,12 @@
       "git_blob_sha": "82d839d02c920125dcc7239deb5c656b4c8dd3c3"
     },
     {
+      "path": "implementation-p4_2_5/docs/LAYOUT-REGRESSION.md",
+      "bytes": 2722,
+      "sha256": "6d814156b43c898da66ebf67903974cae6af74c5b64e226046789870bbdf5aa5",
+      "git_blob_sha": "8bb30f04c705ca79cdbff07ae21a33937c1a8448"
+    },
+    {
       "path": "implementation-p4_2_5/docs/LAYOUT-VERIFICATION-2026-11-03.md",
       "bytes": 2153,
       "sha256": "427c6eabf8daeb21bdad2d271d865f5d3dade37df619943624d2e3048b89c527",
@@ -1646,6 +1664,12 @@
       "bytes": 717,
       "sha256": "173d69150956b7c6a66b3b01448163b742545f63edae550ba0ea1d10b8f757d3",
       "git_blob_sha": "598cb426cef8f6a7bcd0f5889af40a2bb996011b"
+    },
+    {
+      "path": "implementation-p4_2_5/evidence/layout-regression.json",
+      "bytes": 2178,
+      "sha256": "1bec4805624095df1dca50df63e903ae0ceee2b672fd7247d4a1b1537b604c88",
+      "git_blob_sha": "42ce0ff0f35acbc95ae1a9d3492b9bf21e199ded"
     },
     {
       "path": "implementation-p4_2_5/evidence/layout/layout-1876-natural.png",
@@ -1979,9 +2003,9 @@
     },
     {
       "path": "implementation-p4_2_5/evidence/verification.json",
-      "bytes": 601,
-      "sha256": "58f2b23c8eb4cfc7626b6550565dbb898432fb13096eaaf1a76e000cdc4cc02c",
-      "git_blob_sha": "9a3ee990819ed4ecb57a04fa3fa47239b27f4b3a"
+      "bytes": 695,
+      "sha256": "49f0492cc58aec240a184b2f52163b3dd7f27215524f98bcd732520ec4621374",
+      "git_blob_sha": "ad0f7a54fe4bda30b4a81e5092b63f5be4cfaecf"
     },
     {
       "path": "implementation-p4_2_5/evidence/windows-host-partial-2026-11-03.json",
@@ -1997,9 +2021,9 @@
     },
     {
       "path": "implementation-p4_2_5/package.json",
-      "bytes": 473,
-      "sha256": "26e4c0abd3be7dde4bbfbc1fd2ee007b1a089334a69bee82e3b4f8b76f3372f7",
-      "git_blob_sha": "f4f521cf21de9bb0fac4d657d5d057cf5c007676"
+      "bytes": 625,
+      "sha256": "1f03c2f7af33bc9cd92d78f080fe0debc7733fa805b75a08f78dfb2d936b7725",
+      "git_blob_sha": "71a88405008f80cc0bb9ae62df113445100401da"
     },
     {
       "path": "implementation-p4_2_5/scripts/audit-audio-controls.mjs",
@@ -2021,9 +2045,9 @@
     },
     {
       "path": "implementation-p4_2_5/scripts/audit-layout.mjs",
-      "bytes": 17048,
-      "sha256": "81ff2bbcf993f61ee3a798d10ae53f194a2e4d3076bef1b4b4f2561d2b27523b",
-      "git_blob_sha": "1f14b481d8d10a9533f53283ea9bc0e747987c7a"
+      "bytes": 18141,
+      "sha256": "ec8fb6f7404d5587c42e1231f836c0d0498543170c1c9271ba4bdd98d762e450",
+      "git_blob_sha": "ae35af5914b07aa55552aa90b1362910641524e2"
     },
     {
       "path": "implementation-p4_2_5/scripts/audit-library-controls.mjs",
@@ -2066,6 +2090,18 @@
       "bytes": 2441,
       "sha256": "ecee92683b29a6c3956c17daedd9777be9573bac89a563686a918323e0353d66",
       "git_blob_sha": "ec2e73cf92ca9dc493f085c2a74e5fadf0f62ff9"
+    },
+    {
+      "path": "implementation-p4_2_5/scripts/layout-regression-contract.mjs",
+      "bytes": 1721,
+      "sha256": "62dfd26e71c9ae82f0d8a581d480a8dad8fe8b7d6aff8a145ce1c84890365c9c",
+      "git_blob_sha": "43bcd8edc11a8759667cd796a40e9f455ad18da5"
+    },
+    {
+      "path": "implementation-p4_2_5/scripts/layout-regression-probe.js",
+      "bytes": 3761,
+      "sha256": "ab5ca0b62dd0f81a6600cdf4bf1d3e92b74739556dd9dbaad0b380615bf00082",
+      "git_blob_sha": "94ae9ba8de38895e4faaa3e841ce8c55a51347ed"
     },
     {
       "path": "implementation-p4_2_5/scripts/measure-windows-host.ps1",
@@ -2116,10 +2152,16 @@
       "git_blob_sha": "36d601f983b4728932df9f16c6382db5795f0cd4"
     },
     {
+      "path": "implementation-p4_2_5/scripts/verify-layout.mjs",
+      "bytes": 3173,
+      "sha256": "d7f439c904fbd5a943323b49e415441954752af87f4956dc8ada21b7f645b28d",
+      "git_blob_sha": "0d45fd6d215992a1b6925bb85e6cdfc21d9a868a"
+    },
+    {
       "path": "implementation-p4_2_5/scripts/verify.mjs",
-      "bytes": 1763,
-      "sha256": "4c949a6cc828b901238e9c89c6f782680f23568d2ade08474bb4058b3ec7ee9c",
-      "git_blob_sha": "2d8d106c1d503005d1e037704f8972b7afe75ae4"
+      "bytes": 1957,
+      "sha256": "4eb492fe04493cc21451b7f6fb6ad115cd4f13825624e550c0fba5eac9daa098",
+      "git_blob_sha": "5e0c2be47682fdd144a1b0633e406e6d64f4b903"
     },
     {
       "path": "implementation-p4_2_5/src/agent-cli.mjs",
@@ -2908,6 +2950,18 @@
       "git_blob_sha": "b384002add4b3af5f49474322e20ff9468ae26d8"
     },
     {
+      "path": "implementation-p4_2_5/tests/installer-layout-gate.test.mjs",
+      "bytes": 1198,
+      "sha256": "f4dc6e92ef25d43612fab0b287f4e1cc46207a4d851b038d1151b8e2e726e0b4",
+      "git_blob_sha": "78ab06fda683baff92842ab78817bd2fa7116388"
+    },
+    {
+      "path": "implementation-p4_2_5/tests/layout-regression-gate.test.mjs",
+      "bytes": 2297,
+      "sha256": "f542f153edf0d70a59babc6058131922c4134a8712ad4a551a5e0af1c87f4bae",
+      "git_blob_sha": "4899ebb84c95cb84ea516285177e5e192216a019"
+    },
+    {
       "path": "implementation-p4_2_5/tests/legacy-effect.test.mjs",
       "bytes": 7975,
       "sha256": "c21eac9187f5354edc51e7ce9436886f3cc3e8edf67d171a08ebe2576b25ae1e",
@@ -3008,6 +3062,12 @@
       "bytes": 24925,
       "sha256": "b14045425061d4db27c18ae14adb4cf1e9a182877951ffd5503020e11d77e11a",
       "git_blob_sha": "48964e15ebf766822088ea06fe752bc209e777e9"
+    },
+    {
+      "path": "implementation-p4_2_5/tests/reused-payload-gate.test.mjs",
+      "bytes": 1090,
+      "sha256": "2d046583b35600ce92c5f5ab2e1ab988ecec6f2820f826b64d1f316936a29e6e",
+      "git_blob_sha": "1ba88245b0fa872ac448185935fe2fe09f4b24cd"
     },
     {
       "path": "implementation-p4_2_5/tests/roles.test.mjs",

@@ -4,6 +4,8 @@ Atmos 動態桌布管理介面、唯讀桌布 renderer 與本機 CLI。此倉庫
 
 ## 最新功能
 
+前端修改請執行 `implementation-p4_2_5` 的 `npm run verify`：已包含 12 情境／336 狀態的排版回歸，Windows 封裝亦強制執行。[排版測試與規則](implementation-p4_2_5/docs/LAYOUT-REGRESSION.md)。
+
 - 「全部顯示／全部隱藏」控制七類元件；只改顯示狀態，不重排已存位置。
 - 元件設定使用真正行內展開，移除重複分隔線。
 - 五語介面（繁中、簡中、英文、日文、韓文）、12／24 小時及秒數設定。
