@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-05",
+  "version": "0.7.2",
+  "installer": {
+    "bytes": 292875996,
+    "sha256": "3399461b3ff9a437f08b95e7e26e5dfe962d08dae75b45e5a609f73f12bd3266"
+  },
+  "checks": {
+    "silentUpgrade": true,
+    "privatePreimageSaved": true,
+    "servedWeatherDisplayToggle": true,
+    "servedWeatherLocateAction": true,
+    "servedWeatherUpdateStatus": true,
+    "servedScreensaverButtonSpacing": true,
+    "servedAssetsMatchSourceBuild": true,
+    "savedSettingsPreserved": true,
+    "libraryAndDisplaySettingsPreserved": true,
+    "startupPreferencePreserved": true,
+    "payloadAndEmbeddedRuntimesVerified": true,
+    "installedStylesMatchSourceBuild": true,
+    "installedBootMatchesSourceBuild": true,
+    "installedDisplayControlsMatchBuild": true,
+    "installedLibraryControlsMatchBuild": true,
+    "installedAudioControlsMatchBuild": true,
+    "nativeWorkerWAttachment": true,
+    "genuineWallpaperAck": true,
+    "genuineManagerAck": true
+  },
+  "limitations": [
+    "Weather control interaction and draft/failure states verified by automated DOM fixtures; served assets and native acknowledgements checked here. No human visual verification. No user browser or desktop UI automation.",
+    "No new reboot, sleep, GPU or long-duration test."
+  ]
+}

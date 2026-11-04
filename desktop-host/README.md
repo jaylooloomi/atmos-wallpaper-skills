@@ -1,4 +1,4 @@
-# Atmos Wallpaper Windows 0.7.1（前次已交付 0.7.0）
+# Atmos Wallpaper Windows 0.7.2（前次已交付 0.7.1）
 
 Tauri 2＋Rust、Windows x64，提供單目標、各螢幕獨立、重複與全景桌布配置（新安裝預設跟隨主螢幕）。保留現有管理頁、場景、元件與 ICS 日曆，由自己的 WebView2 宿主套用，**不使用 Lively**。
 
@@ -6,7 +6,9 @@ Tauri 2＋Rust、Windows x64，提供單目標、各螢幕獨立、重複與全�
 
 ## 安裝與操作
 
-執行 `Atmos Wallpaper_0.7.1_x64-setup.exe`，完成頁預設勾選啟動 Atmos；按完成後依已保存目標套用桌布，新安裝預設跟隨主螢幕。安裝器包含 Node、隔離的 Python＋Pillow，以及官方離線 WebView2 安裝程式；一般使用者不必另外安裝 Node、Python 或 Lively，也不需要 Rust 開發工具。
+0.7.2 已將天氣元件顯示開關、資料更新狀態與「顯示並定位元件」整合到資料來源區，並拉開螢幕保護按鈕間距。本機已完成保留設定的安裝更新、實際資源比對及原生回報檢查，見 [更新驗證](docs/WEATHER-CONTROLS-UPGRADE-2026-11-05.md)。
+
+執行 `Atmos Wallpaper_0.7.2_x64-setup.exe`，完成頁預設勾選啟動 Atmos；按完成後依已保存目標套用桌布，新安裝預設跟隨主螢幕。安裝器包含 Node、隔離的 Python＋Pillow，以及官方離線 WebView2 安裝程式；一般使用者不必另外安裝 Node、Python 或 Lively，也不需要 Rust 開發工具。
 
 - 在目前使用者範圍安裝，預設 `%LOCALAPPDATA%\Atmos Wallpaper`；不新增系統 PATH 或 Windows Service。
 - 系統匣「開啟管理頁」調整設定，按「套用變更」保存；再次啟動 Atmos 捷徑也會開啟現有管理頁。

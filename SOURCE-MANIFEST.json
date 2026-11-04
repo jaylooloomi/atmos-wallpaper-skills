@@ -18,8 +18,8 @@
     {
       "path": "README.md",
       "bytes": 10443,
-      "sha256": "8c2830b810773456b23f7fa1b48da7fa18080c30eee617a63708ab67c22b43c6",
-      "git_blob_sha": "bf2b73cd0b4bfab66a9e357f0985665656f4af3c"
+      "sha256": "5827fc20aeb7a684ed048749065d650b1e4f64adda5b92279ba56d3be3bac2b8",
+      "git_blob_sha": "86244e283f543d7b34faabe73e5caa5a679493ac"
     },
     {
       "path": "TODO.md",
@@ -30,20 +30,20 @@
     {
       "path": "desktop-host/Cargo.lock",
       "bytes": 108418,
-      "sha256": "0f765e154d85dad8ba23e936b6674356c3fb8dac175f69892999d7c7e7d2a83f",
-      "git_blob_sha": "19b82607c50ac91e6f0088a279afde391526c3dd"
+      "sha256": "2666c051903ae62803af86e7f7bf36b44204135490ff3eb9b3bd333e9a5f500e",
+      "git_blob_sha": "876304d5be8ac52d4e80aee443276b7b5b1b1560"
     },
     {
       "path": "desktop-host/Cargo.toml",
       "bytes": 1123,
-      "sha256": "df66ea3b848ecf5fc31af632507117bfc7c1e0e9078c38e256edfbe60529429d",
-      "git_blob_sha": "009de7cb2d9e767266960050a11b3fef3640bd91"
+      "sha256": "e3e3fe1758f8976d502e69183df472920751b1526619d3590d4fa95bdc16db2e",
+      "git_blob_sha": "e03074d66b7c74a90cee549e6da31cbad8f81299"
     },
     {
       "path": "desktop-host/README.md",
-      "bytes": 12415,
-      "sha256": "366314aa7e7547fa75e687faf72a00674967805e7a0b1dafe98c5c9ed783fba7",
-      "git_blob_sha": "fe36c09a9bfee80ceee49100d80bcdd09a085617"
+      "bytes": 12720,
+      "sha256": "91bede26c5dabba88242d07cd7b424fd05156c4ca19185586171366780793d39",
+      "git_blob_sha": "dfaf9f665640f766a8fd15130d57be5e40bab090"
     },
     {
       "path": "desktop-host/build.rs",
@@ -188,6 +188,12 @@
       "bytes": 1864,
       "sha256": "1e7a32bb5a6c8d99763f81fb927f121dd96409f3369b1a39b79d69ee5b8ecfce",
       "git_blob_sha": "f8682a7f8a56e94753849c2fb7821b729b50657c"
+    },
+    {
+      "path": "desktop-host/docs/WEATHER-CONTROLS-UPGRADE-2026-11-05.md",
+      "bytes": 2429,
+      "sha256": "3202322e770ff3ed46e3b0a8e89e375a611508a41de547adec3a313681cd3092",
+      "git_blob_sha": "daaa0eb4f8cff33999557e8dc0ea49dfcb58292e"
     },
     {
       "path": "desktop-host/docs/WIDGET-POSITION-FIX-2026-11-04.md",
@@ -508,6 +514,18 @@
       "git_blob_sha": "b204e0f03f073b6a54d674bb70dad776299ef09f"
     },
     {
+      "path": "desktop-host/evidence/weather-controls-handoff-2026-11-05.json",
+      "bytes": 532,
+      "sha256": "dbdc8f17387198bc7930dc088e835465868cafe874b5a282fe2800ed5ac824dd",
+      "git_blob_sha": "c1328318cb1e1a5b4edd2b0e8334e500a168d799"
+    },
+    {
+      "path": "desktop-host/evidence/weather-controls-upgrade-2026-11-05.json",
+      "bytes": 1289,
+      "sha256": "c5750aad974864a25984dd57a7a1c095ec62ae6c6425e5f1c7ed1db4054ecfa9",
+      "git_blob_sha": "7375485cea1182c6306278b4e78f7cd9b6950b2c"
+    },
+    {
       "path": "desktop-host/evidence/widget-position-upgrade.json",
       "bytes": 730,
       "sha256": "379adf4f39c65abaabece089b0f49d1631bafc4ef898e53ca6565c22576293fa",
@@ -594,14 +612,14 @@
     {
       "path": "desktop-host/package-lock.json",
       "bytes": 7246,
-      "sha256": "3a87f31d2437ce7eeaa51c180fbb63960775c16871fc33d9b891854090ac604b",
-      "git_blob_sha": "a6b9807bf8baa0fdd2a5febe561f1823a631d5a5"
+      "sha256": "3177794f7340710cd1013a352f563ece2ea87ac15ce51e666448b911e1d421a5",
+      "git_blob_sha": "6e278e2a582841f88c35e8e42e53f8cfdbd9aef7"
     },
     {
       "path": "desktop-host/package.json",
       "bytes": 284,
-      "sha256": "f450b092f8c8a56a13540a0f1f39c2d16a56c32a3a389c179f1d5d03205974b5",
-      "git_blob_sha": "eb6a89aa0f422f8a87ca5d2bda7f6e7843f08578"
+      "sha256": "801660789c63c4aafbf59dbb3d051f8dde41cfc887cdcd026fb9b70133bf1c80",
+      "git_blob_sha": "9dc0e1307a952f78949c44044c537c7c2b59e2a0"
     },
     {
       "path": "desktop-host/scripts/analyze-soak.mjs",
@@ -790,6 +808,12 @@
       "git_blob_sha": "cae75d226df453052bb71882f10c6a52d5fbed5d"
     },
     {
+      "path": "desktop-host/scripts/test-weather-upgrade-installed.mjs",
+      "bytes": 7108,
+      "sha256": "f1253464e83d729713187c98e37bfa358ed48643c016e2c531f9fb1995debda7",
+      "git_blob_sha": "d2d7a2c4bf2dc0b08ea71f742f5985b47668e08c"
+    },
+    {
       "path": "desktop-host/scripts/test-windows-host.mjs",
       "bytes": 9489,
       "sha256": "14741fbbc6dc7ad6f680aa14628f8c2634480b053153648a7a8b29b3f8ab7152",
@@ -954,8 +978,8 @@
     {
       "path": "desktop-host/tauri.conf.json",
       "bytes": 975,
-      "sha256": "b261d2780a60d50231cec26c1ed5c40286cd1be74addc37273847d0f5dfcd5d3",
-      "git_blob_sha": "fafb137631dab56759069fb514644acfccd81fab"
+      "sha256": "f339c8424343f2978f8a1975210342fa77c7211e38047ac1d55404b61f3d433c",
+      "git_blob_sha": "2d7811ba87958a3227105ba1ec003e4c3c9ab377"
     },
     {
       "path": "desktop-host/ui/index.html",
