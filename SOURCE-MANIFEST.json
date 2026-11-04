@@ -17,9 +17,9 @@
     },
     {
       "path": "README.md",
-      "bytes": 10218,
-      "sha256": "65f256270d36b23b4b7a7deb5c6be0ffb85139394eb48593bc1b6185a0066a55",
-      "git_blob_sha": "8aae9482632835afabc0fc2ec023a13fe2f1b1d6"
+      "bytes": 10443,
+      "sha256": "8c2830b810773456b23f7fa1b48da7fa18080c30eee617a63708ab67c22b43c6",
+      "git_blob_sha": "bf2b73cd0b4bfab66a9e357f0985665656f4af3c"
     },
     {
       "path": "TODO.md",
@@ -1926,8 +1926,8 @@
     {
       "path": "implementation-p4_2_5/evidence/verification.json",
       "bytes": 601,
-      "sha256": "d00f51b1e9ee183b321493a1164c37ef253ee5fa297126f4c50bb21b735a9d08",
-      "git_blob_sha": "4f57b4e6ef66836ee819a851e7315bb93f00cdc5"
+      "sha256": "58f2b23c8eb4cfc7626b6550565dbb898432fb13096eaaf1a76e000cdc4cc02c",
+      "git_blob_sha": "9a3ee990819ed4ecb57a04fa3fa47239b27f4b3a"
     },
     {
       "path": "implementation-p4_2_5/evidence/windows-host-partial-2026-11-03.json",
@@ -2543,15 +2543,15 @@
     },
     {
       "path": "implementation-p4_2_5/src/providers-client.css",
-      "bytes": 586,
-      "sha256": "d034d76a53c20ff16ad845cab638c1ce341b3c488a36272676e736ceea40f147",
-      "git_blob_sha": "5789608fac7725e043b6975d52c123be2a928447"
+      "bytes": 1030,
+      "sha256": "7f52562c1c5ef1d8451d80a8aa4d8fce04cc1211300000b83b67adfb941672c2",
+      "git_blob_sha": "4be70578eeb93bcbd61871c5a51bac4aa5c0bbc4"
     },
     {
       "path": "implementation-p4_2_5/src/providers-client.js",
-      "bytes": 6797,
-      "sha256": "94eb81fa680729d5ff463e15086ed60040c45b133fac79fd08f4cd66d8467534",
-      "git_blob_sha": "9323bbfde567ff33aa94beae3ec0f5f3316baaea"
+      "bytes": 11370,
+      "sha256": "2954799ee56f0b323cf26651e4572d667a7b3ece4e4ae8d2fa91fe7a00d51e18",
+      "git_blob_sha": "6fd1fc07478560a02dd752a3dc70f00b9ad49b19"
     },
     {
       "path": "implementation-p4_2_5/src/providers-service.mjs",
@@ -2603,9 +2603,9 @@
     },
     {
       "path": "implementation-p4_2_5/src/screensaver-client.css",
-      "bytes": 758,
-      "sha256": "34189a74be9070ed7fc6b4b15261b81557fa0ec01a5d2e6cb459ef42e24b977d",
-      "git_blob_sha": "19bf866b8e49cdc1c354a5150f6ea510e4085c85"
+      "bytes": 1026,
+      "sha256": "440c778031bb60c798e0edbb9a7bd4fa6b826087997f2f9907e6889195f8b5a5",
+      "git_blob_sha": "78746f019a824fb1d09c13439477a7adb829ca70"
     },
     {
       "path": "implementation-p4_2_5/src/screensaver-client.js",
@@ -3020,6 +3020,12 @@
       "bytes": 766,
       "sha256": "f4f69c2953334f02bf274ef4216092dfea3f87c2a42a9ae9759f1a261770172c",
       "git_blob_sha": "504b512c9fad32d880b6406f0361e4d7ee8897d0"
+    },
+    {
+      "path": "implementation-p4_2_5/tests/weather-controls.test.mjs",
+      "bytes": 2789,
+      "sha256": "afb5d29d9ad8c79262876fc158630115202029ba960afe965848002f54a5b698",
+      "git_blob_sha": "7c272649ad91c24e2e79de599d71cff347738e2a"
     },
     {
       "path": "implementation-p4_2_5/tests/widget-position.test.mjs",

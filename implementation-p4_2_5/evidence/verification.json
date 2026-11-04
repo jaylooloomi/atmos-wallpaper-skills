@@ -9,8 +9,8 @@
     {
       "name": "product-tests",
       "exitCode": 0,
-      "tests": 406,
-      "pass": 403,
+      "tests": 407,
+      "pass": 404,
       "fail": 0,
       "skipped": 3
     },

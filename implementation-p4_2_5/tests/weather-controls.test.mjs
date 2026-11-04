@@ -1,0 +1,21 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import vm from 'node:vm';
+import {parseHTML} from 'linkedom';
+test('weather controls share draft events, preserve provider opt-in and expose actual update states',async()=>{
+ const {window}=parseHTML('<html><body><aside class="side"><div class="panel-scroll"></div></aside><div id="manager"><input type="checkbox" data-widget-enable="weather"></div><section data-widget="weather"><span class="widget-badge"></span><div class="widget-body"></div></section></body></html>');
+ const doc=window.document,intervals=[];let changes=0,editing=false,enabled=true,stale=false,available=true,posts=0;
+ doc.querySelector('#manager').addEventListener('change',()=>changes++);
+ window.atmosBridgeApp={getState:()=>({locale:'zh-TW'})};window.atmosSetPositionEditing=v=>editing=v;
+ vm.runInContext(fs.readFileSync(new URL('../src/providers-client.js',import.meta.url),'utf8'),vm.createContext({window,document:doc,Event:window.Event,Date,AbortSignal,addEventListener(){},setInterval:f=>intervals.push(f),fetch:async(route,options)=>{if(options.method==='POST')posts++;return {ok:true,json:async()=>route.endsWith('settings')?{settings:{revision:1,weather:{enabled,city:'台北'}}}:{enabled,settingsRevision:1,available,stale,city:'台北',ageMs:1000,data:{temperatureC:20,humidityPercent:70,weatherCode:61,modelTimeMs:1000,fetchedAtMs:2000}}}}}));
+ window.AtmosProviders.start({headers:()=>({}),wallpaper:false});await new Promise(r=>setTimeout(r,20));
+ const check=doc.querySelector('[data-weather-visible]');check.checked=true;check.onchange({target:check});assert.equal(changes,1);assert.equal(doc.querySelector('[data-widget-enable]').checked,true);assert.equal(posts,0);
+ check.checked=false;check.onchange({target:check});assert.equal(changes,2);
+ doc.querySelector('[data-weather-locate]').onclick();assert.equal(changes,3);assert.equal(editing,true);assert.equal(posts,0);assert.equal(doc.querySelector('[data-widget="weather"]').getAttribute('tabindex'),'-1');
+ assert.match(doc.querySelector('[data-weather-update]').textContent,/已更新.*模型資料時間.*取得時間/);
+ stale=true;await intervals[0]();assert.match(doc.querySelector('[data-weather-update]').textContent,/過期快取/);
+ available=false;await intervals[0]();assert.match(doc.querySelector('[data-weather-update]').textContent,/更新失敗/);
+ const source=doc.querySelector('.provider-settings input:not([data-weather-visible])');source.checked=false;source.onchange();await intervals[0]();assert.equal(source.checked,false,'polling preserves unsaved source edits');
+ enabled=false;await intervals[0]();assert.match(doc.querySelector('[data-weather-update]').textContent,/未啟用/);assert.equal(check.checked,true);
+});

@@ -15,6 +15,7 @@ Atmos 動態桌布管理介面、唯讀桌布 renderer 與本機 CLI。此倉庫
 - JSON 檔案監看與外觀／排程／模式受限 CLI；明確 opt-in，不直接改 live.json、不建立開機 watcher。
 - 原生音訊 owner 路由、FPS／全螢幕／電池動畫政策、引用審核與可恢復素材封存；`.scr` 螢幕保護生命週期與獨立角色。
 - 明確啟用的 Open-Meteo 模型天氣與 Windows 真 CPU／RAM；網速、GPU、耗電、Now Playing 尚未提供。
+- 「真實資料來源」內可直接切換天氣元件顯示、查看資料取得／模型時間與離線狀態，並顯示及定位元件；顯示修改沿用草稿／套用流程，線上連線仍需獨立明確啟用。
 - 遠方雲光／寫實分岔回閃、AI 指令與診斷自然接在左側預覽下方，保留原本雙欄與目標比例。
 
 依使用者指示先做自動測試。0.7.1 修正未消費 ACK 回應造成的 renderer Section／handle 累積，已完成本機「主螢幕＋管理頁」兩小時 CPU／記憶體／handles／GPU 資源採樣，481 次全目標回報正常。記憶體增長診斷與計數器缺口仍如實保留，不宣稱零洩漏；瓦特／焦耳未測得，人工鎖屏／登入、物理插拔與其他硬體環境仍未驗證。GPU 目前僅提供診斷採樣，尚未串接元件資料源。[本機資源實測與限制](desktop-host/docs/WINDOWS-RESOURCE-VALIDATION-2026-11-05.md)、[完整功能／驗證矩陣](desktop-host/docs/AUTOMATED-ROADMAP-VALIDATION-2026-11-04.md)、[外觀與排程教學](implementation-p4_2_5/docs/APPEARANCE-AUTOMATION.md)。
