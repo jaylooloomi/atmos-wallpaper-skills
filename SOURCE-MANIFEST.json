@@ -23,9 +23,9 @@
     },
     {
       "path": "README.md",
-      "bytes": 10671,
-      "sha256": "4c79270acf7c64007bd8aa1ae6b2450bb1747b7cce59961824f30aeb37844154",
-      "git_blob_sha": "833b097330ecb552b0c8b5085c34aac3e4ed9e14"
+      "bytes": 10644,
+      "sha256": "a9bfc5ae2321a1c0150e35d217e6c68d97945829a42e2082ec8055d837976026",
+      "git_blob_sha": "d8960b952e3b1dbfd711bcb04fc626472f53a09a"
     },
     {
       "path": "TODO.md",
@@ -36,20 +36,20 @@
     {
       "path": "desktop-host/Cargo.lock",
       "bytes": 108418,
-      "sha256": "66d5b1ff1bf1185a5ccc646eed6167da14b5862b5837dd9307f45bf0ccf50fde",
-      "git_blob_sha": "df6cbaab2023ba7c5c7ed5a0774353be960d800d"
+      "sha256": "6106d5e953d316feaf67a8b8ebeadf0d60e569bb82bc39c07b8d1c8679f5b38a",
+      "git_blob_sha": "9d11bb26e85a7650eb23172408c22b1671eb69cd"
     },
     {
       "path": "desktop-host/Cargo.toml",
       "bytes": 1123,
-      "sha256": "1158263c4cbbc1cc785ac552621a1065089bcd5f91be0c03e92b21ad8c03fb63",
-      "git_blob_sha": "6dcdfeb38a5b1cc334b609a8f886d99bead0bb88"
+      "sha256": "9e0f94ae828d53f76b55fbfeacf880d2490f0318eac80517b5aab386e3af0e29",
+      "git_blob_sha": "2d97fecabaed1630702a29fd62400d4cff79271a"
     },
     {
       "path": "desktop-host/README.md",
-      "bytes": 13168,
-      "sha256": "b2169b9ed59ad2d3f2734dbc2503ffa73a1357cbb952500f2335697f17326683",
-      "git_blob_sha": "037ba339f71c81e47a35aa976716fc75b46ca23e"
+      "bytes": 13453,
+      "sha256": "48c9dd384147194b6969f6c34776356b1e8d00f53412373f9a454daddaa57e9b",
+      "git_blob_sha": "af615b8f3d4eac87f289d103fa5e1787e4fb2ae1"
     },
     {
       "path": "desktop-host/build.rs",
@@ -206,6 +206,12 @@
       "bytes": 1864,
       "sha256": "1e7a32bb5a6c8d99763f81fb927f121dd96409f3369b1a39b79d69ee5b8ecfce",
       "git_blob_sha": "f8682a7f8a56e94753849c2fb7821b729b50657c"
+    },
+    {
+      "path": "desktop-host/docs/WALLPAPER-CONTROLS-2026-11-05.md",
+      "bytes": 2452,
+      "sha256": "b6338776181b7be974bb61f675ae1c22c916afad8425da706df482b8f89ad280",
+      "git_blob_sha": "72529beaba3741de75db1f132617300dd8ecfdbc"
     },
     {
       "path": "desktop-host/docs/WEATHER-CONTROLS-UPGRADE-2026-11-05.md",
@@ -562,6 +568,24 @@
       "git_blob_sha": "b204e0f03f073b6a54d674bb70dad776299ef09f"
     },
     {
+      "path": "desktop-host/evidence/wallpaper-controls-handoff-2026-11-05.json",
+      "bytes": 532,
+      "sha256": "dbdc8f17387198bc7930dc088e835465868cafe874b5a282fe2800ed5ac824dd",
+      "git_blob_sha": "c1328318cb1e1a5b4edd2b0e8334e500a168d799"
+    },
+    {
+      "path": "desktop-host/evidence/wallpaper-controls-upgrade-2026-11-05.json",
+      "bytes": 1436,
+      "sha256": "4477400f53c3c80018404cf1ceaf3f92dfe4327e78cb96bf7f908cf262838e52",
+      "git_blob_sha": "31f967c11a7ddc236b793878f0181089d1e57182"
+    },
+    {
+      "path": "desktop-host/evidence/wallpaper-toggle-2026-11-05.json",
+      "bytes": 707,
+      "sha256": "7c1cf4c01f95cb5b72b16749b850b57c4ffb6d2e8d5214bfe11251c04aeb27e8",
+      "git_blob_sha": "8764bb957b1f7aabb4aa1d7c111e9db2656584ac"
+    },
+    {
       "path": "desktop-host/evidence/weather-controls-handoff-2026-11-05.json",
       "bytes": 532,
       "sha256": "dbdc8f17387198bc7930dc088e835465868cafe874b5a282fe2800ed5ac824dd",
@@ -660,14 +684,14 @@
     {
       "path": "desktop-host/package-lock.json",
       "bytes": 7246,
-      "sha256": "4ae6d5010194b150b68338045abd925b65c82b781a9164e2e62fbbd2fdce90b2",
-      "git_blob_sha": "2e07baeef07dfffaf28db3959ee6273e64a4dbe0"
+      "sha256": "bb4fd30c5de1b84bee14dc9e94335630ea6ef28e4c66d065ac9d60e99d4b2b51",
+      "git_blob_sha": "879e7c277dbbc590a2584ea1f76a83676704d896"
     },
     {
       "path": "desktop-host/package.json",
       "bytes": 284,
-      "sha256": "127a12682684876d97303bc3e28ac3c1214b31021858025afce4941c65a6d1dd",
-      "git_blob_sha": "f61102c010e26eb4653a768b3ebef0eb1d90d7e0"
+      "sha256": "f86f2c850d80da4017d8cebf3ba8a05028ecdda23aa8f1e808b02083f2b95cf7",
+      "git_blob_sha": "fb420f1faac587b8fc45e0cdec77c9e7d80d1bc2"
     },
     {
       "path": "desktop-host/scripts/analyze-soak.mjs",
@@ -868,6 +892,18 @@
       "git_blob_sha": "cae75d226df453052bb71882f10c6a52d5fbed5d"
     },
     {
+      "path": "desktop-host/scripts/test-wallpaper-controls-upgrade-installed.mjs",
+      "bytes": 8147,
+      "sha256": "f1cd179d09a209c8152ef97b33a63c04728006043fb7f97f1d98a5079720a8a5",
+      "git_blob_sha": "36be3bc9bc0ad3f346a9edec9d1fb28f8a0a5719"
+    },
+    {
+      "path": "desktop-host/scripts/test-wallpaper-toggle-installed.mjs",
+      "bytes": 5307,
+      "sha256": "98aa9d16976155d9a5dc664fe06131359b7eca22263d729ff0a5454d4f898200",
+      "git_blob_sha": "e53903d260748f67608b45b84a735993fb82e853"
+    },
+    {
       "path": "desktop-host/scripts/test-weather-upgrade-installed.mjs",
       "bytes": 7108,
       "sha256": "f1253464e83d729713187c98e37bfa358ed48643c016e2c531f9fb1995debda7",
@@ -1044,8 +1080,8 @@
     {
       "path": "desktop-host/tauri.conf.json",
       "bytes": 975,
-      "sha256": "21e0a790190d077739df4ad471fc8ba85b7f701c6ce189d5004d8bb66be7a215",
-      "git_blob_sha": "a7a5e72dd2c6f2300e12dafff7f5c401c83a0434"
+      "sha256": "071b0216b85cc65d7d1261dfb11ad6f2b247ca5a94eb39137ec1bb7f29be4721",
+      "git_blob_sha": "0474436b149cb446c70b86ff39870f34feb9a3a2"
     },
     {
       "path": "desktop-host/ui/index.html",
@@ -2028,8 +2064,8 @@
     {
       "path": "implementation-p4_2_5/evidence/verification.json",
       "bytes": 695,
-      "sha256": "be4908dcb3acc6ef38a8215a5443b8334561cdace0c77dab52f6e6f329552073",
-      "git_blob_sha": "97aa54f0f09a09b7e72f55eb2fd5f7b4aec93084"
+      "sha256": "88403384b7eb5a3308247adbe73dd5182d5124d08bcaff8d712e145580877dd6",
+      "git_blob_sha": "08bdfcbb1637898f48816191ad4eb8ea659caa89"
     },
     {
       "path": "implementation-p4_2_5/evidence/windows-host-partial-2026-11-03.json",
@@ -2123,9 +2159,9 @@
     },
     {
       "path": "implementation-p4_2_5/scripts/layout-regression-probe.js",
-      "bytes": 4625,
-      "sha256": "7effcaaf52a115a511f5b95b185405bde7487d4fa003de2ab9de9173ae79c8b6",
-      "git_blob_sha": "a9116cfa88d83dd29c32ba48e1ea2141f5d4e967"
+      "bytes": 5206,
+      "sha256": "4ff9413c12bcff1e680386477f61f645b52f2913f2e10603781e4ce95d2a8823",
+      "git_blob_sha": "06348ba943e5c94d4377a7bd7102968719c96ee7"
     },
     {
       "path": "implementation-p4_2_5/scripts/measure-windows-host.ps1",
@@ -2351,15 +2387,15 @@
     },
     {
       "path": "implementation-p4_2_5/src/display-client.css",
-      "bytes": 891,
-      "sha256": "03f402c76bd9cc8e2328f3fc5454ba0d071dcf8b3cc5c808877e1b8ba7640faa",
-      "git_blob_sha": "fdfb8d02bd699c3edc60620a4ee026543f1ab5a6"
+      "bytes": 1632,
+      "sha256": "303cda4d4b87c97a27d620574f0f20d426f3a5a15fd1eb4e3d6be2f248c7eb73",
+      "git_blob_sha": "f8fecac89b6ac0f01014c5914bf0d0aee8ae1b14"
     },
     {
       "path": "implementation-p4_2_5/src/display-client.js",
-      "bytes": 8607,
-      "sha256": "e16e4d625cc78659cc65789fc934e7d1f4a3983345a0d9ec40ecedb8948c9930",
-      "git_blob_sha": "321a063d1a6ce8ecb8a7cf9bbe01d4b9a1821546"
+      "bytes": 10755,
+      "sha256": "f527a2b59cf0e644e75b28d8c9181c164b2f77aef176fe3c845b489b4ad28b23",
+      "git_blob_sha": "dd8c5aa80bb847afdd1673dcc1ead22a6be05fc3"
     },
     {
       "path": "implementation-p4_2_5/src/display-service.mjs",
@@ -3176,6 +3212,12 @@
       "bytes": 766,
       "sha256": "f4f69c2953334f02bf274ef4216092dfea3f87c2a42a9ae9759f1a261770172c",
       "git_blob_sha": "504b512c9fad32d880b6406f0361e4d7ee8897d0"
+    },
+    {
+      "path": "implementation-p4_2_5/tests/wallpaper-controls.test.mjs",
+      "bytes": 3298,
+      "sha256": "c4beed00143893966a90947ea2ea26b1d88dfb7d97fd3d312371db46c19d094d",
+      "git_blob_sha": "8e948bbc64cbfbc1677bdb255c539adbbc11b072"
     },
     {
       "path": "implementation-p4_2_5/tests/weather-controls.test.mjs",

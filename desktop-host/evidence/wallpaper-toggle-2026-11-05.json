@@ -1,0 +1,20 @@
+{
+  "date": "2026-11-05",
+  "passed": true,
+  "method": "Authenticated manager API plus native CLI; no UI automation",
+  "checks": {
+    "disabledAllOwnedLayers": true,
+    "nativeClearedState": true,
+    "managerServiceRetained": true,
+    "sameHostSurvived": true,
+    "originalWindowsWallpaperSettingUnchanged": true,
+    "savedTargetPreserved": true,
+    "appearanceAndLayoutPreserved": true,
+    "startupPreferencePreserved": true,
+    "reEnabledSavedPlacement": true,
+    "genuineRendererAckAfterResume": true
+  },
+  "limitations": [
+    "Native removal and wallpaper registry preservation are verified; no human visual confirmation. Host revision advances for the disable/resume transactions."
+  ]
+}
