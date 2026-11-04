@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-04",
+  "version": "0.5.0",
+  "installer": {
+    "bytes": 292463716,
+    "sha256": "d7f45c291043ce9876b5945977bdc9af3a7b162975c762032d160e8157e2d84e"
+  },
+  "checks": {
+    "silentUpgrade": true,
+    "savedSettingsPreserved": true,
+    "startupPreferencePreserved": true,
+    "payloadAndEmbeddedRuntimesVerified": true,
+    "installedStylesMatchSourceBuild": true,
+    "installedBootMatchesSourceBuild": true,
+    "installedDisplayControlsMatchBuild": true,
+    "installedLibraryControlsMatchBuild": true,
+    "nativeWorkerWAttachment": true,
+    "genuineWallpaperAck": true,
+    "genuineManagerAck": true
+  },
+  "limitations": [
+    "Library controls and failures checked with isolated fixtures. Real filesystem/native picker evidence is recorded separately. No user browser or desktop UI automation.",
+    "No new reboot, sleep, GPU or long-duration test."
+  ]
+}

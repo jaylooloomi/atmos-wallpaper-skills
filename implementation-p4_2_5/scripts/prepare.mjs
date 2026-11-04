@@ -61,3 +61,7 @@ fs.writeFileSync(path.join(dist,'bridge-client.js'),fs.readFileSync(path.join(ro
 fs.copyFileSync(path.join(root,'src/display-client.js'),path.join(dist,'display-client.js'));
 fs.appendFileSync(path.join(dist,'hifi.css'),'\n'+fs.readFileSync(path.join(root,'src/display-client.css'),'utf8'));
 fs.writeFileSync(path.join(dist,'bridge-client.js'),fs.readFileSync(path.join(dist,'bridge-client.js'),'utf8').replace("window.AtmosStartup.start({headers,wallpaper:wallpaperMode});","window.AtmosStartup.start({headers,wallpaper:wallpaperMode});await load('display-client.js');window.AtmosDisplays.start({headers,wallpaper:wallpaperMode});"));
+
+fs.copyFileSync(path.join(root,'src/library-client.js'),path.join(dist,'library-client.js'));
+fs.appendFileSync(path.join(dist,'hifi.css'),'\n'+fs.readFileSync(path.join(root,'src/library-client.css'),'utf8'));
+fs.writeFileSync(path.join(dist,'bridge-client.js'),fs.readFileSync(path.join(dist,'bridge-client.js'),'utf8').replace("window.AtmosDisplays.start({headers,wallpaper:wallpaperMode});","window.AtmosDisplays.start({headers,wallpaper:wallpaperMode});await load('library-client.js');window.AtmosLibrary.start({headers,wallpaper:wallpaperMode});"));

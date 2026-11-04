@@ -1,0 +1,3 @@
+// Own OS process: a crash leaves a dead PID lock recoverable by the existing store.
+import {LibraryManager} from './library-core.mjs';
+process.once('message',async task=>{try{const manager=new LibraryManager(task.root,{forbidden:task.forbidden});const result=manager.move(task.target,{expectedRevision:task.expectedRevision,requestId:task.requestId,progress:value=>process.send?.({kind:'progress',value})});process.send?.({kind:'result',value:result});}catch(e){process.send?.({kind:'error',code:/^(LIBRARY_|STORE_LOCKED|PATH_REJECTED)/.test(e.code||'')?e.code:'LIBRARY_MOVE_FAILED'});}finally{process.disconnect?.();}});

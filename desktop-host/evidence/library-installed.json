@@ -1,0 +1,44 @@
+{
+  "date": "2026-11-04",
+  "method": "Installed native CLI + bundled Node/Python/Pillow, real Windows ACL/filesystem and authenticated HTTP; synthetic store only; no UI automation",
+  "checks": [
+    {
+      "name": "bundled-core-stage-backup-native-move-replay-receipt",
+      "passed": true
+    },
+    {
+      "name": "asset-id-settings-and-backup-preserved-after-move",
+      "passed": true
+    },
+    {
+      "name": "real-filesystem-offline-reconnect-no-recreation",
+      "passed": true
+    },
+    {
+      "name": "native-cas-conflict",
+      "passed": true
+    },
+    {
+      "name": "actual-windows-acl-write-denial-preserves-active-library",
+      "passed": true
+    },
+    {
+      "name": "reset-to-dedicated-default-retains-source",
+      "passed": true
+    },
+    {
+      "name": "install-directory-and-network-path-rejected",
+      "passed": true
+    },
+    {
+      "name": "installed-authenticated-library-api",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "limitations": [
+    "Native picker requires separate user interaction",
+    "No physical disk removal, disk-full hardware, network-mapped-drive or long-duration measurement; fault injection is labelled synthetic elsewhere",
+    "All library assets retained; automatic garbage collection not provided"
+  ]
+}

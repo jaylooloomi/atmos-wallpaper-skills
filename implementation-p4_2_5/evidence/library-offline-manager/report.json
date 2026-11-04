@@ -1,0 +1,11 @@
+{
+  "method": "Isolated generated-page Chromium fixture with synthetic offline active custom image; no actual desktop or UI automation",
+  "loading": false,
+  "hasLibrary": true,
+  "libraryStatus": "素材庫離線或無法讀取；保留原設定 LIBRARY_OFFLINE",
+  "fallback": true,
+  "originalAssetRetained": true,
+  "hasImage": true,
+  "noSyntheticRendererAckWritten": true,
+  "passed": true
+}

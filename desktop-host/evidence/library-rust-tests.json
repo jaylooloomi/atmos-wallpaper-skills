@@ -1,0 +1,7 @@
+{
+  "date": "2026-11-04",
+  "command": "cargo test --manifest-path desktop-host/Cargo.toml",
+  "passed": 20,
+  "failed": 0,
+  "scope": "Native path/drive guard unit tests and existing host tests; no native picker interaction simulated"
+}

@@ -1,0 +1,165 @@
+{
+  "method": "Isolated Chromium CLI synthetic controls, not native picker or desktop visual proof",
+  "cases": [
+    {
+      "name": "desktop",
+      "width": 520,
+      "scrollWidth": 520,
+      "status": "搬移完成；原資料保留",
+      "boxes": [
+        {
+          "left": 25,
+          "right": 495
+        },
+        {
+          "left": 25,
+          "right": 176.328125
+        },
+        {
+          "left": 184.328125,
+          "right": 335.671875
+        },
+        {
+          "left": 343.671875,
+          "right": 495
+        },
+        {
+          "left": 25,
+          "right": 495
+        }
+      ],
+      "chooseDisabled": false,
+      "progressVisible": false,
+      "passed": true
+    },
+    {
+      "name": "phone",
+      "width": 320,
+      "scrollWidth": 320,
+      "status": "搬移完成；原資料保留",
+      "boxes": [
+        {
+          "left": 25,
+          "right": 295
+        },
+        {
+          "left": 25,
+          "right": 295
+        },
+        {
+          "left": 25,
+          "right": 295
+        },
+        {
+          "left": 25,
+          "right": 295
+        },
+        {
+          "left": 25,
+          "right": 295
+        }
+      ],
+      "chooseDisabled": false,
+      "progressVisible": false,
+      "passed": true
+    },
+    {
+      "name": "english",
+      "width": 320,
+      "scrollWidth": 320,
+      "status": "Move completed; source retained",
+      "boxes": [
+        {
+          "left": 25,
+          "right": 295
+        },
+        {
+          "left": 25,
+          "right": 295
+        },
+        {
+          "left": 25,
+          "right": 295
+        },
+        {
+          "left": 25,
+          "right": 295
+        },
+        {
+          "left": 25,
+          "right": 295
+        }
+      ],
+      "chooseDisabled": false,
+      "progressVisible": false,
+      "passed": true
+    },
+    {
+      "name": "offline",
+      "width": 320,
+      "scrollWidth": 320,
+      "status": "素材庫離線或無法讀取；保留原設定 LIBRARY_OFFLINE",
+      "boxes": [
+        {
+          "left": 25,
+          "right": 295
+        },
+        {
+          "left": 25,
+          "right": 295
+        },
+        {
+          "left": 25,
+          "right": 295
+        },
+        {
+          "left": 25,
+          "right": 295
+        },
+        {
+          "left": 25,
+          "right": 295
+        }
+      ],
+      "chooseDisabled": true,
+      "progressVisible": false,
+      "passed": true
+    },
+    {
+      "name": "copying",
+      "width": 320,
+      "scrollWidth": 320,
+      "status": "Working…",
+      "boxes": [
+        {
+          "left": 25,
+          "right": 295
+        },
+        {
+          "left": 25,
+          "right": 295
+        },
+        {
+          "left": 25,
+          "right": 295
+        },
+        {
+          "left": 25,
+          "right": 295
+        },
+        {
+          "left": 25,
+          "right": 295
+        },
+        {
+          "left": 25,
+          "right": 295
+        }
+      ],
+      "chooseDisabled": true,
+      "progressVisible": true,
+      "passed": true
+    }
+  ],
+  "passed": true
+}
