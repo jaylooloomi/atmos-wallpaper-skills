@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-04",
+  "method": "Real installed native quit, audio-thread stopped record, Shell-broker restart and byte-preservation checks; no UI automation",
+  "checks": {
+    "nativeExit": true,
+    "audioThreadStoppedAndStreamClosed": true,
+    "restartAttached": true,
+    "appearanceDisplayLibraryAudioSettingsPreserved": true
+  },
+  "passed": true,
+  "limitations": [
+    "Stream closure and process lifecycle are measured; this script does not listen to the speaker"
+  ]
+}

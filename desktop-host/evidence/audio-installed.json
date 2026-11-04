@@ -1,0 +1,41 @@
+{
+  "date": "2026-11-04",
+  "method": "Installed native audio CLI, actual WASAPI silent stream, safe mute/zero/disabled policies and authenticated HTTP; no UI automation or forged renderer ack",
+  "checks": [
+    {
+      "name": "installed-audio-cas-idempotent-receipt-and-conflict",
+      "passed": true
+    },
+    {
+      "name": "actual-wasapi-default-device-digital-silence-probe",
+      "passed": true,
+      "audibilityVerified": false
+    },
+    {
+      "name": "real-native-policy-muted",
+      "passed": true
+    },
+    {
+      "name": "real-native-policy-volume-zero",
+      "passed": true
+    },
+    {
+      "name": "real-native-policy-disabled",
+      "passed": true
+    },
+    {
+      "name": "appearance-library-and-placement-preserved",
+      "passed": true
+    },
+    {
+      "name": "installed-authenticated-audio-api",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "limitations": [
+    "No audible output enabled by this script; human listening/focus checks recorded separately",
+    "No physical audio-device removal or reboot/sleep/long-duration test",
+    "System-default output only; no named-device selector or global volume change"
+  ]
+}

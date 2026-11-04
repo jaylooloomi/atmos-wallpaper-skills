@@ -1,10 +1,10 @@
-# Atmos Wallpaper Windows 安裝版 0.5.0
+# Atmos Wallpaper Windows 安裝版 0.6.1
 
 Tauri 2＋Rust、Windows x64、可指定單一螢幕的桌布（預設跟隨主螢幕）。保留現有管理頁、場景、元件與 ICS 日曆，由自己的 WebView2 宿主套用，**不使用 Lively**。
 
 ## 安裝與操作
 
-執行 `Atmos Wallpaper_0.5.0_x64-setup.exe`，完成頁預設勾選啟動 Atmos；按完成後依已保存目標套用桌布，新安裝預設跟隨主螢幕。安裝器包含 Node、隔離的 Python＋Pillow，以及官方離線 WebView2 安裝程式；一般使用者不必另外安裝 Node、Python 或 Lively，也不需要 Rust 開發工具。
+執行 `Atmos Wallpaper_0.6.1_x64-setup.exe`，完成頁預設勾選啟動 Atmos；按完成後依已保存目標套用桌布，新安裝預設跟隨主螢幕。安裝器包含 Node、隔離的 Python＋Pillow，以及官方離線 WebView2 安裝程式；一般使用者不必另外安裝 Node、Python 或 Lively，也不需要 Rust 開發工具。
 
 - 在目前使用者範圍安裝，預設 `%LOCALAPPDATA%\Atmos Wallpaper`；不新增系統 PATH 或 Windows Service。
 - 系統匣「開啟管理頁」調整設定，按「套用變更」保存；再次啟動 Atmos 捷徑也會開啟現有管理頁。
@@ -109,3 +109,5 @@ Agent 實機整合測試（會暫時變更強度再以交易還原）：node scr
 0.4.0 新增單目標螢幕選擇、相對配置圖、立即套用／清除、獨立宿主 JSON/CAS 與原生 Agent 教學。目前同時維持一個桌布視窗。[功能與驗證](docs/DISPLAY-PLACEMENT-2026-11-04.md)；[後續批次](docs/ROADMAP-EXECUTION-2026-11-04.md)。
 
 0.5.0 加入匯入素材的獨立目錄、原生資料夾選擇、背景複製／逐檔核對／原子切換、離線修復與 Agent 素材庫命令。保留所有原資料，不自動刪除。[素材庫驗證與限制](docs/LIBRARY-VALIDATION-2026-11-04.md)。
+
+0.6.1 加入 Rust/CPAL/WASAPI 原創合成音源、總音量／靜音、桌面焦點政策、實際播放裝置選擇與主動三秒測試音。使用者已確認雨聲、音量／靜音及焦點切換。[音訊驗證與限制](docs/AUDIO-VALIDATION-2026-11-04.md)。版本更新請使用 `node scripts/set-version.mjs --write X.Y.Z`，避免誤改相依版本。

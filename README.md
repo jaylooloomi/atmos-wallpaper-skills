@@ -9,7 +9,7 @@ Atmos 動態桌布管理介面、唯讀桌布 renderer 與本機 CLI。此倉庫
 - 五語介面（繁中、簡中、英文、日文、韓文）、12／24 小時及秒數設定。
 - 管理頁 `/manager` 的修改先成草稿，再按套用提交；`/wallpaper` 為唯讀顯示頁。
 - 本機圖片匯入、備份、還原、版本遷移、離線匯出與受限 CLI。
-- Windows x64 安裝版 0.5.0：Tauri 2＋Rust、獨立 WebView2、托盤與退出還原；安裝後預設啟動並套用主螢幕，可在管理頁選定單一螢幕／清除 Atmos 層，提供宿主 JSON/CAS 與原生 Agent 教學；支援登入 Windows 後背景自動套用與管理頁即時開關。內含 Node／Python／Pillow 與離線 WebView2 安裝程式，不需另外安裝 Node、Python 或 Lively。[安裝、重建與限制](desktop-host/README.md)。
+- Windows x64 安裝版 0.6.1：Tauri 2＋Rust、獨立 WebView2、托盤與退出還原；安裝後預設啟動並套用主螢幕，可在管理頁選定單一螢幕／清除 Atmos 層，提供宿主 JSON/CAS 與原生 Agent 教學；支援登入 Windows 後背景自動套用與管理頁即時開關。內含 Node／Python／Pillow 與離線 WebView2 安裝程式，不需另外安裝 Node、Python 或 Lively。[安裝、重建與限制](desktop-host/README.md)。
 
 ## 目錄
 

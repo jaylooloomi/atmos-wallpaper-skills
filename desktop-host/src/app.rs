@@ -19,6 +19,7 @@ use tauri::{
 
 struct State {
     runtime: Mutex<Option<Runtime>>,
+    audio: Mutex<Option<crate::audio::AudioEngine>>,
     attached: Mutex<Option<(isize, isize)>>,
     exiting: AtomicBool,
     journal: Arc<Journal>,
@@ -252,6 +253,7 @@ pub fn launch(
     journal.event("runtime-ready",json!({"pid":runtime.child.id(),"port":port,"target":target,"livelyRequired":false,"boundedSeconds":options.seconds,"persistent":options.seconds.is_none()}));
     let state = Arc::new(State {
         runtime: Mutex::new(Some(runtime)),
+        audio: Mutex::new(None),
         attached: Mutex::new(None),
         exiting: AtomicBool::new(false),
         journal: journal.clone(),
@@ -295,6 +297,8 @@ pub fn launch(
                 "attached",
                 json!({"window":actual,"parent":windows::record(parent),"target":target}),
             );
+            *setup_state.audio.lock().unwrap() =
+                Some(crate::audio::AudioEngine::start(store.clone(), handle));
             setup_tray(app, port, store.clone(), setup_state.clone())?;
             if show_manager {
                 open_manager(app.handle(), port, &store)?;
@@ -328,6 +332,7 @@ pub fn launch(
             if !s.exiting.swap(true, Ordering::SeqCst) {
                 api.prevent_exit();
                 intended.store(code.unwrap_or(0), Ordering::SeqCst);
+                s.audio.lock().unwrap().take();
                 s.runtime.lock().unwrap().take();
                 if let Some(manager) = app.get_webview_window("manager") {
                     let _ = manager.destroy();

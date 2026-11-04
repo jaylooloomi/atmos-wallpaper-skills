@@ -1,0 +1,2 @@
+// Pure version rewrite; dependency package blocks must remain byte-identical.
+export function cargoPackageVersion(text,version){if(!/^\d+\.\d+\.\d+$/.test(version))throw Error('Invalid version');let count=0;const result=text.replace(/(\[\[package\]\]\r?\nname = "atmos-wallpaper-desktop"\r?\nversion = ")[^"]+("\r?\n)/g,(_,a,b)=>{count++;return a+version+b});if(count!==1)throw Error('Expected exactly one Atmos Cargo.lock package');return result}

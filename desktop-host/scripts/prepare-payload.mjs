@@ -42,6 +42,7 @@ fs.mkdirSync(cache,{recursive:true});
 if(path.resolve(payload)!==path.resolve(root,'payload')||fs.realpathSync(root)!==path.resolve(root).replace(/[\\/]$/,''))throw Error('Unexpected payload root');
 if(fs.existsSync(payload)){if(fs.lstatSync(payload).isSymbolicLink())throw Error('Refuse payload junction');fs.rmSync(payload,{recursive:true})}
 fs.mkdirSync(payload,{recursive:true});
+copy(path.join(root,'installer/CPAL-0.18.2-LICENSE.txt'),path.join(payload,'licenses/CPAL-0.18.2-LICENSE.txt'));
 const downloads=await Promise.all(Object.entries(pins).filter(([k])=>k!=='schemaVersion').map(async([k,p])=>[k,await download(p)]));
 const archives=Object.fromEntries(downloads);
 extract(archives.node,path.join(payload,'runtime/node'),'node');

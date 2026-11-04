@@ -38,3 +38,5 @@ HTTP `/api/host/library` 僅管理角色、同源與 session 可使用。HTTP �
 依據：[Microsoft SHBrowseForFolderW](https://learn.microsoft.com/en-us/windows/win32/api/shlobj_core/nf-shlobj_core-shbrowseforfolderw)、[Node.js 檔案系統](https://nodejs.org/api/fs.html)。
 
 安裝包：292463716 bytes，SHA-256 `d7f45c291043ce9876b5945977bdc9af3a7b162975c762032d160e8157e2d84e`；未簽章、僅留本機。
+
+人工驗證：使用者已在本聊天明確確認「選擇器、搬移、新位置與桌布時鐘都正常」。未公開其選定路徑或其他私人設定。

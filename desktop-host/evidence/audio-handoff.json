@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-04",
+  "passed": true,
+  "method": "Separate command after the integration runner exits; read-only native state/window checks and genuine WebView acknowledgements",
+  "checks": {
+    "sameInstalledHostAliveAcrossSamples": true,
+    "freshNativeAttachment": true,
+    "ownVisibleWindowPresent": true,
+    "genuineWallpaperAndManagerAck": true
+  },
+  "samples": 6,
+  "observedSeconds": 18,
+  "limitations": [
+    "This is a short process-lifetime regression check, not a long-duration soak or visual proof"
+  ]
+}

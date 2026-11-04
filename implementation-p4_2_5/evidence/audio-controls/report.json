@@ -1,0 +1,146 @@
+{
+  "method": "Synthetic isolated Chromium control fixtures only; no audio hardware or audibility proof",
+  "cases": [
+    {
+      "name": "desktop",
+      "width": 520,
+      "scrollWidth": 520,
+      "status": "音訊已關閉",
+      "boxes": [
+        {
+          "left": 25,
+          "right": 45
+        },
+        {
+          "left": 25,
+          "right": 45
+        },
+        {
+          "left": 25,
+          "right": 45
+        },
+        {
+          "left": 27,
+          "right": 497
+        },
+        {
+          "left": 25,
+          "right": 495
+        },
+        {
+          "left": 25,
+          "right": 495
+        }
+      ],
+      "muted": true,
+      "sourceOptions": 3,
+      "passed": true
+    },
+    {
+      "name": "phone",
+      "width": 320,
+      "scrollWidth": 320,
+      "status": "已靜音",
+      "boxes": [
+        {
+          "left": 25,
+          "right": 45
+        },
+        {
+          "left": 25,
+          "right": 45
+        },
+        {
+          "left": 25,
+          "right": 45
+        },
+        {
+          "left": 27,
+          "right": 297
+        },
+        {
+          "left": 25,
+          "right": 295
+        },
+        {
+          "left": 25,
+          "right": 295
+        }
+      ],
+      "muted": true,
+      "sourceOptions": 3,
+      "passed": true
+    },
+    {
+      "name": "english",
+      "width": 320,
+      "scrollWidth": 320,
+      "status": "Desktop not focused; stopped",
+      "boxes": [
+        {
+          "left": 25,
+          "right": 45
+        },
+        {
+          "left": 25,
+          "right": 45
+        },
+        {
+          "left": 25,
+          "right": 45
+        },
+        {
+          "left": 27,
+          "right": 297
+        },
+        {
+          "left": 25,
+          "right": 295
+        },
+        {
+          "left": 25,
+          "right": 295
+        }
+      ],
+      "muted": true,
+      "sourceOptions": 3,
+      "passed": true
+    },
+    {
+      "name": "device-error",
+      "width": 320,
+      "scrollWidth": 320,
+      "status": "音訊裝置無法使用，正在重試",
+      "boxes": [
+        {
+          "left": 25,
+          "right": 45
+        },
+        {
+          "left": 25,
+          "right": 45
+        },
+        {
+          "left": 25,
+          "right": 45
+        },
+        {
+          "left": 27,
+          "right": 297
+        },
+        {
+          "left": 25,
+          "right": 295
+        },
+        {
+          "left": 25,
+          "right": 295
+        }
+      ],
+      "muted": true,
+      "sourceOptions": 3,
+      "passed": true
+    }
+  ],
+  "passed": true
+}

@@ -339,3 +339,62 @@ mod tests {
         assert!(static_wallpaper().is_ok());
     }
 }
+
+/// Read-only foreground and input-desktop checks. Never switches or unlocks a desktop.
+pub fn audio_context() -> (bool, bool) {
+    use windows_sys::Win32::System::StationsAndDesktops::{
+        CloseDesktop, GetUserObjectInformationW, OpenInputDesktop, DESKTOP_READOBJECTS,
+    };
+    unsafe {
+        let input = OpenInputDesktop(0, 0, DESKTOP_READOBJECTS);
+        let mut unlocked = false;
+        if !input.is_null() {
+            let mut name = [0u16; 256];
+            let mut needed = 0;
+            if GetUserObjectInformationW(input, 2, name.as_mut_ptr() as _, 512, &mut needed) != 0 {
+                let end = name.iter().position(|c| *c == 0).unwrap_or(256);
+                unlocked = String::from_utf16_lossy(&name[..end]) == "Default";
+            }
+            CloseDesktop(input);
+        }
+        let h = GetForegroundWindow();
+        let r = record(h as isize);
+        let known = desktop_windows();
+        let progman = FindWindowW(wide("Progman").as_ptr(), null());
+        let desktop = if h.is_null() {
+            false
+        } else if h == progman {
+            true
+        } else if r.class == "WorkerW" {
+            !FindWindowExW(h, null_mut(), wide("SHELLDLL_DefView").as_ptr(), null()).is_null()
+        } else if r.class == "SHELLDLL_DefView" {
+            known
+                .iter()
+                .any(|w| w.handle == h as isize && w.class == "SHELLDLL_DefView")
+        } else if r.class == "SysListView32" {
+            let p = GetParent(h);
+            known
+                .iter()
+                .any(|w| w.handle == p as isize && w.class == "SHELLDLL_DefView")
+        } else {
+            false
+        };
+        (desktop, unlocked)
+    }
+}
+
+pub fn process_alive(pid: u32) -> bool {
+    use windows_sys::Win32::System::Threading::{
+        GetExitCodeProcess, OpenProcess, PROCESS_QUERY_LIMITED_INFORMATION,
+    };
+    unsafe {
+        let h = OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION, 0, pid);
+        if h.is_null() {
+            return false;
+        }
+        let mut code = 0;
+        let ok = GetExitCodeProcess(h, &mut code) != 0 && code == 259;
+        CloseHandle(h);
+        ok
+    }
+}

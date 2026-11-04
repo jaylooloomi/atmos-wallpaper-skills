@@ -1,0 +1,7 @@
+{
+  "date": "2026-11-04",
+  "command": "cargo test --manifest-path desktop-host/Cargo.toml --locked",
+  "passed": 24,
+  "failed": 0,
+  "scope": "Original synthesis bounds/fade, policy guards, independent CAS/receipt and existing native host tests; hardware/output and human checks recorded separately"
+}

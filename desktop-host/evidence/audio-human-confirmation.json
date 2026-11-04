@@ -1,0 +1,23 @@
+{
+  "date": "2026-11-04",
+  "version": "0.6.1",
+  "source": "Explicit user replies in this chat; no audio capture",
+  "initialAttempt": {
+    "version": "0.6.0",
+    "settingsPersisted": true,
+    "audible": false
+  },
+  "afterExplicitOutputSelection": {
+    "testToneAudible": true,
+    "rainAudible": true,
+    "volumeWorks": true,
+    "muteWorks": true,
+    "desktopFocusWinDAndAltTabWorks": true
+  },
+  "passed": true,
+  "limitations": [
+    "No physical unplug/replug or Bluetooth reconnection test",
+    "No reboot, actual sleep or long-duration audio measurement"
+  ],
+  "privateDeviceSelectionOmitted": true
+}
