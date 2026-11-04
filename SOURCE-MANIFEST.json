@@ -18,8 +18,8 @@
     {
       "path": "README.md",
       "bytes": 10443,
-      "sha256": "5827fc20aeb7a684ed048749065d650b1e4f64adda5b92279ba56d3be3bac2b8",
-      "git_blob_sha": "86244e283f543d7b34faabe73e5caa5a679493ac"
+      "sha256": "14d2b6c61b7b6627a97347c71e7fe92ce251c0846578ead188b0a7aa0016167e",
+      "git_blob_sha": "15408a7689664bb575c1d39f064996ece27f9489"
     },
     {
       "path": "TODO.md",
@@ -30,20 +30,20 @@
     {
       "path": "desktop-host/Cargo.lock",
       "bytes": 108418,
-      "sha256": "2666c051903ae62803af86e7f7bf36b44204135490ff3eb9b3bd333e9a5f500e",
-      "git_blob_sha": "876304d5be8ac52d4e80aee443276b7b5b1b1560"
+      "sha256": "72fa48f67ee825f631c3805e33f256e74452a23e8011ec531a972b7f01ab94b5",
+      "git_blob_sha": "80cce36213afd1f015bf48fadf58926baac8fb61"
     },
     {
       "path": "desktop-host/Cargo.toml",
       "bytes": 1123,
-      "sha256": "e3e3fe1758f8976d502e69183df472920751b1526619d3590d4fa95bdc16db2e",
-      "git_blob_sha": "e03074d66b7c74a90cee549e6da31cbad8f81299"
+      "sha256": "a8fdf873efb0c05fa9941b15873c24b3c87696e25dc443ac1aa84614c9245d97",
+      "git_blob_sha": "2f873538ff7267dcbcefdde3aed5b9dd93e1b39f"
     },
     {
       "path": "desktop-host/README.md",
-      "bytes": 12720,
-      "sha256": "91bede26c5dabba88242d07cd7b424fd05156c4ca19185586171366780793d39",
-      "git_blob_sha": "dfaf9f665640f766a8fd15130d57be5e40bab090"
+      "bytes": 12971,
+      "sha256": "db6918482f96426f1de0bf6b68493c26761fda9d39e70dde1d97e23784f53926",
+      "git_blob_sha": "c42bf5935645eb9facd8fae5016d785afc73295e"
     },
     {
       "path": "desktop-host/build.rs",
@@ -122,6 +122,12 @@
       "bytes": 2894,
       "sha256": "7ebf2db6e5cb5cf53b2936535c68fdb0ed4f000c63e665ef9b7b4c12da6c2a90",
       "git_blob_sha": "5a163534d92205eba0c4e504ab6ca39ef97af123"
+    },
+    {
+      "path": "desktop-host/docs/PANEL-FLOW-FIX-2026-11-05.md",
+      "bytes": 3434,
+      "sha256": "4bf82422be00bdf0831b85b0eb81153c0eceb3564936dc6b9cf5d815bd680ae4",
+      "git_blob_sha": "048bd7008f7e7fe012e3ca42d254dac9da134577"
     },
     {
       "path": "desktop-host/docs/POWER-CAPABILITY-2026-11-05.md",
@@ -394,6 +400,24 @@
       "git_blob_sha": "c5bcf96a3f2f9e6024274280e26955ee19b8fad7"
     },
     {
+      "path": "desktop-host/evidence/panel-flow-handoff-2026-11-05.json",
+      "bytes": 532,
+      "sha256": "dbdc8f17387198bc7930dc088e835465868cafe874b5a282fe2800ed5ac824dd",
+      "git_blob_sha": "c1328318cb1e1a5b4edd2b0e8334e500a168d799"
+    },
+    {
+      "path": "desktop-host/evidence/panel-flow-layout-2026-11-05.json",
+      "bytes": 66942,
+      "sha256": "d4886047c767b0d8da6561fe2953be81d4efff12859b2681c3d987c07f03af8e",
+      "git_blob_sha": "a413fd22cd14b048cb4f0d6d52812ee54247c598"
+    },
+    {
+      "path": "desktop-host/evidence/panel-flow-upgrade-2026-11-05.json",
+      "bytes": 1331,
+      "sha256": "481d542922c2f2b720274d4d7ea97dce6efdd1f7c5dfeee0114b8799fc449617",
+      "git_blob_sha": "c6c603ef3bd379e256fc5fa38e6c7e961b9eefe1"
+    },
+    {
       "path": "desktop-host/evidence/power-capability-2026-11-05.json",
       "bytes": 2810,
       "sha256": "b6066a3727bbe6dc3b7c007b43967ab04944bfcb59112958b8ee2a0062c8c7f4",
@@ -612,14 +636,14 @@
     {
       "path": "desktop-host/package-lock.json",
       "bytes": 7246,
-      "sha256": "3177794f7340710cd1013a352f563ece2ea87ac15ce51e666448b911e1d421a5",
-      "git_blob_sha": "6e278e2a582841f88c35e8e42e53f8cfdbd9aef7"
+      "sha256": "70c04c7cdab1037a03003211f7a9451a664e1950bcd2fc86eb9a32488d8b9ad2",
+      "git_blob_sha": "d267b57b9453f28c7fbaab1d27935a5e942b567f"
     },
     {
       "path": "desktop-host/package.json",
       "bytes": 284,
-      "sha256": "801660789c63c4aafbf59dbb3d051f8dde41cfc887cdcd026fb9b70133bf1c80",
-      "git_blob_sha": "9dc0e1307a952f78949c44044c537c7c2b59e2a0"
+      "sha256": "c7590a3af139100433b8fadef1c5d81de6471e31ce24463548506a780b273ed5",
+      "git_blob_sha": "d5345891a546923d29e9ca57f8f43e9d26ced530"
     },
     {
       "path": "desktop-host/scripts/analyze-soak.mjs",
@@ -770,6 +794,12 @@
       "bytes": 2058,
       "sha256": "25576335a1bf6b3425ba837be03182d3139f63fec188e1a51790adadfa98ab6b",
       "git_blob_sha": "a12834bcb0c84d3ed78152ecbc46ce86fe675abd"
+    },
+    {
+      "path": "desktop-host/scripts/test-panel-flow-upgrade-installed.mjs",
+      "bytes": 7249,
+      "sha256": "4109bcde68a5497e10e519614492f69add560c5089740d596b5cf98c9bbb5b75",
+      "git_blob_sha": "29d27080c04795c94e30b467329b06574defc7e9"
     },
     {
       "path": "desktop-host/scripts/test-power-probe.ps1",
@@ -978,8 +1008,8 @@
     {
       "path": "desktop-host/tauri.conf.json",
       "bytes": 975,
-      "sha256": "f339c8424343f2978f8a1975210342fa77c7211e38047ac1d55404b61f3d433c",
-      "git_blob_sha": "2d7811ba87958a3227105ba1ec003e4c3c9ab377"
+      "sha256": "247feba15e4ff4ef1a0cde053c91b753e49ea77bdf97ac3aee8a873bc7d20988",
+      "git_blob_sha": "6830c86bd42dd18e332bfcb6dc27a889060cb582"
     },
     {
       "path": "desktop-host/ui/index.html",
@@ -1991,9 +2021,9 @@
     },
     {
       "path": "implementation-p4_2_5/scripts/audit-layout.mjs",
-      "bytes": 15535,
-      "sha256": "96be4224a1afd9d81d5d2ea16cffa83ee7f1cdc6cd5f4d52cfff8024ad1383ff",
-      "git_blob_sha": "27739bfd05c9c79290c000183265cdcf403acc4e"
+      "bytes": 17048,
+      "sha256": "81ff2bbcf993f61ee3a798d10ae53f194a2e4d3076bef1b4b4f2561d2b27523b",
+      "git_blob_sha": "1f14b481d8d10a9533f53283ea9bc0e747987c7a"
     },
     {
       "path": "implementation-p4_2_5/scripts/audit-library-controls.mjs",
@@ -2483,9 +2513,9 @@
     },
     {
       "path": "implementation-p4_2_5/src/p422-ui.js",
-      "bytes": 5680,
-      "sha256": "c4b83b80ccd36e4605a1434dec10bdee3981583d1bbe4e732bb02f4794489bd1",
-      "git_blob_sha": "5ed6c102bd0a9e6eb0f8a10d9afb2310437e440c"
+      "bytes": 5074,
+      "sha256": "65bfe00d202460d075be2f8b81bbc9131a149ef19f6c7adc3b763b3e5605b7e9",
+      "git_blob_sha": "40c9d5712b423c2b791eb3449b31543a7d98c9d3"
     },
     {
       "path": "implementation-p4_2_5/src/p423-copy.js",
@@ -2495,9 +2525,9 @@
     },
     {
       "path": "implementation-p4_2_5/src/p423-ui.css",
-      "bytes": 8816,
-      "sha256": "74aba8f3d574d838d04731801adf21ba322212c0d1244ffb9579fa686461e57d",
-      "git_blob_sha": "0664a0f7e66b19ab572ebad975c5d16cc72f94b4"
+      "bytes": 9810,
+      "sha256": "bc9e069e190961d47bb4147c59d69de41041398853fdbef915e69304e8f4748a",
+      "git_blob_sha": "50b40f3375d2507ad8edcbd31cfd069c66aeacbb"
     },
     {
       "path": "implementation-p4_2_5/src/p423-ui.js",
@@ -2813,9 +2843,9 @@
     },
     {
       "path": "implementation-p4_2_5/tests/explanation-height.test.mjs",
-      "bytes": 1587,
-      "sha256": "d699a39628493309a744c9dd22badc4dc16f2aff23b30b09c91b334c851d879f",
-      "git_blob_sha": "391999daf9b50357ae10c3b8f2500c78615582ff"
+      "bytes": 1706,
+      "sha256": "60de2c2ecd63a611120984ac97b187c20115d007e16221b046bc84fe2c1695a2",
+      "git_blob_sha": "64d0f5e93fb6027773a294f44854fb7167964466"
     },
     {
       "path": "implementation-p4_2_5/tests/fixtures/monitor-4x3.json",

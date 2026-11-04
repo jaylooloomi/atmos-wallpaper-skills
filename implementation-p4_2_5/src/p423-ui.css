@@ -75,3 +75,15 @@ body[data-render-mode=manager] #widgetManager .inspect-operations>.widget-config
 
 /* Explanatory copy is content-sized; panel minimum height must never stretch it. */
 body[data-render-mode=manager] .preview-explanation{height:auto;min-height:0!important;flex:0 0 auto}
+
+/* Settings added after the inspector must participate in natural document flow.
+   Zero-basis flex chains used to shrink below their open accordion content. */
+body[data-render-mode=manager] .side{height:auto!important;max-height:none!important;align-self:start}
+body[data-render-mode=manager] .panel-scroll,
+body[data-render-mode=manager] .component-section,
+body[data-render-mode=manager] #widgetManager,
+body[data-render-mode=manager] #componentInspector{flex:0 0 auto!important;height:auto!important;min-height:0!important;max-height:none!important}
+body[data-render-mode=manager] .panel-scroll>*{flex-shrink:0}
+body[data-render-mode=manager] #componentInspector>.inspect-card,
+body[data-render-mode=manager] #componentInspector>.inspect-card.is-open{flex:0 0 auto!important;min-height:0!important}
+body[data-render-mode=manager] #componentInspector .inspect-props{flex:0 0 auto!important;height:auto!important;min-height:0!important;max-height:none!important;overflow:visible!important}
