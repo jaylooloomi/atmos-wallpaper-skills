@@ -57,3 +57,7 @@ bootHtml=bootHtml.replace('<style>','<style>'+fs.readFileSync(path.join(root,'sr
 bootHtml=bootHtml.replace('<header>',fs.readFileSync(path.join(root,'src/boot-loader.html'),'utf8')+'<header>');
 fs.writeFileSync(path.join(dist,'index.html'),bootHtml);
 fs.writeFileSync(path.join(dist,'bridge-client.js'),fs.readFileSync(path.join(root,'src/boot-visibility.js'),'utf8')+'\n'+fs.readFileSync(path.join(dist,'bridge-client.js'),'utf8'));
+
+fs.copyFileSync(path.join(root,'src/display-client.js'),path.join(dist,'display-client.js'));
+fs.appendFileSync(path.join(dist,'hifi.css'),'\n'+fs.readFileSync(path.join(root,'src/display-client.css'),'utf8'));
+fs.writeFileSync(path.join(dist,'bridge-client.js'),fs.readFileSync(path.join(dist,'bridge-client.js'),'utf8').replace("window.AtmosStartup.start({headers,wallpaper:wallpaperMode});","window.AtmosStartup.start({headers,wallpaper:wallpaperMode});await load('display-client.js');window.AtmosDisplays.start({headers,wallpaper:wallpaperMode});"));

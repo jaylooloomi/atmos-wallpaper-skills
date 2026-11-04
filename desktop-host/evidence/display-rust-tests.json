@@ -1,0 +1,8 @@
+{
+  "date": "2026-11-04",
+  "command": "cargo test --manifest-path desktop-host/Cargo.toml",
+  "platform": "Windows x64",
+  "passed": 19,
+  "failed": 0,
+  "scope": "Native metadata reads, selector ambiguity/offline rules, isolated host CAS/atomic backup, schema/path guards and preexisting host tests; real desktop attachment is validated separately"
+}

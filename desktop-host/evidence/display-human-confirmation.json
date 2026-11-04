@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-04",
+  "version": "0.4.0",
+  "source": "Explicit user replies in this chat; not generated from automated measurements",
+  "initialHandoff": {
+    "passed": false,
+    "observation": "Windows original wallpaper visible; host found stopped after integration runner exit"
+  },
+  "afterShellLaunchFix": {
+    "passed": true,
+    "observedAtmosWallpaper": true,
+    "clockUpdating": true,
+    "desktopIconsNormal": true
+  },
+  "scope": "Current primary monitor after handoff; no claim of all display layouts, hotplug, reboot, sleep or long-duration validation"
+}

@@ -1,6 +1,6 @@
 //! Windows-only desktop adapter. Never changes Explorer's styles, visibility,
 //! wallpaper registry values, or another application's windows.
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
 use std::{
     mem::size_of,
     ptr::{null, null_mut},
@@ -39,7 +39,7 @@ pub fn singleton() -> Result<OwnedHandle, String> {
     named_singleton("Local\\AtmosWallpaperDesktop.SingleInstance")
 }
 
-fn named_singleton(name: &str) -> Result<OwnedHandle, String> {
+pub fn named_singleton(name: &str) -> Result<OwnedHandle, String> {
     unsafe {
         let h = CreateMutexW(null(), 0, wide(name).as_ptr());
         if h.is_null() {
@@ -76,7 +76,7 @@ pub fn child_job(process: isize) -> Result<OwnedHandle, String> {
     }
 }
 
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Bounds {
     pub x: i32,
     pub y: i32,
@@ -278,6 +278,11 @@ pub fn still_attached(window: isize, parent: isize, target: Bounds) -> bool {
             && record(window).parent == parent
             && record(window).bounds == target
             && record(window).visible
+    }
+}
+pub fn hide(window: isize) {
+    unsafe {
+        ShowWindow(hwnd(window), SW_HIDE);
     }
 }
 pub fn exists(window: isize) -> bool {

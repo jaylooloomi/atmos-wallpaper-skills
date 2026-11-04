@@ -51,6 +51,7 @@ impl Runtime {
             ])
             .current_dir(&options.runtime_root)
             .env("ATMOS_STORE", &options.store)
+            .env("ATMOS_DESKTOP_HOST_STORE", &options.store)
             .env("ATMOS_PYTHON", &options.python)
             .env(
                 "ATMOS_DESKTOP_HOST_EXE",

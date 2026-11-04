@@ -1,0 +1,171 @@
+{
+  "method": "Isolated Chromium CLI control fixture; not real monitor or desktop visual proof",
+  "results": [
+    {
+      "name": "desktop",
+      "width": 520,
+      "scrollWidth": 520,
+      "rects": [
+        {
+          "left": 25,
+          "right": 495,
+          "width": 470
+        },
+        {
+          "left": 25,
+          "right": 176.328125,
+          "width": 151.328125
+        },
+        {
+          "left": 184.328125,
+          "right": 335.671875,
+          "width": 151.34375
+        },
+        {
+          "left": 343.671875,
+          "right": 495,
+          "width": 151.328125
+        }
+      ],
+      "viewBox": "-1298.4 -818.4 4076.8 2476.8",
+      "selectOptions": 3,
+      "selected": "display-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "status": "已掛載 · 設定版本 7",
+      "buttonsEnabled": true,
+      "passed": true
+    },
+    {
+      "name": "phone",
+      "width": 320,
+      "scrollWidth": 320,
+      "rects": [
+        {
+          "left": 25,
+          "right": 295,
+          "width": 270
+        },
+        {
+          "left": 25,
+          "right": 156,
+          "width": 131
+        },
+        {
+          "left": 164,
+          "right": 295,
+          "width": 131
+        },
+        {
+          "left": 25,
+          "right": 295,
+          "width": 270
+        }
+      ],
+      "viewBox": "-1298.4 -818.4 4076.8 2476.8",
+      "selectOptions": 3,
+      "selected": "display-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "status": "已掛載 · 設定版本 7",
+      "buttonsEnabled": true,
+      "passed": true
+    },
+    {
+      "name": "english",
+      "width": 320,
+      "scrollWidth": 320,
+      "rects": [
+        {
+          "left": 25,
+          "right": 295,
+          "width": 270
+        },
+        {
+          "left": 25,
+          "right": 156,
+          "width": 131
+        },
+        {
+          "left": 164,
+          "right": 295,
+          "width": 131
+        },
+        {
+          "left": 25,
+          "right": 295,
+          "width": 270
+        }
+      ],
+      "viewBox": "-1298.4 -818.4 4076.8 2476.8",
+      "selectOptions": 3,
+      "selected": "display-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "status": "Attached · Settings revision 7",
+      "buttonsEnabled": true,
+      "passed": true
+    },
+    {
+      "name": "offline",
+      "width": 320,
+      "scrollWidth": 320,
+      "rects": [
+        {
+          "left": 25,
+          "right": 295,
+          "width": 270
+        },
+        {
+          "left": 25,
+          "right": 156,
+          "width": 131
+        },
+        {
+          "left": 164,
+          "right": 295,
+          "width": 131
+        },
+        {
+          "left": 25,
+          "right": 295,
+          "width": 270
+        }
+      ],
+      "viewBox": "-1298.4 -818.4 4076.8 2476.8",
+      "selectOptions": 4,
+      "selected": "display-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "status": "目標離線或無法辨識；保留設定 · 設定版本 7",
+      "buttonsEnabled": true,
+      "passed": true
+    },
+    {
+      "name": "pending",
+      "width": 320,
+      "scrollWidth": 320,
+      "rects": [
+        {
+          "left": 25,
+          "right": 295,
+          "width": 270
+        },
+        {
+          "left": 25,
+          "right": 156,
+          "width": 131
+        },
+        {
+          "left": 164,
+          "right": 295,
+          "width": 131
+        },
+        {
+          "left": 25,
+          "right": 295,
+          "width": 270
+        }
+      ],
+      "viewBox": "-1298.4 -818.4 4076.8 2476.8",
+      "selectOptions": 3,
+      "selected": "display-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "status": "Waiting for host · Settings revision 7",
+      "buttonsEnabled": true,
+      "passed": true
+    }
+  ],
+  "passed": true
+}
