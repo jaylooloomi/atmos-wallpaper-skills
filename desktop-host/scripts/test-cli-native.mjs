@@ -1,0 +1,13 @@
+// Installed CLI smoke in an isolated store; no user settings or renderer acknowledgements are fabricated.
+import {fileURLToPath} from 'node:url';
+import fs from'node:fs';import path from'node:path';import assert from'node:assert/strict';import{spawnSync}from'node:child_process';
+if(process.platform!=='win32'||!process.argv.includes('--exercise-native'))throw Error('Windows --exercise-native required');
+const repo=fileURLToPath(new URL('../../',import.meta.url));
+const exe=path.join(process.env.LOCALAPPDATA,'Atmos Wallpaper/atmos-wallpaper.exe'),base=path.join(process.env.LOCALAPPDATA,'AtmosWallpaper/native-cli-070',String(Date.now())),store=path.join(base,'store');fs.mkdirSync(base,{recursive:true});const checks=[];
+const run=(args,body)=>{const r=spawnSync(exe,args,{encoding:'utf8',windowsHide:true,timeout:30000,input:body===undefined?undefined:JSON.stringify(body)});assert.equal(r.status,0,r.stdout||r.stderr);return JSON.parse(r.stdout)};
+const schemas=run(['--host-schema']);assert.equal(Object.keys(schemas.schemas).length,7);checks.push('native-machine-readable-seven-host-schemas');
+const initial=run(['--get-state','--store',store]);assert.equal(initial.revision,0);
+const save={schemaVersion:1,action:'save',requestId:'fixture.save',expectedRevision:0,expectedCatalogRevision:0,name:'Fixture'};assert.equal(run(['--preset-command','save','--store',store],save).ok,true);assert.equal(run(['--preset-command','save','--store',store],save).result.replayed,true);checks.push('native-presets-save-and-durable-replay');
+const providers=run(['--providers-command','get','--store',store]);assert.equal(providers.settings.weather.enabled,false);checks.push('native-provider-cli-default-off-without-network');
+const file=path.join(base,'input.json');fs.writeFileSync(file,JSON.stringify({schemaVersion:1,type:'settings.update',requestId:'fixture.watch.1',expectedRevision:0,changes:{visual:{effect:'rain'}}}));const watched=spawnSync(exe,['--watch-json',file,'--store',store,'--duration-ms','2200'],{encoding:'utf8',windowsHide:true,timeout:30000});assert.equal(watched.status,0,watched.stderr||watched.stdout);const lines=watched.stdout.trim().split(/\r?\n/).map(x=>JSON.parse(x));assert.equal(run(['--get-state','--store',store]).desired.visual.effect,'rain');assert.ok(lines.some(x=>x.event==='watch-stopped'&&x.reason==='duration'));checks.push('native-job-bound-watch-commits-once-and-stops');
+const report={schemaVersion:1,installedVersion:'0.7.0',passed:checks.length,checks,isolatedStore:true,changedUserSettings:false,forgedRendererAcknowledgements:false};fs.writeFileSync(path.join(repo,'desktop-host/evidence/native-cli-automated.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report));

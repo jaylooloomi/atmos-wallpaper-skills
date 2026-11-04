@@ -1,7 +1,7 @@
 use crate::{
     control, displays, host_settings, journal::Journal, options::Options, runtime::Runtime, windows,
 };
-use serde_json::{json, Value};
+use serde_json::json;
 use std::{
     io::{self, BufRead},
     path::{Path, PathBuf},
@@ -20,7 +20,9 @@ use tauri::{
 struct State {
     runtime: Mutex<Option<Runtime>>,
     audio: Mutex<Option<crate::audio::AudioEngine>>,
-    attached: Mutex<Option<(isize, isize)>>,
+    views: Mutex<std::collections::BTreeMap<String, crate::multi::View>>,
+    owned_handles: Mutex<Vec<isize>>,
+    renderer_ready: AtomicBool,
     exiting: AtomicBool,
     journal: Arc<Journal>,
 }
@@ -45,7 +47,14 @@ fn open_manager(app: &tauri::AppHandle, port: u16, store: &Path) -> Result<(), S
     .devtools(false)
     .on_navigation(move |u| {
         u.origin().ascii_serialization() == expected
-            && ["/manager", "/"].contains(&u.path())
+            && (["/manager", "/"].contains(&u.path())
+                || u.path().strip_prefix("/manager/").is_some_and(|id| {
+                    id.len() == 72
+                        && id.starts_with("display-")
+                        && id[8..]
+                            .bytes()
+                            .all(|b| b.is_ascii_hexdigit() && !b.is_ascii_uppercase())
+                }))
             && u.query().is_none()
     })
     .build()
@@ -62,7 +71,29 @@ fn setup_tray(app: &tauri::App, port: u16, store: PathBuf, state: Arc<State>) ->
         None::<&str>,
     )?;
     let exit = MenuItem::with_id(app, "exit", "退出並還原桌布 / Exit", true, None::<&str>)?;
-    let menu = Menu::with_items(app, &[&open, &exit])?;
+    let next = MenuItem::with_id(
+        app,
+        "next-preset",
+        "主螢幕下一個外觀 / Next primary preset",
+        true,
+        None::<&str>,
+    )?;
+    let normal = MenuItem::with_id(app, "focus-normal", "正常顯示 / Normal", true, None::<&str>)?;
+    let focus = MenuItem::with_id(
+        app,
+        "focus-private",
+        "專注：隱藏私人資訊 / Focus",
+        true,
+        None::<&str>,
+    )?;
+    let showcase = MenuItem::with_id(
+        app,
+        "focus-showcase",
+        "展示：只顯示背景 / Showcase",
+        true,
+        None::<&str>,
+    )?;
+    let menu = Menu::with_items(app, &[&open, &next, &normal, &focus, &showcase, &exit])?;
     let icon = app
         .default_window_icon()
         .cloned()
@@ -73,6 +104,62 @@ fn setup_tray(app: &tauri::App, port: u16, store: PathBuf, state: Arc<State>) ->
         .menu(&menu)
         .on_menu_event(move |app, event| match event.id().as_ref() {
             "exit" => app.exit(0),
+            "next-preset" | "focus-normal" | "focus-private" | "focus-showcase" => {
+                let action = match event.id().as_ref() {
+                    "next-preset" => "next-preset",
+                    "focus-private" => "focus",
+                    "focus-showcase" => "showcase",
+                    _ => "normal",
+                };
+                let target = (|| -> Result<String, String> {
+                    if action != "next-preset" {
+                        return Ok("shared".into());
+                    }
+                    let layout = crate::layout::read(&store)?;
+                    if layout.layout.mode != "independent" {
+                        return Ok("shared".into());
+                    }
+                    let displays = crate::displays::enumerate()?;
+                    let primary = displays
+                        .iter()
+                        .find(|d| d.primary)
+                        .ok_or("TARGET_PRIMARY_UNAVAILABLE")?;
+                    let views = state.views.lock().map_err(|_| "VIEWS_BUSY")?;
+                    views
+                        .values()
+                        .find(|v| v.plan.id == primary.id)
+                        .map(|v| v.plan.scope.clone())
+                        .ok_or("TARGET_PRIMARY_NOT_SELECTED".into())
+                })();
+                match target {
+                    Ok(target) => {
+                        let session = state
+                            .runtime
+                            .lock()
+                            .ok()
+                            .and_then(|r| r.as_ref().map(|r| r.session_id.clone()));
+                        if let Some(session) = session {
+                            let store = store.clone();
+                            let state = state.clone();
+                            std::thread::spawn(move || {
+                                match tray_quick_action(action, &store, &target, &session) {
+                                    Ok(()) => state.journal.event(
+                                        "quick-action-committed",
+                                        json!({"action":action,"rendererAcknowledged":false}),
+                                    ),
+                                    Err(e) => state.journal.event(
+                                        "quick-action-failed",
+                                        json!({"action":action,"error":e}),
+                                    ),
+                                }
+                            });
+                        }
+                    }
+                    Err(e) => state
+                        .journal
+                        .event("quick-action-failed", json!({"action":action,"error":e})),
+                }
+            }
             "manager" => {
                 if let Err(e) = open_manager(app, port, &store) {
                     state.journal.event("manager-failed", json!({"error":e}));
@@ -81,6 +168,52 @@ fn setup_tray(app: &tauri::App, port: u16, store: PathBuf, state: Arc<State>) ->
             _ => {}
         })
         .build(app)?;
+    Ok(())
+}
+
+fn tray_quick_action(
+    action: &str,
+    store: &Path,
+    target: &str,
+    session: &str,
+) -> Result<(), String> {
+    use std::{
+        os::windows::process::CommandExt,
+        process::{Command, Stdio},
+    };
+    let payload = crate::installed::payload_root()?;
+    crate::installed::verify(&payload)?;
+    let out = Command::new(payload.join("runtime/node/node.exe"))
+        .arg(payload.join("app/implementation-p4_2_5/src/quick-actions.mjs"))
+        .args([
+            action,
+            "--store",
+            &store.to_string_lossy(),
+            "--target",
+            target,
+            "--session",
+            session,
+        ])
+        .env_remove("NODE_OPTIONS")
+        .env_remove("NODE_PATH")
+        .env_remove("PYTHONHOME")
+        .env_remove("PYTHONPATH")
+        .stdin(Stdio::null())
+        .stderr(Stdio::null())
+        .creation_flags(0x08000000)
+        .output()
+        .map_err(|e| e.to_string())?;
+    if out.stdout.len() > 65536 {
+        return Err("QUICK_ACTION_RESPONSE_INVALID".into());
+    }
+    let response: serde_json::Value =
+        serde_json::from_slice(&out.stdout).map_err(|_| "QUICK_ACTION_RESPONSE_INVALID")?;
+    if !out.status.success() || response["ok"] != true {
+        return Err(response["error"]["code"]
+            .as_str()
+            .unwrap_or("QUICK_ACTION_FAILED")
+            .into());
+    }
     Ok(())
 }
 
@@ -94,9 +227,6 @@ fn watch(
 ) {
     std::thread::spawn(move || {
         let start = Instant::now();
-        let mut first_ack = false;
-        let mut stale = false;
-        let mut last_ack = 0u64;
         while !state.exiting.load(Ordering::SeqCst) {
             std::thread::sleep(Duration::from_secs(1));
             if state.exiting.load(Ordering::SeqCst) {
@@ -135,98 +265,25 @@ fn watch(
                 app.exit(2);
                 break;
             }
-            let configuration = host_settings::read(&options.store);
-            let topology = displays::enumerate();
-            let target = configuration
-                .as_ref()
-                .ok()
-                .filter(|s| s.placement.enabled)
-                .and_then(|s| {
-                    topology
-                        .as_ref()
-                        .ok()
-                        .and_then(|ds| displays::select(ds, &s.placement.target).ok())
-                })
-                .cloned();
-            let pair = *state.attached.lock().unwrap();
-            let mut native_attached = false;
-            if let Some((h, p)) = pair {
-                if let Some(ref display) = target {
-                    native_attached = windows::still_attached(h, p, display.bounds);
-                    if !native_attached {
-                        let s = state.clone();
-                        let bounds = display.bounds;
-                        let _ = app.run_on_main_thread(move || {
-                            let result = windows::desktop_parent().and_then(|parent| {
-                                windows::attach(h, parent, bounds).map(|record| (parent, record))
-                            });
-                            match result {
-                                Ok((parent, record)) => {
-                                    *s.attached.lock().unwrap() = Some((h, parent));
-                                    s.journal.event("reattached", json!(record));
-                                }
-                                Err(e) => {
-                                    windows::hide(h);
-                                    s.journal.event("attachment-pending", json!({"error":e}));
-                                }
-                            }
-                        });
-                    }
-                } else if windows::record(h).visible {
-                    let _ = app.run_on_main_thread(move || windows::hide(h));
-                    state.journal.event("target-paused",json!({"reason":if configuration.as_ref().is_ok_and(|s|!s.placement.enabled){"cleared"}else{"offline-or-unresolved"}}));
-                }
-            }
-            let _ = host_settings::atomic(
-                &options.store,
-                "host-status.json",
-                &json!({
-                    "schemaVersion":1,"pid":std::process::id(),"capturedAtMs":crate::journal::now_ms(),
-                    "settingsRevision":configuration.as_ref().ok().map(|s|s.revision),
-                    "targetId":target.as_ref().map(|d|&d.id),"nativeAttached":native_attached,
-                    "bounds":target.as_ref().map(|d|d.bounds),"presentation":"unknown",
-                    "state":if native_attached{"attached"}else if configuration.as_ref().is_ok_and(|s|!s.placement.enabled){"cleared"}else if target.is_none(){"target-unavailable"}else{"pending"}
-                }),
-            );
-            let file = options.store.join("observations/wallpaper.json");
-            let observation = std::fs::read(&file)
-                .ok()
-                .and_then(|b| serde_json::from_slice::<Value>(&b).ok());
-            let fresh = std::fs::metadata(&file)
-                .and_then(|m| m.modified())
-                .ok()
-                .and_then(|t| t.elapsed().ok())
-                .is_some_and(|d| d.as_secs() < 5);
-            if let Some(v) = observation
-                .filter(|v| v["rendererRole"] == "wallpaper" && v["stateApplied"] == true && fresh)
-            {
-                last_ack = start.elapsed().as_secs();
-                if !first_ack {
-                    first_ack = true;
-                    state.journal.event("renderer-ready",json!({"revision":v["revision"],"capturedAt":v["capturedAt"],"trust":"renderer-reported; native attachment checked separately"}));
-                }
-                if stale {
-                    stale = false;
-                    state
-                        .journal
-                        .event("renderer-recovered", json!({"revision":v["revision"]}));
-                }
-            }
-            if target.is_some() && !first_ack && start.elapsed().as_secs() > 45 {
-                state
-                    .journal
-                    .event("renderer-timeout", json!({"action":"exit-and-restore"}));
-                app.exit(2);
-                break;
-            }
-            // Locked/occluded WebViews can throttle; stale is not a startup failure.
-            if first_ack && !stale && start.elapsed().as_secs().saturating_sub(last_ack) > 30 {
-                stale = true;
-                state.journal.event(
-                    "renderer-stale",
-                    json!({"hostAttached":true,"presentation":"unknown"}),
-                );
-            }
+            let app2 = app.clone();
+            let s = state.clone();
+            let root = options.store.clone();
+            let elapsed = start.elapsed().as_secs();
+            let _=app.run_on_main_thread(move||{
+                let host=host_settings::read(&root);let layout=crate::layout::read(&root);let topology=displays::enumerate();
+                let desired=match (&host,&layout,&topology){(Ok(h),Ok(l),Ok(ds))=>crate::multi::plans(h,l,ds),_=>vec![]};
+                let session=s.runtime.lock().unwrap().as_ref().map(|r|r.session_id.clone()).unwrap_or_default();
+                let mut views=s.views.lock().unwrap();crate::multi::synchronize(&app2,&root,port,&desired,&mut views);
+                let mut all=s.owned_handles.lock().unwrap();for v in views.values(){if !all.contains(&v.handle){all.push(v.handle)}}drop(all);
+                if let Some(audio)=s.audio.lock().unwrap().as_ref(){audio.set_targets(views.values().filter(|v|v.error.is_none()).map(|v|crate::audio::AudioTarget{id:v.plan.id.clone(),primary:topology.as_ref().is_ok_and(|ds|ds.iter().any(|d|d.id==v.plan.id&&d.primary)),handle:v.handle,source_root:if v.plan.scope=="shared"{root.clone()}else{root.join("targets").join(&v.plan.id)}}).collect());}
+                let performance=crate::performance::read(&root).ok();
+                let targets=desired.iter().map(|p|{let view=views.get(&p.label);let native=view.is_some_and(|v|v.error.is_none()&&windows::still_attached(v.handle,v.parent,p.bounds));json!({"targetId":p.id,"scopeId":p.scope,"bounds":p.bounds,"runtimePolicy":performance.as_ref().map(|s|crate::performance::state(&s.performance,p.bounds)),"nativeAttached":native,"rendererAcknowledged":crate::multi::observation(&root,p,&session),"error":view.and_then(|v|v.error.clone()),"presentation":"unknown"})}).collect::<Vec<_>>();
+                if targets.iter().any(|t|t["rendererAcknowledged"]==true)&&!s.renderer_ready.swap(true,Ordering::SeqCst){s.journal.event("renderer-ready",json!({"targets":targets.len(),"trust":"renderer-reported; native attachment separate"}));}
+                if !desired.is_empty()&&!s.renderer_ready.load(Ordering::SeqCst)&&elapsed>45{s.journal.event("renderer-timeout",json!({"action":"exit-and-restore"}));app2.exit(2);}
+                let configured=layout.as_ref().ok().map(|l|if l.layout.mode=="single"{desired.len()}else{l.layout.targets.len()}).unwrap_or(0);
+                let attached=!targets.is_empty()&&targets.len()==configured&&targets.iter().all(|v|v["nativeAttached"]==true);
+                let _=host_settings::atomic(&root,"host-status.json",&json!({"schemaVersion":1,"pid":std::process::id(),"capturedAtMs":crate::journal::now_ms(),"hostSessionId":session,"settingsRevision":host.as_ref().ok().map(|h|h.revision),"layoutRevision":layout.as_ref().ok().map(|l|l.revision),"targetId":desired.first().map(|p|&p.id),"bounds":desired.first().map(|p|p.bounds),"nativeAttached":attached,"targets":targets,"configuredTargetCount":configured,"presentation":"unknown","state":if attached{"attached"}else if host.as_ref().is_ok_and(|h|!h.placement.enabled){"cleared"}else{"pending-or-offline"}}));
+            });
         }
     });
 }
@@ -241,20 +298,18 @@ pub fn launch(
     let original = windows::static_wallpaper()?;
     let configuration = host_settings::read(&options.store)?;
     let topology = displays::enumerate()?;
-    let selected = configuration
-        .placement
-        .enabled
-        .then(|| displays::select(&topology, &configuration.placement.target).ok())
-        .flatten()
-        .cloned();
-    let target = selected.as_ref().map(|d| d.bounds);
+    let layout = crate::layout::read(&options.store)?;
+    let initial_plans = crate::multi::plans(&configuration, &layout, &topology);
+    let target = initial_plans.first().map(|p| p.bounds);
     let runtime = Runtime::start(&options)?;
     let port = runtime.port;
     journal.event("runtime-ready",json!({"pid":runtime.child.id(),"port":port,"target":target,"livelyRequired":false,"boundedSeconds":options.seconds,"persistent":options.seconds.is_none()}));
     let state = Arc::new(State {
         runtime: Mutex::new(Some(runtime)),
         audio: Mutex::new(None),
-        attached: Mutex::new(None),
+        views: Mutex::new(std::collections::BTreeMap::new()),
+        owned_handles: Mutex::new(Vec::new()),
+        renderer_ready: AtomicBool::new(false),
         exiting: AtomicBool::new(false),
         journal: journal.clone(),
     });
@@ -263,42 +318,12 @@ pub fn launch(
     let store = options.store.clone();
     let app = tauri::Builder::default()
         .setup(move |app| {
-            let window = WebviewWindowBuilder::new(
-                app,
-                "wallpaper",
-                WebviewUrl::External(format!("http://127.0.0.1:{port}/wallpaper").parse()?),
-            )
-            .title("Atmos Wallpaper")
-            .visible(false)
-            .decorations(false)
-            .resizable(false)
-            .skip_taskbar(true)
-            .focused(false)
-            .shadow(false)
-            .data_directory(store.join("webview2"))
-            .devtools(false)
-            .on_navigation(move |u| {
-                u.scheme() == "http"
-                    && u.host_str() == Some("127.0.0.1")
-                    && u.port() == Some(port)
-                    && u.path() == "/wallpaper"
-                    && u.query().is_none()
-            })
-            .build()?;
-            let handle = window.hwnd()?.0 as isize;
-            let parent = windows::desktop_parent()?;
-            let actual = if let Some(bounds) = target {
-                Some(windows::attach(handle, parent, bounds)?)
-            } else {
-                None
-            };
-            *setup_state.attached.lock().unwrap() = Some((handle, parent));
-            setup_state.journal.event(
-                "attached",
-                json!({"window":actual,"parent":windows::record(parent),"target":target}),
-            );
-            *setup_state.audio.lock().unwrap() =
-                Some(crate::audio::AudioEngine::start(store.clone(), handle));
+            {let mut views=setup_state.views.lock().unwrap();crate::multi::synchronize(app.handle(),&store,port,&initial_plans,&mut views);
+            *setup_state.owned_handles.lock().unwrap()=views.values().map(|v|v.handle).collect();
+            let audio=crate::audio::AudioEngine::start(store.clone(),0);
+            audio.set_targets(views.values().filter(|v|v.error.is_none()).map(|v|crate::audio::AudioTarget{id:v.plan.id.clone(),primary:topology.iter().any(|d|d.id==v.plan.id&&d.primary),handle:v.handle,source_root:if v.plan.scope=="shared"{store.clone()}else{store.join("targets").join(&v.plan.id)}}).collect());
+            *setup_state.audio.lock().unwrap()=Some(audio);
+            setup_state.journal.event("attached",json!({"target":target,"window":views.values().next().map(|v|windows::record(v.handle)),"parent":views.values().next().map(|v|windows::record(v.parent)),"views":views.len()}));}
             setup_tray(app, port, store.clone(), setup_state.clone())?;
             if show_manager {
                 open_manager(app.handle(), port, &store)?;
@@ -329,41 +354,42 @@ pub fn launch(
     let s = state.clone();
     let actual = app.run_return(move |app, event| match event {
         tauri::RunEvent::ExitRequested { code, api, .. } => {
+            // Closing the last manager or changing the last wallpaper must not quit the tray host.
+            if code.is_none() && !s.exiting.load(Ordering::SeqCst) {
+                api.prevent_exit();
+                return;
+            }
             if !s.exiting.swap(true, Ordering::SeqCst) {
                 api.prevent_exit();
                 intended.store(code.unwrap_or(0), Ordering::SeqCst);
                 s.audio.lock().unwrap().take();
                 s.runtime.lock().unwrap().take();
-                if let Some(manager) = app.get_webview_window("manager") {
-                    let _ = manager.destroy();
+                let windows = app.webview_windows();
+                for window in windows.values() {
+                    let _ = window.destroy();
                 }
-                if let Some(wallpaper) = app.get_webview_window("wallpaper") {
-                    if let Err(e) = wallpaper.destroy() {
-                        s.journal
-                            .event("close-failed", json!({"error":e.to_string()}));
-                        app.exit(2);
-                    }
-                } else {
+                if windows.is_empty() {
                     app.exit(intended.load(Ordering::SeqCst));
                 }
             }
         }
         tauri::RunEvent::WindowEvent {
-            label,
             event: tauri::WindowEvent::Destroyed,
             ..
-        } if label == "wallpaper" && s.exiting.load(Ordering::SeqCst) => {
-            app.exit(intended.load(Ordering::SeqCst))
+        } if s.exiting.load(Ordering::SeqCst) => {
+            if app.webview_windows().is_empty() {
+                app.exit(intended.load(Ordering::SeqCst));
+            }
         }
         _ => {}
     });
-    let pair = state.attached.lock().unwrap().take();
+    let handles = state.owned_handles.lock().unwrap();
     let _ = host_settings::atomic(
         &status_store,
         "host-status.json",
-        &json!({"schemaVersion":1,"pid":std::process::id(),"capturedAtMs":crate::journal::now_ms(),"nativeAttached":false,"state":"stopped","presentation":"unknown"}),
+        &json!({"schemaVersion":1,"pid":std::process::id(),"capturedAtMs":crate::journal::now_ms(),"hostSessionId":null,"nativeAttached":false,"state":"stopped","presentation":"unknown"}),
     );
-    journal.event("restored",json!({"ownWindowRemoved":pair.is_none_or(|(h,_)|!windows::exists(h)),"staticWallpaperUnchanged":windows::static_wallpaper().ok().as_ref()==Some(&original),"method":"remove-owned-layer; original wallpaper was never overwritten"}));
+    journal.event("restored",json!({"ownWindowRemoved":handles.iter().all(|h|!windows::exists(*h)),"staticWallpaperUnchanged":windows::static_wallpaper().ok().as_ref()==Some(&original),"method":"remove-owned-layer; original wallpaper was never overwritten"}));
     let requested = code.load(Ordering::SeqCst);
     Ok(if requested != 0 { requested } else { actual })
 }

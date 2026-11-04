@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-04",
+  "command": "cargo test --locked --manifest-path desktop-host/Cargo.toml",
+  "tests": 48,
+  "passed": 48,
+  "failed": 0,
+  "skipped": 0,
+  "scope": "Rust unit and native-readonly boundary tests; not human visual verification"
+}

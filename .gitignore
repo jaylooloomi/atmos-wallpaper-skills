@@ -22,3 +22,5 @@ desktop-host/artifacts/
 *.msixbundle
 *.appx
 *.appxbundle
+
+*.scr

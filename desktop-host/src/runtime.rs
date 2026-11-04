@@ -11,10 +11,17 @@ use std::{
 pub struct Runtime {
     pub child: Child,
     pub port: u16,
+    pub session_id: String,
     _job: windows::OwnedHandle,
 }
 impl Runtime {
     pub fn start(options: &Options) -> Result<Self, String> {
+        Self::start_with_mode(options, "wallpaper")
+    }
+    pub fn start_with_mode(options: &Options, presentation: &str) -> Result<Self, String> {
+        if !matches!(presentation, "wallpaper" | "screensaver") {
+            return Err("Invalid presentation mode".into());
+        }
         for p in [
             &options.node,
             &options.python,
@@ -33,11 +40,16 @@ impl Runtime {
             .local_addr()
             .map_err(|e| e.to_string())?
             .port();
-        let log = fs::File::create(options.store.join("native-runtime.log"))
-            .map_err(|e| e.to_string())?;
+        let log = fs::File::create(options.store.join(if presentation == "screensaver" {
+            format!("screensaver-runtime-{}.log", std::process::id())
+        } else {
+            "native-runtime.log".into()
+        }))
+        .map_err(|e| e.to_string())?;
         // No listener or descendants may start before the host assigns the
         // child to its kill-on-close Job. EOF also closes a child in this gap.
         const GATE: &str = "import {pathToFileURL} from 'node:url'; process.stdin.setEncoding('utf8'); let input=''; await new Promise((resolve,reject)=>{process.stdin.on('data',s=>{input+=s;if(input==='start\\n')resolve();else if(input.length>6)reject(Error('Invalid host gate'));});process.stdin.once('end',()=>process.exit(0));}); await import(pathToFileURL(process.argv[1]).href);";
+        let session_id = format!("{}-{}", std::process::id(), crate::journal::now_ms());
         let mut child = Command::new(&options.node)
             .args(["--input-type=module", "-e", GATE])
             .arg(options.runtime_root.join("src/windows-runtime.mjs"))
@@ -50,6 +62,8 @@ impl Runtime {
                 "--strictPort",
             ])
             .current_dir(&options.runtime_root)
+            .env("ATMOS_HOST_SESSION_ID", &session_id)
+            .env("ATMOS_PRESENTATION", presentation)
             .env("ATMOS_STORE", &options.store)
             .env("ATMOS_DESKTOP_HOST_STORE", &options.store)
             .env("ATMOS_PYTHON", &options.python)
@@ -85,6 +99,7 @@ impl Runtime {
         let mut runtime = Self {
             child,
             port,
+            session_id,
             _job: job,
         };
         let started = Instant::now();

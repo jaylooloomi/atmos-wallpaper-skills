@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "method": "Isolated Chromium CLI synthetic native-manager controls; no user browser/desktop automation or native OS proof",
+  "passed": true,
+  "cases": [
+    {
+      "width": 390,
+      "height": 844,
+      "theme": "neon",
+      "hostControls": [
+        {
+          "selector": ".audio-settings",
+          "visible": true
+        },
+        {
+          "selector": ".library-settings",
+          "visible": true
+        },
+        {
+          "selector": ".screensaver-settings",
+          "visible": true
+        },
+        {
+          "selector": ".provider-settings",
+          "visible": true
+        }
+      ],
+      "pageWidth": 375,
+      "pageClientWidth": 375,
+      "horizontalScrollContainers": [],
+      "overflows": [],
+      "failures": []
+    },
+    {
+      "width": 1280,
+      "height": 900,
+      "theme": "natural",
+      "hostControls": [
+        {
+          "selector": ".audio-settings",
+          "visible": true
+        },
+        {
+          "selector": ".library-settings",
+          "visible": true
+        },
+        {
+          "selector": ".screensaver-settings",
+          "visible": true
+        },
+        {
+          "selector": ".provider-settings",
+          "visible": true
+        }
+      ],
+      "pageWidth": 1265,
+      "pageClientWidth": 1265,
+      "horizontalScrollContainers": [],
+      "overflows": [],
+      "failures": []
+    }
+  ]
+}

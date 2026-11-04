@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "testType": "native-Windows-CLI-and-genuine-WebView2-acks",
+  "checks": [
+    {
+      "name": "two-independent-native-views-and-real-acks",
+      "passed": true
+    },
+    {
+      "name": "scoped-change-keeps-other-display-config",
+      "passed": true
+    },
+    {
+      "name": "duplicate-native-and-renderer-ack",
+      "passed": true,
+      "viewCount": 2
+    },
+    {
+      "name": "span-native-and-renderer-ack",
+      "passed": true,
+      "viewCount": 2
+    },
+    {
+      "name": "single-native-and-renderer-ack",
+      "passed": true,
+      "viewCount": 1
+    },
+    {
+      "name": "actual-native-cpu-ram-readonly-sample",
+      "passed": true,
+      "cpuScope": "primary-processor-group (all processors on systems with at most 64)"
+    },
+    {
+      "name": "bounded-process-resource-samples",
+      "passed": true,
+      "resources": [
+        {
+          "role": "native-host",
+          "sampleSeconds": 21.244,
+          "cpuOneCorePercent": 7.428568066277537,
+          "cpuMachinePercent": 0.13265300118352744,
+          "privateBytesFirst": 5459968,
+          "privateBytesLast": 5296128,
+          "workingSetBytesLast": 27668480,
+          "handlesDelta": 1
+        },
+        {
+          "role": "embedded-node-runtime",
+          "sampleSeconds": 21.244,
+          "cpuOneCorePercent": 2.0594050084729805,
+          "cpuMachinePercent": 0.03677508943701751,
+          "privateBytesFirst": 131915776,
+          "privateBytesLast": 131768320,
+          "workingSetBytesLast": 168128512,
+          "handlesDelta": -1
+        }
+      ],
+      "limitation": "Short sample of native host and embedded Node only; excludes WebView2 renderer processes, GPU and power; not a leak proof"
+    },
+    {
+      "name": "exit-removes-own-views-preserves-existing-desktop-windows",
+      "passed": true
+    }
+  ],
+  "passed": 8,
+  "limitations": [
+    "No human visual confirmation",
+    "No physical hotplug/orientation/DPI change",
+    "No actual lock/logon/sleep",
+    "GPU/power and long-duration use not measured"
+  ]
+}

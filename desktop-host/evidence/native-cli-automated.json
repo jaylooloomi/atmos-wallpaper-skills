@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "installedVersion": "0.7.0",
+  "passed": 4,
+  "checks": [
+    "native-machine-readable-seven-host-schemas",
+    "native-presets-save-and-durable-replay",
+    "native-provider-cli-default-off-without-network",
+    "native-job-bound-watch-commits-once-and-stops"
+  ],
+  "isolatedStore": true,
+  "changedUserSettings": false,
+  "forgedRendererAcknowledgements": false
+}

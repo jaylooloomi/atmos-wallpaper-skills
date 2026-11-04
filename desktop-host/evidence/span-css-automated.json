@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "method": "Prepared HTML/CSS in isolated Chromium CLI: two real fixture routes and separate screensaver role; no user browser or native desktop automation",
+  "passed": true,
+  "cases": [
+    {
+      "passed": true,
+      "role": "wallpaper",
+      "anchor": true,
+      "expected": {
+        "width": 1263.3283740701381,
+        "height": 705,
+        "x": 632.3358129649309,
+        "y": 0
+      },
+      "size": [
+        1263.33,
+        705
+      ],
+      "position": [
+        632.336,
+        0
+      ],
+      "landscapeTransform": "none",
+      "important": true,
+      "visibility": {
+        "clock": "visible",
+        "calendar": "visible",
+        "widgets": "visible"
+      },
+      "cardCount": 5,
+      "allCardsHidden": false,
+      "modeResetClearedStyles": true
+    },
+    {
+      "passed": true,
+      "role": "wallpaper",
+      "anchor": false,
+      "expected": {
+        "width": 1263.3283740701381,
+        "height": 705,
+        "x": -631.6641870350691,
+        "y": 0
+      },
+      "size": [
+        1263.33,
+        705
+      ],
+      "position": [
+        -631.664,
+        0
+      ],
+      "landscapeTransform": "none",
+      "important": true,
+      "visibility": {
+        "clock": "hidden",
+        "calendar": "hidden",
+        "widgets": "hidden"
+      },
+      "cardCount": 5,
+      "allCardsHidden": true,
+      "modeResetClearedStyles": true
+    },
+    {
+      "passed": true,
+      "role": "screensaver",
+      "anchor": true,
+      "expected": {
+        "width": 1263.3283740701381,
+        "height": 705,
+        "x": 632.3358129649309,
+        "y": 0
+      },
+      "size": [
+        1263.33,
+        705
+      ],
+      "position": [
+        632.336,
+        0
+      ],
+      "landscapeTransform": "none",
+      "important": true,
+      "visibility": {
+        "clock": "hidden",
+        "calendar": "hidden",
+        "widgets": "visible"
+      },
+      "cardCount": 5,
+      "allCardsHidden": true,
+      "modeResetClearedStyles": true
+    }
+  ]
+}

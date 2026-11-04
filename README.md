@@ -9,13 +9,21 @@ Atmos 動態桌布管理介面、唯讀桌布 renderer 與本機 CLI。此倉庫
 - 五語介面（繁中、簡中、英文、日文、韓文）、12／24 小時及秒數設定。
 - 管理頁 `/manager` 的修改先成草稿，再按套用提交；`/wallpaper` 為唯讀顯示頁。
 - 本機圖片匯入、備份、還原、版本遷移、離線匯出與受限 CLI。
-- Windows x64 安裝版 0.6.1：Tauri 2＋Rust、獨立 WebView2、托盤與退出還原；安裝後預設啟動並套用主螢幕，可在管理頁選定單一螢幕／清除 Atmos 層，提供宿主 JSON/CAS 與原生 Agent 教學；支援登入 Windows 後背景自動套用與管理頁即時開關。內含 Node／Python／Pillow 與離線 WebView2 安裝程式，不需另外安裝 Node、Python 或 Lively。[安裝、重建與限制](desktop-host/README.md)。
+- Windows x64 0.7.0（前次已交付 0.6.1）：Tauri 2＋Rust、獨立 WebView2、托盤與退出還原；安裝後預設啟動並套用主螢幕，可在管理頁選單一、獨立、重複或全景配置／清除 Atmos 層，提供宿主 JSON/CAS 與原生 Agent 教學；支援登入 Windows 後背景自動套用與管理頁即時開關。內含 Node／Python／Pillow 與離線 WebView2 安裝程式，不需另外安裝 Node、Python 或 Lively。[安裝、重建與限制](desktop-host/README.md)。
+
+- 本機具名外觀配置／收藏、托盤快捷、專注／展示、間隔輪播與固定時段；保留私人待辦／行程來源與計時進度。
+- JSON 檔案監看與外觀／排程／模式受限 CLI；明確 opt-in，不直接改 live.json、不建立開機 watcher。
+- 原生音訊 owner 路由、FPS／全螢幕／電池動畫政策、引用審核與可恢復素材封存；`.scr` 螢幕保護生命週期與獨立角色。
+- 明確啟用的 Open-Meteo 模型天氣與 Windows 真 CPU／RAM；網速、GPU、耗電、Now Playing 尚未提供。
+- 遠方雲光／寫實分岔回閃、AI 指令與診斷自然接在左側預覽下方，保留原本雙欄與目標比例。
+
+本輪依使用者指示先做自動測試；真實多螢幕已有原生視窗與 renderer ack 證據，人眼、鎖屏／登入、物理插拔、GPU／耗電與長期測試不宣稱通過。[完整功能／驗證矩陣](desktop-host/docs/AUTOMATED-ROADMAP-VALIDATION-2026-11-04.md)、[外觀與排程教學](implementation-p4_2_5/docs/APPEARANCE-AUTOMATION.md)。
 
 ## 目錄
 
 ```text
 implementation-p4_2_5/    目前產品：src、scripts、tests、CLI、Windows 入口與技術文件
-desktop-host/            Tauri 2＋Rust Windows 單螢幕安裝版、封裝工具與原生整合測試
+desktop-host/            Tauri 2＋Rust Windows 多螢幕安裝版、封裝工具與原生整合測試
 implementation-p1/       共用核心、解碼器與基礎回歸測試（仍為必要依賴）
 implementation-p4_2_1/src/ 舊格式相容／遷移測試所需凍結實作
 prototype-v8.1-frozen/   凍結前端基底、字體授權與原始場景素材
@@ -56,9 +64,9 @@ node src\windows-runtime.mjs --host 127.0.0.1 --port 4173 --strictPort --start-l
 ## 真實功能與示範界線
 
 - 真實：本機設定與草稿／套用、版本衝突檢查、圖片驗證、素材呈現、備份／還原、格式遷移、renderer 連線與離線匯出。
-- **仍為 demo／N/A**：Google／Microsoft 日曆 OAuth、真天氣服務、主機 CPU／RAM／網路／電量資料、Now Playing。示範事件不是私人行程。
+- **仍為 demo／N/A**：Google／Microsoft 日曆 OAuth、網速、GPU／電量／耗電資料及 Now Playing。示範事件不是私人行程；模型天氣需明確啟用（免費 hosted API 僅非商業、資料 CC BY 4.0），CPU／RAM 在 Windows 安裝宿主可取得真值。
 - AI Prompt 只產生可複製文字，不會自動呼叫外部 AI、登入帳號或更新桌布。
-- renderer ack 不代表 OS 桌布已套用；Windows 宿主、鎖屏、DPI、耗電及完整生命週期仍待實機驗證。
+- renderer ack 與原生視窗掛載分開報告，兩者都不等於人眼可見性證明；鎖屏、真機混合 DPI、耗電與完整硬體／登入生命週期仍有未驗證項。
 - scoped session token 用於防誤寫／能力檢查，不是惡意同源 JavaScript 的安全隔離。
 
 詳見 [本版文件](implementation-p4_2_5/README.md)、[本機 CLI 與恢復流程](implementation-p4_2_5/docs/WINDOWS-CLI-AND-RECOVERY.md) 與 [全部顯示規則](implementation-p4_2_5/docs/P425-BULK-VISIBILITY.md)。
@@ -96,3 +104,10 @@ Windows 0.3.0 提供原生命令讀取狀態、JSON 預檢／提交與 receipt �
 ## 後續功能規劃
 
 多螢幕、放置模式、螢幕保護程式、音訊、素材目錄與 Agent 後續擴充的盤點、執行順序及驗收條件，統一維護於 [TODO](TODO.md)。未勾選項目尚未實作。
+
+
+## 0.7.0 自動交付（2026-11-04）
+
+原始待辦功能與五批推薦擴充已實作；Node 393、Rust 48 項通過，另有 4 項平台能力略過。真正 Windows 桌布 8、螢幕保護 7、正向 `/p` 預覽 2、安裝版 CLI 4 項通過。安裝升級保留既有外觀、素材位置、聲音、顯示器及登入啟動偏好；原生層、renderer ack 與可見性分開記錄。安裝包／`.scr`／runtime 不提交 Git。新控制區部分字串仍以繁中為主。
+
+本輪依要求未安排人工測試；GPU／電力、長期耗用與實體裝置／登入生命週期等未驗證項保留在[完整矩陣](desktop-host/docs/AUTOMATED-ROADMAP-VALIDATION-2026-11-04.md)。

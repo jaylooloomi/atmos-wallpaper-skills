@@ -8,6 +8,8 @@ mod audio;
 #[cfg(windows)]
 mod audio_diagnostics;
 #[cfg(windows)]
+mod audio_routing;
+#[cfg(windows)]
 mod control;
 #[cfg(windows)]
 mod displays;
@@ -18,12 +20,26 @@ mod installed;
 #[cfg(windows)]
 mod journal;
 #[cfg(windows)]
+mod layout;
+#[cfg(windows)]
 mod library;
+#[cfg(windows)]
+mod multi;
 mod options;
+#[cfg(windows)]
+mod performance;
+#[cfg(windows)]
+mod policy_store;
 #[cfg(windows)]
 mod runtime;
 #[cfg(windows)]
+mod screensaver;
+#[cfg(windows)]
+mod screensaver_registration;
+#[cfg(windows)]
 mod startup;
+#[cfg(windows)]
+mod telemetry;
 #[cfg(windows)]
 mod windows;
 
@@ -64,6 +80,84 @@ fn main() {
 fn run() -> Result<i32, String> {
     use serde_json::json;
     let args: Vec<String> = std::env::args().skip(1).collect();
+    if args == ["--screensaver-unregister"] {
+        return screensaver_registration::unregister();
+    }
+    if args == ["--screensaver-install"] {
+        return screensaver::install();
+    }
+    if args == ["--screensaver-settings"] {
+        return screensaver::open_settings();
+    }
+    if args == ["--screensaver-stop"] {
+        return screensaver::stop();
+    }
+    if args.first().is_some_and(|a| a == "--screensaver-command") {
+        return match screensaver::command(&args[1..]) {
+            Ok(code) => Ok(code),
+            Err(code) => {
+                println!(
+                    "{}",
+                    json!({"schemaVersion":1,"ok":false,"error":{"code":code}})
+                );
+                Ok(2)
+            }
+        };
+    }
+    let scr = std::env::current_exe()
+        .ok()
+        .and_then(|p| {
+            p.extension()
+                .map(|s| s.to_string_lossy().eq_ignore_ascii_case("scr"))
+        })
+        .unwrap_or(false);
+    if (scr && args.is_empty())
+        || args.first().is_some_and(|a| {
+            let a = a.to_ascii_lowercase();
+            a == "/s" || a == "/c" || a == "/p" || a.starts_with("/p:") || a.starts_with("/c:")
+        })
+    {
+        return screensaver::run(args);
+    }
+    if args == ["--system-info"] {
+        return telemetry::command();
+    }
+    if args.first().is_some_and(|a| a == "--performance-command") {
+        return match performance::command(&args[1..]) {
+            Ok(code) => Ok(code),
+            Err(code) => {
+                println!(
+                    "{}",
+                    json!({"schemaVersion":1,"ok":false,"error":{"code":code}})
+                );
+                Ok(2)
+            }
+        };
+    }
+    if args.first().is_some_and(|a| a == "--audio-routing-command") {
+        return match audio_routing::command(&args[1..]) {
+            Ok(code) => Ok(code),
+            Err(code) => {
+                println!(
+                    "{}",
+                    json!({"schemaVersion":1,"ok":false,"error":{"code":code}})
+                );
+                Ok(2)
+            }
+        };
+    }
+    if args.first().is_some_and(|a| a == "--layout-command") {
+        return match layout::command(&args[1..]) {
+            Ok(code) => Ok(code),
+            Err(code) => {
+                println!(
+                    "{}",
+                    json!({"schemaVersion":1,"ok":false,"error":{"code":code}})
+                );
+                Ok(2)
+            }
+        };
+    }
     if args.first().is_some_and(|a| a == "--audio-command") {
         return match audio::command(&args[1..]) {
             Ok(code) => Ok(code),
@@ -119,7 +213,7 @@ fn run() -> Result<i32, String> {
         return agent::run(args);
     }
     if args == ["--help"] {
-        println!("Atmos Wallpaper\nLibrary: --library-command help|get|move|reset|result [--store DIR]; move/reset/result read JSON on stdin.\nHost configuration: --host-help, --list-displays, --host-command get|update [--store DIR] (update JSON on stdin).\nAgent JSON API: --agent-help, --agent-schema, --get-state, --validate-json FILE, --apply-json FILE [--wait-ms 0..30000], --get-result REQUEST_ID [--wait-ms 0..30000].\nNo arguments: verify bundled resources, launch embedded runtimes and apply to the primary monitor until tray Exit.\n--autostart status|enable|disable: manage sign-in registration.\n--autostart-launch: background logon entry (waits for Explorer).\n--quit: close only this executable's instance (upgrade/uninstall).\n--manager: open the running manager, or start and open it.\n--check-install: verify payload and embedded runtimes without applying wallpaper.\n--inspect-desktop: read native desktop metadata.\nDeveloper mode: --runtime-root DIR --node EXE --python EXE --store DIR --status FILE [--run-seconds 5..3600].\nInstalled mode also accepts --store, --status and --run-seconds for diagnostics.");
+        println!("Atmos Wallpaper\nLibrary: --library-command help|get|move|reset|audit|archive|result [--store DIR]; move/reset/result read JSON on stdin.\nHost configuration: --host-help, --list-displays, --host-command get|update [--store DIR] (update JSON on stdin).\nAgent JSON API: --agent-help, --agent-schema, --get-state, --validate-json FILE, --apply-json FILE [--wait-ms 0..30000], --get-result REQUEST_ID [--wait-ms 0..30000].\nMachine schemas: --host-schema. Provider configuration: --providers-command get|update (global owner; no --target).\nAdditional APIs: --layout-command get|update, --audio-command get|update|probe|diagnose|test, --audio-routing-command get|update, --performance-command get|update, --screensaver-command get|update, --system-info.\nAppearance: --appearance-help, --preset-command get|save|apply|delete, --schedule-command get|update, --focus-command get|update.\nAgent watcher: --watch-json FILE [--target DISPLAY_ID] [--duration-ms N]; explicit opt-in, never watches live.json.\nScreensaver: Atmos.scr /s | /c | /p HWND; --screensaver-settings and --screensaver-install only on explicit user action.\nNo arguments: verify bundled resources, launch embedded runtimes and apply to the primary monitor until tray Exit.\n--autostart status|enable|disable: manage sign-in registration.\n--autostart-launch: background logon entry (waits for Explorer).\n--quit: close only this executable's instance (upgrade/uninstall).\n--manager: open the running manager, or start and open it.\n--check-install: verify payload and embedded runtimes without applying wallpaper.\n--inspect-desktop: read native desktop metadata.\nDeveloper mode: --runtime-root DIR --node EXE --python EXE --store DIR --status FILE [--run-seconds 5..3600].\nInstalled mode also accepts --store, --status and --run-seconds for diagnostics.");
         return Ok(0);
     }
     if args == ["--quit"] {
@@ -168,7 +262,27 @@ fn run() -> Result<i32, String> {
     } else {
         args
     };
-    let _singleton = match windows::singleton() {
+    let isolated = args.iter().any(|a| a == "--runtime-root");
+    let singleton = if isolated {
+        use sha2::{Digest, Sha256};
+        let index = args
+            .iter()
+            .position(|a| a == "--store")
+            .ok_or("Explicit isolated store required")?;
+        let root = std::path::PathBuf::from(args.get(index + 1).ok_or("Missing store")?);
+        if !root.is_absolute() {
+            return Err("Store must be absolute".into());
+        }
+        std::fs::create_dir_all(&root).map_err(|e| e.to_string())?;
+        let root = root.canonicalize().map_err(|e| e.to_string())?;
+        windows::named_singleton(&format!(
+            "Local\\AtmosWallpaperDesktop.Prototype.{:x}",
+            Sha256::digest(root.to_string_lossy().to_lowercase().as_bytes())
+        ))
+    } else {
+        windows::singleton()
+    };
+    let _singleton = match singleton {
         Ok(handle) => handle,
         Err(error) => {
             if autostart && error == "Atmos is already running" {

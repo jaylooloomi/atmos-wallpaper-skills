@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "testType": "native-screensaver-own-presentation-and-genuine-WebView2-acks",
+  "checks": [
+    {
+      "name": "duplicate-native-windows-real-screensaver-acks-and-no-wallpaper-evidence",
+      "passed": true,
+      "viewCount": 2
+    },
+    {
+      "name": "duplicate-stop-closes-own-windows-and-runtime",
+      "passed": true
+    },
+    {
+      "name": "independent-native-windows-real-screensaver-acks-and-no-wallpaper-evidence",
+      "passed": true,
+      "viewCount": 2
+    },
+    {
+      "name": "independent-stop-closes-own-windows-and-runtime",
+      "passed": true
+    },
+    {
+      "name": "span-native-windows-real-screensaver-acks-and-no-wallpaper-evidence",
+      "passed": true,
+      "viewCount": 2
+    },
+    {
+      "name": "span-stop-closes-own-windows-and-runtime",
+      "passed": true
+    },
+    {
+      "name": "existing-desktop-window-metadata-preserved",
+      "passed": true
+    }
+  ],
+  "passed": 7,
+  "limitations": [
+    "No mouse/keyboard input synthesized",
+    "Real user input may terminate the test; that is not suppressed",
+    "Windows selection/idle activation/authentication settings not changed or tested",
+    "Native preview parent parser/rejection is unit tested; system control-panel preview not exercised",
+    "No human visual confirmation, lock/logon/sleep, GPU/power or long-duration proof"
+  ]
+}

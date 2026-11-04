@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "testType": "native-hidden-owned-parent-preview-fixture",
+  "checks": [
+    {
+      "name": "preview-attaches-to-valid-owned-parent-and-real-screensaver-ack",
+      "passed": true,
+      "viewCount": 1
+    },
+    {
+      "name": "closing-parent-exits-preview-and-removes-own-window",
+      "passed": true
+    }
+  ],
+  "passed": 2,
+  "limitations": [
+    "Parent is an owned native fixture, not the Windows Control Panel",
+    "No user windows, input automation, activation, timeout or authentication settings touched",
+    "No human visual verification"
+  ]
+}

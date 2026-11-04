@@ -126,7 +126,7 @@ pub fn command(args: Vec<String>) -> Result<i32, String> {
     let mut input = Vec::new();
     if args
         .get(1)
-        .is_some_and(|s| matches!(s.as_str(), "move" | "reset" | "result"))
+        .is_some_and(|s| matches!(s.as_str(), "move" | "reset" | "result" | "archive"))
     {
         std::io::stdin()
             .take(32769)

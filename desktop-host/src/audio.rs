@@ -10,7 +10,7 @@ use std::{
     path::{Path, PathBuf},
     sync::{
         atomic::{AtomicBool, AtomicU32, Ordering},
-        Arc,
+        Arc, Mutex,
     },
     thread,
     time::{Duration, Instant},
@@ -228,11 +228,26 @@ pub fn command(args: &[String]) -> Result<i32, String> {
         if !s.audio.enabled || s.audio.muted || s.audio.volume == 0 {
             return Err("AUDIO_TEST_BLOCKED".into());
         }
+        let now = crate::journal::now_ms() as u64;
+        let runtime = fs::read(root.join("audio-status.json"))
+            .ok()
+            .and_then(|b| serde_json::from_slice::<Value>(&b).ok())
+            .filter(|v| {
+                v["pid"]
+                    .as_u64()
+                    .is_some_and(|pid| pid <= u32::MAX as u64 && windows::process_alive(pid as u32))
+                    && v["capturedAtMs"]
+                        .as_u64()
+                        .is_some_and(|at| at <= now && now - at < 3000)
+                    && v["audioSession"].as_str().is_some_and(|id| !id.is_empty())
+                    && v["state"] != "stopped"
+            })
+            .ok_or("AUDIO_HOST_UNAVAILABLE")?;
         let expires = crate::journal::now_ms() + 3000;
         host_settings::atomic(
             &root,
             "audio-test.json",
-            &json!({"schemaVersion":1,"settingsRevision":s.revision,"expiresAtMs":expires}),
+            &json!({"schemaVersion":1,"settingsRevision":s.revision,"expiresAtMs":expires,"hostPid":runtime["pid"],"audioSession":runtime["audioSession"]}),
         )?;
         Some(json!({"testRequested":true,"durationMs":3000,"settingsUnchanged":true}))
     } else if args[0] == "diagnose" {
@@ -311,7 +326,7 @@ impl Synth {
             self.next_boom = time + 9. + (self.rng % 9000) as f64 / 1000.;
         }
         let age = (time - self.boom_at) as f32;
-        let boom = if source == 2 && age >= 0. && age < 5. {
+        let boom = if (source == 2 || (source >= 8 && source & 16 != 0)) && age >= 0. && age < 5. {
             (1. - (-age * 20.).exp())
                 * (-age * 1.3).exp()
                 * (self.deep * 5. + (age * 47. * std::f32::consts::TAU).sin() * 0.08)
@@ -333,7 +348,30 @@ impl Synth {
         if target == 0. && self.gain < 0.000001 {
             self.gain = 0.
         }
-        (rain + boom).clamp(-0.6, 0.6) * self.gain
+        let sample = if source >= 8 {
+            let mut total = 0.;
+            let mut count = 0.;
+            if source & 8 != 0 {
+                total += noise * 0.08 + self.low * 0.12;
+                count += 1.;
+            }
+            if source & 16 != 0 {
+                total += noise * 0.08 + self.low * 0.12 + boom;
+                count += 1.;
+            }
+            if source & 32 != 0 {
+                total += self.low * 0.35 + noise * 0.035;
+                count += 1.;
+            }
+            if count > 0. {
+                total / count
+            } else {
+                0.
+            }
+        } else {
+            rain + boom
+        };
+        sample.clamp(-0.6, 0.6) * self.gain
     }
 }
 fn stream<T>(
@@ -445,14 +483,51 @@ fn reason(p: &Policy, attached: bool, desktop: bool, unlocked: bool, source: u32
         "playing"
     }
 }
+#[derive(Clone, Debug)]
+pub struct AudioTarget {
+    pub id: String,
+    pub primary: bool,
+    pub handle: isize,
+    pub source_root: PathBuf,
+}
+fn policy_allows_target(status: &Value, id: &str, now: u64) -> bool {
+    status["pid"].as_u64() == Some(std::process::id() as u64)
+        && status["capturedAtMs"]
+            .as_u64()
+            .is_some_and(|at| at <= now && now - at < 3000)
+        && status["targets"].as_array().is_some_and(|targets| {
+            targets.iter().any(|t| {
+                t["targetId"] == id
+                    && t["nativeAttached"] == true
+                    && t["runtimePolicy"]["paused"] == false
+            })
+        })
+}
+fn test_marker_active(v: &Value, revision: Option<u64>, session: &str, now: u64) -> bool {
+    v["hostPid"].as_u64() == Some(std::process::id() as u64)
+        && v["audioSession"].as_str() == Some(session)
+        && v["settingsRevision"].as_u64() == revision
+        && v["expiresAtMs"]
+            .as_u64()
+            .is_some_and(|e| e > now && e <= now + 3500)
+}
 pub struct AudioEngine {
+    targets: Arc<Mutex<Vec<AudioTarget>>>,
     stop: Arc<AtomicBool>,
     thread: Option<thread::JoinHandle<()>>,
 }
 impl AudioEngine {
     pub fn start(root: PathBuf, window: isize) -> Self {
+        let targets = Arc::new(Mutex::new(vec![AudioTarget {
+            id: "single".into(),
+            primary: true,
+            handle: window,
+            source_root: root.clone(),
+        }]));
+        let target_views = targets.clone();
         let stop = Arc::new(AtomicBool::new(false));
         let signal = stop.clone();
+        let audio_session = format!("{}-{}", std::process::id(), crate::journal::now_ms());
         let handle = thread::spawn(move || {
             let gain = Arc::new(AtomicU32::new(0f32.to_bits()));
             let source = Arc::new(AtomicU32::new(0));
@@ -471,25 +546,58 @@ impl AudioEngine {
                 }
                 let config = read(&root);
                 let (desktop, unlocked) = windows::audio_context();
-                let attached = windows::record(window).visible;
+                let routing = crate::audio_routing::read(&root);
+                let host_policy = fs::metadata(root.join("host-status.json"))
+                    .ok()
+                    .filter(|m| m.len() <= 131072)
+                    .and_then(|_| fs::read(root.join("host-status.json")).ok())
+                    .and_then(|b| serde_json::from_slice::<Value>(&b).ok())
+                    .unwrap_or(Value::Null);
+                let candidates = target_views
+                    .lock()
+                    .map(|ts| {
+                        ts.iter()
+                            .map(|t| crate::audio_routing::Candidate {
+                                id: t.id.clone(),
+                                primary: t.primary,
+                                visible: windows::record(t.handle).visible
+                                    && policy_allows_target(
+                                        &host_policy,
+                                        &t.id,
+                                        crate::journal::now_ms() as u64,
+                                    ),
+                                kind: config
+                                    .as_ref()
+                                    .map(|s| match s.audio.source.as_str() {
+                                        "rain" => 1,
+                                        "thunder" => 2,
+                                        _ => effect(&t.source_root),
+                                    })
+                                    .unwrap_or(0),
+                            })
+                            .collect::<Vec<_>>()
+                    })
+                    .unwrap_or_default();
+                let selected = routing
+                    .as_ref()
+                    .map(|r| crate::audio_routing::select(&r.routing, &candidates))
+                    .unwrap_or(crate::audio_routing::Selection {
+                        owners: Vec::new(),
+                        source_kind: 0,
+                    });
+                let attached = !selected.owners.is_empty();
                 let test_active = fs::read(root.join("audio-test.json"))
                     .ok()
                     .and_then(|b| serde_json::from_slice::<Value>(&b).ok())
                     .is_some_and(|v| {
-                        let now = crate::journal::now_ms() as u64;
-                        v["settingsRevision"].as_u64() == config.as_ref().ok().map(|s| s.revision)
-                            && v["expiresAtMs"]
-                                .as_u64()
-                                .is_some_and(|e| e > now && e <= now + 3500)
+                        test_marker_active(
+                            &v,
+                            config.as_ref().ok().map(|s| s.revision),
+                            &audio_session,
+                            crate::journal::now_ms() as u64,
+                        )
                     });
-                let mut kind = config
-                    .as_ref()
-                    .map(|s| match s.audio.source.as_str() {
-                        "rain" => 1,
-                        "thunder" => 2,
-                        _ => effect(&root),
-                    })
-                    .unwrap_or(0);
+                let mut kind = selected.source_kind;
                 if test_active {
                     kind = 4;
                 }
@@ -497,6 +605,19 @@ impl AudioEngine {
                     .as_ref()
                     .map(|s| reason(&s.audio, attached, desktop || test_active, unlocked, kind))
                     .unwrap_or("configuration-error");
+                if routing.is_err() {
+                    state = "routing-configuration-error";
+                } else if !attached
+                    && config
+                        .as_ref()
+                        .is_ok_and(|s| s.audio.enabled && !s.audio.muted && s.audio.volume > 0)
+                    && unlocked
+                {
+                    state = "logical-target-unavailable";
+                }
+                if crate::screensaver::active() {
+                    state = "screensaver-active";
+                }
                 let allowed = state == "playing";
                 source.store(kind, Ordering::Relaxed);
                 if allowed {
@@ -546,7 +667,7 @@ impl AudioEngine {
                     let _ = host_settings::atomic(
                         &root,
                         "audio-status.json",
-                        &json!({"schemaVersion":1,"pid":std::process::id(),"capturedAtMs":crate::journal::now_ms(),"settingsRevision":config.as_ref().ok().map(|s|s.revision),"state":state,"streamOpen":current.is_some(),"desktopFocused":desktop,"sessionUnlocked":unlocked,"nativeWindowVisible":attached,"backend":"WASAPI via CPAL","output":config.as_ref().ok().map(|s|&s.audio.output),"activeOutput":if current.is_some(){Some(&opened_output)}else{None},"testActive":test_active,"sourceKind":kind,"trust":"stream/policy state; audible presentation unverified"}),
+                        &json!({"schemaVersion":1,"pid":std::process::id(),"audioSession":audio_session,"capturedAtMs":crate::journal::now_ms(),"settingsRevision":config.as_ref().ok().map(|s|s.revision),"state":state,"streamOpen":current.is_some(),"desktopFocused":desktop,"sessionUnlocked":unlocked,"nativeWindowVisible":attached,"backend":"WASAPI via CPAL","output":config.as_ref().ok().map(|s|&s.audio.output),"activeOutput":if current.is_some(){Some(&opened_output)}else{None},"testActive":test_active,"sourceKind":kind,"routingRevision":routing.as_ref().ok().map(|r|r.revision),"routingMode":routing.as_ref().ok().map(|r|&r.routing.mode),"owners":selected.owners,"mixPolicy":"one normalized bus; identical source types deduplicated","trust":"stream/policy state; audible presentation unverified"}),
                     );
                     reported = Instant::now();
                 }
@@ -559,8 +680,14 @@ impl AudioEngine {
             );
         });
         Self {
+            targets,
             stop,
             thread: Some(handle),
+        }
+    }
+    pub fn set_targets(&self, targets: Vec<AudioTarget>) {
+        if let Ok(mut current) = self.targets.lock() {
+            *current = targets;
         }
     }
 }
@@ -581,6 +708,46 @@ impl Drop for AudioEngine {
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn runtime_pause_stale_or_other_pid_policy_cannot_enable_audio() {
+        let mut status = json!({"pid":std::process::id(),"capturedAtMs":1000,"targets":[{"targetId":"test","nativeAttached":true,"runtimePolicy":{"paused":false}}]});
+        assert!(policy_allows_target(&status, "test", 1200));
+        assert!(!policy_allows_target(&status, "other", 1200));
+        assert!(!policy_allows_target(&status, "test", 5000));
+        status["targets"][0]["runtimePolicy"]["paused"] = json!(true);
+        assert!(!policy_allows_target(&status, "test", 1200));
+        status["targets"][0]["runtimePolicy"]["paused"] = json!(false);
+        status["pid"] = json!(0);
+        assert!(!policy_allows_target(&status, "test", 1200));
+    }
+    #[test]
+    fn test_tone_is_bound_to_one_host_session_revision_and_expiry() {
+        let value = json!({"hostPid":std::process::id(),"audioSession":"a","settingsRevision":3,"expiresAtMs":2000});
+        assert!(test_marker_active(&value, Some(3), "a", 1000));
+        assert!(!test_marker_active(&value, Some(3), "b", 1000));
+        assert!(!test_marker_active(&value, Some(4), "a", 1000));
+        assert!(!test_marker_active(&value, Some(3), "a", 2000));
+        let mut wrong = value.clone();
+        wrong["hostPid"] = json!(0);
+        assert!(!test_marker_active(&wrong, Some(3), "a", 1000));
+    }
+    #[test]
+    fn multiple_source_mix_is_normalized_bounded_and_fades() {
+        for mask in [8 | 16, 8 | 32, 16 | 32, 8 | 16 | 32] {
+            let mut s = Synth::new(48000.);
+            let mut energy = 0.;
+            for _ in 0..48000 {
+                let value = s.sample(1., mask);
+                assert!(value.is_finite() && value.abs() <= 0.6001);
+                energy += value * value;
+            }
+            assert!(energy > 0.1);
+            for _ in 0..48000 {
+                s.sample(0., mask);
+            }
+            assert_eq!(s.sample(0., mask), 0.);
+        }
+    }
     #[test]
     fn defaults_are_silent_and_strict() {
         let s = Settings::default();

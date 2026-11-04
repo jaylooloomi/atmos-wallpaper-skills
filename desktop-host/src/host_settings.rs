@@ -135,6 +135,11 @@ fn update(root: &Path, u: Update) -> Result<Settings, String> {
         placement: u.placement,
     };
     validate(&next)?;
+    if crate::layout::read(root)?.layout.mode != "single"
+        && next.placement.target != old.placement.target
+    {
+        return Err("HOST_LAYOUT_ACTIVE".into());
+    }
     if next.placement.enabled {
         displays::select(&displays::enumerate()?, &next.placement.target)?;
     }
@@ -191,6 +196,46 @@ pub fn command(args: &[String]) -> Result<i32, String> {
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn multi_layout_rejects_ignored_target_changes_but_allows_global_clear() {
+        let root = std::env::temp_dir().join(format!(
+            "atmos-host-multi-{}-{}",
+            std::process::id(),
+            crate::journal::now_ms()
+        ));
+        std::fs::create_dir_all(&root).unwrap();
+        atomic(&root,"display-layout.json",&serde_json::json!({"schemaVersion":1,"revision":1,"lastRequestId":null,"layout":{"mode":"independent","targets":[format!("display-{}","a".repeat(64))],"askOnApply":false}})).unwrap();
+        let result = update(
+            &root,
+            Update {
+                schema_version: 1,
+                expected_revision: 0,
+                placement: Placement {
+                    enabled: true,
+                    target: format!("display-{}", "b".repeat(64)),
+                },
+            },
+        );
+        assert_eq!(result.unwrap_err(), "HOST_LAYOUT_ACTIVE");
+        assert!(!root.join("host-settings.json").exists());
+        assert!(
+            !update(
+                &root,
+                Update {
+                    schema_version: 1,
+                    expected_revision: 0,
+                    placement: Placement {
+                        enabled: false,
+                        target: "primary".into()
+                    }
+                }
+            )
+            .unwrap()
+            .placement
+            .enabled
+        );
+        std::fs::remove_dir_all(root).unwrap();
+    }
     #[test]
     fn legacy_store_defaults_without_mutation() {
         let root = std::env::temp_dir().join(format!("atmos-host-no-file-{}", std::process::id()));

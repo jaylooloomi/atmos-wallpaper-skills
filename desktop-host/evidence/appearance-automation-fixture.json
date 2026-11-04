@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "kind": "Isolated synthetic Chromium CLI fixture; no user browser or desktop automation",
+  "passed": true,
+  "promptGap": 12,
+  "promptInLeftColumn": true,
+  "diagnosticsInLeftColumn": true,
+  "presetSavedAndApplied": true,
+  "privateContentPreserved": true,
+  "lightningPixels": 57600,
+  "lightningBrightPixels": 1008,
+  "reducedMotionSuppressed": true,
+  "focusAndShowcaseToggle": true,
+  "scheduleConfiguredThroughUI": true,
+  "fixedTimeScheduleConfiguredThroughUI": true,
+  "pageOverflow": false
+}

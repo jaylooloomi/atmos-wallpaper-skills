@@ -1,0 +1,9 @@
+.preset-settings{min-width:0;margin:12px 0;padding:14px;border:1px solid var(--line,#637787);border-radius:12px;background:var(--control,transparent);color:var(--text,inherit)}.preset-settings h3{margin:0 0 10px}.preset-settings p{font-size:.85em;line-height:1.6;overflow-wrap:anywhere}.preset-settings label{display:grid;gap:6px;margin:12px 0;min-width:0}.preset-settings input,.preset-settings select{width:100%;min-width:0;box-sizing:border-box;padding:8px;background:var(--control,transparent);color:inherit;border:1px solid var(--line,#637787);border-radius:6px}.preset-settings button{min-height:36px;max-width:100%;white-space:normal;padding:7px 12px}.preset-actions{display:flex;flex-wrap:wrap;gap:8px}
+/* The left column follows its own content, independently of a long control panel. */
+body[data-render-mode=manager] main>section:first-child{align-self:start;min-height:0!important;justify-content:flex-start!important;gap:12px}
+body[data-render-mode=manager] main>section:first-child>.promptbox{margin-top:12px!important;flex:0 0 auto;min-height:0!important;height:auto!important}
+body[data-render-mode=manager] .settings-bottom{align-items:start!important}
+body[data-render-mode=manager] .settings-bottom>.promptbox{align-self:start!important;min-height:0!important;height:auto!important}
+body[data-render-mode=manager] main>section:first-child>.diagnostics{margin:12px 0 0!important;width:100%;max-width:100%;box-sizing:border-box;min-width:0}
+body[data-render-mode=manager] main>section:first-child>.promptbox{box-sizing:border-box;width:100%;max-width:100%;overflow-wrap:anywhere}
+.schedule-time-row{display:grid;grid-template-columns:minmax(85px,.8fr) minmax(0,1fr) auto;gap:6px;margin:8px 0;align-items:center}.schedule-time-row input,.schedule-time-row select{min-width:0;margin:0;width:100%}.preset-settings>summary{cursor:pointer;font-weight:600}.preset-settings select[multiple]{min-height:110px}

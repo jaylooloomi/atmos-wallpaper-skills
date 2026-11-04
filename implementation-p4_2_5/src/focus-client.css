@@ -1,0 +1,1 @@
+body[data-atmos-focus=focus] #calendar,body[data-atmos-focus=focus] .wall-widget:not([data-widget=timer]),body[data-atmos-focus=showcase] #calendar,body[data-atmos-focus=showcase] #clock,body[data-atmos-focus=showcase] .wall-widget{visibility:hidden!important;pointer-events:none!important}

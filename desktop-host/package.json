@@ -1,11 +1,13 @@
 {
   "name": "atmos-desktop-build",
-  "version": "0.6.1",
+  "version": "0.7.0",
   "private": true,
   "type": "module",
   "scripts": {
     "payload": "node scripts/prepare-payload.mjs",
     "build:windows": "node scripts/build-installer.mjs"
   },
-  "devDependencies": { "@tauri-apps/cli": "2.12.4" }
+  "devDependencies": {
+    "@tauri-apps/cli": "2.12.4"
+  }
 }
