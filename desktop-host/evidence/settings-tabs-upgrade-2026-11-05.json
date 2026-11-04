@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-05",
+  "version": "0.7.4",
+  "installer": {
+    "bytes": 292881267,
+    "sha256": "92e12856e9fc55958b01d7da8b59e624d1bfb57cc409fbb88f52619540cbd1bd"
+  },
+  "checks": {
+    "silentUpgrade": true,
+    "servedCategoryTabs": true,
+    "servedNaturalHeightPanelFlow": true,
+    "privatePreimageSaved": true,
+    "servedWeatherDisplayToggle": true,
+    "servedWeatherLocateAction": true,
+    "servedWeatherUpdateStatus": true,
+    "servedScreensaverButtonSpacing": true,
+    "servedAssetsMatchSourceBuild": true,
+    "savedSettingsPreserved": true,
+    "libraryAndDisplaySettingsPreserved": true,
+    "startupPreferencePreserved": true,
+    "payloadAndEmbeddedRuntimesVerified": true,
+    "installedStylesMatchSourceBuild": true,
+    "installedBootMatchesSourceBuild": true,
+    "installedDisplayControlsMatchBuild": true,
+    "installedLibraryControlsMatchBuild": true,
+    "installedAudioControlsMatchBuild": true,
+    "nativeWorkerWAttachment": true,
+    "genuineWallpaperAck": true,
+    "genuineManagerAck": true
+  },
+  "limitations": [
+    "Category navigation, widget controls, draft preservation and responsive geometry verified by automated DOM fixtures; served assets and native acknowledgements checked here. No human visual verification. No user browser or desktop UI automation.",
+    "No new reboot, sleep, GPU or long-duration test."
+  ]
+}
