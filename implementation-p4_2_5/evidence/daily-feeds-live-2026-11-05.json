@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-05",
+  "passed": true,
+  "method": "Real HTTPS fetch of fixed public sources using production parser and bounds; no credentials or user data sent",
+  "sources": {
+    "github": {
+      "url": "https://github.com/trending?since=daily",
+      "items": 5,
+      "fetchedAt": "2026-11-04T21:17:59.229Z",
+      "stale": false
+    },
+    "yahoo": {
+      "url": "https://tw.news.yahoo.com/rss",
+      "items": 5,
+      "fetchedAt": "2026-11-04T21:17:59.266Z",
+      "stale": false
+    }
+  },
+  "limitations": [
+    "Availability and upstream document structure can change. GitHub ranking is its daily Trending list, not a measured all-GitHub growth score. Yahoo is the newest dated items available in its Taiwan RSS."
+  ]
+}

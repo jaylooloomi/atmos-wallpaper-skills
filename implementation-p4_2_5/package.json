@@ -17,9 +17,7 @@
   },
   "dependencies": {
     "ical.js": "2.2.1",
+    "linkedom": "0.18.12",
     "luxon": "3.7.2"
-  },
-  "devDependencies": {
-    "linkedom": "0.18.12"
   }
 }
