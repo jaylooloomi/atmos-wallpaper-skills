@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "testType": "read-only-installed-WebView2-resource-investigation",
+  "baselinePartialInterval": {
+    "sampleCount": 23,
+    "firstAtUtc": "2026-11-04T16:50:05.8300725Z",
+    "lastAtUtc": "2026-11-04T16:55:35.1232770Z",
+    "elapsedSeconds": 329.9007658,
+    "completeTwoHourRun": false
+  },
+  "roles": [
+    {
+      "role": "manager-renderer",
+      "privateFirstMiB": 839.55,
+      "privateLastMiB": 849.86,
+      "handleFirst": 14037,
+      "handleLast": 14273,
+      "handleDecreaseIntervals": 0,
+      "sectionSnapshots": [
+        13859,
+        14047
+      ],
+      "sectionDeltaBetweenSnapshots": 188,
+      "totalHandleDeltaBetweenSnapshots": 188
+    },
+    {
+      "role": "wallpaper-renderer",
+      "privateFirstMiB": 563.29,
+      "privateLastMiB": 570.17,
+      "handleFirst": 14007,
+      "handleLast": 14242,
+      "handleDecreaseIntervals": 0,
+      "sectionSnapshots": [
+        13858,
+        14046
+      ],
+      "sectionDeltaBetweenSnapshots": 188,
+      "totalHandleDeltaBetweenSnapshots": 188
+    },
+    {
+      "role": "manager-gpu-process",
+      "privateDeltaMiB": 0.7,
+      "handleDelta": 0,
+      "sectionSnapshot": 37
+    },
+    {
+      "role": "wallpaper-gpu-process",
+      "privateDeltaMiB": -0.03,
+      "handleDelta": 0,
+      "sectionSnapshot": 30
+    }
+  ],
+  "observations": [
+    "High handle/private-memory processes are renderer processes, not GPU-process roles.",
+    "Renderer growth in two native type snapshots is entirely accounted for by Section handles; other type counts are unchanged.",
+    "Baseline cadence of about one handle per 1.4 seconds aligns with shared ack polling, but cadence alone is not causal proof.",
+    "Independent synthetic response-body A/B retained exactly 600 extra Sections for 600 unconsumed responses."
+  ],
+  "limitations": [
+    "Partial baseline only; no two-hour completion or zero-leak claim.",
+    "Native type snapshots have no public object names, paths, kernel addresses or raw command lines.",
+    "Synthetic Chrome and installed WebView2 builds differ; installed fix validation remains required.",
+    "Private-memory growth can have other components; Section-handle result does not explain every byte.",
+    "Installed app and settings were not changed, stopped or restarted during this investigation."
+  ]
+}

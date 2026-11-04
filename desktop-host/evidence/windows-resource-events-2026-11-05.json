@@ -1,0 +1,79 @@
+{
+  "attributionRule": "Only faulting EventData PID plus process-creation time matching a recorded owned lifetime is attributed. Event System.Execution PID and app names alone are never used.",
+  "scopeElapsedSeconds": 7200.684,
+  "schemaVersion": 1,
+  "reportType": "readonly-event-log-scope-check",
+  "queries": [
+    {
+      "backgroundUnattributedCount": 0,
+      "unknownIdentityUnavailableCount": 0,
+      "unknownNotMatchedRecordedIdentityCount": 0,
+      "missingCreationTimeCount": 0,
+      "ownedMatchedCount": 0,
+      "queriedCount": 0,
+      "potentiallyTruncated": false,
+      "timeline": [],
+      "eventCode": "system-display-4101",
+      "ownedMatchedGroups": {},
+      "available": true,
+      "unavailableCode": null,
+      "missingFaultPidCount": 0
+    },
+    {
+      "backgroundUnattributedCount": 0,
+      "unknownIdentityUnavailableCount": 0,
+      "unknownNotMatchedRecordedIdentityCount": 0,
+      "missingCreationTimeCount": 0,
+      "ownedMatchedCount": 0,
+      "queriedCount": 0,
+      "potentiallyTruncated": false,
+      "timeline": [],
+      "eventCode": "application-error-1000",
+      "ownedMatchedGroups": {},
+      "available": true,
+      "unavailableCode": null,
+      "missingFaultPidCount": 0
+    },
+    {
+      "backgroundUnattributedCount": 0,
+      "unknownIdentityUnavailableCount": 0,
+      "unknownNotMatchedRecordedIdentityCount": 0,
+      "missingCreationTimeCount": 0,
+      "ownedMatchedCount": 0,
+      "queriedCount": 0,
+      "potentiallyTruncated": false,
+      "timeline": [],
+      "eventCode": "application-hang-1002",
+      "ownedMatchedGroups": {},
+      "available": true,
+      "unavailableCode": null,
+      "missingFaultPidCount": 0
+    },
+    {
+      "backgroundUnattributedCount": 0,
+      "unknownIdentityUnavailableCount": 0,
+      "unknownNotMatchedRecordedIdentityCount": 0,
+      "missingCreationTimeCount": 0,
+      "ownedMatchedCount": 0,
+      "queriedCount": 0,
+      "potentiallyTruncated": false,
+      "timeline": [],
+      "eventCode": "wer-1001",
+      "ownedMatchedGroups": {},
+      "available": true,
+      "unavailableCode": null,
+      "missingFaultPidCount": 0
+    }
+  ],
+  "isFinalScope": true,
+  "limitations": [
+    "System Display4101 is machine-level driver context, never attributed to Atmos.",
+    "Unmatched identity does not prove unrelated; an unrecorded short-lived child could be absent from samples.",
+    "Readable log with no matching events is distinct from an unavailable query.",
+    "Missing PID/creation time, including many WER records, remains unknown.",
+    "No driver, tracing, service, permission, application or collector changes."
+  ],
+  "observedSampleSpanSeconds": 7200.00841,
+  "scopeExplanation": "Event scope uses metadata start through completion marker; sample span uses first through last monotonic sample. Collector startup and finalization explain their small difference.",
+  "privacy": "No event XML, messages, paths, process identities or user content. Raw event data remains local."
+}

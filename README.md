@@ -9,7 +9,7 @@ Atmos 動態桌布管理介面、唯讀桌布 renderer 與本機 CLI。此倉庫
 - 五語介面（繁中、簡中、英文、日文、韓文）、12／24 小時及秒數設定。
 - 管理頁 `/manager` 的修改先成草稿，再按套用提交；`/wallpaper` 為唯讀顯示頁。
 - 本機圖片匯入、備份、還原、版本遷移、離線匯出與受限 CLI。
-- Windows x64 0.7.0（前次已交付 0.6.1）：Tauri 2＋Rust、獨立 WebView2、托盤與退出還原；安裝後預設啟動並套用主螢幕，可在管理頁選單一、獨立、重複或全景配置／清除 Atmos 層，提供宿主 JSON/CAS 與原生 Agent 教學；支援登入 Windows 後背景自動套用與管理頁即時開關。內含 Node／Python／Pillow 與離線 WebView2 安裝程式，不需另外安裝 Node、Python 或 Lively。[安裝、重建與限制](desktop-host/README.md)。
+- Windows x64 0.7.1（前次已交付 0.7.0）：Tauri 2＋Rust、獨立 WebView2、托盤與退出還原；安裝後預設啟動並套用主螢幕，可在管理頁選單一、獨立、重複或全景配置／清除 Atmos 層，提供宿主 JSON/CAS 與原生 Agent 教學；支援登入 Windows 後背景自動套用與管理頁即時開關。內含 Node／Python／Pillow 與離線 WebView2 安裝程式，不需另外安裝 Node、Python 或 Lively。[安裝、重建與限制](desktop-host/README.md)。
 
 - 本機具名外觀配置／收藏、托盤快捷、專注／展示、間隔輪播與固定時段；保留私人待辦／行程來源與計時進度。
 - JSON 檔案監看與外觀／排程／模式受限 CLI；明確 opt-in，不直接改 live.json、不建立開機 watcher。
@@ -17,7 +17,7 @@ Atmos 動態桌布管理介面、唯讀桌布 renderer 與本機 CLI。此倉庫
 - 明確啟用的 Open-Meteo 模型天氣與 Windows 真 CPU／RAM；網速、GPU、耗電、Now Playing 尚未提供。
 - 遠方雲光／寫實分岔回閃、AI 指令與診斷自然接在左側預覽下方，保留原本雙欄與目標比例。
 
-本輪依使用者指示先做自動測試；真實多螢幕已有原生視窗與 renderer ack 證據，人眼、鎖屏／登入、物理插拔、GPU／耗電與長期測試不宣稱通過。[完整功能／驗證矩陣](desktop-host/docs/AUTOMATED-ROADMAP-VALIDATION-2026-11-04.md)、[外觀與排程教學](implementation-p4_2_5/docs/APPEARANCE-AUTOMATION.md)。
+依使用者指示先做自動測試。0.7.1 修正未消費 ACK 回應造成的 renderer Section／handle 累積，已完成本機「主螢幕＋管理頁」兩小時 CPU／記憶體／handles／GPU 資源採樣，481 次全目標回報正常。記憶體增長診斷與計數器缺口仍如實保留，不宣稱零洩漏；瓦特／焦耳未測得，人工鎖屏／登入、物理插拔與其他硬體環境仍未驗證。GPU 目前僅提供診斷採樣，尚未串接元件資料源。[本機資源實測與限制](desktop-host/docs/WINDOWS-RESOURCE-VALIDATION-2026-11-05.md)、[完整功能／驗證矩陣](desktop-host/docs/AUTOMATED-ROADMAP-VALIDATION-2026-11-04.md)、[外觀與排程教學](implementation-p4_2_5/docs/APPEARANCE-AUTOMATION.md)。
 
 ## 目錄
 

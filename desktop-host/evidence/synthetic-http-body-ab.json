@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "testType": "synthetic-headless-Chrome-own-origin-response-body-lifetime-AB",
+  "results": [
+    {
+      "arm": "unconsumed",
+      "requestCount": 600,
+      "rendererCount": 4,
+      "before": {
+        "sections": 40,
+        "handles": 1001,
+        "privateBytes": 112697344
+      },
+      "after": {
+        "sections": 674,
+        "handles": 2283,
+        "privateBytes": 203501568
+      },
+      "settled": {
+        "sections": 654,
+        "handles": 1818,
+        "privateBytes": 153837568
+      },
+      "delta": {
+        "sections": 634,
+        "handles": 1282,
+        "privateBytes": 90804224
+      },
+      "settledDelta": {
+        "sections": 614,
+        "handles": 817,
+        "privateBytes": 41140224
+      }
+    },
+    {
+      "arm": "consume-json",
+      "requestCount": 600,
+      "rendererCount": 4,
+      "before": {
+        "sections": 40,
+        "handles": 996,
+        "privateBytes": 123936768
+      },
+      "after": {
+        "sections": 74,
+        "handles": 1670,
+        "privateBytes": 209186816
+      },
+      "settled": {
+        "sections": 54,
+        "handles": 1213,
+        "privateBytes": 160387072
+      },
+      "delta": {
+        "sections": 34,
+        "handles": 674,
+        "privateBytes": 85250048
+      },
+      "settledDelta": {
+        "sections": 14,
+        "handles": 217,
+        "privateBytes": 36450304
+      }
+    }
+  ],
+  "limitations": [
+    "Not the installed WebView2 version or real Atmos wallpaper",
+    "Synthetic endpoint never contacts Atmos or sends real acknowledgements",
+    "Fresh isolated profiles; GPU disabled; no user tabs or browser automation interface used",
+    "Short A/B is causal evidence only for this synthetic configuration, not the two-hour baseline"
+  ],
+  "comparison": {
+    "sectionGrowthDifference": 600,
+    "privateGrowthDifferenceBytes": 4689920,
+    "extraSectionsPerUnconsumedResponse": 1.0,
+    "interpretation": "Unconsumed response arm retained exactly one extra Section per synthetic response versus the consume-json arm after settling; real installed WebView2 still requires fix validation."
+  },
+  "syntheticChromeVersion": "156.0.8078.75",
+  "installedWebViewVersionObservedSeparately": "156.0.4314.58"
+}

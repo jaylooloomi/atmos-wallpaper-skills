@@ -9,10 +9,10 @@
     {
       "name": "product-tests",
       "exitCode": 0,
-      "tests": 354,
-      "pass": 352,
+      "tests": 406,
+      "pass": 403,
       "fail": 0,
-      "skipped": 2
+      "skipped": 3
     },
     {
       "name": "core-tests",

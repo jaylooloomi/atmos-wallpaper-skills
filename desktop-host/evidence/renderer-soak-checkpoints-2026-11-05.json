@@ -1,0 +1,2049 @@
+{
+  "schemaVersion": 2,
+  "reportType": "renderer-soak-role-checkpoint-history",
+  "units": {
+    "memory": "MiB",
+    "privateSlope": "OLS MiB/hour",
+    "cpu": "percent, explicit normalization per field",
+    "handles": "count",
+    "threads": "count"
+  },
+  "interim85_5Minutes": {
+    "schemaVersion": 1,
+    "reportType": "interim-renderer-soak-role-checkpoint",
+    "asOfElapsedMinutes": 85.5,
+    "sampleCount": 343,
+    "isFinalTwoHourResult": false,
+    "units": {
+      "memory": "MiB",
+      "slopes": "OLS MiB/minute",
+      "handles": "count"
+    },
+    "recordedProcessLifetimes": {
+      "count": 15,
+      "countFirstSample": 15,
+      "countLastSample": 15,
+      "countMin": 15,
+      "countMax": 15,
+      "newRecordedLifetimesAfterFirst": 0,
+      "limitation": "Snapshot identity stability does not rule out unrecorded short-lived processes between samples, or same-process WebView activity."
+    },
+    "peakAndNeighbourSamples": [
+      {
+        "point": "beforePeak",
+        "elapsedMinutes": 75.25,
+        "totalPrivateMiB": 1114.391,
+        "processCount": 15,
+        "rolePrivateMiB": {
+          "native-host": 5.488,
+          "node-core": 129.938,
+          "console-helper": 6.211,
+          "wallpaper-browser": 38.801,
+          "wallpaper-crashpad-handler": 2.66,
+          "wallpaper-gpu-process": 170.109,
+          "wallpaper-utility": 21.215,
+          "wallpaper-renderer": 153.039,
+          "manager-browser": 42.453,
+          "manager-crashpad-handler": 2.684,
+          "manager-gpu-process": 347.637,
+          "manager-utility": 20.895,
+          "manager-renderer": 173.262
+        }
+      },
+      {
+        "point": "peak",
+        "elapsedMinutes": 75.5,
+        "totalPrivateMiB": 1224.559,
+        "processCount": 15,
+        "rolePrivateMiB": {
+          "native-host": 5.461,
+          "node-core": 143.992,
+          "console-helper": 6.211,
+          "wallpaper-browser": 38.801,
+          "wallpaper-crashpad-handler": 2.66,
+          "wallpaper-gpu-process": 170.109,
+          "wallpaper-utility": 21.137,
+          "wallpaper-renderer": 153.09,
+          "manager-browser": 42.812,
+          "manager-crashpad-handler": 2.684,
+          "manager-gpu-process": 427.984,
+          "manager-utility": 21.215,
+          "manager-renderer": 188.402
+        }
+      },
+      {
+        "point": "afterPeak",
+        "elapsedMinutes": 75.75,
+        "totalPrivateMiB": 1099.148,
+        "processCount": 15,
+        "rolePrivateMiB": {
+          "native-host": 5.531,
+          "node-core": 134.598,
+          "console-helper": 6.211,
+          "wallpaper-browser": 38.801,
+          "wallpaper-crashpad-handler": 2.66,
+          "wallpaper-gpu-process": 170.109,
+          "wallpaper-utility": 21.137,
+          "wallpaper-renderer": 153.5,
+          "manager-browser": 43.109,
+          "manager-crashpad-handler": 2.684,
+          "manager-gpu-process": 323.578,
+          "manager-utility": 20.965,
+          "manager-renderer": 176.266
+        }
+      },
+      {
+        "point": "checkpoint",
+        "elapsedMinutes": 85.5,
+        "totalPrivateMiB": 1082.785,
+        "processCount": 15,
+        "rolePrivateMiB": {
+          "native-host": 5.539,
+          "node-core": 171.93,
+          "console-helper": 6.211,
+          "wallpaper-browser": 38.707,
+          "wallpaper-crashpad-handler": 2.66,
+          "wallpaper-gpu-process": 170.129,
+          "wallpaper-utility": 21.168,
+          "wallpaper-renderer": 155.059,
+          "manager-browser": 42.281,
+          "manager-crashpad-handler": 2.684,
+          "manager-gpu-process": 265.633,
+          "manager-utility": 21.051,
+          "manager-renderer": 179.734
+        }
+      }
+    ],
+    "nativeSectionCheckpoint": {
+      "capturedAtUtc": "2026-11-04T18:31:40.7239138Z",
+      "rows": [
+        {
+          "role": "wallpaper-renderer",
+          "earlySectionCountReportedByRoot": 37,
+          "midlateSectionCount": 37,
+          "midlateTotalHandles": 458,
+          "sectionCountDeltaFromEarly": 0,
+          "nativeQueryErrors": []
+        },
+        {
+          "role": "manager-renderer",
+          "earlySectionCountReportedByRoot": 46,
+          "midlateSectionCount": 48,
+          "midlateTotalHandles": 503,
+          "sectionCountDeltaFromEarly": 2,
+          "nativeQueryErrors": []
+        }
+      ],
+      "interpretation": "Section counts remain near early-run values; not the prior one-Section-per-ACK accumulation pattern."
+    },
+    "latest20MinuteRoleTrends": [
+      {
+        "role": "node-core",
+        "windowMinutes": 20,
+        "samplePoints": 81,
+        "privateStartMiB": 132.062,
+        "privateLastMiB": 171.93,
+        "privateDeltaMiB": 39.867,
+        "privateMinMiB": 120.488,
+        "privateMaxMiB": 180.691,
+        "privateSlopeMiBPerMinute": 2.44459,
+        "workingSetDeltaMiB": 8.676,
+        "workingSetSlopeMiBPerMinute": 0.311,
+        "handleDelta": 10
+      },
+      {
+        "role": "native-host",
+        "windowMinutes": 20,
+        "samplePoints": 81,
+        "privateStartMiB": 5.586,
+        "privateLastMiB": 5.539,
+        "privateDeltaMiB": -0.047,
+        "privateMinMiB": 5.344,
+        "privateMaxMiB": 5.984,
+        "privateSlopeMiBPerMinute": -0.00373,
+        "workingSetDeltaMiB": -0.031,
+        "workingSetSlopeMiBPerMinute": -0.00235,
+        "handleDelta": 1
+      },
+      {
+        "role": "manager-renderer",
+        "windowMinutes": 20,
+        "samplePoints": 81,
+        "privateStartMiB": 170.945,
+        "privateLastMiB": 179.734,
+        "privateDeltaMiB": 8.789,
+        "privateMinMiB": 170.309,
+        "privateMaxMiB": 188.402,
+        "privateSlopeMiBPerMinute": 0.44928,
+        "workingSetDeltaMiB": 8.07,
+        "workingSetSlopeMiBPerMinute": 0.57418,
+        "handleDelta": 24
+      },
+      {
+        "role": "manager-gpu-process",
+        "windowMinutes": 20,
+        "samplePoints": 81,
+        "privateStartMiB": 268.191,
+        "privateLastMiB": 265.633,
+        "privateDeltaMiB": -2.559,
+        "privateMinMiB": 263.344,
+        "privateMaxMiB": 427.984,
+        "privateSlopeMiBPerMinute": -0.10887,
+        "workingSetDeltaMiB": 1.07,
+        "workingSetSlopeMiBPerMinute": 0.14531,
+        "handleDelta": 1
+      },
+      {
+        "role": "manager-browser",
+        "windowMinutes": 20,
+        "samplePoints": 81,
+        "privateStartMiB": 42.098,
+        "privateLastMiB": 42.281,
+        "privateDeltaMiB": 0.184,
+        "privateMinMiB": 41.352,
+        "privateMaxMiB": 44.473,
+        "privateSlopeMiBPerMinute": 0.01894,
+        "workingSetDeltaMiB": 4.332,
+        "workingSetSlopeMiBPerMinute": 0.32194,
+        "handleDelta": 17
+      },
+      {
+        "role": "wallpaper-renderer",
+        "windowMinutes": 20,
+        "samplePoints": 81,
+        "privateStartMiB": 153.145,
+        "privateLastMiB": 155.059,
+        "privateDeltaMiB": 1.914,
+        "privateMinMiB": 152.84,
+        "privateMaxMiB": 155.059,
+        "privateSlopeMiBPerMinute": 0.02976,
+        "workingSetDeltaMiB": 1.809,
+        "workingSetSlopeMiBPerMinute": 0.02128,
+        "handleDelta": 0
+      },
+      {
+        "role": "wallpaper-gpu-process",
+        "windowMinutes": 20,
+        "samplePoints": 81,
+        "privateStartMiB": 170.109,
+        "privateLastMiB": 170.129,
+        "privateDeltaMiB": 0.02,
+        "privateMinMiB": 169.84,
+        "privateMaxMiB": 170.156,
+        "privateSlopeMiBPerMinute": 0.00297,
+        "workingSetDeltaMiB": 0.023,
+        "workingSetSlopeMiBPerMinute": 0.00277,
+        "handleDelta": 0
+      },
+      {
+        "role": "wallpaper-browser",
+        "windowMinutes": 20,
+        "samplePoints": 81,
+        "privateStartMiB": 38.809,
+        "privateLastMiB": 38.707,
+        "privateDeltaMiB": -0.102,
+        "privateMinMiB": 38.648,
+        "privateMaxMiB": 39.219,
+        "privateSlopeMiBPerMinute": -0.00128,
+        "workingSetDeltaMiB": -0.09,
+        "workingSetSlopeMiBPerMinute": -0.00017,
+        "handleDelta": 0
+      }
+    ],
+    "processCounterUncertainty": {
+      "entryCount": 4,
+      "sampleCount": 4,
+      "codeFrequency": [
+        {
+          "code": "CHILD_COUNTER_UNAVAILABLE_OR_EXITED",
+          "exceptionTypeRetained": null,
+          "count": 4
+        }
+      ],
+      "samples": [
+        {
+          "elapsedMinutes": 12.5,
+          "code": "CHILD_COUNTER_UNAVAILABLE_OR_EXITED",
+          "exceptionTypeRetained": null,
+          "recordedProcessCount": 15,
+          "missingInitialLifetimes": 0,
+          "newRecordedLifetimes": 0,
+          "recordedGroups": {
+            "host": 1,
+            "runtime": 1,
+            "other": 1,
+            "webview": 12
+          }
+        },
+        {
+          "elapsedMinutes": 32.25,
+          "code": "CHILD_COUNTER_UNAVAILABLE_OR_EXITED",
+          "exceptionTypeRetained": null,
+          "recordedProcessCount": 15,
+          "missingInitialLifetimes": 0,
+          "newRecordedLifetimes": 0,
+          "recordedGroups": {
+            "host": 1,
+            "runtime": 1,
+            "other": 1,
+            "webview": 12
+          }
+        },
+        {
+          "elapsedMinutes": 33.0,
+          "code": "CHILD_COUNTER_UNAVAILABLE_OR_EXITED",
+          "exceptionTypeRetained": null,
+          "recordedProcessCount": 15,
+          "missingInitialLifetimes": 0,
+          "newRecordedLifetimes": 0,
+          "recordedGroups": {
+            "host": 1,
+            "runtime": 1,
+            "other": 1,
+            "webview": 12
+          }
+        },
+        {
+          "elapsedMinutes": 33.252,
+          "code": "CHILD_COUNTER_UNAVAILABLE_OR_EXITED",
+          "exceptionTypeRetained": null,
+          "recordedProcessCount": 15,
+          "missingInitialLifetimes": 0,
+          "newRecordedLifetimes": 0,
+          "recordedGroups": {
+            "host": 1,
+            "runtime": 1,
+            "other": 1,
+            "webview": 12
+          }
+        }
+      ],
+      "affectedGroup": "Unresolved candidate-child counter attempt; no recorded stable group is missing in these samples.",
+      "reasonResolution": "Sampler broad catch does not preserve PID, role, native error or exception type for this code. Cannot distinguish unavailable counter/access/race/exit causes.",
+      "partialClassification": "Analyzer conservatively marks any processErrors sample partial even when all 15 known stable identities have counter rows.",
+      "doesNotProveHelperExit": true
+    },
+    "assessment": [
+      "Peak is composed of existing manager GPU, manager renderer and Node core allocations, followed by a substantial decrease in the next sample.",
+      "No extra recorded process explains the peak. This does not establish garbage collection, a new same-process view, driver cache, or a new resource bug as the cause.",
+      "Node previously plateaued but has another higher private-memory band in this late interval; continue observing to the planned endpoint.",
+      "Wallpaper renderer private-memory late interval is relatively flat while native Section count remains stable."
+    ],
+    "privacy": "Contains role aggregates and sanitized error codes only; no process IDs, command lines, private paths, user data or raw samples.",
+    "runtimePolicy": "Read-only observation; installed app and collector not modified."
+  },
+  "finalTwoHour": {
+    "reportType": "final-two-hour-renderer-soak-role-checkpoint",
+    "isFinalTwoHourResult": true,
+    "completionStatus": "collected",
+    "sampleCount": 481,
+    "observedSpanSeconds": 7200.00841,
+    "asOfElapsedMinutes": 120.00014,
+    "method": {
+      "roleClassification": "Baseline owned identity matched at end snapshot; role derives only from native process type and WebView parent role. No command lines included.",
+      "cpuPercent": "One logical core is 100%; whole-machine percent divides by the reported logical processor count.",
+      "memoryTrend": "Role windows include recorded counter rows at conservatively partial coverage points; OLS windows are descriptive and do not replace predeclared robust whole-tree review rules.",
+      "logicalProcessors": 56
+    },
+    "recordedProcessLifetimes": {
+      "count": 15,
+      "countFirstSample": 15,
+      "countLastSample": 15,
+      "countMin": 15,
+      "countMax": 15,
+      "newRecordedLifetimesAfterFirst": 0,
+      "endedInitialLifetimesAtFinal": 0,
+      "limitation": "No recorded churn; unrecorded short-lived processes between snapshots and same-process WebView allocations remain possible."
+    },
+    "peakAndNeighbourSamples": [
+      {
+        "point": "beforePeak",
+        "elapsedMinutes": 75.25019,
+        "totalPrivateMiB": 1114.39062,
+        "processCount": 15,
+        "rolePrivateMiB": {
+          "console-helper": 6.21094,
+          "manager-browser": 42.45312,
+          "manager-crashpad-handler": 2.68359,
+          "manager-gpu-process": 347.63672,
+          "manager-renderer": 173.26172,
+          "manager-utility": 20.89453,
+          "native-host": 5.48828,
+          "node-core": 129.9375,
+          "wallpaper-browser": 38.80078,
+          "wallpaper-crashpad-handler": 2.66016,
+          "wallpaper-gpu-process": 170.10938,
+          "wallpaper-renderer": 153.03906,
+          "wallpaper-utility": 21.21484
+        }
+      },
+      {
+        "point": "peak",
+        "elapsedMinutes": 75.50018,
+        "totalPrivateMiB": 1224.55859,
+        "processCount": 15,
+        "rolePrivateMiB": {
+          "console-helper": 6.21094,
+          "manager-browser": 42.8125,
+          "manager-crashpad-handler": 2.68359,
+          "manager-gpu-process": 427.98438,
+          "manager-renderer": 188.40234,
+          "manager-utility": 21.21484,
+          "native-host": 5.46094,
+          "node-core": 143.99219,
+          "wallpaper-browser": 38.80078,
+          "wallpaper-crashpad-handler": 2.66016,
+          "wallpaper-gpu-process": 170.10938,
+          "wallpaper-renderer": 153.08984,
+          "wallpaper-utility": 21.13672
+        }
+      },
+      {
+        "point": "afterPeak",
+        "elapsedMinutes": 75.75018,
+        "totalPrivateMiB": 1099.14844,
+        "processCount": 15,
+        "rolePrivateMiB": {
+          "console-helper": 6.21094,
+          "manager-browser": 43.10938,
+          "manager-crashpad-handler": 2.68359,
+          "manager-gpu-process": 323.57812,
+          "manager-renderer": 176.26562,
+          "manager-utility": 20.96484,
+          "native-host": 5.53125,
+          "node-core": 134.59766,
+          "wallpaper-browser": 38.80078,
+          "wallpaper-crashpad-handler": 2.66016,
+          "wallpaper-gpu-process": 170.10938,
+          "wallpaper-renderer": 153.5,
+          "wallpaper-utility": 21.13672
+        }
+      },
+      {
+        "point": "final",
+        "elapsedMinutes": 120.00014,
+        "totalPrivateMiB": 1072.64844,
+        "processCount": 15,
+        "rolePrivateMiB": {
+          "console-helper": 6.21094,
+          "manager-browser": 41.74219,
+          "manager-crashpad-handler": 2.68359,
+          "manager-gpu-process": 263.95703,
+          "manager-renderer": 177.36719,
+          "manager-utility": 20.79688,
+          "native-host": 5.55078,
+          "node-core": 166.19922,
+          "wallpaper-browser": 38.88672,
+          "wallpaper-crashpad-handler": 2.66797,
+          "wallpaper-gpu-process": 170.14453,
+          "wallpaper-renderer": 155.1875,
+          "wallpaper-utility": 21.25391
+        }
+      }
+    ],
+    "nativeSectionCheckpoint": {
+      "capturedAfterCompletionBeforeModeMatrix": true,
+      "rows": [
+        {
+          "role": "manager-renderer",
+          "earlySectionCountReportedByRoot": 46,
+          "endSectionCount": 48,
+          "sectionCountDeltaFromEarly": 2,
+          "endTotalHandles": 503,
+          "nativeQueryErrors": []
+        },
+        {
+          "role": "wallpaper-renderer",
+          "earlySectionCountReportedByRoot": 37,
+          "endSectionCount": 37,
+          "sectionCountDeltaFromEarly": 0,
+          "endTotalHandles": 458,
+          "nativeQueryErrors": []
+        }
+      ],
+      "interpretation": "Section counts remain near early-run values; the previous one-Section-per-unconsumed-response accumulation is absent. This does not rule out other memory growth."
+    },
+    "roleTrendWindowsMinutes": {
+      "20": [
+        {
+          "role": "all",
+          "windowMinutes": 20,
+          "samplePoints": 81,
+          "counterPartialSamplePoints": 6,
+          "privateStartMiB": 1076.46875,
+          "privateLastMiB": 1072.64844,
+          "privateDeltaMiB": -3.82031,
+          "privateMinMiB": 1062.32812,
+          "privateMaxMiB": 1137.03125,
+          "privateOLSPerHourMiB": -15.78886,
+          "workingSetDeltaMiB": -219.17188,
+          "handleStart": 6985,
+          "handleLast": 6975,
+          "handleDelta": -10,
+          "threadStart": 456,
+          "threadLast": 457,
+          "threadDelta": 1,
+          "cpuMeanOneLogicalCorePercent": 75.9417,
+          "cpuMeanWholeMachinePercent": 1.3561
+        },
+        {
+          "role": "console-helper",
+          "windowMinutes": 20,
+          "samplePoints": 81,
+          "counterPartialSamplePoints": 6,
+          "privateStartMiB": 6.21094,
+          "privateLastMiB": 6.21094,
+          "privateDeltaMiB": 0.0,
+          "privateMinMiB": 6.21094,
+          "privateMaxMiB": 6.21094,
+          "privateOLSPerHourMiB": 0.0,
+          "workingSetDeltaMiB": -5.71094,
+          "handleStart": 108,
+          "handleLast": 108,
+          "handleDelta": 0,
+          "threadStart": 2,
+          "threadLast": 2,
+          "threadDelta": 0,
+          "cpuMeanOneLogicalCorePercent": 0.0,
+          "cpuMeanWholeMachinePercent": 0.0
+        },
+        {
+          "role": "manager-browser",
+          "windowMinutes": 20,
+          "samplePoints": 81,
+          "counterPartialSamplePoints": 6,
+          "privateStartMiB": 42.01953,
+          "privateLastMiB": 41.74219,
+          "privateDeltaMiB": -0.27734,
+          "privateMinMiB": 41.70703,
+          "privateMaxMiB": 42.61328,
+          "privateOLSPerHourMiB": -0.06472,
+          "workingSetDeltaMiB": -20.56641,
+          "handleStart": 1435,
+          "handleLast": 1437,
+          "handleDelta": 2,
+          "threadStart": 65,
+          "threadLast": 66,
+          "threadDelta": 1,
+          "cpuMeanOneLogicalCorePercent": 1.42714,
+          "cpuMeanWholeMachinePercent": 0.02548
+        },
+        {
+          "role": "manager-crashpad-handler",
+          "windowMinutes": 20,
+          "samplePoints": 81,
+          "counterPartialSamplePoints": 6,
+          "privateStartMiB": 2.68359,
+          "privateLastMiB": 2.68359,
+          "privateDeltaMiB": 0.0,
+          "privateMinMiB": 2.68359,
+          "privateMaxMiB": 2.68359,
+          "privateOLSPerHourMiB": 0.0,
+          "workingSetDeltaMiB": -1.44531,
+          "handleStart": 172,
+          "handleLast": 172,
+          "handleDelta": 0,
+          "threadStart": 7,
+          "threadLast": 7,
+          "threadDelta": 0,
+          "cpuMeanOneLogicalCorePercent": 0.0,
+          "cpuMeanWholeMachinePercent": 0.0
+        },
+        {
+          "role": "manager-gpu-process",
+          "windowMinutes": 20,
+          "samplePoints": 81,
+          "counterPartialSamplePoints": 6,
+          "privateStartMiB": 264.53906,
+          "privateLastMiB": 263.95703,
+          "privateDeltaMiB": -0.58203,
+          "privateMinMiB": 262.78906,
+          "privateMaxMiB": 315.67578,
+          "privateOLSPerHourMiB": -17.708,
+          "workingSetDeltaMiB": -47.48438,
+          "handleStart": 493,
+          "handleLast": 493,
+          "handleDelta": 0,
+          "threadStart": 63,
+          "threadLast": 63,
+          "threadDelta": 0,
+          "cpuMeanOneLogicalCorePercent": 10.32201,
+          "cpuMeanWholeMachinePercent": 0.18432
+        },
+        {
+          "role": "manager-renderer",
+          "windowMinutes": 20,
+          "samplePoints": 81,
+          "counterPartialSamplePoints": 6,
+          "privateStartMiB": 179.85156,
+          "privateLastMiB": 177.36719,
+          "privateDeltaMiB": -2.48438,
+          "privateMinMiB": 176.61328,
+          "privateMaxMiB": 182.97266,
+          "privateOLSPerHourMiB": -1.64526,
+          "workingSetDeltaMiB": -25.80859,
+          "handleStart": 503,
+          "handleLast": 503,
+          "handleDelta": 0,
+          "threadStart": 52,
+          "threadLast": 52,
+          "threadDelta": 0,
+          "cpuMeanOneLogicalCorePercent": 34.02864,
+          "cpuMeanWholeMachinePercent": 0.60765
+        },
+        {
+          "role": "manager-utility",
+          "windowMinutes": 20,
+          "samplePoints": 81,
+          "counterPartialSamplePoints": 6,
+          "privateStartMiB": 20.86719,
+          "privateLastMiB": 20.79688,
+          "privateDeltaMiB": -0.07031,
+          "privateMinMiB": 20.65234,
+          "privateMaxMiB": 21.64844,
+          "privateOLSPerHourMiB": -0.40029,
+          "workingSetDeltaMiB": -5.01172,
+          "handleStart": 591,
+          "handleLast": 588,
+          "handleDelta": -3,
+          "threadStart": 32,
+          "threadLast": 32,
+          "threadDelta": 0,
+          "cpuMeanOneLogicalCorePercent": 0.94014,
+          "cpuMeanWholeMachinePercent": 0.01679
+        },
+        {
+          "role": "native-host",
+          "windowMinutes": 20,
+          "samplePoints": 81,
+          "counterPartialSamplePoints": 6,
+          "privateStartMiB": 5.55078,
+          "privateLastMiB": 5.55078,
+          "privateDeltaMiB": 0.0,
+          "privateMinMiB": 5.21094,
+          "privateMaxMiB": 6.01562,
+          "privateOLSPerHourMiB": -0.20952,
+          "workingSetDeltaMiB": -2.44141,
+          "handleStart": 318,
+          "handleLast": 318,
+          "handleDelta": 0,
+          "threadStart": 6,
+          "threadLast": 6,
+          "threadDelta": 0,
+          "cpuMeanOneLogicalCorePercent": 5.84788,
+          "cpuMeanWholeMachinePercent": 0.10443
+        },
+        {
+          "role": "node-core",
+          "windowMinutes": 20,
+          "samplePoints": 81,
+          "counterPartialSamplePoints": 6,
+          "privateStartMiB": 167.51953,
+          "privateLastMiB": 166.19922,
+          "privateDeltaMiB": -1.32031,
+          "privateMinMiB": 156.34375,
+          "privateMaxMiB": 180.34766,
+          "privateOLSPerHourMiB": 3.6247,
+          "workingSetDeltaMiB": -25.58203,
+          "handleStart": 257,
+          "handleLast": 248,
+          "handleDelta": -9,
+          "threadStart": 14,
+          "threadLast": 14,
+          "threadDelta": 0,
+          "cpuMeanOneLogicalCorePercent": 4.38298,
+          "cpuMeanWholeMachinePercent": 0.07827
+        },
+        {
+          "role": "wallpaper-browser",
+          "windowMinutes": 20,
+          "samplePoints": 81,
+          "counterPartialSamplePoints": 6,
+          "privateStartMiB": 38.86719,
+          "privateLastMiB": 38.88672,
+          "privateDeltaMiB": 0.01953,
+          "privateMinMiB": 38.58594,
+          "privateMaxMiB": 39.30078,
+          "privateOLSPerHourMiB": 0.03616,
+          "workingSetDeltaMiB": -18.67188,
+          "handleStart": 1414,
+          "handleLast": 1414,
+          "handleDelta": 0,
+          "threadStart": 65,
+          "threadLast": 65,
+          "threadDelta": 0,
+          "cpuMeanOneLogicalCorePercent": 0.71096,
+          "cpuMeanWholeMachinePercent": 0.0127
+        },
+        {
+          "role": "wallpaper-crashpad-handler",
+          "windowMinutes": 20,
+          "samplePoints": 81,
+          "counterPartialSamplePoints": 6,
+          "privateStartMiB": 2.66016,
+          "privateLastMiB": 2.66797,
+          "privateDeltaMiB": 0.00781,
+          "privateMinMiB": 2.66016,
+          "privateMaxMiB": 2.66797,
+          "privateOLSPerHourMiB": 0.01753,
+          "workingSetDeltaMiB": -1.39453,
+          "handleStart": 172,
+          "handleLast": 172,
+          "handleDelta": 0,
+          "threadStart": 7,
+          "threadLast": 7,
+          "threadDelta": 0,
+          "cpuMeanOneLogicalCorePercent": 0.0,
+          "cpuMeanWholeMachinePercent": 0.0
+        },
+        {
+          "role": "wallpaper-gpu-process",
+          "windowMinutes": 20,
+          "samplePoints": 81,
+          "counterPartialSamplePoints": 6,
+          "privateStartMiB": 170.09766,
+          "privateLastMiB": 170.14453,
+          "privateDeltaMiB": 0.04688,
+          "privateMinMiB": 170.07031,
+          "privateMaxMiB": 170.16016,
+          "privateOLSPerHourMiB": 0.17684,
+          "workingSetDeltaMiB": -19.37891,
+          "handleStart": 484,
+          "handleLast": 484,
+          "handleDelta": 0,
+          "threadStart": 63,
+          "threadLast": 63,
+          "threadDelta": 0,
+          "cpuMeanOneLogicalCorePercent": 7.94301,
+          "cpuMeanWholeMachinePercent": 0.14184
+        },
+        {
+          "role": "wallpaper-renderer",
+          "windowMinutes": 20,
+          "samplePoints": 81,
+          "counterPartialSamplePoints": 6,
+          "privateStartMiB": 154.41797,
+          "privateLastMiB": 155.1875,
+          "privateDeltaMiB": 0.76953,
+          "privateMinMiB": 153.26953,
+          "privateMaxMiB": 155.28516,
+          "privateOLSPerHourMiB": 0.35853,
+          "workingSetDeltaMiB": -40.73047,
+          "handleStart": 458,
+          "handleLast": 458,
+          "handleDelta": 0,
+          "threadStart": 49,
+          "threadLast": 49,
+          "threadDelta": 0,
+          "cpuMeanOneLogicalCorePercent": 9.78032,
+          "cpuMeanWholeMachinePercent": 0.17465
+        },
+        {
+          "role": "wallpaper-utility",
+          "windowMinutes": 20,
+          "samplePoints": 81,
+          "counterPartialSamplePoints": 6,
+          "privateStartMiB": 21.18359,
+          "privateLastMiB": 21.25391,
+          "privateDeltaMiB": 0.07031,
+          "privateMinMiB": 21.09766,
+          "privateMaxMiB": 21.57422,
+          "privateOLSPerHourMiB": 0.02517,
+          "workingSetDeltaMiB": -4.94531,
+          "handleStart": 580,
+          "handleLast": 580,
+          "handleDelta": 0,
+          "threadStart": 31,
+          "threadLast": 31,
+          "threadDelta": 0,
+          "cpuMeanOneLogicalCorePercent": 0.55862,
+          "cpuMeanWholeMachinePercent": 0.00998
+        }
+      ],
+      "30": [
+        {
+          "role": "all",
+          "windowMinutes": 30,
+          "samplePoints": 121,
+          "counterPartialSamplePoints": 14,
+          "privateStartMiB": 1087.45312,
+          "privateLastMiB": 1072.64844,
+          "privateDeltaMiB": -14.80469,
+          "privateMinMiB": 1062.32812,
+          "privateMaxMiB": 1204.80469,
+          "privateOLSPerHourMiB": -28.39166,
+          "workingSetDeltaMiB": -229.03516,
+          "handleStart": 6991,
+          "handleLast": 6975,
+          "handleDelta": -16,
+          "threadStart": 457,
+          "threadLast": 457,
+          "threadDelta": 0,
+          "cpuMeanOneLogicalCorePercent": 75.90275,
+          "cpuMeanWholeMachinePercent": 1.35541
+        },
+        {
+          "role": "console-helper",
+          "windowMinutes": 30,
+          "samplePoints": 121,
+          "counterPartialSamplePoints": 14,
+          "privateStartMiB": 6.21094,
+          "privateLastMiB": 6.21094,
+          "privateDeltaMiB": 0.0,
+          "privateMinMiB": 6.21094,
+          "privateMaxMiB": 6.21094,
+          "privateOLSPerHourMiB": 0.0,
+          "workingSetDeltaMiB": -5.71094,
+          "handleStart": 108,
+          "handleLast": 108,
+          "handleDelta": 0,
+          "threadStart": 2,
+          "threadLast": 2,
+          "threadDelta": 0,
+          "cpuMeanOneLogicalCorePercent": 0.0,
+          "cpuMeanWholeMachinePercent": 0.0
+        },
+        {
+          "role": "manager-browser",
+          "windowMinutes": 30,
+          "samplePoints": 121,
+          "counterPartialSamplePoints": 14,
+          "privateStartMiB": 41.71875,
+          "privateLastMiB": 41.74219,
+          "privateDeltaMiB": 0.02344,
+          "privateMinMiB": 41.52344,
+          "privateMaxMiB": 42.63672,
+          "privateOLSPerHourMiB": -0.03568,
+          "workingSetDeltaMiB": -20.26953,
+          "handleStart": 1437,
+          "handleLast": 1437,
+          "handleDelta": 0,
+          "threadStart": 65,
+          "threadLast": 66,
+          "threadDelta": 1,
+          "cpuMeanOneLogicalCorePercent": 1.44538,
+          "cpuMeanWholeMachinePercent": 0.02581
+        },
+        {
+          "role": "manager-crashpad-handler",
+          "windowMinutes": 30,
+          "samplePoints": 121,
+          "counterPartialSamplePoints": 14,
+          "privateStartMiB": 2.68359,
+          "privateLastMiB": 2.68359,
+          "privateDeltaMiB": 0.0,
+          "privateMinMiB": 2.68359,
+          "privateMaxMiB": 2.68359,
+          "privateOLSPerHourMiB": 0.0,
+          "workingSetDeltaMiB": -1.44531,
+          "handleStart": 172,
+          "handleLast": 172,
+          "handleDelta": 0,
+          "threadStart": 7,
+          "threadLast": 7,
+          "threadDelta": 0,
+          "cpuMeanOneLogicalCorePercent": 0.0,
+          "cpuMeanWholeMachinePercent": 0.0
+        },
+        {
+          "role": "manager-gpu-process",
+          "windowMinutes": 30,
+          "samplePoints": 121,
+          "counterPartialSamplePoints": 14,
+          "privateStartMiB": 265.63281,
+          "privateLastMiB": 263.95703,
+          "privateDeltaMiB": -1.67578,
+          "privateMinMiB": 262.78906,
+          "privateMaxMiB": 381.54297,
+          "privateOLSPerHourMiB": -29.94897,
+          "workingSetDeltaMiB": -48.3125,
+          "handleStart": 492,
+          "handleLast": 493,
+          "handleDelta": 1,
+          "threadStart": 63,
+          "threadLast": 63,
+          "threadDelta": 0,
+          "cpuMeanOneLogicalCorePercent": 10.74962,
+          "cpuMeanWholeMachinePercent": 0.19196
+        },
+        {
+          "role": "manager-renderer",
+          "windowMinutes": 30,
+          "samplePoints": 121,
+          "counterPartialSamplePoints": 14,
+          "privateStartMiB": 180.58594,
+          "privateLastMiB": 177.36719,
+          "privateDeltaMiB": -3.21875,
+          "privateMinMiB": 176.05469,
+          "privateMaxMiB": 188.64453,
+          "privateOLSPerHourMiB": -0.85526,
+          "workingSetDeltaMiB": -26.22656,
+          "handleStart": 503,
+          "handleLast": 503,
+          "handleDelta": 0,
+          "threadStart": 52,
+          "threadLast": 52,
+          "threadDelta": 0,
+          "cpuMeanOneLogicalCorePercent": 33.83834,
+          "cpuMeanWholeMachinePercent": 0.60426
+        },
+        {
+          "role": "manager-utility",
+          "windowMinutes": 30,
+          "samplePoints": 121,
+          "counterPartialSamplePoints": 14,
+          "privateStartMiB": 20.76953,
+          "privateLastMiB": 20.79688,
+          "privateDeltaMiB": 0.02734,
+          "privateMinMiB": 20.62109,
+          "privateMaxMiB": 21.64844,
+          "privateOLSPerHourMiB": -0.10452,
+          "workingSetDeltaMiB": -4.91406,
+          "handleStart": 594,
+          "handleLast": 588,
+          "handleDelta": -6,
+          "threadStart": 32,
+          "threadLast": 32,
+          "threadDelta": 0,
+          "cpuMeanOneLogicalCorePercent": 0.96185,
+          "cpuMeanWholeMachinePercent": 0.01718
+        },
+        {
+          "role": "native-host",
+          "windowMinutes": 30,
+          "samplePoints": 121,
+          "counterPartialSamplePoints": 14,
+          "privateStartMiB": 5.53906,
+          "privateLastMiB": 5.55078,
+          "privateDeltaMiB": 0.01172,
+          "privateMinMiB": 5.20703,
+          "privateMaxMiB": 6.01562,
+          "privateOLSPerHourMiB": -0.00113,
+          "workingSetDeltaMiB": -2.44141,
+          "handleStart": 317,
+          "handleLast": 318,
+          "handleDelta": 1,
+          "threadStart": 6,
+          "threadLast": 6,
+          "threadDelta": 0,
+          "cpuMeanOneLogicalCorePercent": 5.71554,
+          "cpuMeanWholeMachinePercent": 0.10206
+        },
+        {
+          "role": "node-core",
+          "windowMinutes": 30,
+          "samplePoints": 121,
+          "counterPartialSamplePoints": 14,
+          "privateStartMiB": 177.87891,
+          "privateLastMiB": 166.19922,
+          "privateDeltaMiB": -11.67969,
+          "privateMinMiB": 155.88281,
+          "privateMaxMiB": 180.34766,
+          "privateOLSPerHourMiB": 2.34683,
+          "workingSetDeltaMiB": -35.50781,
+          "handleStart": 254,
+          "handleLast": 248,
+          "handleDelta": -6,
+          "threadStart": 14,
+          "threadLast": 14,
+          "threadDelta": 0,
+          "cpuMeanOneLogicalCorePercent": 4.39343,
+          "cpuMeanWholeMachinePercent": 0.07845
+        },
+        {
+          "role": "wallpaper-browser",
+          "windowMinutes": 30,
+          "samplePoints": 121,
+          "counterPartialSamplePoints": 14,
+          "privateStartMiB": 38.90234,
+          "privateLastMiB": 38.88672,
+          "privateDeltaMiB": -0.01562,
+          "privateMinMiB": 38.58594,
+          "privateMaxMiB": 39.30078,
+          "privateOLSPerHourMiB": -0.03748,
+          "workingSetDeltaMiB": -18.69531,
+          "handleStart": 1416,
+          "handleLast": 1414,
+          "handleDelta": -2,
+          "threadStart": 66,
+          "threadLast": 65,
+          "threadDelta": -1,
+          "cpuMeanOneLogicalCorePercent": 0.71705,
+          "cpuMeanWholeMachinePercent": 0.0128
+        },
+        {
+          "role": "wallpaper-crashpad-handler",
+          "windowMinutes": 30,
+          "samplePoints": 121,
+          "counterPartialSamplePoints": 14,
+          "privateStartMiB": 2.66016,
+          "privateLastMiB": 2.66797,
+          "privateDeltaMiB": 0.00781,
+          "privateMinMiB": 2.66016,
+          "privateMaxMiB": 2.66797,
+          "privateOLSPerHourMiB": 0.02279,
+          "workingSetDeltaMiB": -1.39453,
+          "handleStart": 172,
+          "handleLast": 172,
+          "handleDelta": 0,
+          "threadStart": 7,
+          "threadLast": 7,
+          "threadDelta": 0,
+          "cpuMeanOneLogicalCorePercent": 0.0,
+          "cpuMeanWholeMachinePercent": 0.0
+        },
+        {
+          "role": "wallpaper-gpu-process",
+          "windowMinutes": 30,
+          "samplePoints": 121,
+          "counterPartialSamplePoints": 14,
+          "privateStartMiB": 170.10156,
+          "privateLastMiB": 170.14453,
+          "privateDeltaMiB": 0.04297,
+          "privateMinMiB": 170.07031,
+          "privateMaxMiB": 170.16016,
+          "privateOLSPerHourMiB": 0.08623,
+          "workingSetDeltaMiB": -19.36719,
+          "handleStart": 488,
+          "handleLast": 484,
+          "handleDelta": -4,
+          "threadStart": 63,
+          "threadLast": 63,
+          "threadDelta": 0,
+          "cpuMeanOneLogicalCorePercent": 8.09325,
+          "cpuMeanWholeMachinePercent": 0.14452
+        },
+        {
+          "role": "wallpaper-renderer",
+          "windowMinutes": 30,
+          "samplePoints": 121,
+          "counterPartialSamplePoints": 14,
+          "privateStartMiB": 153.59375,
+          "privateLastMiB": 155.1875,
+          "privateDeltaMiB": 1.59375,
+          "privateMinMiB": 153.26953,
+          "privateMaxMiB": 155.47266,
+          "privateOLSPerHourMiB": 0.08204,
+          "workingSetDeltaMiB": -39.8125,
+          "handleStart": 458,
+          "handleLast": 458,
+          "handleDelta": 0,
+          "threadStart": 49,
+          "threadLast": 49,
+          "threadDelta": 0,
+          "cpuMeanOneLogicalCorePercent": 9.42317,
+          "cpuMeanWholeMachinePercent": 0.16827
+        },
+        {
+          "role": "wallpaper-utility",
+          "windowMinutes": 30,
+          "samplePoints": 121,
+          "counterPartialSamplePoints": 14,
+          "privateStartMiB": 21.17578,
+          "privateLastMiB": 21.25391,
+          "privateDeltaMiB": 0.07812,
+          "privateMinMiB": 21.09766,
+          "privateMaxMiB": 21.57422,
+          "privateOLSPerHourMiB": 0.0535,
+          "workingSetDeltaMiB": -4.9375,
+          "handleStart": 580,
+          "handleLast": 580,
+          "handleDelta": 0,
+          "threadStart": 31,
+          "threadLast": 31,
+          "threadDelta": 0,
+          "cpuMeanOneLogicalCorePercent": 0.56513,
+          "cpuMeanWholeMachinePercent": 0.01009
+        }
+      ],
+      "60": [
+        {
+          "role": "all",
+          "windowMinutes": 60,
+          "samplePoints": 241,
+          "counterPartialSamplePoints": 14,
+          "privateStartMiB": 1024.80469,
+          "privateLastMiB": 1072.64844,
+          "privateDeltaMiB": 47.84375,
+          "privateMinMiB": 1006.08594,
+          "privateMaxMiB": 1224.55859,
+          "privateOLSPerHourMiB": 41.53158,
+          "workingSetDeltaMiB": -188.38672,
+          "handleStart": 6929,
+          "handleLast": 6975,
+          "handleDelta": 46,
+          "threadStart": 456,
+          "threadLast": 457,
+          "threadDelta": 1,
+          "cpuMeanOneLogicalCorePercent": 77.19864,
+          "cpuMeanWholeMachinePercent": 1.37855
+        },
+        {
+          "role": "console-helper",
+          "windowMinutes": 60,
+          "samplePoints": 241,
+          "counterPartialSamplePoints": 14,
+          "privateStartMiB": 6.21094,
+          "privateLastMiB": 6.21094,
+          "privateDeltaMiB": 0.0,
+          "privateMinMiB": 6.21094,
+          "privateMaxMiB": 6.21094,
+          "privateOLSPerHourMiB": 0.0,
+          "workingSetDeltaMiB": -5.71094,
+          "handleStart": 108,
+          "handleLast": 108,
+          "handleDelta": 0,
+          "threadStart": 2,
+          "threadLast": 2,
+          "threadDelta": 0,
+          "cpuMeanOneLogicalCorePercent": 0.0,
+          "cpuMeanWholeMachinePercent": 0.0
+        },
+        {
+          "role": "manager-browser",
+          "windowMinutes": 60,
+          "samplePoints": 241,
+          "counterPartialSamplePoints": 14,
+          "privateStartMiB": 41.9375,
+          "privateLastMiB": 41.74219,
+          "privateDeltaMiB": -0.19531,
+          "privateMinMiB": 41.35156,
+          "privateMaxMiB": 44.47266,
+          "privateOLSPerHourMiB": -0.05476,
+          "workingSetDeltaMiB": -17.35938,
+          "handleStart": 1429,
+          "handleLast": 1437,
+          "handleDelta": 8,
+          "threadStart": 65,
+          "threadLast": 66,
+          "threadDelta": 1,
+          "cpuMeanOneLogicalCorePercent": 1.59982,
+          "cpuMeanWholeMachinePercent": 0.02857
+        },
+        {
+          "role": "manager-crashpad-handler",
+          "windowMinutes": 60,
+          "samplePoints": 241,
+          "counterPartialSamplePoints": 14,
+          "privateStartMiB": 2.68359,
+          "privateLastMiB": 2.68359,
+          "privateDeltaMiB": 0.0,
+          "privateMinMiB": 2.68359,
+          "privateMaxMiB": 2.68359,
+          "privateOLSPerHourMiB": 0.0,
+          "workingSetDeltaMiB": -1.44531,
+          "handleStart": 172,
+          "handleLast": 172,
+          "handleDelta": 0,
+          "threadStart": 7,
+          "threadLast": 7,
+          "threadDelta": 0,
+          "cpuMeanOneLogicalCorePercent": 0.0,
+          "cpuMeanWholeMachinePercent": 0.0
+        },
+        {
+          "role": "manager-gpu-process",
+          "windowMinutes": 60,
+          "samplePoints": 241,
+          "counterPartialSamplePoints": 14,
+          "privateStartMiB": 268.30078,
+          "privateLastMiB": 263.95703,
+          "privateDeltaMiB": -4.34375,
+          "privateMinMiB": 262.78906,
+          "privateMaxMiB": 427.98438,
+          "privateOLSPerHourMiB": -13.73621,
+          "workingSetDeltaMiB": -47.35547,
+          "handleStart": 491,
+          "handleLast": 493,
+          "handleDelta": 2,
+          "threadStart": 63,
+          "threadLast": 63,
+          "threadDelta": 0,
+          "cpuMeanOneLogicalCorePercent": 10.63323,
+          "cpuMeanWholeMachinePercent": 0.18988
+        },
+        {
+          "role": "manager-renderer",
+          "windowMinutes": 60,
+          "samplePoints": 241,
+          "counterPartialSamplePoints": 14,
+          "privateStartMiB": 172.5625,
+          "privateLastMiB": 177.36719,
+          "privateDeltaMiB": 4.80469,
+          "privateMinMiB": 170.15625,
+          "privateMaxMiB": 188.64453,
+          "privateOLSPerHourMiB": 8.13905,
+          "workingSetDeltaMiB": -18.38281,
+          "handleStart": 479,
+          "handleLast": 503,
+          "handleDelta": 24,
+          "threadStart": 51,
+          "threadLast": 52,
+          "threadDelta": 1,
+          "cpuMeanOneLogicalCorePercent": 34.51295,
+          "cpuMeanWholeMachinePercent": 0.6163
+        },
+        {
+          "role": "manager-utility",
+          "windowMinutes": 60,
+          "samplePoints": 241,
+          "counterPartialSamplePoints": 14,
+          "privateStartMiB": 20.80469,
+          "privateLastMiB": 20.79688,
+          "privateDeltaMiB": -0.00781,
+          "privateMinMiB": 20.57031,
+          "privateMaxMiB": 21.64844,
+          "privateOLSPerHourMiB": 0.04275,
+          "workingSetDeltaMiB": -4.875,
+          "handleStart": 590,
+          "handleLast": 588,
+          "handleDelta": -2,
+          "threadStart": 34,
+          "threadLast": 32,
+          "threadDelta": -2,
+          "cpuMeanOneLogicalCorePercent": 0.95356,
+          "cpuMeanWholeMachinePercent": 0.01703
+        },
+        {
+          "role": "native-host",
+          "windowMinutes": 60,
+          "samplePoints": 241,
+          "counterPartialSamplePoints": 14,
+          "privateStartMiB": 5.57422,
+          "privateLastMiB": 5.55078,
+          "privateDeltaMiB": -0.02344,
+          "privateMinMiB": 5.20703,
+          "privateMaxMiB": 6.01562,
+          "privateOLSPerHourMiB": -0.0297,
+          "workingSetDeltaMiB": -2.42578,
+          "handleStart": 316,
+          "handleLast": 318,
+          "handleDelta": 2,
+          "threadStart": 6,
+          "threadLast": 6,
+          "threadDelta": 0,
+          "cpuMeanOneLogicalCorePercent": 6.14756,
+          "cpuMeanWholeMachinePercent": 0.10978
+        },
+        {
+          "role": "node-core",
+          "windowMinutes": 60,
+          "samplePoints": 241,
+          "counterPartialSamplePoints": 14,
+          "privateStartMiB": 146.29297,
+          "privateLastMiB": 166.19922,
+          "privateDeltaMiB": 19.90625,
+          "privateMinMiB": 120.48828,
+          "privateMaxMiB": 180.69141,
+          "privateOLSPerHourMiB": 41.36619,
+          "workingSetDeltaMiB": -32.33984,
+          "handleStart": 229,
+          "handleLast": 248,
+          "handleDelta": 19,
+          "threadStart": 10,
+          "threadLast": 14,
+          "threadDelta": 4,
+          "cpuMeanOneLogicalCorePercent": 4.27777,
+          "cpuMeanWholeMachinePercent": 0.07639
+        },
+        {
+          "role": "wallpaper-browser",
+          "windowMinutes": 60,
+          "samplePoints": 241,
+          "counterPartialSamplePoints": 14,
+          "privateStartMiB": 39.13672,
+          "privateLastMiB": 38.88672,
+          "privateDeltaMiB": -0.25,
+          "privateMinMiB": 38.58594,
+          "privateMaxMiB": 39.30078,
+          "privateOLSPerHourMiB": -0.09426,
+          "workingSetDeltaMiB": -18.91016,
+          "handleStart": 1416,
+          "handleLast": 1414,
+          "handleDelta": -2,
+          "threadStart": 66,
+          "threadLast": 65,
+          "threadDelta": -1,
+          "cpuMeanOneLogicalCorePercent": 0.69922,
+          "cpuMeanWholeMachinePercent": 0.01249
+        },
+        {
+          "role": "wallpaper-crashpad-handler",
+          "windowMinutes": 60,
+          "samplePoints": 241,
+          "counterPartialSamplePoints": 14,
+          "privateStartMiB": 2.66016,
+          "privateLastMiB": 2.66797,
+          "privateDeltaMiB": 0.00781,
+          "privateMinMiB": 2.66016,
+          "privateMaxMiB": 2.66797,
+          "privateOLSPerHourMiB": 0.00954,
+          "workingSetDeltaMiB": -1.39453,
+          "handleStart": 172,
+          "handleLast": 172,
+          "handleDelta": 0,
+          "threadStart": 7,
+          "threadLast": 7,
+          "threadDelta": 0,
+          "cpuMeanOneLogicalCorePercent": 0.0,
+          "cpuMeanWholeMachinePercent": 0.0
+        },
+        {
+          "role": "wallpaper-gpu-process",
+          "windowMinutes": 60,
+          "samplePoints": 241,
+          "counterPartialSamplePoints": 14,
+          "privateStartMiB": 170.10156,
+          "privateLastMiB": 170.14453,
+          "privateDeltaMiB": 0.04297,
+          "privateMinMiB": 169.83984,
+          "privateMaxMiB": 170.16016,
+          "privateOLSPerHourMiB": 0.02575,
+          "workingSetDeltaMiB": -19.39453,
+          "handleStart": 484,
+          "handleLast": 484,
+          "handleDelta": 0,
+          "threadStart": 63,
+          "threadLast": 63,
+          "threadDelta": 0,
+          "cpuMeanOneLogicalCorePercent": 8.1354,
+          "cpuMeanWholeMachinePercent": 0.14528
+        },
+        {
+          "role": "wallpaper-renderer",
+          "windowMinutes": 60,
+          "samplePoints": 241,
+          "counterPartialSamplePoints": 14,
+          "privateStartMiB": 127.29297,
+          "privateLastMiB": 155.1875,
+          "privateDeltaMiB": 27.89453,
+          "privateMinMiB": 127.08984,
+          "privateMaxMiB": 155.47266,
+          "privateOLSPerHourMiB": 5.80837,
+          "workingSetDeltaMiB": -13.81641,
+          "handleStart": 458,
+          "handleLast": 458,
+          "handleDelta": 0,
+          "threadStart": 49,
+          "threadLast": 49,
+          "threadDelta": 0,
+          "cpuMeanOneLogicalCorePercent": 9.67533,
+          "cpuMeanWholeMachinePercent": 0.17277
+        },
+        {
+          "role": "wallpaper-utility",
+          "windowMinutes": 60,
+          "samplePoints": 241,
+          "counterPartialSamplePoints": 14,
+          "privateStartMiB": 21.24609,
+          "privateLastMiB": 21.25391,
+          "privateDeltaMiB": 0.00781,
+          "privateMinMiB": 21.05859,
+          "privateMaxMiB": 21.57422,
+          "privateOLSPerHourMiB": 0.05487,
+          "workingSetDeltaMiB": -4.97656,
+          "handleStart": 585,
+          "handleLast": 580,
+          "handleDelta": -5,
+          "threadStart": 33,
+          "threadLast": 31,
+          "threadDelta": -2,
+          "cpuMeanOneLogicalCorePercent": 0.5638,
+          "cpuMeanWholeMachinePercent": 0.01007
+        }
+      ]
+    },
+    "privateMemoryFifteenMinuteBands": [
+      {
+        "role": "all",
+        "windowStartMinutes": 30,
+        "windowEndMinutes": 45,
+        "minPrivateMiB": 988.24609,
+        "medianPrivateMiB": 1005.41016,
+        "maxPrivateMiB": 1020.53516
+      },
+      {
+        "role": "all",
+        "windowStartMinutes": 45,
+        "windowEndMinutes": 60,
+        "minPrivateMiB": 997.87891,
+        "medianPrivateMiB": 1013.51953,
+        "maxPrivateMiB": 1024.80469
+      },
+      {
+        "role": "all",
+        "windowStartMinutes": 60,
+        "windowEndMinutes": 75,
+        "minPrivateMiB": 1006.08594,
+        "medianPrivateMiB": 1039.72656,
+        "maxPrivateMiB": 1184.26562
+      },
+      {
+        "role": "all",
+        "windowStartMinutes": 75,
+        "windowEndMinutes": 90,
+        "minPrivateMiB": 1064.58594,
+        "medianPrivateMiB": 1079.52734,
+        "maxPrivateMiB": 1224.55859
+      },
+      {
+        "role": "all",
+        "windowStartMinutes": 90,
+        "windowEndMinutes": 105,
+        "minPrivateMiB": 1062.32812,
+        "medianPrivateMiB": 1080.29688,
+        "maxPrivateMiB": 1204.80469
+      },
+      {
+        "role": "all",
+        "windowStartMinutes": 105,
+        "windowEndMinutes": 120,
+        "minPrivateMiB": 1064.27734,
+        "medianPrivateMiB": 1077.59375,
+        "maxPrivateMiB": 1091.39453
+      },
+      {
+        "role": "node-core",
+        "windowStartMinutes": 30,
+        "windowEndMinutes": 45,
+        "minPrivateMiB": 121.14844,
+        "medianPrivateMiB": 136.8125,
+        "maxPrivateMiB": 146.89062
+      },
+      {
+        "role": "node-core",
+        "windowStartMinutes": 45,
+        "windowEndMinutes": 60,
+        "minPrivateMiB": 120.01953,
+        "medianPrivateMiB": 136.34766,
+        "maxPrivateMiB": 146.29688
+      },
+      {
+        "role": "node-core",
+        "windowStartMinutes": 60,
+        "windowEndMinutes": 75,
+        "minPrivateMiB": 120.48828,
+        "medianPrivateMiB": 136.96875,
+        "maxPrivateMiB": 146.52344
+      },
+      {
+        "role": "node-core",
+        "windowStartMinutes": 75,
+        "windowEndMinutes": 90,
+        "minPrivateMiB": 129.9375,
+        "medianPrivateMiB": 168.48047,
+        "maxPrivateMiB": 180.69141
+      },
+      {
+        "role": "node-core",
+        "windowStartMinutes": 90,
+        "windowEndMinutes": 105,
+        "minPrivateMiB": 155.88281,
+        "medianPrivateMiB": 171.03906,
+        "maxPrivateMiB": 179.88281
+      },
+      {
+        "role": "node-core",
+        "windowStartMinutes": 105,
+        "windowEndMinutes": 120,
+        "minPrivateMiB": 158.03516,
+        "medianPrivateMiB": 170.22266,
+        "maxPrivateMiB": 180.34766
+      },
+      {
+        "role": "manager-renderer",
+        "windowStartMinutes": 30,
+        "windowEndMinutes": 45,
+        "minPrivateMiB": 165.38672,
+        "medianPrivateMiB": 168.67969,
+        "maxPrivateMiB": 172.42188
+      },
+      {
+        "role": "manager-renderer",
+        "windowStartMinutes": 45,
+        "windowEndMinutes": 60,
+        "minPrivateMiB": 169.35547,
+        "medianPrivateMiB": 171.88281,
+        "maxPrivateMiB": 174.89453
+      },
+      {
+        "role": "manager-renderer",
+        "windowStartMinutes": 60,
+        "windowEndMinutes": 75,
+        "minPrivateMiB": 170.15625,
+        "medianPrivateMiB": 172.07812,
+        "maxPrivateMiB": 187.19922
+      },
+      {
+        "role": "manager-renderer",
+        "windowStartMinutes": 75,
+        "windowEndMinutes": 90,
+        "minPrivateMiB": 171.26172,
+        "medianPrivateMiB": 178.08984,
+        "maxPrivateMiB": 188.40234
+      },
+      {
+        "role": "manager-renderer",
+        "windowStartMinutes": 90,
+        "windowEndMinutes": 105,
+        "minPrivateMiB": 176.05469,
+        "medianPrivateMiB": 178.94531,
+        "maxPrivateMiB": 188.64453
+      },
+      {
+        "role": "manager-renderer",
+        "windowStartMinutes": 105,
+        "windowEndMinutes": 120,
+        "minPrivateMiB": 176.61328,
+        "medianPrivateMiB": 179.11719,
+        "maxPrivateMiB": 181.57812
+      },
+      {
+        "role": "manager-gpu-process",
+        "windowStartMinutes": 30,
+        "windowEndMinutes": 45,
+        "minPrivateMiB": 259.09375,
+        "medianPrivateMiB": 262.97656,
+        "maxPrivateMiB": 265.85547
+      },
+      {
+        "role": "manager-gpu-process",
+        "windowStartMinutes": 45,
+        "windowEndMinutes": 60,
+        "minPrivateMiB": 265.04297,
+        "medianPrivateMiB": 267.79688,
+        "maxPrivateMiB": 268.53906
+      },
+      {
+        "role": "manager-gpu-process",
+        "windowStartMinutes": 60,
+        "windowEndMinutes": 75,
+        "minPrivateMiB": 267.23438,
+        "medianPrivateMiB": 267.89844,
+        "maxPrivateMiB": 395.55469
+      },
+      {
+        "role": "manager-gpu-process",
+        "windowStartMinutes": 75,
+        "windowEndMinutes": 90,
+        "minPrivateMiB": 263.34375,
+        "medianPrivateMiB": 264.63281,
+        "maxPrivateMiB": 427.98438
+      },
+      {
+        "role": "manager-gpu-process",
+        "windowStartMinutes": 90,
+        "windowEndMinutes": 105,
+        "minPrivateMiB": 263.11328,
+        "medianPrivateMiB": 264.87891,
+        "maxPrivateMiB": 381.54297
+      },
+      {
+        "role": "manager-gpu-process",
+        "windowStartMinutes": 105,
+        "windowEndMinutes": 120,
+        "minPrivateMiB": 262.78906,
+        "medianPrivateMiB": 263.94531,
+        "maxPrivateMiB": 265.23438
+      },
+      {
+        "role": "wallpaper-renderer",
+        "windowStartMinutes": 30,
+        "windowEndMinutes": 45,
+        "minPrivateMiB": 126.46484,
+        "medianPrivateMiB": 127.10547,
+        "maxPrivateMiB": 128.50391
+      },
+      {
+        "role": "wallpaper-renderer",
+        "windowStartMinutes": 45,
+        "windowEndMinutes": 60,
+        "minPrivateMiB": 126.76953,
+        "medianPrivateMiB": 127.26562,
+        "maxPrivateMiB": 128.51172
+      },
+      {
+        "role": "wallpaper-renderer",
+        "windowStartMinutes": 60,
+        "windowEndMinutes": 75,
+        "minPrivateMiB": 127.08984,
+        "medianPrivateMiB": 153.3125,
+        "maxPrivateMiB": 154.78125
+      },
+      {
+        "role": "wallpaper-renderer",
+        "windowStartMinutes": 75,
+        "windowEndMinutes": 90,
+        "minPrivateMiB": 153.03906,
+        "medianPrivateMiB": 153.60938,
+        "maxPrivateMiB": 155.14062
+      },
+      {
+        "role": "wallpaper-renderer",
+        "windowStartMinutes": 90,
+        "windowEndMinutes": 105,
+        "minPrivateMiB": 153.26953,
+        "medianPrivateMiB": 153.95703,
+        "maxPrivateMiB": 155.47266
+      },
+      {
+        "role": "wallpaper-renderer",
+        "windowStartMinutes": 105,
+        "windowEndMinutes": 120,
+        "minPrivateMiB": 153.41797,
+        "medianPrivateMiB": 153.86328,
+        "maxPrivateMiB": 155.26172
+      },
+      {
+        "role": "wallpaper-gpu-process",
+        "windowStartMinutes": 30,
+        "windowEndMinutes": 45,
+        "minPrivateMiB": 170.02734,
+        "medianPrivateMiB": 170.06641,
+        "maxPrivateMiB": 170.16797
+      },
+      {
+        "role": "wallpaper-gpu-process",
+        "windowStartMinutes": 45,
+        "windowEndMinutes": 60,
+        "minPrivateMiB": 169.86328,
+        "medianPrivateMiB": 170.07031,
+        "maxPrivateMiB": 170.10156
+      },
+      {
+        "role": "wallpaper-gpu-process",
+        "windowStartMinutes": 60,
+        "windowEndMinutes": 75,
+        "minPrivateMiB": 169.83984,
+        "medianPrivateMiB": 170.10156,
+        "maxPrivateMiB": 170.12109
+      },
+      {
+        "role": "wallpaper-gpu-process",
+        "windowStartMinutes": 75,
+        "windowEndMinutes": 90,
+        "minPrivateMiB": 170.09766,
+        "medianPrivateMiB": 170.12891,
+        "maxPrivateMiB": 170.15625
+      },
+      {
+        "role": "wallpaper-gpu-process",
+        "windowStartMinutes": 90,
+        "windowEndMinutes": 105,
+        "minPrivateMiB": 170.07031,
+        "medianPrivateMiB": 170.10156,
+        "maxPrivateMiB": 170.12109
+      },
+      {
+        "role": "wallpaper-gpu-process",
+        "windowStartMinutes": 105,
+        "windowEndMinutes": 120,
+        "minPrivateMiB": 170.09766,
+        "medianPrivateMiB": 170.12891,
+        "maxPrivateMiB": 170.16016
+      }
+    ],
+    "processCounterUncertainty": {
+      "sampleCount": 18,
+      "entryCount": 27,
+      "codeFrequency": [
+        {
+          "code": "CHILD_COUNTER_UNAVAILABLE_OR_EXITED",
+          "count": 27,
+          "exceptionTypeRetained": null
+        }
+      ],
+      "samples": [
+        {
+          "elapsedMinutes": 12.50021,
+          "entryCount": 1,
+          "recordedProcessCount": 15,
+          "missingInitialLifetimes": 0,
+          "newRecordedLifetimes": 0,
+          "recordedGroups": {
+            "host": 1,
+            "runtime": 1,
+            "other": 1,
+            "webview": 12
+          }
+        },
+        {
+          "elapsedMinutes": 32.25037,
+          "entryCount": 1,
+          "recordedProcessCount": 15,
+          "missingInitialLifetimes": 0,
+          "newRecordedLifetimes": 0,
+          "recordedGroups": {
+            "host": 1,
+            "runtime": 1,
+            "other": 1,
+            "webview": 12
+          }
+        },
+        {
+          "elapsedMinutes": 33.00011,
+          "entryCount": 1,
+          "recordedProcessCount": 15,
+          "missingInitialLifetimes": 0,
+          "newRecordedLifetimes": 0,
+          "recordedGroups": {
+            "host": 1,
+            "runtime": 1,
+            "other": 1,
+            "webview": 12
+          }
+        },
+        {
+          "elapsedMinutes": 33.25197,
+          "entryCount": 1,
+          "recordedProcessCount": 15,
+          "missingInitialLifetimes": 0,
+          "newRecordedLifetimes": 0,
+          "recordedGroups": {
+            "host": 1,
+            "runtime": 1,
+            "other": 1,
+            "webview": 12
+          }
+        },
+        {
+          "elapsedMinutes": 90.75172,
+          "entryCount": 1,
+          "recordedProcessCount": 15,
+          "missingInitialLifetimes": 0,
+          "newRecordedLifetimes": 0,
+          "recordedGroups": {
+            "host": 1,
+            "runtime": 1,
+            "other": 1,
+            "webview": 12
+          }
+        },
+        {
+          "elapsedMinutes": 91.25456,
+          "entryCount": 1,
+          "recordedProcessCount": 15,
+          "missingInitialLifetimes": 0,
+          "newRecordedLifetimes": 0,
+          "recordedGroups": {
+            "host": 1,
+            "runtime": 1,
+            "other": 1,
+            "webview": 12
+          }
+        },
+        {
+          "elapsedMinutes": 91.50022,
+          "entryCount": 1,
+          "recordedProcessCount": 15,
+          "missingInitialLifetimes": 0,
+          "newRecordedLifetimes": 0,
+          "recordedGroups": {
+            "host": 1,
+            "runtime": 1,
+            "other": 1,
+            "webview": 12
+          }
+        },
+        {
+          "elapsedMinutes": 91.75438,
+          "entryCount": 1,
+          "recordedProcessCount": 15,
+          "missingInitialLifetimes": 0,
+          "newRecordedLifetimes": 0,
+          "recordedGroups": {
+            "host": 1,
+            "runtime": 1,
+            "other": 1,
+            "webview": 12
+          }
+        },
+        {
+          "elapsedMinutes": 92.00193,
+          "entryCount": 1,
+          "recordedProcessCount": 15,
+          "missingInitialLifetimes": 0,
+          "newRecordedLifetimes": 0,
+          "recordedGroups": {
+            "host": 1,
+            "runtime": 1,
+            "other": 1,
+            "webview": 12
+          }
+        },
+        {
+          "elapsedMinutes": 93.50319,
+          "entryCount": 3,
+          "recordedProcessCount": 15,
+          "missingInitialLifetimes": 0,
+          "newRecordedLifetimes": 0,
+          "recordedGroups": {
+            "host": 1,
+            "runtime": 1,
+            "other": 1,
+            "webview": 12
+          }
+        },
+        {
+          "elapsedMinutes": 94.00173,
+          "entryCount": 2,
+          "recordedProcessCount": 15,
+          "missingInitialLifetimes": 0,
+          "newRecordedLifetimes": 0,
+          "recordedGroups": {
+            "host": 1,
+            "runtime": 1,
+            "other": 1,
+            "webview": 12
+          }
+        },
+        {
+          "elapsedMinutes": 96.50124,
+          "entryCount": 2,
+          "recordedProcessCount": 15,
+          "missingInitialLifetimes": 0,
+          "newRecordedLifetimes": 0,
+          "recordedGroups": {
+            "host": 1,
+            "runtime": 1,
+            "other": 1,
+            "webview": 12
+          }
+        },
+        {
+          "elapsedMinutes": 106.25028,
+          "entryCount": 2,
+          "recordedProcessCount": 15,
+          "missingInitialLifetimes": 0,
+          "newRecordedLifetimes": 0,
+          "recordedGroups": {
+            "host": 1,
+            "runtime": 1,
+            "other": 1,
+            "webview": 12
+          }
+        },
+        {
+          "elapsedMinutes": 106.50434,
+          "entryCount": 2,
+          "recordedProcessCount": 15,
+          "missingInitialLifetimes": 0,
+          "newRecordedLifetimes": 0,
+          "recordedGroups": {
+            "host": 1,
+            "runtime": 1,
+            "other": 1,
+            "webview": 12
+          }
+        },
+        {
+          "elapsedMinutes": 107.7521,
+          "entryCount": 4,
+          "recordedProcessCount": 15,
+          "missingInitialLifetimes": 0,
+          "newRecordedLifetimes": 0,
+          "recordedGroups": {
+            "host": 1,
+            "runtime": 1,
+            "other": 1,
+            "webview": 12
+          }
+        },
+        {
+          "elapsedMinutes": 108.00233,
+          "entryCount": 1,
+          "recordedProcessCount": 15,
+          "missingInitialLifetimes": 0,
+          "newRecordedLifetimes": 0,
+          "recordedGroups": {
+            "host": 1,
+            "runtime": 1,
+            "other": 1,
+            "webview": 12
+          }
+        },
+        {
+          "elapsedMinutes": 108.25011,
+          "entryCount": 1,
+          "recordedProcessCount": 15,
+          "missingInitialLifetimes": 0,
+          "newRecordedLifetimes": 0,
+          "recordedGroups": {
+            "host": 1,
+            "runtime": 1,
+            "other": 1,
+            "webview": 12
+          }
+        },
+        {
+          "elapsedMinutes": 108.75153,
+          "entryCount": 1,
+          "recordedProcessCount": 15,
+          "missingInitialLifetimes": 0,
+          "newRecordedLifetimes": 0,
+          "recordedGroups": {
+            "host": 1,
+            "runtime": 1,
+            "other": 1,
+            "webview": 12
+          }
+        }
+      ],
+      "affectedGroup": "Unresolved candidate-child counter attempt; all recorded stable groups remain present in these samples.",
+      "reasonResolution": "Broad sampler catch preserves neither exception type, native error nor failing identity. Counter/access/race/exit causes are indistinguishable. Repeated ownership passes may append repeated codes within a sample.",
+      "partialClassification": "Any processErrors sample is conservatively partial even with all 15 known stable identities recorded. Entry count is not a count of distinct failed processes or crashes.",
+      "doesNotProveHelperExit": true
+    },
+    "gpuCounterUncertainty": {
+      "sampleCount": 8,
+      "entryCount": 8,
+      "codeFrequency": [
+        {
+          "code": "Read.engine:0xC0000BBA",
+          "count": 8,
+          "pdhName": "PDH_CSTATUS_INVALID_DATA"
+        }
+      ],
+      "samples": [
+        {
+          "elapsedMinutes": 9.0003,
+          "codes": [
+            "Read.engine:0xC0000BBA"
+          ],
+          "engineAvailable": false,
+          "processMemoryAvailable": true
+        },
+        {
+          "elapsedMinutes": 61.75026,
+          "codes": [
+            "Read.engine:0xC0000BBA"
+          ],
+          "engineAvailable": false,
+          "processMemoryAvailable": true
+        },
+        {
+          "elapsedMinutes": 94.5009,
+          "codes": [
+            "Read.engine:0xC0000BBA"
+          ],
+          "engineAvailable": false,
+          "processMemoryAvailable": true
+        },
+        {
+          "elapsedMinutes": 94.7503,
+          "codes": [
+            "Read.engine:0xC0000BBA"
+          ],
+          "engineAvailable": false,
+          "processMemoryAvailable": true
+        },
+        {
+          "elapsedMinutes": 95.25197,
+          "codes": [
+            "Read.engine:0xC0000BBA"
+          ],
+          "engineAvailable": false,
+          "processMemoryAvailable": true
+        },
+        {
+          "elapsedMinutes": 99.25183,
+          "codes": [
+            "Read.engine:0xC0000BBA"
+          ],
+          "engineAvailable": false,
+          "processMemoryAvailable": true
+        },
+        {
+          "elapsedMinutes": 100.75052,
+          "codes": [
+            "Read.engine:0xC0000BBA"
+          ],
+          "engineAvailable": false,
+          "processMemoryAvailable": true
+        },
+        {
+          "elapsedMinutes": 111.75139,
+          "codes": [
+            "Read.engine:0xC0000BBA"
+          ],
+          "engineAvailable": false,
+          "processMemoryAvailable": true
+        }
+      ],
+      "interpretation": "Invalid engine data is unavailable, never replaced with zero. The independently available process-memory gauge remains separate. This code does not establish a GPU driver reset.",
+      "officialCodeReference": "https://learn.microsoft.com/en-us/windows/win32/perfctrs/pdh-error-codes"
+    },
+    "retainedPrimaryReviewFlags": [
+      {
+        "code": "PRIVATE_MEMORY_GROWTH_REVIEW",
+        "severity": "review",
+        "group": "all",
+        "growthMiB": 175.01171875,
+        "theilSenMiBPerHour": 81.54162964358878
+      },
+      {
+        "code": "PRIVATE_MEMORY_GROWTH_REVIEW",
+        "severity": "review",
+        "group": "runtime",
+        "growthMiB": 99.3359375,
+        "theilSenMiBPerHour": 40.216354572941135
+      },
+      {
+        "code": "PROCESS_COVERAGE_PARTIAL",
+        "severity": "review",
+        "queryFailures": 0,
+        "partialSamples": 18,
+        "invalidRows": 0,
+        "duplicateRows": 0
+      },
+      {
+        "code": "GPU_COUNTER_COVERAGE_PARTIAL",
+        "severity": "review",
+        "samplesWithErrors": 8,
+        "samplesWithPartialOwnedTree": 18,
+        "engineSamplesWithInvalidInstances": 0,
+        "engineSamplesWithOutOfRangeInstances": 0,
+        "memorySamplesWithInvalidInstances": 0,
+        "excludedAvailableEngineSamples": 18,
+        "excludedAvailableMemorySamples": 26
+      }
+    ],
+    "retainedThirtyMinuteWarmupReviewFlags": [
+      {
+        "code": "PRIVATE_MEMORY_GROWTH_REVIEW",
+        "severity": "review",
+        "group": "runtime",
+        "growthMiB": 34.66796875,
+        "theilSenMiBPerHour": 32.29578164154046
+      },
+      {
+        "code": "PROCESS_COVERAGE_PARTIAL",
+        "severity": "review",
+        "queryFailures": 0,
+        "partialSamples": 18,
+        "invalidRows": 0,
+        "duplicateRows": 0
+      },
+      {
+        "code": "GPU_COUNTER_COVERAGE_PARTIAL",
+        "severity": "review",
+        "samplesWithErrors": 8,
+        "samplesWithPartialOwnedTree": 18,
+        "engineSamplesWithInvalidInstances": 0,
+        "engineSamplesWithOutOfRangeInstances": 0,
+        "memorySamplesWithInvalidInstances": 0,
+        "excludedAvailableEngineSamples": 18,
+        "excludedAvailableMemorySamples": 26
+      }
+    ],
+    "assessment": [
+      "Predeclared memory-growth review flags remain. A narrower late window does not overturn full-window evidence.",
+      "Node private-memory lower bands rise from roughly 120-121 MiB during minutes 30-75 to 155.88-158.04 MiB during minutes 90-120. The last 30 minutes fluctuate in a higher band; neither a bounded plateau nor a leak cause is proven.",
+      "The largest total-memory peak is existing manager GPU, manager renderer and Node allocations, followed by a substantial decrease at the next sample. No recorded extra process explains it. Garbage collection, cache growth and same-process view activity are not causally identified.",
+      "Late wallpaper GPU private memory and renderer Section counts remain relatively stable; whole-app private memory still warrants deeper attribution.",
+      "Memory growth remains unresolved and zero leaks cannot be guaranteed."
+    ]
+  },
+  "privacy": "Role aggregates, relative statistics and sanitized error codes only; no process identities, command lines, private paths, user content, XML or raw event messages.",
+  "runtimePolicy": "Read-only baseline observation; installed app and collector unchanged by this analysis."
+}

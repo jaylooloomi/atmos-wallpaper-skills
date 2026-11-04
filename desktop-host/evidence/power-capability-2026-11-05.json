@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 1,
+  "capturedAtUtc": "2026-11-04T16:46:06.3012657Z",
+  "dateTaipei": "2026-11-05",
+  "testKind": "actual-readonly-capability-probe",
+  "native": {
+    "schemaVersion": 1,
+    "capturedAtUtc": "2026-11-04T16:46:06.3012657Z",
+    "kind": "capability-only",
+    "available": false,
+    "watts": null,
+    "joules": null,
+    "reason": "No watt/joule measurement performed or validated. CPU/GPU activity and Windows Power Usage categories are not physical power readings.",
+    "systemPowerStatus": {
+      "success": true,
+      "acLineStatus": 1,
+      "batteryPresent": false,
+      "batteryFlag": 128,
+      "batteryPercent": null,
+      "batteryLifetimeSeconds": null,
+      "batteryRateMilliwatts": null,
+      "batteryRateMeasured": false
+    },
+    "energyMeterInterface": {
+      "discoverySucceeded": true,
+      "presentCount": 0,
+      "discoveryTruncated": false,
+      "nativeError": null,
+      "metadataAndMeasurementValidated": false,
+      "note": "Interface presence is only a candidate capability; units, hardware scope and two interval measurements must be validated separately."
+    },
+    "restrictions": {
+      "settingsChanged": false,
+      "elevationRequested": false,
+      "driversInstalled": false,
+      "devicePathsReturned": false,
+      "wmiPolled": false,
+      "energyDiagnosticRun": false
+    }
+  },
+  "additionalReadOnlyChecks": {
+    "win32BatteryInstances": 0,
+    "batteryStatusClassAvailable": false,
+    "energyMeterCounterSetsRegistered": true,
+    "actualMeterCounterReadSucceeded": false,
+    "commonEnergyMeterWmiClassesAvailable": false,
+    "sleepStandbyStatesSupported": [],
+    "availablePowerStates": [
+      "hibernate",
+      "fast-startup"
+    ]
+  },
+  "measurementClaims": {
+    "wattsMeasured": false,
+    "joulesMeasured": false,
+    "batteryDischargeRateMeasured": false,
+    "perProcessEnergyMeasured": false,
+    "taskManagerCategoryQueried": false,
+    "cpuGpuUtilizationConvertedToWatts": false
+  },
+  "scope": "No validated energy source from probed built-in interfaces; vendor-specific sources were not exhaustively enumerated.",
+  "vendorPowerCheck": {
+    "source": "Existing NVIDIA utility; readonly power.draw query, no limit/clock/driver changes",
+    "reportedModelFromPriorReadonlyCheck": "NVIDIA GeForce GT 710",
+    "reportedDriverFromPriorReadonlyCheck": "475.14",
+    "existingNvmlLibraryReported": true,
+    "powerDrawAvailable": false,
+    "powerDrawWatts": null,
+    "powerDrawState": "not-supported",
+    "powerLimitWattsFromPriorReadonlyCheck": null,
+    "powerLimitStateFromPriorReadonlyCheck": "not-supported",
+    "perProcessEnergyMeasured": false,
+    "collectorIntegration": "No vendor CLI added to running collector or periodic sample loop",
+    "observedAtUtc": "2026-11-04T17:18:16.018652+00:00"
+  }
+}
