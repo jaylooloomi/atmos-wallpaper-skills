@@ -1,6 +1,6 @@
-# Atmos Wallpaper Windows 0.7.18
+# Atmos Wallpaper Windows 0.7.19
 
-**目前已移除螢幕保護功能。** 設定只保留桌面元件／外觀字型兩個分頁；下方版本記錄中的 `.scr` 與螢幕保護均屬歷史功能。[移除與安全升級清理](docs/SCREENSAVER-REMOVAL-2026-11-06.md)。
+**目前已移除螢幕保護功能。** 設定分為桌面元件／桌布與系統設定／外觀字型三個分頁；下方版本記錄中的 `.scr` 與螢幕保護均屬歷史功能。[移除與安全升級清理](docs/SCREENSAVER-REMOVAL-2026-11-06.md)。
 
 Tauri 2＋Rust、Windows x64，提供單目標、各螢幕獨立、重複與全景桌布配置（新安裝預設跟隨主螢幕）。保留現有管理頁、場景、元件與 ICS 日曆，由自己的 WebView2 宿主套用，**不使用 Lively**。
 
@@ -145,3 +145,5 @@ Agent 實機整合測試（會暫時變更強度再以交易還原）：node scr
 0.7.17 移除頁面下方的外部 AI Prompt 與原始 JSON 技術診斷區；Agent 契約、CLI、設定保存與 ACK 機制保留。[驗證](docs/MANAGER-PANELS-REMOVAL-2026-11-06.md)。
 
 0.7.18 將介面風格移至桌面元件分頁最上方，保留原節點、切換事件及設定。[驗證](docs/THEME-DESKTOP-TAB-2026-11-06.md)。
+
+0.7.19 將既有桌布與系統控制移至獨立分頁，取代原螢幕保護分頁位置；切換不提交設定，風格維持桌面元件最上方。[驗證](docs/SYSTEM-SETTINGS-TAB-2026-11-06.md)。

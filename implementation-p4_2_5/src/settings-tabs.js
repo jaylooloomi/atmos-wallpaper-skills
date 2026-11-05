@@ -91,9 +91,9 @@ function start({wallpaper=false}={}){
  const scroll=document.querySelector('.side .panel-scroll'),section=document.querySelector('.component-section');manager=document.getElementById('widgetManager');const inspector=document.getElementById('componentInspector');if(!scroll||!section||!manager||!inspector)return;
  started=true;root=section;root.classList.add('settings-tabs');const originalSections=[...scroll.children].filter(e=>e!==section);
  const bar=node('div','settings-tablist');bar.setAttribute('role','tablist');bar.setAttribute('aria-label','Control panel');
- for(const [i,id]of ['desktop','appearance'].entries()){
+ for(const [id,i]of [['desktop',0],['system',2],['appearance',1]]){
   const button=label(node('button','settings-tab'),i);button.type='button';button.id='settings-tab-'+id;button.setAttribute('role','tab');button.setAttribute('aria-controls','settings-panel-'+id);button.onclick=()=>select(id);
-  button.onkeydown=e=>{const keys=['desktop','appearance'];let index=keys.indexOf(active);if(e.key==='ArrowRight')index=(index+1)%2;else if(e.key==='ArrowLeft')index=(index+1)%2;else if(e.key==='Home')index=0;else if(e.key==='End')index=keys.length-1;else return;e.preventDefault();select(keys[index],{focus:true})};
+  button.onkeydown=e=>{const keys=['desktop','system','appearance'];let index=keys.indexOf(active);if(e.key==='ArrowRight')index=(index+1)%keys.length;else if(e.key==='ArrowLeft')index=(index+keys.length-1)%keys.length;else if(e.key==='Home')index=0;else if(e.key==='End')index=keys.length-1;else return;e.preventDefault();select(keys[index],{focus:true})};
   tabs[id]=button;bar.append(button);const panel=node('section','settings-tabpanel');panel.id='settings-panel-'+id;panel.dataset.settingsPanel=id;panel.setAttribute('role','tabpanel');panel.setAttribute('aria-labelledby',button.id);panels[id]=panel;
  }
  // Keep all original widget operations under their delegated #widgetManager ancestor.
@@ -106,8 +106,8 @@ function start({wallpaper=false}={}){
   const content=node('div','settings-widget-content'),props=document.getElementById('props-'+id);for(const e of [...props.children])if(e.classList.contains('inspect-operations')||e.classList.contains('inspect-extra')||e.classList.contains('calendar-section'))content.append(e);
   const edit=label(node('button','settings-edit-appearance'),3);edit.type='button';edit.onclick=()=>{select('appearance');window.AtmosInspector.open(id);inspector.querySelector('#inspect-title-'+id)?.focus()};content.append(edit);row.append(content);rows.append(row);
  }
- const advanced=node('details','settings-advanced');advanced.append(label(node('summary'),2));panels.desktop.append(advanced);
- for(const e of originalSections){e.classList.add('settings-native-controls');e.addEventListener('change',event=>event.stopPropagation());if(e.classList.contains('screensaver-settings'))e.remove();else if(e.classList.contains('provider-settings'))rows.querySelector('[data-settings-widget-card="weather"] .settings-widget-content').prepend(e);else if(e.classList.contains('weather-section')||e.classList.contains('preset-settings'))panels.appearance.prepend(e);else advanced.append(e)}
+ // Native controls live in their own tab; preserve their nodes and save handlers.
+ for(const e of originalSections){e.classList.add('settings-native-controls');e.addEventListener('change',event=>event.stopPropagation());if(e.classList.contains('screensaver-settings'))e.remove();else if(e.classList.contains('provider-settings'))rows.querySelector('[data-settings-widget-card="weather"] .settings-widget-content').prepend(e);else if(e.classList.contains('weather-section')||e.classList.contains('preset-settings'))panels.appearance.prepend(e);else panels.system.append(e)}
  const theme=document.getElementById('themeSettings');if(theme){theme.addEventListener('change',event=>event.stopPropagation());panels.desktop.prepend(theme)}
  for(const empty of document.querySelectorAll('.below-preview,.settings-bottom'))if(!empty.children.length)empty.remove();
  const footer=node('div','settings-tab-footer');save=label(node('button','settings-apply'),4);save.type='button';save.onclick=()=>document.getElementById('applyDraft')?.click();footer.append(label(node('small'),5),save);section.append(footer);

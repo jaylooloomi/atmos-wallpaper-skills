@@ -4,6 +4,8 @@ Atmos 是可客製化的個人資訊桌面（Personal Dashboard）：把關心�
 
 ## 最新功能
 
+- 0.7.19 以「桌布與系統設定」取代原螢幕保護分頁位置，集中既有系統控制；保留桌面元件與外觀字型分頁，不恢復螢幕保護功能。[驗證](desktop-host/docs/SYSTEM-SETTINGS-TAB-2026-11-06.md)。
+
 - 0.7.18 將介面風格移至「桌面元件」分頁最上方，保留等寬與 2×2 卡片排列、既有切換及草稿行為。[驗證](desktop-host/docs/THEME-DESKTOP-TAB-2026-11-06.md)。
 
 - 0.7.17 移除管理頁的外部 AI 指令產生區與原始技術診斷區，保留 JSON／CLI 與內部真實畫面回報。[驗證](desktop-host/docs/MANAGER-PANELS-REMOVAL-2026-11-06.md)。

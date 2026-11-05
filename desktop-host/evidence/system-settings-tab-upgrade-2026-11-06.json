@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-06",
+  "version": "0.7.19",
+  "passed": true,
+  "installer": {
+    "bytes": 293449281,
+    "sha256": "ebbc933bb8a449dacfa287e09dfd730256d6f0e094ae9bc3449bc485aabdd1f7"
+  },
+  "checks": {
+    "silentUpgrade": true,
+    "installedBinaryMatchesNsisStampedBuild": true,
+    "privateSettingsPreimageSaved": true,
+    "configFilesBytePreserved": 10,
+    "startupPreferencePreserved": true,
+    "informationModeCheckedWhenConfigured": true,
+    "embeddedPayloadVerified": true,
+    "servedUiAssetsMatchBuild": true,
+    "removedManagerPanelsAbsent": true,
+    "newNativeHostAttached": true,
+    "genuineWallpaperAndManagerAck": true,
+    "retiredScreensaverFileAbsent": true,
+    "retiredActivationCommandsRejected": true,
+    "retiredSchemaAbsent": true,
+    "windowsAuthenticationAndTimeoutPreserved": true,
+    "unrelatedScreensaverSelectionPreserved": true
+  },
+  "limitations": [
+    "Observed release directory bundle marker UNK versus installed NSIS marker NSS. Only those three exact bytes are normalized; all other bytes must match.",
+    "No user browser or desktop UI automation. Native attachment and renderer acknowledgements are not manual visibility proof.",
+    "Manager geometry and scroll states are verified separately in isolated Chromium fixtures."
+  ]
+}
