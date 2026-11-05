@@ -1,4 +1,4 @@
-# Atmos Wallpaper Windows 0.7.12
+# Atmos Wallpaper Windows 0.7.13
 
 Tauri 2＋Rust、Windows x64，提供單目標、各螢幕獨立、重複與全景桌布配置（新安裝預設跟隨主螢幕）。保留現有管理頁、場景、元件與 ICS 日曆，由自己的 WebView2 宿主套用，**不使用 Lively**。
 
@@ -133,3 +133,5 @@ Agent 實機整合測試（會暫時變更強度再以交易還原）：node scr
 0.6.1 加入 Rust/CPAL/WASAPI 原創合成音源、總音量／靜音、桌面焦點政策、實際播放裝置選擇與主動三秒測試音。使用者已確認雨聲、音量／靜音及焦點切換。[音訊驗證與限制](docs/AUDIO-VALIDATION-2026-11-04.md)。版本更新請使用 `node scripts/set-version.mjs --write X.Y.Z`，避免誤改相依版本。
 
 0.7.12 修正元件展開箭頭、標頭密度及工具列僅捲動後吸頂的外觀，保留目前布局與設定。[驗證說明](docs/UI-REFINEMENT-2026-11-06.md)。
+
+0.7.13 將管理工具列在寬版合為一列，使用目前主題配色與一致按鈕，保留捲動後吸頂與各設定保存邊界。[驗證](docs/COMPACT-TOOLBAR-2026-11-06.md)。

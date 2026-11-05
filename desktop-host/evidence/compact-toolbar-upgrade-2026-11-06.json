@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-06",
+  "version": "0.7.13",
+  "passed": true,
+  "installer": {
+    "bytes": 293593346,
+    "sha256": "c2186583650b099e4ddd300280c2609e2a1bf5e88daeacb6fe7936642c83273d"
+  },
+  "checks": {
+    "silentUpgrade": true,
+    "installedBinaryMatchesNsisStampedBuild": true,
+    "privateSettingsPreimageSaved": true,
+    "configFilesBytePreserved": 8,
+    "startupPreferencePreserved": true,
+    "informationModeCheckedWhenConfigured": true,
+    "embeddedPayloadVerified": true,
+    "servedUiAssetsMatchBuild": true,
+    "newNativeHostAttached": true,
+    "genuineWallpaperAndManagerAck": true,
+    "screensaverBinaryMatches": true
+  },
+  "limitations": [
+    "Observed release directory bundle marker UNK versus installed NSIS marker NSS. Only those three exact bytes are normalized; all other bytes must match.",
+    "No user browser or desktop UI automation. Native attachment and renderer acknowledgements are not manual visibility proof.",
+    "Manager geometry and scroll states are verified separately in isolated Chromium fixtures."
+  ]
+}

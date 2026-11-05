@@ -1,0 +1,133 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-06",
+  "version": "0.7.13",
+  "fixtureOnly": true,
+  "passed": true,
+  "viewportCount": 12,
+  "checks": [
+    {
+      "width": 320,
+      "height": 844,
+      "initialToolbarTop": 24,
+      "initialShadow": "none",
+      "pinnedTop": 12,
+      "toolbarHeight": 308,
+      "minimumTextAndEnabledButtonContrast": 8.227131885484408,
+      "failures": []
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "initialToolbarTop": 24,
+      "initialShadow": "none",
+      "pinnedTop": 12,
+      "toolbarHeight": 282,
+      "minimumTextAndEnabledButtonContrast": 8.227131885484408,
+      "failures": []
+    },
+    {
+      "width": 600,
+      "height": 900,
+      "initialToolbarTop": 24,
+      "initialShadow": "none",
+      "pinnedTop": 12,
+      "toolbarHeight": 174,
+      "minimumTextAndEnabledButtonContrast": 8.227131885484408,
+      "failures": []
+    },
+    {
+      "width": 768,
+      "height": 900,
+      "initialToolbarTop": 24,
+      "initialShadow": "none",
+      "pinnedTop": 12,
+      "toolbarHeight": 174,
+      "minimumTextAndEnabledButtonContrast": 8.227131885484408,
+      "failures": []
+    },
+    {
+      "width": 1000,
+      "height": 900,
+      "initialToolbarTop": 24,
+      "initialShadow": "none",
+      "pinnedTop": 12,
+      "toolbarHeight": 120,
+      "minimumTextAndEnabledButtonContrast": 8.227131885484408,
+      "failures": []
+    },
+    {
+      "width": 1001,
+      "height": 900,
+      "initialToolbarTop": 24,
+      "initialShadow": "none",
+      "pinnedTop": 12,
+      "toolbarHeight": 120,
+      "minimumTextAndEnabledButtonContrast": 8.227131885484408,
+      "failures": []
+    },
+    {
+      "width": 1100,
+      "height": 900,
+      "initialToolbarTop": 24,
+      "initialShadow": "none",
+      "pinnedTop": 12,
+      "toolbarHeight": 120,
+      "minimumTextAndEnabledButtonContrast": 8.227131885484408,
+      "failures": []
+    },
+    {
+      "width": 1101,
+      "height": 900,
+      "initialToolbarTop": 24,
+      "initialShadow": "none",
+      "pinnedTop": 12,
+      "toolbarHeight": 120,
+      "minimumTextAndEnabledButtonContrast": 8.227131885484408,
+      "failures": []
+    },
+    {
+      "width": 1280,
+      "height": 900,
+      "initialToolbarTop": 24,
+      "initialShadow": "none",
+      "pinnedTop": 12,
+      "toolbarHeight": 66,
+      "minimumTextAndEnabledButtonContrast": 8.227131885484408,
+      "failures": []
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "initialToolbarTop": 24,
+      "initialShadow": "none",
+      "pinnedTop": 12,
+      "toolbarHeight": 120,
+      "minimumTextAndEnabledButtonContrast": 8.227131885484408,
+      "failures": []
+    },
+    {
+      "width": 1876,
+      "height": 1080,
+      "initialToolbarTop": 24,
+      "initialShadow": "none",
+      "pinnedTop": 12,
+      "toolbarHeight": 66,
+      "minimumTextAndEnabledButtonContrast": 8.227131885484408,
+      "failures": []
+    },
+    {
+      "width": 1280,
+      "height": 600,
+      "initialToolbarTop": 24,
+      "initialShadow": "none",
+      "pinnedTop": 12,
+      "toolbarHeight": 120,
+      "minimumTextAndEnabledButtonContrast": 8.227131885484408,
+      "failures": []
+    }
+  ],
+  "limitations": [
+    "Synthetic fixture, no user UI automation or live renderer ACKs. Wide single-row geometry checked across component/theme matrix; narrower viewports intentionally wrap."
+  ]
+}
