@@ -4,6 +4,8 @@ Atmos 是可客製化的個人資訊桌面（Personal Dashboard）：把關心�
 
 ## 最新功能
 
+- 資訊省電模式：背景靜態顯示、簡化合成，時鐘／行程／資訊更新保留；管理頁可即時切換。[模式與本機短測](desktop-host/docs/INFORMATION-SAVING-2026-11-05.md)。
+
 - 個人資訊桌面：GitHub／Yahoo 每日資訊，加上自訂 RSS／Atom、更新頻率、來源狀態與三種資訊卡片配置範本。[定位、操作與 Agent 介面](desktop-host/docs/PERSONAL-DASHBOARD-2026-11-05.md)。
 
 前端修改請執行 `implementation-p4_2_5` 的 `npm run verify`：已包含 12 情境／336 狀態的排版回歸，Windows 封裝亦強制執行。[排版測試與規則](implementation-p4_2_5/docs/LAYOUT-REGRESSION.md)。
@@ -13,7 +15,7 @@ Atmos 是可客製化的個人資訊桌面（Personal Dashboard）：把關心�
 - 五語介面（繁中、簡中、英文、日文、韓文）、12／24 小時及秒數設定。
 - 管理頁 `/manager` 的修改先成草稿，再按套用提交；`/wallpaper` 為唯讀顯示頁。
 - 本機圖片匯入、備份、還原、版本遷移、離線匯出與受限 CLI。
-- Windows x64 0.7.7：Tauri 2＋Rust、獨立 WebView2、托盤與退出還原；安裝後預設啟動並套用主螢幕，可在管理頁選單一、獨立、重複或全景配置／清除 Atmos 層，提供宿主 JSON/CAS 與原生 Agent 教學；支援登入 Windows 後背景自動套用與管理頁即時開關。內含 Node／Python／Pillow 與離線 WebView2 安裝程式，不需另外安裝 Node、Python 或 Lively。[安裝、重建與限制](desktop-host/README.md)。
+- Windows x64 0.7.8：Tauri 2＋Rust、獨立 WebView2、托盤與退出還原；安裝後預設啟動並套用主螢幕，可在管理頁選單一、獨立、重複或全景配置／清除 Atmos 層，提供宿主 JSON/CAS 與原生 Agent 教學；支援登入 Windows 後背景自動套用與管理頁即時開關。內含 Node／Python／Pillow 與離線 WebView2 安裝程式，不需另外安裝 Node、Python 或 Lively。[安裝、重建與限制](desktop-host/README.md)。
 
 - 本機具名外觀配置／收藏、托盤快捷、專注／展示、間隔輪播與固定時段；保留私人待辦／行程來源與計時進度。
 - JSON 檔案監看與外觀／排程／模式受限 CLI；明確 opt-in，不直接改 live.json、不建立開機 watcher。

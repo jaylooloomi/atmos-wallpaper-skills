@@ -1,0 +1,369 @@
+{
+  "date": "2026-11-05",
+  "version": "0.7.8",
+  "passed": true,
+  "method": "Real installed-host normal / information-saving / normal phases; same host and original settings; authenticated manager API, native state and genuine WebView diagnostics",
+  "phases": [
+    {
+      "name": "normal-before",
+      "informationMode": false,
+      "observedSeconds": 53.554,
+      "animation": [
+        {
+          "role": "wallpaper",
+          "draws": 1567,
+          "schedules": 3134,
+          "schedulesPerSecond": 58.520371961011314
+        },
+        {
+          "role": "manager",
+          "draws": 1395,
+          "schedules": 2547,
+          "schedulesPerSecond": 47.559472681779134
+        }
+      ],
+      "resource": {
+        "measurement": {
+          "completeMarkerPresent": true,
+          "completionSuccessful": true,
+          "partialAnalysis": false,
+          "collectorElapsedSeconds": 47.698851,
+          "plannedDurationSeconds": 45,
+          "sampleIntervalSeconds": 3,
+          "sampleCount": 16,
+          "validTimeSamples": 16,
+          "observedSpanSeconds": 45.0043271,
+          "durationReached": true,
+          "logicalProcessors": 56,
+          "rootIdentityDeclared": true,
+          "processGroups": [
+            "host",
+            "runtime",
+            "webview",
+            "other"
+          ],
+          "cpuCoverage": {
+            "eligibleIntervals": 15,
+            "validCpuIntervals": 15,
+            "completeCohortIntervals": 15,
+            "partialCohortIntervals": 0,
+            "excludedLongGapIntervals": 0,
+            "excludedLongGapSeconds": 0,
+            "excludedQueryFailureIntervals": 0,
+            "excludedInvalidSampleIntervals": 0,
+            "excludedCounterUnavailableIntervals": 0,
+            "matchedIdentityPairs": 225,
+            "possibleIdentityPairs": 225,
+            "maximumSampleGapSeconds": 3.0214028999999982,
+            "observedIntervalSeconds": 45.0043271,
+            "completeCpuSeconds": 45.0043271,
+            "partialCpuSeconds": 0,
+            "unmeasuredBirthTransitions": 0,
+            "unmeasuredExitTransitions": 0,
+            "completeCpuFractionOfObserved": 1,
+            "partialCpuFractionOfObserved": 0,
+            "matchedIdentityPairRatio": 1
+          },
+          "issues": {
+            "invalidTimeSamples": 0,
+            "nonIncreasingTimeSamples": 0,
+            "processQueryFailureSamples": 0,
+            "processPartialSamples": 0,
+            "invalidProcessRows": 0,
+            "duplicateProcessRows": 0,
+            "rootMissingSamples": 0,
+            "rootIdentityMismatchSamples": 0,
+            "cpuCounterRegressionProcesses": 0,
+            "hostSessionMismatchSamples": 0,
+            "nativeStaleSamples": 0,
+            "nativeObservationTimestampInvalidSamples": 0,
+            "nativeFutureTimestampSamples": 0,
+            "nativeRootPidMismatchSamples": 0
+          },
+          "inputParsing": {
+            "invalidLines": 0,
+            "trailingPartial": false
+          },
+          "eventInputParsing": {
+            "filePresent": false,
+            "invalidLines": 0,
+            "trailingPartial": false
+          }
+        },
+        "gpu": {
+          "availableSamples": 15,
+          "busiestOwnedEnginePercent": {
+            "samples": 15,
+            "first": 50.06194876222657,
+            "last": 48.34022422372452,
+            "min": 42.6359915718197,
+            "median": 50.25532366156709,
+            "p95": 50.703273331163466,
+            "peak": 50.739114849953594
+          },
+          "counterCoverage": {
+            "samplesWithErrors": 0,
+            "samplesWithPartialOwnedTree": 0,
+            "engineSamplesWithInvalidInstances": 0,
+            "engineSamplesWithOutOfRangeInstances": 0,
+            "memorySamplesWithInvalidInstances": 0,
+            "excludedAvailableEngineSamples": 0,
+            "excludedAvailableMemorySamples": 0
+          }
+        },
+        "power": {
+          "available": false,
+          "reason": "No validated watts/joules measurement"
+        },
+        "reviewFlags": []
+      },
+      "allTargetsAcknowledged": true,
+      "informationFeedsAvailable": true
+    },
+    {
+      "name": "information-saving",
+      "informationMode": true,
+      "observedSeconds": 52.892,
+      "animation": [
+        {
+          "role": "wallpaper",
+          "draws": 0,
+          "schedules": 52,
+          "schedulesPerSecond": 0.9831354458141117
+        },
+        {
+          "role": "manager",
+          "draws": 0,
+          "schedules": 52,
+          "schedulesPerSecond": 0.9831354458141117
+        }
+      ],
+      "resource": {
+        "measurement": {
+          "completeMarkerPresent": true,
+          "completionSuccessful": true,
+          "partialAnalysis": false,
+          "collectorElapsedSeconds": 47.5798969,
+          "plannedDurationSeconds": 45,
+          "sampleIntervalSeconds": 3,
+          "sampleCount": 14,
+          "validTimeSamples": 14,
+          "observedSpanSeconds": 45.001988,
+          "durationReached": true,
+          "logicalProcessors": 56,
+          "rootIdentityDeclared": true,
+          "processGroups": [
+            "host",
+            "runtime",
+            "webview",
+            "other"
+          ],
+          "cpuCoverage": {
+            "eligibleIntervals": 13,
+            "validCpuIntervals": 13,
+            "completeCohortIntervals": 13,
+            "partialCohortIntervals": 0,
+            "excludedLongGapIntervals": 0,
+            "excludedLongGapSeconds": 0,
+            "excludedQueryFailureIntervals": 0,
+            "excludedInvalidSampleIntervals": 0,
+            "excludedCounterUnavailableIntervals": 0,
+            "matchedIdentityPairs": 195,
+            "possibleIdentityPairs": 195,
+            "maximumSampleGapSeconds": 6.0207365,
+            "observedIntervalSeconds": 45.001988,
+            "completeCpuSeconds": 45.001988,
+            "partialCpuSeconds": 0,
+            "unmeasuredBirthTransitions": 0,
+            "unmeasuredExitTransitions": 0,
+            "completeCpuFractionOfObserved": 1,
+            "partialCpuFractionOfObserved": 0,
+            "matchedIdentityPairRatio": 1
+          },
+          "issues": {
+            "invalidTimeSamples": 0,
+            "nonIncreasingTimeSamples": 0,
+            "processQueryFailureSamples": 0,
+            "processPartialSamples": 0,
+            "invalidProcessRows": 0,
+            "duplicateProcessRows": 0,
+            "rootMissingSamples": 0,
+            "rootIdentityMismatchSamples": 0,
+            "cpuCounterRegressionProcesses": 0,
+            "hostSessionMismatchSamples": 0,
+            "nativeStaleSamples": 0,
+            "nativeObservationTimestampInvalidSamples": 0,
+            "nativeFutureTimestampSamples": 0,
+            "nativeRootPidMismatchSamples": 0
+          },
+          "inputParsing": {
+            "invalidLines": 0,
+            "trailingPartial": false
+          },
+          "eventInputParsing": {
+            "filePresent": false,
+            "invalidLines": 0,
+            "trailingPartial": false
+          }
+        },
+        "gpu": {
+          "availableSamples": 13,
+          "busiestOwnedEnginePercent": {
+            "samples": 13,
+            "first": 3.0004055564148584,
+            "last": 2.952830764063587,
+            "min": 2.375059589405043,
+            "median": 2.952830764063587,
+            "p95": 3.364124435800625,
+            "peak": 3.463997618837066
+          },
+          "counterCoverage": {
+            "samplesWithErrors": 0,
+            "samplesWithPartialOwnedTree": 0,
+            "engineSamplesWithInvalidInstances": 0,
+            "engineSamplesWithOutOfRangeInstances": 0,
+            "memorySamplesWithInvalidInstances": 0,
+            "excludedAvailableEngineSamples": 0,
+            "excludedAvailableMemorySamples": 0
+          }
+        },
+        "power": {
+          "available": false,
+          "reason": "No validated watts/joules measurement"
+        },
+        "reviewFlags": []
+      },
+      "allTargetsAcknowledged": true,
+      "informationFeedsAvailable": true
+    },
+    {
+      "name": "normal-after",
+      "informationMode": false,
+      "observedSeconds": 52.574,
+      "animation": [
+        {
+          "role": "wallpaper",
+          "draws": 1570,
+          "schedules": 3140,
+          "schedulesPerSecond": 59.72533952143645
+        },
+        {
+          "role": "manager",
+          "draws": 1443,
+          "schedules": 2634,
+          "schedulesPerSecond": 50.10081028645338
+        }
+      ],
+      "resource": {
+        "measurement": {
+          "completeMarkerPresent": true,
+          "completionSuccessful": true,
+          "partialAnalysis": false,
+          "collectorElapsedSeconds": 47.4660249,
+          "plannedDurationSeconds": 45,
+          "sampleIntervalSeconds": 3,
+          "sampleCount": 15,
+          "validTimeSamples": 15,
+          "observedSpanSeconds": 45.010580899999994,
+          "durationReached": true,
+          "logicalProcessors": 56,
+          "rootIdentityDeclared": true,
+          "processGroups": [
+            "host",
+            "runtime",
+            "webview",
+            "other"
+          ],
+          "cpuCoverage": {
+            "eligibleIntervals": 14,
+            "validCpuIntervals": 14,
+            "completeCohortIntervals": 14,
+            "partialCohortIntervals": 0,
+            "excludedLongGapIntervals": 0,
+            "excludedLongGapSeconds": 0,
+            "excludedQueryFailureIntervals": 0,
+            "excludedInvalidSampleIntervals": 0,
+            "excludedCounterUnavailableIntervals": 0,
+            "matchedIdentityPairs": 210,
+            "possibleIdentityPairs": 210,
+            "maximumSampleGapSeconds": 6.005813399999999,
+            "observedIntervalSeconds": 45.010580899999994,
+            "completeCpuSeconds": 45.010580899999994,
+            "partialCpuSeconds": 0,
+            "unmeasuredBirthTransitions": 0,
+            "unmeasuredExitTransitions": 0,
+            "completeCpuFractionOfObserved": 1,
+            "partialCpuFractionOfObserved": 0,
+            "matchedIdentityPairRatio": 1
+          },
+          "issues": {
+            "invalidTimeSamples": 0,
+            "nonIncreasingTimeSamples": 0,
+            "processQueryFailureSamples": 0,
+            "processPartialSamples": 0,
+            "invalidProcessRows": 0,
+            "duplicateProcessRows": 0,
+            "rootMissingSamples": 0,
+            "rootIdentityMismatchSamples": 0,
+            "cpuCounterRegressionProcesses": 0,
+            "hostSessionMismatchSamples": 0,
+            "nativeStaleSamples": 0,
+            "nativeObservationTimestampInvalidSamples": 0,
+            "nativeFutureTimestampSamples": 0,
+            "nativeRootPidMismatchSamples": 0
+          },
+          "inputParsing": {
+            "invalidLines": 0,
+            "trailingPartial": false
+          },
+          "eventInputParsing": {
+            "filePresent": false,
+            "invalidLines": 0,
+            "trailingPartial": false
+          }
+        },
+        "gpu": {
+          "availableSamples": 14,
+          "busiestOwnedEnginePercent": {
+            "samples": 14,
+            "first": 49.29916332578725,
+            "last": 50.74500099211291,
+            "min": 48.87805582203164,
+            "median": 49.35757797480922,
+            "p95": 50.33574760237426,
+            "peak": 50.74500099211291
+          },
+          "counterCoverage": {
+            "samplesWithErrors": 0,
+            "samplesWithPartialOwnedTree": 0,
+            "engineSamplesWithInvalidInstances": 0,
+            "engineSamplesWithOutOfRangeInstances": 0,
+            "memorySamplesWithInvalidInstances": 0,
+            "excludedAvailableEngineSamples": 0,
+            "excludedAvailableMemorySamples": 0
+          }
+        },
+        "power": {
+          "available": false,
+          "reason": "No validated watts/joules measurement"
+        },
+        "reviewFlags": []
+      },
+      "allTargetsAcknowledged": true,
+      "informationFeedsAvailable": true
+    }
+  ],
+  "checks": {
+    "zeroBackgroundDrawsInInformationMode": true,
+    "managerPreviewAlsoSuspended": true,
+    "informationFeedsAndAckContinue": true,
+    "normalDrawingRestored": true,
+    "legacyClientPreservesInformationMode": true,
+    "originalPreferencesRestored": true,
+    "appearanceAndSourcesUnchanged": true,
+    "startupUnchanged": true
+  },
+  "limitations": [
+    "Short observational A/B/A, not a controlled power or long-duration benchmark. GPU metric is the busiest accounted engine, not whole GPU utilization; DWM is not fully attributed. External workloads can change. Renderer diagnostics are self-reports, not human visual proof. Performance revision advances due to reversible tests. Raw samples, source settings and recovery journal remain private."
+  ]
+}

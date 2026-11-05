@@ -17,39 +17,39 @@
     },
     {
       "path": "AGENTS.md",
-      "bytes": 1617,
-      "sha256": "e77949f2def83797066bb6348dfbc7f1b88a792bff82c74d66c2a5c8bb0d2864",
-      "git_blob_sha": "db440641cceea0662d0ff44a48c017f0ded8277b"
+      "bytes": 1676,
+      "sha256": "b30d75d06e466142ad55490ccd7dee1d175210e1a4da92643c87508bfbee4a43",
+      "git_blob_sha": "b9efd1f6fed527ecfabe87db5a9a4fe9665c849a"
     },
     {
       "path": "README.md",
-      "bytes": 11007,
-      "sha256": "cd00837c0fea03b4f90fb13716947be310d7a62efeea62ec8e72040c1f1108b0",
-      "git_blob_sha": "f2ab55dae032b4abc4c9a285e536992da6d6e02d"
+      "bytes": 11212,
+      "sha256": "a8044d16ee3cb45dadec17cea5e2bd2945242ddcc6635b366027ad912a98947e",
+      "git_blob_sha": "653ef0870de8b6e3b2f02ba44a16a1f0553c035f"
     },
     {
       "path": "TODO.md",
-      "bytes": 19678,
-      "sha256": "038b8d80327c645ad51ef942c4a4d1b14fda6d1eae136789b8c06c23ac40bc7c",
-      "git_blob_sha": "9a36960ae9f682f4a0fd713c795634d7c04b4076"
+      "bytes": 19956,
+      "sha256": "b6d24e50fcb93dc7f9fde2b3af6aa4251689015acc0f36399581509e12b07b33",
+      "git_blob_sha": "e1424771de334e7ca179d7e8b50f9d027ba7a190"
     },
     {
       "path": "desktop-host/Cargo.lock",
       "bytes": 108418,
-      "sha256": "f44c241524731c9c15d8540907262723aac1b1171ad6530da324ce276956a8ac",
-      "git_blob_sha": "0620163b66708e0ac63b87038562e56a2111bdfd"
+      "sha256": "8aaf09a2b9c46fdfc98a76bcb7803b636e325d4850e5b9e5151b0c99bb16049f",
+      "git_blob_sha": "3ebfd63762c212a5c777509d639df2535cb8541f"
     },
     {
       "path": "desktop-host/Cargo.toml",
       "bytes": 1123,
-      "sha256": "2da95e71b9815d83646bd2d2f39db32c7bbecb00bc89a63d98c801ddb4e07dbb",
-      "git_blob_sha": "0d4e9db11330a66e20ac78c19af0bf1dde645d39"
+      "sha256": "72b55c24bb3b765ca444aa415794bb2ab138bf192bb4eac6138810db39247679",
+      "git_blob_sha": "f613a5b4d292d81c1c3ee81f925ae00f4ed44c88"
     },
     {
       "path": "desktop-host/README.md",
-      "bytes": 13951,
-      "sha256": "0249309940cb26c25ff56f734d2fc8dde592c0e5e8031f22467f1889f4d52f0c",
-      "git_blob_sha": "5485035cf50c501c1ae854acbbeb422743c1ce50"
+      "bytes": 14203,
+      "sha256": "81ffebee3ce5501badd45d2f85bcc758a883611ae3b6dbdd1846e821a0169e02",
+      "git_blob_sha": "f433a7a9fe7080f6e39115c8c4d6a2e89ab72d2f"
     },
     {
       "path": "desktop-host/build.rs",
@@ -122,6 +122,12 @@
       "bytes": 5518,
       "sha256": "3be10fa2629a1018617a51d594ea6f163f4a678e77ee341bf541d23a87113d97",
       "git_blob_sha": "7f07ac24b8f508b72a5313ef04bc4478af822e35"
+    },
+    {
+      "path": "desktop-host/docs/INFORMATION-SAVING-2026-11-05.md",
+      "bytes": 5226,
+      "sha256": "22f20bc342a7dda177fe19e62bf9d58069610cb2b8dea35a0003de11b9bd57da",
+      "git_blob_sha": "ebd2d4a464d8fd6facbe38c5ee40ef3354324523"
     },
     {
       "path": "desktop-host/docs/LIBRARY-VALIDATION-2026-11-04.md",
@@ -386,6 +392,24 @@
       "bytes": 852,
       "sha256": "3a537b50f234249a0dd58051f9feab8f961738cf4ee5c7b3d45937364c5cabf7",
       "git_blob_sha": "8d7ddd5da34d1eda7df853ddfbadb03dae944547"
+    },
+    {
+      "path": "desktop-host/evidence/information-saving-handoff-2026-11-05.json",
+      "bytes": 532,
+      "sha256": "dbdc8f17387198bc7930dc088e835465868cafe874b5a282fe2800ed5ac824dd",
+      "git_blob_sha": "c1328318cb1e1a5b4edd2b0e8334e500a168d799"
+    },
+    {
+      "path": "desktop-host/evidence/information-saving-installed-2026-11-05.json",
+      "bytes": 12802,
+      "sha256": "522ef0b28cae4d45da29ace5101cb1674935c97a445554a51f0bcdfc551f5983",
+      "git_blob_sha": "c4246f69f2669e11d816ba694eccac5a8166f5c6"
+    },
+    {
+      "path": "desktop-host/evidence/information-saving-upgrade-2026-11-05.json",
+      "bytes": 1883,
+      "sha256": "234e8b45c59f30b6e58aa77a2fa0bc9e0e5e6eba1cb9666e7ef868f3585eac9a",
+      "git_blob_sha": "7ba0e80cfde8c21308d47d4958bafc028c293680"
     },
     {
       "path": "desktop-host/evidence/library-handoff.json",
@@ -720,14 +744,14 @@
     {
       "path": "desktop-host/package-lock.json",
       "bytes": 7246,
-      "sha256": "7b35b6b97ad6b10b5f600ec20ff7626ea83f6750f6a676f7c126428a1be46594",
-      "git_blob_sha": "7f8a76cd4877ba87a06c6bea47b7a75de860a476"
+      "sha256": "8716822e8125a1bade0acbbc8ebb0b26046fdde53b201f18b32ecd545b8b857b",
+      "git_blob_sha": "2542d0eba50937e5340c715e377f6df486525978"
     },
     {
       "path": "desktop-host/package.json",
       "bytes": 284,
-      "sha256": "64f8e1c4612b238e82d82d5570492f57b58f33545061d7546e5bfd25f51893e9",
-      "git_blob_sha": "6314c35c95f72e10bb413f69d2cfc4b86219cb67"
+      "sha256": "49e7b2eae34413a176bf9f684a2023457a28ef24ecbc263fd84335eb3c50b6b1",
+      "git_blob_sha": "fbdb6d6f352f212bec170cb7be550a9b32ed7acd"
     },
     {
       "path": "desktop-host/scripts/analyze-soak.mjs",
@@ -860,6 +884,18 @@
       "bytes": 6234,
       "sha256": "373164512eb2235ad5c1d797c34ebd2f43100b85d813653aea94ac743fdda999",
       "git_blob_sha": "c0bf865620cff5ed5d32975f3cf8c8b5bee53c8e"
+    },
+    {
+      "path": "desktop-host/scripts/test-information-saving-installed.mjs",
+      "bytes": 8690,
+      "sha256": "3ebd251dfbd494e09187e998910f395c317a3b0b3f2ca63b55ad2b98d2a68fc3",
+      "git_blob_sha": "c3747636360098e6bf6273116e753dc98a1c2d68"
+    },
+    {
+      "path": "desktop-host/scripts/test-information-saving-upgrade-installed.mjs",
+      "bytes": 12139,
+      "sha256": "0b77716af31e1f09962cca52c86fac3043894e5b5eeda31a6b1a4d18458a1533",
+      "git_blob_sha": "65b2ce0c8722b1e84328e681827d9f518ce2deed"
     },
     {
       "path": "desktop-host/scripts/test-installer.mjs",
@@ -1079,9 +1115,9 @@
     },
     {
       "path": "desktop-host/src/performance.rs",
-      "bytes": 7931,
-      "sha256": "3e5fc05d5c49569d56955900dea64018858dfcb11b500c2ef62c3595aadf5790",
-      "git_blob_sha": "6252cd5bf2ff6403e7e0e9cfad28c578aa823cdb"
+      "bytes": 9248,
+      "sha256": "0e9baf25e1a1709f1cf8fec5229855d9518ccd103644ce7bc830418b5e2238f2",
+      "git_blob_sha": "acd464a077be2a1cb9957532d3dd1038c43e6726"
     },
     {
       "path": "desktop-host/src/policy_store.rs",
@@ -1128,8 +1164,8 @@
     {
       "path": "desktop-host/tauri.conf.json",
       "bytes": 975,
-      "sha256": "1dc8d89d1df20dc1916bcbb3c84d9b1c2283e9ee32c52684141981e0cd4a1367",
-      "git_blob_sha": "7a716e06c728833e17281cba4717693fcfc6dc34"
+      "sha256": "48572149644d05af94361a57c049d7d0c8cb5897373d3d2c169135d211c8c5b0",
+      "git_blob_sha": "9bdf4a23b0857f01c6c23008f27c34ede4bb8bf1"
     },
     {
       "path": "desktop-host/ui/index.html",
@@ -1776,8 +1812,8 @@
     {
       "path": "implementation-p4_2_5/evidence/independent-draft-review.json",
       "bytes": 412,
-      "sha256": "d3f8448586a80c44c991bf62f71daa1150ed6c7ba9e47ff05f58ac2069596e64",
-      "git_blob_sha": "dda4abf3fb3f1878ba2f016f24c58960d93f2db4"
+      "sha256": "873f62835e98115b33051c6354ae775826d63b03a267579ae518728fe6bd9672",
+      "git_blob_sha": "913e29a2c545f2cfc8b9a7f6551dc887d45a0bd2"
     },
     {
       "path": "implementation-p4_2_5/evidence/independent-path-review.json",
@@ -1787,9 +1823,9 @@
     },
     {
       "path": "implementation-p4_2_5/evidence/layout-regression.json",
-      "bytes": 2213,
-      "sha256": "d346bad512d6fd2ffdc3399abce403a7d8d735bf85521733efb242d76b9091ab",
-      "git_blob_sha": "9a54dc86a9625f206d817016551df9da1c28367b"
+      "bytes": 2245,
+      "sha256": "b4f8ff0799d76a52057be803fd2f5929225ca9d437802b144ec564ce9a116c4a",
+      "git_blob_sha": "0e9b8a5420bf662dab7869c079c72b9a93b31b0d"
     },
     {
       "path": "implementation-p4_2_5/evidence/layout/layout-1876-natural.png",
@@ -2124,8 +2160,8 @@
     {
       "path": "implementation-p4_2_5/evidence/verification.json",
       "bytes": 695,
-      "sha256": "7d30bce45eb9af3c544c7e4e17f14e4db179e30d526155d9405b815bda43382d",
-      "git_blob_sha": "ab80e968351f7d4527b4dc7969f556ac39f6fff5"
+      "sha256": "965e124c954f844a84485a6d1810ea120ab3559cca74cbd0ffaa47d7d45d47d8",
+      "git_blob_sha": "bef7067260698791c87b432d7fc2585be4541d8f"
     },
     {
       "path": "implementation-p4_2_5/evidence/windows-host-partial-2026-11-03.json",
@@ -2213,15 +2249,15 @@
     },
     {
       "path": "implementation-p4_2_5/scripts/layout-regression-contract.mjs",
-      "bytes": 1901,
-      "sha256": "07e779551f109548cf10931b27e6f95460de68e44029ed5ed4f20b02157270b1",
-      "git_blob_sha": "2e64b565519372cdebc056885eea3f9280e134f8"
+      "bytes": 1979,
+      "sha256": "cfe738ccb102c35b516ebdf48ace90524ffdbfedd53c512c674389ac8ce04251",
+      "git_blob_sha": "718331d38eb6ed78448c11f793d063bda3484f8c"
     },
     {
       "path": "implementation-p4_2_5/scripts/layout-regression-probe.js",
-      "bytes": 6780,
-      "sha256": "893566674b6eda4d79ed7e265295ed94c6a92d289f1b1151ff6f8c504573cb1f",
-      "git_blob_sha": "7455af5472b7ccceb0a1d9b478e2255987d00282"
+      "bytes": 7407,
+      "sha256": "95fbbd38537649f1e1b7778ebd6439b598d2c41c2df2e4e099206bf6e77a78d0",
+      "git_blob_sha": "df13ef6105332950e6a56d661241e8335cbbd038"
     },
     {
       "path": "implementation-p4_2_5/scripts/measure-windows-host.ps1",
@@ -2255,9 +2291,9 @@
     },
     {
       "path": "implementation-p4_2_5/scripts/prepare.mjs",
-      "bytes": 23780,
-      "sha256": "ea78424b744f872d8a8e2b481fc793fb8f70145cb6aaa3df8837c41385d96f44",
-      "git_blob_sha": "3c036db8d538f1d9207c1dee6dd4e584f7c930c5"
+      "bytes": 24312,
+      "sha256": "4a41a868af602da1794a5cf4fef321bcc5b3182628c922342bbf70bed8151dc1",
+      "git_blob_sha": "c96be3db3b916ea9349a1a4c89cbc79f14f2f338"
     },
     {
       "path": "implementation-p4_2_5/scripts/read-windows-lifecycle-events.ps1",
@@ -2369,9 +2405,9 @@
     },
     {
       "path": "implementation-p4_2_5/src/bridge-client.js",
-      "bytes": 17579,
-      "sha256": "daac38494ad382e0932608f3025e375640884804c7728969902a367f1717dccf",
-      "git_blob_sha": "2b4dc12b5733c6f7183f55dd52f95ad124f1268a"
+      "bytes": 17728,
+      "sha256": "e6d34f3fce39cb33e4ab401351bfb421541aab90d1de94f403ca571110c61cce",
+      "git_blob_sha": "aa80cdafbd311c045d4a4f5a9e4e14b3af9519b3"
     },
     {
       "path": "implementation-p4_2_5/src/bridge-toolbar.css",
@@ -2549,15 +2585,21 @@
     },
     {
       "path": "implementation-p4_2_5/src/host-router.mjs",
-      "bytes": 10567,
-      "sha256": "2c052fecd7df03f77c9d9704672af00a37a04b43368df5f3129a0e355bdb961b",
-      "git_blob_sha": "b6705e5f712ac4f940fc05f86497528e4ac4e385"
+      "bytes": 10625,
+      "sha256": "1ae2f9cc79d7b542a5ead3f389b5427a38a4ce611d9ee467fc67744363905255",
+      "git_blob_sha": "929d399d2cfc083eeef02adac5f1c5da8ab4c23b"
     },
     {
       "path": "implementation-p4_2_5/src/i18n-catalog.js",
       "bytes": 122819,
       "sha256": "f04c0f7a0a164a78cfb1f3761db627bc7ec05d1cb11d6e976f0f026e073cf7ee",
       "git_blob_sha": "eacc8274f90bad9d36732b0537b8122ac212c279"
+    },
+    {
+      "path": "implementation-p4_2_5/src/information-saving.css",
+      "bytes": 1111,
+      "sha256": "41a48ae9ec163a665b0d967cd4d7876ec3407260a8aa0cf71a91a3df550629ff",
+      "git_blob_sha": "c149a2dfeb63e18c9326c3df3db5b2b79c0e1b0c"
     },
     {
       "path": "implementation-p4_2_5/src/inspector.css",
@@ -2741,15 +2783,15 @@
     },
     {
       "path": "implementation-p4_2_5/src/performance-client.js",
-      "bytes": 2303,
-      "sha256": "0449f9c0268c142431cde764ddf4c6fa53730f37d77a51916a75859b81c15748",
-      "git_blob_sha": "683dc709f4bfaddd49f5cdb45c410c2ee6bccc53"
+      "bytes": 6309,
+      "sha256": "ee41c2509e674de52f0f537c04da28017f9da34ecfd8179ba5f7fe1a298209d6",
+      "git_blob_sha": "d37bc4bd174565365194b59649172d6ea344af16"
     },
     {
       "path": "implementation-p4_2_5/src/performance-service.mjs",
-      "bytes": 2353,
-      "sha256": "1f19e05258a9508fc9872040ec877145c2448fb1746d885bf0e3b1d37e429fab",
-      "git_blob_sha": "fa1ea1473a19e0d9780508e925b5e162321619c3"
+      "bytes": 2515,
+      "sha256": "9403f67966264206277c52ae7f4d7966178b381356bfdfcf3a6ff298f3c1675e",
+      "git_blob_sha": "5438daea7e4088989cb3dffff4b5851fcf8883b7"
     },
     {
       "path": "implementation-p4_2_5/src/portable-core.mjs",
@@ -2825,9 +2867,9 @@
     },
     {
       "path": "implementation-p4_2_5/src/router.mjs",
-      "bytes": 27586,
-      "sha256": "80d3ac5babdaeb6fa594c9a1b8ff793bd3cca6d3da87fb0b3e319896f00ca67b",
-      "git_blob_sha": "39f863e2bcc5350d4215b57126ff25d13b000d0f"
+      "bytes": 27963,
+      "sha256": "1d35d92658416727015709cefa296abc4d794868dbf1fb3c18f79446305ed9b7",
+      "git_blob_sha": "ac226c72dd1217f50ee31b55b7cf054ca1a597ab"
     },
     {
       "path": "implementation-p4_2_5/src/runtime-options.mjs",
@@ -3142,6 +3184,12 @@
       "git_blob_sha": "b384002add4b3af5f49474322e20ff9468ae26d8"
     },
     {
+      "path": "implementation-p4_2_5/tests/information-saving.test.mjs",
+      "bytes": 5476,
+      "sha256": "9e1605b6bd4cad511754bb3f661ff41720971e296baa3015ba9930968a08be22",
+      "git_blob_sha": "1d9597cdceeffb908db33866641f56970fe043d3"
+    },
+    {
       "path": "implementation-p4_2_5/tests/installer-layout-gate.test.mjs",
       "bytes": 1198,
       "sha256": "f4dc6e92ef25d43612fab0b287f4e1cc46207a4d851b038d1151b8e2e726e0b4",
@@ -3149,9 +3197,9 @@
     },
     {
       "path": "implementation-p4_2_5/tests/layout-regression-gate.test.mjs",
-      "bytes": 2374,
-      "sha256": "10cee8ba48a8904008e43c4fd9d79bbaac84529a5c4c828bb48b6fdbd55c230d",
-      "git_blob_sha": "729891d61f7934dfbe9aab549cdc7c7f1ca04b99"
+      "bytes": 2399,
+      "sha256": "5be6969ff98c1ae6839d8b0a3575026a74d4d87cfb9c702276353fc3425861d1",
+      "git_blob_sha": "909fd0a73b165db901ef483f13ac511522474028"
     },
     {
       "path": "implementation-p4_2_5/tests/legacy-effect.test.mjs",
@@ -3263,9 +3311,9 @@
     },
     {
       "path": "implementation-p4_2_5/tests/roles.test.mjs",
-      "bytes": 3538,
-      "sha256": "29a4158265727a44965d8bf3c0c95e0800e524bc64422e4d2d4d6f3df94d8156",
-      "git_blob_sha": "8068814eebba47508ac2541b6292cedfc52c186b"
+      "bytes": 4421,
+      "sha256": "f458f7a45cc90f10fd0f10dcc4aac9dcdd91fbc9e37ced3d7e066f3a0121f93e",
+      "git_blob_sha": "2d64a3c48129a7e3afb254f0403d9fa363bb42a4"
     },
     {
       "path": "implementation-p4_2_5/tests/schedule.test.mjs",

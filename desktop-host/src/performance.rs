@@ -10,6 +10,8 @@ use std::{
 #[serde(rename_all = "camelCase", deny_unknown_fields)]
 pub struct Policy {
     pub fps: u32,
+    #[serde(default)]
+    pub information_mode: bool,
     pub pause_fullscreen: bool,
     pub pause_battery: bool,
 }
@@ -29,6 +31,7 @@ impl Default for Settings {
             last_request_id: None,
             performance: Policy {
                 fps: 30,
+                information_mode: false,
                 pause_fullscreen: false,
                 pause_battery: false,
             },
@@ -91,7 +94,8 @@ pub fn command(args: &[String]) -> Result<i32, String> {
         if u.schema_version != 1 {
             return Err("PERFORMANCE_INVALID".into());
         }
-        let input = serde_json::to_value(&u).unwrap();
+        let input:Value = serde_json::from_slice(&b).map_err(|_| "PERFORMANCE_INVALID")?;
+        let explicit_information_mode=serde_json::from_slice::<Value>(&b).ok().is_some_and(|v|v["performance"].get("informationMode").is_some());
         Some(policy_store::commit(
             &root,
             "PERFORMANCE",
@@ -109,11 +113,13 @@ pub fn command(args: &[String]) -> Result<i32, String> {
                 let old: Settings =
                     serde_json::from_value(old).map_err(|_| "PERFORMANCE_INVALID")?;
                 valid(&old)?;
+                let mut performance=u.performance;
+                if !explicit_information_mode {performance.information_mode=old.performance.information_mode;}
                 let next = Settings {
                     schema_version: 1,
                     revision,
                     last_request_id: Some(u.request_id.clone()),
-                    performance: u.performance,
+                    performance,
                 };
                 valid(&next)?;
                 Ok(serde_json::to_value(next).unwrap())
@@ -196,9 +202,11 @@ pub fn state(policy: &Policy, target: windows::Bounds) -> Value {
             },
             target,
         );
-    let paused = (policy.pause_battery && on_battery == Some(true))
-        || (policy.pause_fullscreen && fullscreen);
-    json!({"paused":paused,"fps":policy.fps,"onBattery":on_battery,"fullscreenCovered":fullscreen,"reason":if policy.pause_battery&&on_battery==Some(true){"battery"}else if policy.pause_fullscreen&&fullscreen{"fullscreen"}else{"active"}})
+    policy_state(policy,on_battery,fullscreen)
+}
+pub fn policy_state(policy:&Policy,on_battery:Option<bool>,fullscreen:bool)->Value{
+    let paused=policy.information_mode||(policy.pause_battery&&on_battery==Some(true))||(policy.pause_fullscreen&&fullscreen);
+    json!({"paused":paused,"fps":policy.fps,"effectiveAnimationFps":if paused{0}else{policy.fps},"informationMode":policy.information_mode,"onBattery":on_battery,"fullscreenCovered":fullscreen,"reason":if policy.information_mode{"information-saving"}else if policy.pause_battery&&on_battery==Some(true){"battery"}else if policy.pause_fullscreen&&fullscreen{"fullscreen"}else{"active"}})
 }
 #[cfg(test)]
 mod tests {
@@ -232,6 +240,14 @@ mod tests {
         assert!(!application_foreground(false, "Progman"));
         assert!(application_foreground(false, "Chrome_WidgetWin_1"));
         assert!(application_foreground(false, "Tauri Window"));
+    }
+    #[test]
+    fn information_mode_is_additive_and_preserves_configured_fps(){
+        let old=serde_json::json!({"fps":15,"pauseFullscreen":false,"pauseBattery":false});
+        let mut policy:Policy=serde_json::from_value(old).unwrap();assert!(!policy.information_mode);
+        policy.information_mode=true;let active=policy_state(&policy,Some(false),false);
+        assert_eq!(active["paused"],true);assert_eq!(active["effectiveAnimationFps"],0);assert_eq!(active["fps"],15);
+        policy.information_mode=false;assert_eq!(policy_state(&policy,Some(false),false)["effectiveAnimationFps"],15);
     }
     #[test]
     fn malformed_fps_rejected() {
