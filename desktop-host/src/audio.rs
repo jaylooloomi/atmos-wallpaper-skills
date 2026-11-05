@@ -615,7 +615,7 @@ impl AudioEngine {
                 {
                     state = "logical-target-unavailable";
                 }
-                if crate::screensaver::active() {
+                if crate::legacy_screensaver::active() {
                     state = "screensaver-active";
                 }
                 let allowed = state == "playing";

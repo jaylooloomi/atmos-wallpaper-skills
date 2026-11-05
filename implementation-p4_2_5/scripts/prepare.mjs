@@ -94,9 +94,6 @@ fs.writeFileSync(path.join(dist,'span-client.js'),spanModel+'\n'+fs.readFileSync
 fs.writeFileSync(path.join(dist,'bridge-client.js'),fs.readFileSync(path.join(dist,'bridge-client.js'),'utf8').replace("await load('app.js');","await load('app.js');await load('span-client.js');"));
 fs.appendFileSync(path.join(dist,'hifi.css'),'\nbody[data-span-replica="true"] #clock,body[data-span-replica="true"] #calendar,body[data-span-replica="true"] .widget-layer,body[data-span-replica="true"] .widget-mobile-host{visibility:hidden!important}');
 
-fs.copyFileSync(path.join(root,'src/screensaver-client.js'),path.join(dist,'screensaver-client.js'));
-fs.appendFileSync(path.join(dist,'hifi.css'),'\n'+fs.readFileSync(path.join(root,'src/screensaver-client.css'),'utf8'));
-fs.writeFileSync(path.join(dist,'bridge-client.js'),fs.readFileSync(path.join(dist,'bridge-client.js'),'utf8').replace("window.AtmosAudio.start({headers,wallpaper:wallpaperMode});","window.AtmosAudio.start({headers,wallpaper:wallpaperMode});await load('screensaver-client.js');window.AtmosScreensaver.start({headers,wallpaper:wallpaperMode});"));
 
 fs.copyFileSync(path.join(root,'src/settings-tabs.js'),path.join(dist,'settings-tabs.js'));
 fs.appendFileSync(path.join(dist,'hifi.css'),'\n'+fs.readFileSync(path.join(root,'src/settings-tabs.css'),'utf8'));
@@ -124,3 +121,6 @@ fs.writeFileSync(timerFile,timerSource);
 
 fs.copyFileSync(path.join(root,'src/toolbar-scroll.js'),path.join(dist,'toolbar-scroll.js'));
 fs.writeFileSync(path.join(dist,'bridge-client.js'),fs.readFileSync(path.join(dist,'bridge-client.js'),'utf8').replace("await load('app.js');","await load('toolbar-scroll.js');window.AtmosToolbar.start({wallpaper:wallpaperMode});await load('app.js');"));
+
+// Remove only retired generated assets; preparation otherwise reuses this directory.
+for(const name of ['screensaver-client.js','screensaver-client.css'])fs.rmSync(path.join(dist,name),{force:true});

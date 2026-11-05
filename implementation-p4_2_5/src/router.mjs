@@ -2,7 +2,6 @@ import {createFocusService,validFocusUpdate} from './focus-core.mjs';
 import {createScheduleService} from './schedule-core.mjs';
 import {validPerformanceUpdate} from './performance-service.mjs';
 import {validProviderUpdate} from './providers-service.mjs';
-import {validScreensaverUpdate} from './screensaver-service.mjs';
 import {createPresetService} from './presets-core.mjs';
 import {validLayoutUpdate} from './layout-service.mjs';
 import {validAudioUpdate,validAudioRoutingUpdate} from './audio-service.mjs';
@@ -37,11 +36,7 @@ async function handle(req,{rawPath}={}){try{const url=new URL(req.url);if(req.he
  if(req.method!=='POST')return error('METHOD_DENIED',405);if(o!==origin)return error('ORIGIN_REQUIRED',403);if(req.headers.get('Content-Type')?.split(';')[0].trim()!=='application/json')return error('CONTENT_TYPE_DENIED',415);
  const body=await readJSON(req,4096);if(!validLayoutUpdate(body))return error('LAYOUT_INVALID',400);if(!layoutService)return error('LAYOUT_UNAVAILABLE',503);
  try{return json(await layoutService.set(body))}catch(e){return error(e.code||'LAYOUT_OPERATION_FAILED',/CONFLICT|BUSY/.test(e.code)?409:400)}
-}if(p==='/api/host/screensaver'){
- if(role(req)!=='manager')return error('ROLE_DENIED',403);if(req.method==='GET'){try{return json(screensaverService?await screensaverService.status():{schemaVersion:1,available:false,settings:null,displays:[]})}catch{return error('SCREENSAVER_OPERATION_FAILED',503)}}
- if(req.method!=='POST')return error('METHOD_DENIED',405);if(o!==origin)return error('ORIGIN_REQUIRED',403);if(req.headers.get('Content-Type')?.split(';')[0].trim()!=='application/json')return error('CONTENT_TYPE_DENIED',415);const body=await readJSON(req,4096);if(!validScreensaverUpdate(body))return error('SCREENSAVER_INVALID',400);if(!screensaverService)return error('SCREENSAVER_UNAVAILABLE',503);try{return json(await screensaverService.update(body))}catch(e){const code=['SCREENSAVER_REVISION_CONFLICT','SCREENSAVER_REQUEST_CONFLICT','SCREENSAVER_BUSY','SCREENSAVER_INVALID'].includes(e.code)?e.code:'SCREENSAVER_OPERATION_FAILED';return error(code,code.endsWith('_CONFLICT')||code.endsWith('_BUSY')?409:code==='SCREENSAVER_INVALID'?400:503)}
-}if(p==='/api/host/screensaver/settings'){
- if(role(req)!=='manager')return error('ROLE_DENIED',403);if(req.method!=='POST')return error('METHOD_DENIED',405);if(o!==origin)return error('ORIGIN_REQUIRED',403);if(req.headers.get('Content-Type')?.split(';')[0].trim()!=='application/json')return error('CONTENT_TYPE_DENIED',415);const body=await readJSON(req,256);if(!body||Array.isArray(body)||Object.keys(body).sort().join(',')!=='action,schemaVersion'||body.schemaVersion!==1||!['open','install'].includes(body.action))return error('SCREENSAVER_INVALID',400);if(!screensaverService?.openSettings)return error('SCREENSAVER_UNAVAILABLE',503);try{return json(body.action==='install'?await screensaverService.install():await screensaverService.openSettings())}catch{return error('SCREENSAVER_OPERATION_FAILED',503)}
+}if(p==='/api/host/screensaver'||p==='/api/host/screensaver/settings'){if(role(req)!=='manager')return error('ROLE_DENIED',403);return error('SCREENSAVER_REMOVED',410);
 }if(p==='/api/host/audio/routing'){
  if(role(req)!=='manager')return error('ROLE_DENIED',403);
  if(req.method==='GET'){try{return json(audioService?.routingStatus?await audioService.routingStatus():{schemaVersion:1,available:false,settings:null,displays:[]})}catch{return error('AUDIO_ROUTING_OPERATION_FAILED',503)}}

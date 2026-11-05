@@ -152,29 +152,6 @@ fn read_backup(own: &Path) -> Result<Option<Backup>, String> {
     }
     Ok(Some(b))
 }
-pub fn snapshot(own: &Path) -> Result<(), String> {
-    let key = open(false)?;
-    let old = current(&key)?;
-    if old
-        .as_ref()
-        .and_then(text)
-        .is_some_and(|p| normalized(&p) == normalized(&own.to_string_lossy()))
-    {
-        let _ = read_backup(own)?;
-        return Ok(());
-    }
-    let next = Backup {
-        schema_version: 1,
-        owner_key: owner(own),
-        previous: old,
-    };
-    let file = file()?;
-    host_settings::atomic(
-        file.parent().unwrap(),
-        "screensaver-registration-backup.json",
-        &next,
-    )
-}
 fn restoration(
     current: Option<&Value>,
     own: &Path,

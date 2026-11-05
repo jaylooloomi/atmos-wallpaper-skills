@@ -19,7 +19,7 @@ impl Runtime {
         Self::start_with_mode(options, "wallpaper")
     }
     pub fn start_with_mode(options: &Options, presentation: &str) -> Result<Self, String> {
-        if !matches!(presentation, "wallpaper" | "screensaver") {
+        if presentation != "wallpaper" {
             return Err("Invalid presentation mode".into());
         }
         for p in [

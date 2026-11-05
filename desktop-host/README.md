@@ -1,4 +1,6 @@
-# Atmos Wallpaper Windows 0.7.15
+# Atmos Wallpaper Windows 0.7.16
+
+**目前已移除螢幕保護功能。** 設定只保留桌面元件／外觀字型兩個分頁；下方版本記錄中的 `.scr` 與螢幕保護均屬歷史功能。[移除與安全升級清理](docs/SCREENSAVER-REMOVAL-2026-11-06.md)。
 
 Tauri 2＋Rust、Windows x64，提供單目標、各螢幕獨立、重複與全景桌布配置（新安裝預設跟隨主螢幕）。保留現有管理頁、場景、元件與 ICS 日曆，由自己的 WebView2 宿主套用，**不使用 Lively**。
 
