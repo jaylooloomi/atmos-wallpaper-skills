@@ -23,33 +23,33 @@
     },
     {
       "path": "README.md",
-      "bytes": 15425,
-      "sha256": "dfb1954edca5b1247226123bfab2e9a18590e181e867eeb590f67077717addd6",
-      "git_blob_sha": "72130aeb203bb54aa3372dfde7a17b2c1edf3077"
+      "bytes": 15661,
+      "sha256": "491fef59e9bbc862a089a2897230f236955e542c70b604a7d1ffa6d68da5bffc",
+      "git_blob_sha": "7533e0bbf01ca5d1dc7894bac4cf971b83a53cc8"
     },
     {
       "path": "TODO.md",
-      "bytes": 23991,
-      "sha256": "a555dd99de1321cc80a6787e19778864decfbd2d44dceb9c4c9abb2d0e5ed35e",
-      "git_blob_sha": "a0edd05d51f8614a2cfb9580f56f1ae8735e983f"
+      "bytes": 24176,
+      "sha256": "f7f9b7f1d38d9c0b0aca29793ead10e8c4025b93c3373009f74d6ea0e2fafb3c",
+      "git_blob_sha": "d20c2956b5197af8fc0a032200a3f632adac10ef"
     },
     {
       "path": "desktop-host/Cargo.lock",
       "bytes": 108436,
-      "sha256": "35f5877c1853136836bae5b4e509408944d56d956eaaf31d47993b41ae22c4bc",
-      "git_blob_sha": "f0b27f87b8357d0ec60a9ca0bfe0b58b9cd6db1b"
+      "sha256": "aab591d7eac815b4e36c06b4d4ca499687be59b649dff12773f9a32054a44258",
+      "git_blob_sha": "633d528728fafff8116193d376842e30c48c409d"
     },
     {
       "path": "desktop-host/Cargo.toml",
       "bytes": 1217,
-      "sha256": "9cd1feb8807863d3d3aebe57eaa936d26fe221227e6d536ca287741adbe36e8d",
-      "git_blob_sha": "a2851e2449cccdfebbed15e2eca4844454fc7dcf"
+      "sha256": "96f6b5a7f9ab0c9a36413fbfd9e0af9d211484819a11ff8001efed6ce6b69995",
+      "git_blob_sha": "f81112a074c44770c4893dc289d7160a7aecc1d4"
     },
     {
       "path": "desktop-host/README.md",
-      "bytes": 18313,
-      "sha256": "13bf5f79cf24c22764b6014155e0c23140d72ea441b7def9a5b736ebc9e18d7f",
-      "git_blob_sha": "5cb57123a0e607a4ca15aa0859f01e3277b53372"
+      "bytes": 18468,
+      "sha256": "fe9cb8d4c92c68904189a22ba39a7fb2f4c10b3906d4cfac8f09584c5bc02e12",
+      "git_blob_sha": "86941aa1f58a41ed87fd4f1bb6ccdfe10a52aeb9"
     },
     {
       "path": "desktop-host/build.rs",
@@ -71,9 +71,9 @@
     },
     {
       "path": "desktop-host/docs/AGENT-API.md",
-      "bytes": 7552,
-      "sha256": "6c25f6240a4c6de215ac3674eb168de98017d79ef80da06f53cc53ae53124a1a",
-      "git_blob_sha": "b6625bb7ae7ea9e2fe993d69b9a3833a232126b9"
+      "bytes": 7658,
+      "sha256": "3020c0e7d9cccf1bdf35e7d265e79055326fbf45e4740e99e57f2420190bfeff",
+      "git_blob_sha": "6d3869c2fb2f55c9eb0b65090f7fa4d444d0daca"
     },
     {
       "path": "desktop-host/docs/ANIMATED-LOADING-2026-11-04.md",
@@ -194,6 +194,12 @@
       "bytes": 5735,
       "sha256": "677914113732a6669d4b0203e3735e5c61d4e3b10e90019f694b5ec5429d5538",
       "git_blob_sha": "7b705ff169b458f929ba69f5605f0af5e5f9d615"
+    },
+    {
+      "path": "desktop-host/docs/PLAIN-CALENDAR-2026-11-06.md",
+      "bytes": 2568,
+      "sha256": "bbd01792e36c37ce114ab42773d946917027a8389b2e6b21034018a6aafb6c51",
+      "git_blob_sha": "6cb16ac3722dc7a457676711fb43306076a41663"
     },
     {
       "path": "desktop-host/docs/POWER-CAPABILITY-2026-11-05.md",
@@ -748,6 +754,18 @@
       "git_blob_sha": "5b3fd16ae5bbd1b5f4e325ed00102f7dbea3b778"
     },
     {
+      "path": "desktop-host/evidence/plain-calendar-handoff-2026-11-06.json",
+      "bytes": 532,
+      "sha256": "f189910c8fab5d63c1b6fa1568654b6e88b2aef0e7b6573c2bcc7eefdc769b67",
+      "git_blob_sha": "ec9bb06bc1706f210209db855a111caaaf699864"
+    },
+    {
+      "path": "desktop-host/evidence/plain-calendar-upgrade-2026-11-06.json",
+      "bytes": 1405,
+      "sha256": "93ddd9d75e6e109e84ba97b03f51f479ab53d26f90b18399dae3e3733d450358",
+      "git_blob_sha": "3505ea6323154012aa0f6a66224e51d97995b99c"
+    },
+    {
       "path": "desktop-host/evidence/power-capability-2026-11-05.json",
       "bytes": 2810,
       "sha256": "b6066a3727bbe6dc3b7c007b43967ab04944bfcb59112958b8ee2a0062c8c7f4",
@@ -1140,14 +1158,14 @@
     {
       "path": "desktop-host/package-lock.json",
       "bytes": 7248,
-      "sha256": "6179ba7eb2c834631d5ef12dc8ba9292c178e90797ae1d04865e71f720803e96",
-      "git_blob_sha": "c419d1caba1d644e1023562277fe9a09cd715905"
+      "sha256": "9d91afae9bfd5ead3e94346a7dce730a69074592a4882520f5735ac5fa3e2225",
+      "git_blob_sha": "a13f7534f8344672b0b56ec872c3e8cd1e4bd033"
     },
     {
       "path": "desktop-host/package.json",
       "bytes": 285,
-      "sha256": "625c8411a680cd31343b59e5d5ed63f3c9d2a793307fae8ed2eb694a160e5580",
-      "git_blob_sha": "abee4a30882a4ac54a090b8c1fe0c7deed332abe"
+      "sha256": "ca781895283809a96b5f854c569e6dd4637234c6eee363506e66c81c1cc1bc4f",
+      "git_blob_sha": "20c3cffa1e421b67bfbadbc769a4a38df3d21e35"
     },
     {
       "path": "desktop-host/scripts/analyze-soak.mjs",
@@ -1397,9 +1415,9 @@
     },
     {
       "path": "desktop-host/scripts/test-ui-refinement-installed.mjs",
-      "bytes": 9344,
-      "sha256": "1cca5157188016c82277fa70b6dfc51d0b7de30e3f93b92b47c003ab4f03f742",
-      "git_blob_sha": "6d5b9d6ea7022370ab635ca0cfcfb906de32fc22"
+      "bytes": 9402,
+      "sha256": "fba89fc0e39d839a8a35c979018bcc48b9b3cfe53a6f7614b050b1b1f80d7961",
+      "git_blob_sha": "5b0635b75a1506e32da6de52aaa426837e6b4144"
     },
     {
       "path": "desktop-host/scripts/test-wallpaper-controls-upgrade-installed.mjs",
@@ -1602,8 +1620,8 @@
     {
       "path": "desktop-host/tauri.conf.json",
       "bytes": 976,
-      "sha256": "865367c9d30246157a37aa4959011c12676c2edd710340ecd2d54a6cbf7f8b66",
-      "git_blob_sha": "0b9b812760bfcb7e0a15bf72162a5acaf1c03930"
+      "sha256": "7ad33efc153b1ffa2735609bd90727b49c76a66966a544a45b5cbb941ae17e7a",
+      "git_blob_sha": "bb2e27b0f394cd73771b579ed3a693ef81c2a821"
     },
     {
       "path": "desktop-host/ui/index.html",
@@ -1931,9 +1949,9 @@
     },
     {
       "path": "implementation-p4_2_5/docs/ICS-CALENDAR.md",
-      "bytes": 4285,
-      "sha256": "58920f3170d8fc45fa90ebaa36b34870b95ea4dfcd5729df903f966ce889fbf0",
-      "git_blob_sha": "82d839d02c920125dcc7239deb5c656b4c8dd3c3"
+      "bytes": 4491,
+      "sha256": "bdc3ec2f751d436a6c85956dc153913c42047576909dcce1a455fb62f1fa2dc0",
+      "git_blob_sha": "03a09604078021659def333c3cb79e3c9d64e9c5"
     },
     {
       "path": "implementation-p4_2_5/docs/LAYOUT-REGRESSION.md",
@@ -2598,8 +2616,8 @@
     {
       "path": "implementation-p4_2_5/evidence/verification.json",
       "bytes": 695,
-      "sha256": "53ad7854af66d71c577656d5f0b0f1b9e71a1262930e267403e94689550adff0",
-      "git_blob_sha": "829112743cc7e450a7f30562fee82a25eed2ac98"
+      "sha256": "9a13d19f225a6db3a7a08eaaaf4cd5c13bb400bcf72788bf982426fd682d38c6",
+      "git_blob_sha": "0a041ec631f935e856e6d8dbe9906a165d767bb7"
     },
     {
       "path": "implementation-p4_2_5/evidence/windows-host-partial-2026-11-03.json",
@@ -2693,9 +2711,9 @@
     },
     {
       "path": "implementation-p4_2_5/scripts/layout-regression-probe.js",
-      "bytes": 13352,
-      "sha256": "8642cdf5f98914464779993a4390d3546db39ac2fc61d084c132879911dfedf1",
-      "git_blob_sha": "b3d3b8173220b125ea6df288d959a5adc41b6cba"
+      "bytes": 13818,
+      "sha256": "3e0d9b4cd268253ef97c20041e600641db63c5775303ed0acdceee79e4f1d491",
+      "git_blob_sha": "1689459bd815f5262692600675112341cccf87c7"
     },
     {
       "path": "implementation-p4_2_5/scripts/measure-windows-host.ps1",
@@ -2729,9 +2747,9 @@
     },
     {
       "path": "implementation-p4_2_5/scripts/prepare.mjs",
-      "bytes": 28021,
-      "sha256": "5f1ff01ff85d4b4df77da8869af6e5d2381f83b3eb7c2bfc59f3cf44776662d3",
-      "git_blob_sha": "9ab5c945216db7addf53034813893925cd101711"
+      "bytes": 27966,
+      "sha256": "1bedd4ddf4d1b9d70c25a2dda5c469da60858f99d5b9f83797467183c197eab2",
+      "git_blob_sha": "2fe95f8d1f85785144cf67b1e2c4fb167434f2a1"
     },
     {
       "path": "implementation-p4_2_5/scripts/read-windows-lifecycle-events.ps1",
@@ -2860,10 +2878,16 @@
       "git_blob_sha": "5ab7f2c1df843000e058127d71450e0b79f63fe4"
     },
     {
+      "path": "implementation-p4_2_5/src/calendar-client.css",
+      "bytes": 530,
+      "sha256": "46576733c096b781538c1b4ffa397b325f57ae9f8bf1a695b65f9f3892afddcf",
+      "git_blob_sha": "45d4e229ab1f80c0eff081ceadb5094cd911be34"
+    },
+    {
       "path": "implementation-p4_2_5/src/calendar-client.js",
-      "bytes": 6553,
-      "sha256": "7c0510790031a502c2e38119e0b5bbfd49a08b6f2616ce96d69339e294646dba",
-      "git_blob_sha": "6adf1979c96fe0faa12ffa53b9af8dfc00930bfe"
+      "bytes": 1994,
+      "sha256": "bf2cb9f357ebd41705ad24497fa47e5c2882ce8f551f12389b682615e9ef3021",
+      "git_blob_sha": "6f2d37097de24b2472cc4cfae010cd90bc4cfa31"
     },
     {
       "path": "implementation-p4_2_5/src/calendar-copy.js",
@@ -2933,9 +2957,9 @@
     },
     {
       "path": "implementation-p4_2_5/src/daily-feeds-client.js",
-      "bytes": 13644,
-      "sha256": "03e8a295935e3f2f09beb39948f876b499a9c2cf0f50a530fa5e975d003c233b",
-      "git_blob_sha": "bce90990682a6fc207ec41b2ff33c2f7c10ebcb8"
+      "bytes": 13635,
+      "sha256": "5f70dfe20f8b5ed9febb3e71c7315640c16b5d579066729695d6983f11529b80",
+      "git_blob_sha": "159d7850865707e6c20082f27bfff46798730c68"
     },
     {
       "path": "implementation-p4_2_5/src/daily-feeds.css",
@@ -3053,9 +3077,9 @@
     },
     {
       "path": "implementation-p4_2_5/src/inspector.js",
-      "bytes": 10933,
-      "sha256": "95098219a6d1952b9bcc632abbbd34e884e2d6229a3e4470e795a8e9d8382e93",
-      "git_blob_sha": "0edd2a476ef6a0df4e0ac2dbad4da20aaf259ff8"
+      "bytes": 10676,
+      "sha256": "a1122bd157dc934f9cddd31e9fae1123ff2252ac1e48fe6f821a306d183f5ca9",
+      "git_blob_sha": "79d5dd1cfabd6e60fc46f528f2ae6881e6fa07df"
     },
     {
       "path": "implementation-p4_2_5/src/layout-client.js",
@@ -3497,9 +3521,9 @@
     },
     {
       "path": "implementation-p4_2_5/tests/calendar-client.test.mjs",
-      "bytes": 2886,
-      "sha256": "8a9bbb2bdae8a9622e0bfe50a8b1c1dfe1106896c0417d9f560c39b1a05e61ed",
-      "git_blob_sha": "d9f62ce17f1e65c84a7879f7daba16d988113065"
+      "bytes": 2390,
+      "sha256": "9f24d05151135f7ed4098749b3a70512f1604a61100189a0bc4acba41e10cdb6",
+      "git_blob_sha": "757c320af503224d06ad892a4ac5e7e0c2698bec"
     },
     {
       "path": "implementation-p4_2_5/tests/calendar.test.mjs",

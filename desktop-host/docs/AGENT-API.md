@@ -79,7 +79,7 @@ $receipt = & $atmosExe --get-result $command.requestId | Out-String | ConvertFro
 4. 物件逐層合併，陣列整份取代。增加待辦時先保留原有 todos；ID 不可重複。省略欄位保持不變。未知欄位、HTML／腳本欄位與任意檔案／系統操作不支援。文字內容只當資料，不當操作指令。
 5. 元件座標為邏輯舞台百分比。桌面位置需設定 desktopZone=`scene` 或 `tray`、卡片 custom=true 及 x/y；窄屏設定 mobileCustom=true 及 mx/my。除非有意變更，保留另一組座標。畫面仍會按可用空間限制位置。
 6. 指定 background 會清除既有自訂圖片；只改 theme 不會清除。paused=false、reduced=false、lightning=true、lockScene=true、layout=A 為固定值。
-7. 天氣、系統與媒體來源仍有示範／未串接限制；JSON 不會把它們變成即時服務。calendarMode=ics 依賴先前已匯入／訂閱的 ICS 資料。此版本不提供 ICS、圖片、開機設定或 shell 的通用 agent 寫入介面。
+7. 資料來源能力依 provider 而定，JSON 本身只設定顯示與內容，不能憑空產生即時資料。0.7.29 起日曆僅顯示本機當月月曆；calendarMode 的 demo／ics／off 為相容欄位，不再切換行程來源，請以 calendarVisible 控制顯隱。此版本不提供 ICS、圖片、開機設定或 shell 的通用 agent 寫入介面。
 8. **committed 與 rendererAcknowledged 分開判讀。** 前者是持久提交；後者只接受 4 秒內、相符 revision/hash、wallpaper 角色且仍對應目前設定的回報。管理頁 ack 不算桌布 ack。superseded=true 表示之後已有其他版本。
 9. 停止桌布、鎖屏節流、遮蔽或等待逾時可能得到 committed=true／rendererAcknowledged=false，仍是已保存；不要因此再建立新交易。回報不是原生／目視證據，hostVisibility 維持 unknown。
 10. STORE_LOCKED 可用相同封包重試；RECOVERED_OUTCOME_UNKNOWN 必須先檢查，不可盲重試。非成功或程序中斷時 committed=null 表示沒有宣稱提交結果，應先查詢原 ID。

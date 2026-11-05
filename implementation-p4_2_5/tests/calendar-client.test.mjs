@@ -3,28 +3,19 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
 import {parseHTML} from 'linkedom';
-function setup(wallpaper=false){
- const {window}=parseHTML('<html><body><main><div id="calendar"></div><section class="calendar-section"><button id="google">Google</button></section></main></body></html>');
- const state={calendarMode:'ics',locale:'zh-TW'},calls=[];let marked=false;
- window.atmosBridgeApp={getState:()=>state,update:patch=>Object.assign(state,patch)};window.atmosBridgeChanged=()=>{marked=true};
- const data={configured:true,type:'file',name:'Test',events:[{title:'<img src=x onerror=alert(1)>私人行程',start:'2026-11-03T02:00:00Z',end:'2026-11-03T03:00:00Z',allDay:false}]};
- const context={window,document:window.document,MutationObserver:window.MutationObserver,Intl,Date,AbortSignal,setInterval:()=>1,addEventListener:()=>{},fetch:async(url,config)=>{calls.push({url,config});return {ok:true,json:async()=>data}}};
- vm.runInNewContext(fs.readFileSync(new URL('../src/calendar-client.js',import.meta.url),'utf8'),context);
- window.AtmosCalendar.start({wallpaper,headers:()=>({'X-Atmos-Session':'test-nonce'})});
- return {window,state,calls,get marked(){return marked}};
+function setup(date,mode='demo',wallpaper=false){
+ const {window}=parseHTML('<html><body><div id="calendar"></div><section class="calendar-section"><button>Google Microsoft</button></section></body></html>');
+ let current=date,interval,requests=0;
+ class Clock extends Date{constructor(...args){super(...(args.length?args:[current]))}}
+ window.atmosBridgeApp={getState:()=>({locale:'zh-TW',calendarMode:mode})};
+ vm.runInNewContext(fs.readFileSync(new URL('../src/calendar-client.js',import.meta.url),'utf8'),{window,document:window.document,Date:Clock,Intl,setInterval(fn){interval=fn},addEventListener(){},fetch(){requests++;throw Error('No calendar requests allowed')}});
+ window.AtmosCalendar.start({wallpaper,headers:()=>({})});
+ return {window,calendar:window.document.getElementById('calendar'),advance(date){current=date;interval()},get requests(){return requests}};
 }
-test('calendar DOM renders untrusted event titles as text and replaces nonfunctional OAuth controls',async()=>{
- const x=setup();await new Promise(resolve=>setImmediate(resolve));const calendar=x.window.document.getElementById('calendar');
- assert.match(calendar.textContent,/私人行程/);assert.equal(calendar.querySelector('img'),null);assert.equal(x.window.document.getElementById('google'),null);
- assert.match(x.window.document.querySelector('.calendar-section').textContent,/匯入日曆/);assert.equal(x.calls[0].config.headers['X-Atmos-Session'],'test-nonce');
- x.state.calendarMode='off';x.window.AtmosCalendar.render();assert.match(calendar.textContent,/已關閉/);
+test('plain calendar renders actual leap month and today without accounts, events or network calls',()=>{
+ const x=setup(new Date(2024,1,29));assert.equal(x.calendar.querySelectorAll('[data-day]').length,29);assert.equal(x.calendar.querySelectorAll('.month-weekday').length,7);assert.equal(x.calendar.querySelector('[aria-current=date]').dataset.day,'29');assert.equal(x.calendar.querySelector('.month-day').getAttribute('aria-hidden'),'true');assert.equal(x.window.document.querySelector('.calendar-section'),null);assert.doesNotMatch(x.calendar.textContent,/Google|Microsoft|ICS|14:00|專注時間/);assert.equal(x.requests,0);
+ const first=x.calendar.firstElementChild;x.window.AtmosCalendar.render();assert.equal(x.calendar.firstElementChild,first);x.advance(new Date(2024,2,1));assert.equal(x.calendar.querySelectorAll('[data-day]').length,31);assert.equal(x.calendar.querySelector('[aria-current=date]').dataset.day,'1');assert.equal(x.requests,0);
 });
-test('wallpaper creates no account or import controls',async()=>{
- const x=setup(true);await new Promise(resolve=>setImmediate(resolve));assert.equal(x.window.document.querySelector('input[type=file]'),null);assert.equal(x.calls.length,1);
-});
-test('manager import posts the file and marks calendar display mode as an explicit draft',async()=>{
- const x=setup();await new Promise(resolve=>setImmediate(resolve));x.state.calendarMode='demo';
- const input=x.window.document.querySelector('input[type=file]');Object.defineProperty(input,'files',{value:[{name:'test.ics',size:100,text:async()=>'BEGIN:VCALENDAR'}]});
- const button=[...x.window.document.querySelectorAll('button')].find(e=>e.textContent==='匯入日曆');await button.onclick();
- assert.equal(x.calls.at(-1).url,'/api/calendar/import');assert.equal(JSON.parse(x.calls.at(-1).config.body).text,'BEGIN:VCALENDAR');assert.equal(x.state.calendarMode,'ics');assert.equal(x.marked,true);
+test('all legacy saved calendar modes show the same month without modifying settings',()=>{
+ for(const mode of ['demo','ics','off'])for(const wallpaper of [false,true]){const x=setup(new Date(2026,10,6),mode,wallpaper);assert.equal(x.calendar.querySelectorAll('[data-day]').length,30);assert.equal(x.calendar.querySelector('[aria-current=date]').dataset.day,'6');assert.equal(x.requests,0)}
 });

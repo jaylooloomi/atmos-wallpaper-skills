@@ -1,8 +1,8 @@
-# Atmos Wallpaper Windows 0.7.28
+# Atmos Wallpaper Windows 0.7.29
 
 **目前已移除螢幕保護功能。** 設定分為桌面元件／桌布與系統設定／外觀字型三個分頁；下方版本記錄中的 `.scr` 與螢幕保護均屬歷史功能。[移除與安全升級清理](docs/SCREENSAVER-REMOVAL-2026-11-06.md)。
 
-Tauri 2＋Rust、Windows x64，提供單目標、各螢幕獨立、重複與全景桌布配置（新安裝預設跟隨主螢幕）。保留現有管理頁、場景、元件與 ICS 日曆，由自己的 WebView2 宿主套用，**不使用 Lively**。
+Tauri 2＋Rust、Windows x64，提供單目標、各螢幕獨立、重複與全景桌布配置（新安裝預設跟隨主螢幕）。保留現有管理頁、場景與元件，日曆顯示為純月曆，由自己的 WebView2 宿主套用，**不使用 Lively**。
 
 0.7.0 新增具名配置／輪播／固定時段、專注與展示、跨螢幕音訊 owner、FPS／全螢幕／電池政策、真 CPU／RAM、opt-in 模型天氣、素材引用封存、JSON watch 與 `.scr`。功能與自動／人工界線見 [功能驗證矩陣](docs/AUTOMATED-ROADMAP-VALIDATION-2026-11-04.md)。0.7.1 修正 ACK response body 的資源生命週期，並完成本機兩小時程序樹與 GPU 採樣；[結果與限制](docs/WINDOWS-RESOURCE-VALIDATION-2026-11-05.md) 保留記憶體增長與不完整計數器覆蓋，不以單元測試推定安裝版或零洩漏。
 
@@ -165,3 +165,5 @@ Agent 實機整合測試（會暫時變更強度再以交易還原）：node scr
 0.7.27 上方按鈕中文文案限制四字內，完整行為說明保留於 aria-label／title；事件與設定不變。[驗證](docs/SHORT-BUTTONS-2026-11-06.md)。
 
 0.7.28 系統資訊移除假情境選單，CPU／RAM／網路獨立於天氣每兩秒更新。網路依 GetIfTable2 差值與實際時間計算；無封包擷取或感測器驅動。[TrafficMonitor 調研及驗證](docs/LIVE-SYSTEM-2026-11-06.md)。
+
+0.7.29：純月曆顯示，移除登入與匯入／訂閱介面；保留原資料，見 [驗證紀錄](docs/PLAIN-CALENDAR-2026-11-06.md)。
