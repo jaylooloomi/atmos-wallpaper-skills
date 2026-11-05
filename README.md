@@ -4,6 +4,8 @@ Atmos 是可客製化的個人資訊桌面（Personal Dashboard）：把關心�
 
 ## 最新功能
 
+- 0.7.14 將 GitHub 熱門、Yahoo 新聞與 RSS 整合至桌面元件清單，與番茄鐘／播放資訊使用相同卡片，保留獨立儲存。[驗證](desktop-host/docs/FEED-WIDGET-LIST-2026-11-06.md)。
+
 - 0.7.13 精簡管理工具列：寬版單列、跟隨主題配色、統一按鈕／省電開關，說明預設收起；錯誤與儲存狀態仍顯示。[驗證](desktop-host/docs/COMPACT-TOOLBAR-2026-11-06.md)。
 
 - 0.7.12 管理頁修正：元件展開改用一致 SVG；工具列初始保持正常版面，捲動吸頂後才顯示陰影。[修正與驗證](desktop-host/docs/UI-REFINEMENT-2026-11-06.md)。

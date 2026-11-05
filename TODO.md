@@ -1,8 +1,12 @@
 # Atmos 後續執行 TODO
 
-更新：2026-11-06。Windows 0.7.13；原 0.7.0 功能矩陣保留為歷史驗證範圍。
+更新：2026-11-06。Windows 0.7.14；原 0.7.0 功能矩陣保留為歷史驗證範圍。
 
 本文件保存已授權功能與驗證界線。使用者本輪要求先完成程式與自動腳本，不先安排人工測試。下列核取代表功能已實作且有對應自動單元／合成／原生腳本證據，不代表所有硬體、人眼或人工生命週期皆通過；HOST-03 另外追蹤最終驗證矩陣。完整對照見 `desktop-host/docs/AUTOMATED-ROADMAP-VALIDATION-2026-11-04.md`，執行順序見 `desktop-host/docs/ROADMAP-EXECUTION-2026-11-04.md`。
+
+## 資訊元件分組（0.7.14）
+
+- [x] UI-FEED-LIST：GitHub／Yahoo／RSS 併入桌面元件清單，沿用來源獨立儲存；完整自動排版與保留設定安裝更新均通過。見 `desktop-host/docs/FEED-WIDGET-LIST-2026-11-06.md`。
 
 ## 精簡工具列（0.7.13）
 
