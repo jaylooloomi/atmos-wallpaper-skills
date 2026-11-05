@@ -105,3 +105,6 @@ fs.writeFileSync(path.join(dist,'bridge-client.js'),fs.readFileSync(path.join(di
 fs.copyFileSync(path.join(root,'src/daily-feeds-client.js'),path.join(dist,'daily-feeds-client.js'));
 fs.appendFileSync(path.join(dist,'hifi.css'),'\n'+fs.readFileSync(path.join(root,'src/daily-feeds.css'),'utf8'));
 fs.writeFileSync(path.join(dist,'bridge-client.js'),fs.readFileSync(path.join(dist,'bridge-client.js'),'utf8').replace("window.AtmosSettingsTabs.start({wallpaper:wallpaperMode});","window.AtmosSettingsTabs.start({wallpaper:wallpaperMode});await load('daily-feeds-client.js');window.AtmosDailyFeeds.start({headers,wallpaper:wallpaperMode});"));
+
+fs.writeFileSync(path.join(dist,'dashboard-layouts.js'),fs.readFileSync(path.join(root,'src/dashboard-layouts.mjs'),'utf8').replace(/\bexport /g,'')+'\nwindow.AtmosDashboardLayouts={dashboardLayouts,applyDashboardLayout};');
+fs.writeFileSync(path.join(dist,'bridge-client.js'),fs.readFileSync(path.join(dist,'bridge-client.js'),'utf8').replace("await load('daily-feeds-client.js');","await load('dashboard-layouts.js');await load('daily-feeds-client.js');"));

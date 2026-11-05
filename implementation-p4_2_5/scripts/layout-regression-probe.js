@@ -1,6 +1,6 @@
 // Runs only in the isolated fixture. Navigation never submits settings.
 window.AtmosLayoutRegression={measure({injectOverlap=false}={}){
- const failures=[],states=[],body=document.body,originalTheme=body.dataset.theme,originalCard=window.AtmosInspector.activeId,tabs=window.AtmosSettingsTabs,originalTab=tabs?.active,tabVisits={desktop:0,screensaver:0,appearance:0};
+ const failures=[],states=[],body=document.body,originalTheme=body.dataset.theme,originalCard=window.AtmosInspector.activeId,tabs=window.AtmosSettingsTabs,originalTab=tabs?.active,tabVisits={desktop:0,screensaver:0,appearance:0};let dashboardLayoutVisits=0;
  const rect=e=>e.getBoundingClientRect(),shown=e=>!!e&&!e.hidden&&getComputedStyle(e).display!=='none'&&rect(e).width>0&&rect(e).height>0;
  const fail=(code,theme,card)=>failures.push({code,theme,card});
  const injected=document.createElement('style');if(injectOverlap){injected.textContent='body[data-render-mode=manager] #componentInspector .inspect-props input,body[data-render-mode=manager] #componentInspector .inspect-props select,body[data-render-mode=manager] #componentInspector .inspect-props button{position:absolute!important;left:0!important;top:0!important}';document.head.append(injected)}
@@ -19,10 +19,11 @@ window.AtmosLayoutRegression={measure({injectOverlap=false}={}){
     const propsHeight=rect(props).height;
     tabs?.select('screensaver');tabVisits.screensaver++;check(theme,card);const first=document.querySelector('[data-sc-install]'),second=document.querySelector('[data-sc-settings]');if(!shown(first)||!shown(second))fail('SCREENSAVER_ACTION_HIDDEN',theme,card);const a=rect(first),b=rect(second),gap=Math.max(b.top-a.bottom,a.top-b.bottom,b.left-a.right,a.left-b.right);if(gap<8||a.height<44||b.height<44)fail('SCREENSAVER_ACTION_SPACING',theme,card);
     tabs?.select('desktop');tabVisits.desktop++;for(const row of document.querySelectorAll('[data-settings-widget-card]'))row.open=row.dataset.settingsWidgetCard===card;const advanced=document.querySelector('.settings-advanced');if(advanced)advanced.open=true;check(theme,card);
+    const layoutSelect=document.querySelector('.dashboard-layout-controls select'),preview=document.querySelector('[data-dashboard-preview]'),cancel=document.querySelector('[data-dashboard-cancel]');if(!layoutSelect||!preview||!cancel)fail('DASHBOARD_LAYOUT_CONTROLS_MISSING',theme,card);else for(const value of ['left','split','top']){layoutSelect.value=value;preview.click();dashboardLayoutVisits++;check(theme,card);const cards=[...document.querySelectorAll('.daily-feed-card')].filter(shown);if(cards.length!==3)fail('DASHBOARD_CARD_COVERAGE',theme,card);for(let i=0;i<cards.length;i++)for(let j=i+1;j<cards.length;j++){const a=rect(cards[i]),b=rect(cards[j]);if(Math.min(a.right,b.right)-Math.max(a.left,b.left)>1&&Math.min(a.bottom,b.bottom)-Math.max(a.top,b.top)>1)fail('DASHBOARD_CARD_OVERLAP',theme,card)}cancel.click()}
     if(document.querySelectorAll('.settings-tabpanel:not([hidden])').length!==1)fail('TAB_VISIBILITY_INVALID',theme,card);
     states.push({theme,card,propsHeight,sideHeight:rect(document.querySelector('.side')).height,buttonGap:gap});
    }finally{stress.remove()}
   }
  }}finally{injected.remove();body.dataset.theme=originalTheme;if(originalCard)window.AtmosInspector.open(originalCard);if(originalTab)tabs?.select(originalTab);for(const row of document.querySelectorAll('[data-settings-widget-card],.settings-advanced'))row.open=false;window.atmosSchedulePanelAlign?.()}
- return {states,tabVisits,failures,passed:states.length===28&&Object.values(tabVisits).every(n=>n===28)&&failures.length===0};
+ return {states,tabVisits,dashboardLayoutVisits,failures,passed:dashboardLayoutVisits===84&&states.length===28&&Object.values(tabVisits).every(n=>n===28)&&failures.length===0};
 }};

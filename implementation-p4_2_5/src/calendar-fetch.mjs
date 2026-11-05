@@ -12,7 +12,7 @@ export function subscriptionURL(input){
  if(String(input).length>4096||url.protocol!=='https:'||url.username||url.password||url.hash||(url.port&&url.port!=='443')||url.hostname==='localhost')throw Error('ICS_URL_INVALID');
  return url;
 }
-export async function fetchCalendar(input,{lookup=dns.lookup,request=https.request}={}){
+export async function fetchCalendar(input,{lookup=dns.lookup,request=https.request,accept='text/calendar',userAgent='Atmos-Calendar/1.0'}={}){
  const deadline=Date.now()+12000;
  async function get(input,redirects=0){
   const url=subscriptionURL(input),hostname=url.hostname.replace(/^\[|\]$/g,'');
@@ -20,7 +20,7 @@ export async function fetchCalendar(input,{lookup=dns.lookup,request=https.reque
   if(!records.length||records.some(r=>!publicAddress(r.address)))throw Error('ICS_URL_BLOCKED');
   const pin=records[0];
   return new Promise((resolve,reject)=>{
-   const req=request(url,{family:pin.family,autoSelectFamily:false,agent:false,lookup:(_,options,callback)=>callback(null,pin.address,pin.family),headers:{Accept:'text/calendar','Accept-Encoding':'identity','User-Agent':'Atmos-Calendar/1.0'}},res=>{
+   const req=request(url,{family:pin.family,autoSelectFamily:false,agent:false,lookup:(_,options,callback)=>callback(null,pin.address,pin.family),headers:{Accept:accept,'Accept-Encoding':'identity','User-Agent':userAgent}},res=>{
     if([301,302,303,307,308].includes(res.statusCode)){res.resume();if(redirects>=3||!res.headers.location)return reject(Error('ICS_FETCH_FAILED'));get(new URL(res.headers.location,url).href,redirects+1).then(resolve,reject);return}
     if(res.statusCode!==200){res.resume();reject(Error('ICS_FETCH_FAILED'));return}
     let size=0;const chunks=[];

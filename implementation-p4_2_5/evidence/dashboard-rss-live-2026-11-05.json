@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-05",
+  "passed": true,
+  "method": "Production service and public-DNS-pinned HTTPS fetch, using a private temporary store; no user sources changed",
+  "sources": [
+    {
+      "format": "RSS",
+      "url": "https://github.blog/feed/",
+      "items": 5,
+      "stale": false,
+      "fetchedAt": "2026-11-05T03:02:51.791Z"
+    },
+    {
+      "format": "Atom",
+      "url": "https://github.com/tauri-apps/tauri/releases.atom",
+      "items": 5,
+      "stale": false,
+      "fetchedAt": "2026-11-05T03:02:52.546Z"
+    }
+  ],
+  "limitations": [
+    "Remote availability and document formats can change. No human visual verification."
+  ]
+}
