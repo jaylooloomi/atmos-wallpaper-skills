@@ -4,6 +4,8 @@ Atmos 是可客製化的個人資訊桌面（Personal Dashboard）：把關心�
 
 ## 最新功能
 
+- 0.7.17 移除管理頁的外部 AI 指令產生區與原始技術診斷區，保留 JSON／CLI 與內部真實畫面回報。[驗證](desktop-host/docs/MANAGER-PANELS-REMOVAL-2026-11-06.md)。
+
 - 0.7.16 依使用者要求移除螢幕保護功能：管理頁只保留桌面元件／外觀字型，停止提供 `.scr` 與啟用 API；升級會清理舊 Atmos 選取與檔案，其他 Windows 設定保留。[移除與驗證](desktop-host/docs/SCREENSAVER-REMOVAL-2026-11-06.md)。
 
 - 0.7.15 修正外觀分頁「介面風格」額外縮排，與同欄設定卡片等寬，保留四張風格卡排列。[驗證](desktop-host/docs/THEME-WIDTH-2026-11-06.md)。

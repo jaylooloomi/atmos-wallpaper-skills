@@ -124,3 +124,8 @@ fs.writeFileSync(path.join(dist,'bridge-client.js'),fs.readFileSync(path.join(di
 
 // Remove only retired generated assets; preparation otherwise reuses this directory.
 for(const name of ['screensaver-client.js','screensaver-client.css'])fs.rmSync(path.join(dist,name),{force:true});
+
+// Remove the retired manager-only prompt and diagnostic areas from the final product.
+const {removeManagerPanels}=await import('../src/remove-manager-panels.mjs');
+const stripped=removeManagerPanels(fs.readFileSync(path.join(dist,'index.html'),'utf8'),fs.readFileSync(path.join(dist,'app.js'),'utf8'));
+fs.writeFileSync(path.join(dist,'index.html'),stripped.html);fs.writeFileSync(path.join(dist,'app.js'),stripped.app);fs.rmSync(path.join(dist,'prompt-template.js'),{force:true});

@@ -1,8 +1,12 @@
 # Atmos 後續執行 TODO
 
-更新：2026-11-06。Windows 0.7.16；原 0.7.0 功能矩陣保留為歷史驗證範圍。
+更新：2026-11-06。Windows 0.7.17；原 0.7.0 功能矩陣保留為歷史驗證範圍。
 
 本文件保存已授權功能與驗證界線。使用者本輪要求先完成程式與自動腳本，不先安排人工測試。下列核取代表功能已實作且有對應自動單元／合成／原生腳本證據，不代表所有硬體、人眼或人工生命週期皆通過；HOST-03 另外追蹤最終驗證矩陣。完整對照見 `desktop-host/docs/AUTOMATED-ROADMAP-VALIDATION-2026-11-04.md`，執行順序見 `desktop-host/docs/ROADMAP-EXECUTION-2026-11-04.md`。
+
+## 管理頁區塊移除（0.7.17）
+
+- [x] UI-REMOVE-PANELS：移除外部 AI Prompt 與原始技術診斷區；保留 Agent／CLI 與內部 ACK，完整自動驗證與保留設定安裝更新通過。見 `desktop-host/docs/MANAGER-PANELS-REMOVAL-2026-11-06.md`。
 
 ## 外觀卡片寬度（0.7.15）
 
