@@ -1,4 +1,4 @@
-# Atmos Wallpaper Windows 0.7.14
+# Atmos Wallpaper Windows 0.7.15
 
 Tauri 2＋Rust、Windows x64，提供單目標、各螢幕獨立、重複與全景桌布配置（新安裝預設跟隨主螢幕）。保留現有管理頁、場景、元件與 ICS 日曆，由自己的 WebView2 宿主套用，**不使用 Lively**。
 
@@ -137,3 +137,5 @@ Agent 實機整合測試（會暫時變更強度再以交易還原）：node scr
 0.7.13 將管理工具列在寬版合為一列，使用目前主題配色與一致按鈕，保留捲動後吸頂與各設定保存邊界。[驗證](docs/COMPACT-TOOLBAR-2026-11-06.md)。
 
 0.7.14 將每日資訊元件整合進一般桌面元件清單，統一外觀並保留既有儲存邊界。[驗證](docs/FEED-WIDGET-LIST-2026-11-06.md)。
+
+0.7.15 修正外觀分頁的介面風格卡片寬度，移除舊橫幅邊距。[驗證](docs/THEME-WIDTH-2026-11-06.md)。

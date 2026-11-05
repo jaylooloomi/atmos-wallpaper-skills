@@ -27,3 +27,6 @@ body[data-render-mode=manager] .settings-tabpanel[hidden]{display:none!important
 .settings-saver-summary{padding:14px;line-height:1.6}.settings-saver-widget{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:12px 0}
 .settings-tab-footer{display:flex;flex-direction:column;gap:10px;border-top:1px solid var(--line,#637787);padding:14px 0 4px;min-width:0}.settings-tab-footer small{line-height:1.6;overflow-wrap:anywhere}.settings-apply{width:100%;min-height:46px;padding:10px;font-size:15px;font-weight:600}
 .settings-tabs [role=tab]:focus-visible,.settings-tabs button:focus-visible{outline:2px solid var(--accent,#71d9ff);outline-offset:2px}
+/* The former full-page banner now lives inside the appearance panel. */
+body[data-render-mode=manager] .settings-tabpanel #themeSettings.theme-banner{width:100%;max-width:100%;box-sizing:border-box;margin:0!important;padding:0!important;border:0;min-width:0}
+body[data-render-mode=manager] .settings-tabpanel #themeSettings.theme-banner>.theme-section{width:100%;max-width:100%;min-width:0;box-sizing:border-box;margin:0!important}
