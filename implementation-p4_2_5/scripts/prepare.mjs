@@ -129,3 +129,16 @@ for(const name of ['screensaver-client.js','screensaver-client.css'])fs.rmSync(p
 const {removeManagerPanels}=await import('../src/remove-manager-panels.mjs');
 const stripped=removeManagerPanels(fs.readFileSync(path.join(dist,'index.html'),'utf8'),fs.readFileSync(path.join(dist,'app.js'),'utf8'));
 fs.writeFileSync(path.join(dist,'index.html'),stripped.html);fs.writeFileSync(path.join(dist,'app.js'),stripped.app);fs.rmSync(path.join(dist,'prompt-template.js'),{force:true});
+
+// Visible, user-started YouTube player. Remote code stays inside the provider iframe.
+const youtubeLinks=fs.readFileSync(path.join(root,'src/youtube-links.mjs'),'utf8').replace(/\bexport /g,'');
+fs.writeFileSync(path.join(dist,'youtube-client.js'),'(()=>{'+youtubeLinks+';window.AtmosYouTubeLinks={parseYouTubeLink,youtubeEmbedUrl};})();\n'+fs.readFileSync(path.join(root,'src/youtube-client.js'),'utf8'));
+fs.appendFileSync(path.join(dist,'hifi.css'),'\n'+fs.readFileSync(path.join(root,'src/youtube.css'),'utf8'));
+const youtubeBridge=fs.readFileSync(path.join(dist,'bridge-client.js'),'utf8'),youtubeHook='window.AtmosSettingsTabs.start({wallpaper:wallpaperMode});';
+if(youtubeBridge.split(youtubeHook).length!==2)throw Error('YouTube manager mount hook missing');
+fs.writeFileSync(path.join(dist,'bridge-client.js'),youtubeBridge.replace(youtubeHook,youtubeHook+"if(!wallpaperMode){await load('youtube-client.js');window.AtmosYouTube.start({wallpaper:false});}"));
+const mediaFile=path.join(dist,'widgets.js');let mediaSource=fs.readFileSync(mediaFile,'utf8');
+const mediaStart=mediaSource.indexOf("return data.mediaState==='demo'?"),mediaLineEnd=mediaSource.indexOf('\n',mediaStart),mediaTail=mediaSource.slice(mediaStart,mediaLineEnd);
+if(mediaStart<0||!mediaTail.endsWith('}'))throw Error('Legacy media presentation hook missing');
+mediaSource=mediaSource.slice(0,mediaStart)+"return '<p>YouTube 音樂</p><small>在管理頁貼上 YouTube 連結播放</small>'}"+mediaSource.slice(mediaLineEnd);
+fs.writeFileSync(mediaFile,mediaSource);

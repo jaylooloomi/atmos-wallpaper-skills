@@ -20,6 +20,8 @@ const server=http.createServer(async(req,res)=>{try{
  const url=new URL(req.url,'http://127.0.0.1');
  if(url.pathname==='/audit-shell'){const width=Number(url.searchParams.get('width')),height=Number(url.searchParams.get('height'));res.setHeader('Content-Type','text/html');res.end('<!doctype html><html><body style="margin:0;background:#ddd"><iframe style="display:block;border:0;width:'+width+'px;height:'+height+'px" src="/manager"></iframe></body></html>');return}
  if(url.pathname==='/native-manager-fixture.js'){res.setHeader('Content-Type','text/javascript');res.end('window.__ATMOS_NATIVE_MANAGER__=true;');return}
+ // Synthetic player geometry only: no YouTube request, playback or ACK is fabricated.
+ if(url.pathname==='/youtube-client.js'){let code=fs.readFileSync(path.join(root,'dist/youtube-client.js'),'utf8');if(code.split('frame.src=embed;').length!==2)throw Error('YouTube fixture hook missing');code=code.replace('frame.src=embed;',"frame.dataset.syntheticFixture='true';");res.setHeader('Content-Type','text/javascript');res.end(code);return}
  if(url.pathname==='/layout-audit.js'){res.setHeader('Content-Type','text/javascript');res.end(auditScript);return}
  const parts=[];for await(const part of req)parts.push(part);const body=Buffer.concat(parts),headers=new Headers();for(const [key,value]of Object.entries(req.headers))if(value!==undefined)headers.set(key,Array.isArray(value)?value.join(','):value);
  const request=new Request(origin+req.url,{method:req.method,headers,...(body.length?{body}:{})});const response=await bridge.handle(request,{rawPath:req.url});

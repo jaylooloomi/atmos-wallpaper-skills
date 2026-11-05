@@ -94,7 +94,7 @@ dependencies = [
 
 [[package]]
 name = "atmos-wallpaper-desktop"
-version = "0.7.25"
+version = "0.7.26"
 dependencies = [
  "cpal",
  "serde",

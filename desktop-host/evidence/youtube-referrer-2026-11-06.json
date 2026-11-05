@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "passed": true,
+  "method": "Real isolated Chromium CLI; two local HTTP origins",
+  "checks": {
+    "parentNoReferrerPreserved": true,
+    "iframeStrictOriginPolicySendsReferer": true,
+    "refererContainsOriginOnly": true,
+    "noExternalYouTubeRequest": true
+  },
+  "limitations": [
+    "Header behavior only, not a YouTube acceptance, video decoding or audible playback test"
+  ]
+}
