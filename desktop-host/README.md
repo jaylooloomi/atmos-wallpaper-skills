@@ -1,4 +1,4 @@
-# Atmos Wallpaper Windows 0.7.26
+# Atmos Wallpaper Windows 0.7.27
 
 **目前已移除螢幕保護功能。** 設定分為桌面元件／桌布與系統設定／外觀字型三個分頁；下方版本記錄中的 `.scr` 與螢幕保護均屬歷史功能。[移除與安全升級清理](docs/SCREENSAVER-REMOVAL-2026-11-06.md)。
 
@@ -161,3 +161,5 @@ Agent 實機整合測試（會暫時變更強度再以交易還原）：node scr
 0.7.25 語言選單移到上方桌布確認按鈕旁，窄螢幕換行，預覽區不再保留獨立語言框。[驗證](docs/TOOLBAR-LANGUAGE-2026-11-06.md)。
 
 0.7.26 播放資訊可貼上 YouTube 影片／播放清單連結，使用官方可見小播放器。影片音訊由 Windows／WebView2 預設輸出，與合成雨聲路由分開；管理頁關閉或隱藏後停止。[功能、驗證與限制](docs/YOUTUBE-PLAYER-2026-11-06.md)。
+
+0.7.27 上方按鈕中文文案限制四字內，完整行為說明保留於 aria-label／title；事件與設定不變。[驗證](docs/SHORT-BUTTONS-2026-11-06.md)。

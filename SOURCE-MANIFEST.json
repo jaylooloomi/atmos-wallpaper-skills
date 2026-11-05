@@ -23,33 +23,33 @@
     },
     {
       "path": "README.md",
-      "bytes": 14919,
-      "sha256": "31e43dfc46d22f3c5b84a80a6f6ebce2c5782e0cd37e4ec56dc252de9197a637",
-      "git_blob_sha": "0b76a51732b421a58d77211fda0598ff533fa3c4"
+      "bytes": 15177,
+      "sha256": "fb67bd6091a569ce5397598ca833fbe3324ccf568f8d4b19a21a02547d836346",
+      "git_blob_sha": "20b04de902ad06fe39d214f5daf5c018c7686c24"
     },
     {
       "path": "TODO.md",
-      "bytes": 23538,
-      "sha256": "e796003cca4828c7b646c521ca51e3d7005b6b2efd8597068609e8a068911c75",
-      "git_blob_sha": "3b629cd4accb56fa38ad50b283696f099ce64a4f"
+      "bytes": 23783,
+      "sha256": "ff3002bbf6ee0b713b63926a4503d0b8d3f46509191d58e5aa1a319f384e8d7a",
+      "git_blob_sha": "d9a6ce6136c70f1c1aca674dface81052a71a4e3"
     },
     {
       "path": "desktop-host/Cargo.lock",
       "bytes": 108436,
-      "sha256": "19fa5a6a6927b892e750cab3285da56fdf457484fdaa6557e851c5ef9b57b84d",
-      "git_blob_sha": "01fbfd6dd1d570995878d2e1fa9f86fb32bb3705"
+      "sha256": "3b7b28ea2659c546e67f65152a8b6e91d2cd24ca1946293ecb167397bb75b1c3",
+      "git_blob_sha": "639b2c9eac5887ae4882e0b0b1b9811e9f64ec71"
     },
     {
       "path": "desktop-host/Cargo.toml",
       "bytes": 1149,
-      "sha256": "4c1019f9af6d936cf26fba86a9a1d599dcacfd40e32c486638008f88204dc709",
-      "git_blob_sha": "1eda6d09c24f17aff6101eace4457f958fdd2256"
+      "sha256": "347df3b396625b9be4e2ede245fa631ef54d1adb78b9883337ecdf48a6bc57a5",
+      "git_blob_sha": "728111202193d324046bb6a7067d8b11794f05c2"
     },
     {
       "path": "desktop-host/README.md",
-      "bytes": 17893,
-      "sha256": "51f3e8facdc1f1bc8ea606cde89d71882045cf2ad4ded30e19e28a446066fd70",
-      "git_blob_sha": "018aaf47afc3d9fc4d96c066508d64ae0d33c512"
+      "bytes": 18062,
+      "sha256": "913d55b178c0e32e0af78328ad7fd43dea89c903066f60a8290470963a49966f",
+      "git_blob_sha": "c597c67c500f6a6a0855f93f0620b9c5c7a752f2"
     },
     {
       "path": "desktop-host/build.rs",
@@ -248,6 +248,12 @@
       "bytes": 2288,
       "sha256": "c7e8ae5fa10205923c384f659774ef7093cc730cc923619cf6e8ddb6699da031",
       "git_blob_sha": "eb8d86741c44112d8ea979446eb644cc2f6b274e"
+    },
+    {
+      "path": "desktop-host/docs/SHORT-BUTTONS-2026-11-06.md",
+      "bytes": 1943,
+      "sha256": "3582394f4251477d109f3f4baf20c73611cd81cd6703ea453f1d855cfab63aec",
+      "git_blob_sha": "a799d8f01e8705c7bb51210dee776d6a2fd816d9"
     },
     {
       "path": "desktop-host/docs/SOAK-ANALYSIS-METHOD-2026-11-05.md",
@@ -838,6 +844,18 @@
       "git_blob_sha": "7b27d9fd89f7de3f0835839f0bac29350023f356"
     },
     {
+      "path": "desktop-host/evidence/short-buttons-handoff-2026-11-06.json",
+      "bytes": 532,
+      "sha256": "f189910c8fab5d63c1b6fa1568654b6e88b2aef0e7b6573c2bcc7eefdc769b67",
+      "git_blob_sha": "ec9bb06bc1706f210209db855a111caaaf699864"
+    },
+    {
+      "path": "desktop-host/evidence/short-buttons-upgrade-2026-11-06.json",
+      "bytes": 1354,
+      "sha256": "623bdc5ef83cc7ff4663e70eaa63ad3c62ee867f41c09892787907e7c5cb221a",
+      "git_blob_sha": "572357c2d9180b016c44f00e90a74a4e776af6d4"
+    },
+    {
       "path": "desktop-host/evidence/snapshot-allocation-ab-2026-11-05.json",
       "bytes": 1955,
       "sha256": "7e532149acacfadc6c7552edc196d824f487b9136a5829cdd40f69b91396d593",
@@ -1098,14 +1116,14 @@
     {
       "path": "desktop-host/package-lock.json",
       "bytes": 7248,
-      "sha256": "cce6a8eea94775df9044bc010eb72c4c0a2b6a1283860a235e4a7def57662baf",
-      "git_blob_sha": "0aac89b7e12edf4142e3cdde9a0bfc45f895cb5f"
+      "sha256": "a21949404d2192e93b0ac083d8a27d8b69c11b9eaf802b3f35b2e3857134e3fc",
+      "git_blob_sha": "a85c1abf73f41e268eb44d3f631a913b0ad2a07d"
     },
     {
       "path": "desktop-host/package.json",
       "bytes": 285,
-      "sha256": "2df9c721f8f5dd2bc58be52c0c11e101e6a8a3ee5dfeb34f403d53687643fee0",
-      "git_blob_sha": "3675b9f33da089282998df3beba9a340ae13b676"
+      "sha256": "aa022206bab8ed5e61d6b71a50d87bf3a3f809e262f126b937aeb18416a39749",
+      "git_blob_sha": "e74bb7512f219dd396a191fa72e592534e315c7b"
     },
     {
       "path": "desktop-host/scripts/analyze-soak.mjs",
@@ -1554,8 +1572,8 @@
     {
       "path": "desktop-host/tauri.conf.json",
       "bytes": 976,
-      "sha256": "d44fa39b3dac8261f518ea126259304ea8701574136a76966226f05733931e8c",
-      "git_blob_sha": "57f4e1cfdbb1e24af2da2cfe754843c23e32c510"
+      "sha256": "2fb7b3acac9e9ed6fd5da94dab19e8f8a9930cb17a4a4774293b2fd5654c1ecf",
+      "git_blob_sha": "c82c287516b686c3e09ab36eaaeb3400fe42b7a6"
     },
     {
       "path": "desktop-host/ui/index.html",
@@ -2202,8 +2220,8 @@
     {
       "path": "implementation-p4_2_5/evidence/independent-draft-review.json",
       "bytes": 412,
-      "sha256": "e7fd31dd67b5f8fcf647e0b2584384e6d29ea41b7c74541e8daf340ac4ba2243",
-      "git_blob_sha": "e14cdccc283097d4bfc31b83ac26425f99b49ff5"
+      "sha256": "33bf60a6bf03b9a0a4606123c75efb03902ce91f8c82aebe95e47530c4b5d9cd",
+      "git_blob_sha": "bb4242c93869af832226d7aa07202088a0306bbd"
     },
     {
       "path": "implementation-p4_2_5/evidence/independent-path-review.json",
@@ -2645,9 +2663,9 @@
     },
     {
       "path": "implementation-p4_2_5/scripts/layout-regression-probe.js",
-      "bytes": 12658,
-      "sha256": "191714d94c08be675b9318746eec9c3fb697cfe07d44439414888a82307651bf",
-      "git_blob_sha": "21d9c286107b6ff836d21427fef8ffb739028622"
+      "bytes": 12904,
+      "sha256": "747831eb582a2f928b895f996eeb2b55837c63e6fa8b21d863946f25ca0e9d55",
+      "git_blob_sha": "18487941da17ad0eec0e23e1851ec617485ea2e6"
     },
     {
       "path": "implementation-p4_2_5/scripts/measure-windows-host.ps1",
@@ -2801,9 +2819,9 @@
     },
     {
       "path": "implementation-p4_2_5/src/bridge-client.js",
-      "bytes": 17676,
-      "sha256": "441795ed02cafd18a67da94756adab9a263d909d8b2598c070bbd113c66bc36d",
-      "git_blob_sha": "007d208727029d9d7e78fb406cb2dac74d853bbe"
+      "bytes": 17885,
+      "sha256": "418cfbe68ce49d5b813628269abe765dd21d4a6fe2c920d6d1d6876edd52d82f",
+      "git_blob_sha": "ae265a928ebf9971e258b6b98561e470b9105774"
     },
     {
       "path": "implementation-p4_2_5/src/bridge-toolbar.css",
@@ -2921,9 +2939,9 @@
     },
     {
       "path": "implementation-p4_2_5/src/display-client.js",
-      "bytes": 10896,
-      "sha256": "234382fc8393aa1601450029dda8870c7c978ab5d7a8cbbce6165f60af68258f",
-      "git_blob_sha": "b0a60d376f6ecce167006e3e9d63617692ca3b03"
+      "bytes": 11228,
+      "sha256": "56fad129d5e50248e2e682ff945e1e16529f822214cda825ed586c7e4ef3c5dc",
+      "git_blob_sha": "d7a2b32e6875d4d3120e1e386f6c540518faa8a1"
     },
     {
       "path": "implementation-p4_2_5/src/display-service.mjs",
@@ -2987,9 +3005,9 @@
     },
     {
       "path": "implementation-p4_2_5/src/i18n-catalog.js",
-      "bytes": 122819,
-      "sha256": "f04c0f7a0a164a78cfb1f3761db627bc7ec05d1cb11d6e976f0f026e073cf7ee",
-      "git_blob_sha": "eacc8274f90bad9d36732b0537b8122ac212c279"
+      "bytes": 123398,
+      "sha256": "1136825a95e720fdd2799b8a475a21dd31548f334b270e836cfdaebc505418ec",
+      "git_blob_sha": "b48b77cb32b4c6964bb2504bad02806c60dd3d3d"
     },
     {
       "path": "implementation-p4_2_5/src/information-saving.css",
@@ -3437,9 +3455,9 @@
     },
     {
       "path": "implementation-p4_2_5/tests/bridge-response-lifecycle.test.mjs",
-      "bytes": 10403,
-      "sha256": "99c09c8334a60197065f147bd65e9619a4908f162ddc77efbc36831a785f2d3b",
-      "git_blob_sha": "788ce1956cc6d4d506255469cc84fde5cff1482d"
+      "bytes": 10575,
+      "sha256": "4256ad2168a8d1373db2f7728f81ff0b4bdc297d043811c2cfaf78a8bf2d58e2",
+      "git_blob_sha": "cf33072f1bb86abfb2b057dc416fbcb941575e4e"
     },
     {
       "path": "implementation-p4_2_5/tests/bulk-visibility.test.mjs",
@@ -3833,9 +3851,9 @@
     },
     {
       "path": "implementation-p4_2_5/tests/wallpaper-controls.test.mjs",
-      "bytes": 3298,
-      "sha256": "c4beed00143893966a90947ea2ea26b1d88dfb7d97fd3d312371db46c19d094d",
-      "git_blob_sha": "8e948bbc64cbfbc1677bdb255c539adbbc11b072"
+      "bytes": 3668,
+      "sha256": "da6ecf2e7583e78f7edff373586d67c6c200b9d0e7bdec0e98d639bf677fd1be",
+      "git_blob_sha": "775923c864c7f4395bb61c9abec9e51b0b1d6f66"
     },
     {
       "path": "implementation-p4_2_5/tests/weather-controls.test.mjs",
