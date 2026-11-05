@@ -1,4 +1,4 @@
-# Atmos Wallpaper Windows 0.7.17
+# Atmos Wallpaper Windows 0.7.18
 
 **目前已移除螢幕保護功能。** 設定只保留桌面元件／外觀字型兩個分頁；下方版本記錄中的 `.scr` 與螢幕保護均屬歷史功能。[移除與安全升級清理](docs/SCREENSAVER-REMOVAL-2026-11-06.md)。
 
@@ -143,3 +143,5 @@ Agent 實機整合測試（會暫時變更強度再以交易還原）：node scr
 0.7.15 修正外觀分頁的介面風格卡片寬度，移除舊橫幅邊距。[驗證](docs/THEME-WIDTH-2026-11-06.md)。
 
 0.7.17 移除頁面下方的外部 AI Prompt 與原始 JSON 技術診斷區；Agent 契約、CLI、設定保存與 ACK 機制保留。[驗證](docs/MANAGER-PANELS-REMOVAL-2026-11-06.md)。
+
+0.7.18 將介面風格移至桌面元件分頁最上方，保留原節點、切換事件及設定。[驗證](docs/THEME-DESKTOP-TAB-2026-11-06.md)。
