@@ -23,33 +23,33 @@
     },
     {
       "path": "README.md",
-      "bytes": 11502,
-      "sha256": "dfc00b9472e18941434e2cfd190d5b2f34618abee2330f91d897a06845e3b316",
-      "git_blob_sha": "82575633802e563e323411c15ba4a2620bc19f93"
+      "bytes": 11698,
+      "sha256": "7b98459fe66f7ac80115bdf6568f1830dbd6a44ac1d409b4394ab9e0dfaa96db",
+      "git_blob_sha": "5d20112ea85bbabdcbde0df75d6abe39cb68a5b5"
     },
     {
       "path": "TODO.md",
-      "bytes": 20380,
-      "sha256": "5bdcd92d2f5aefdd98c3b1e55e64debfee31a0472b09fcd8be7a06013b9317bf",
-      "git_blob_sha": "ca6f1544435226b925485e7482d4f260628bef70"
+      "bytes": 20616,
+      "sha256": "be66e411093cf31b5f87530fb446082db505683dcdd543484a3d31a241b7c479",
+      "git_blob_sha": "f848358e1a66d1a657e5885d28acfaafca365b21"
     },
     {
       "path": "desktop-host/Cargo.lock",
       "bytes": 108436,
-      "sha256": "817f26d0d441cfc9b9ede613a7fe3d19040db627dd5df54c64a13d3ab0724593",
-      "git_blob_sha": "d810338da7e9c11e8ab9e2cd86c6b5410830b795"
+      "sha256": "f3b28680b42a065a4c7c089c040d0a0ba976c3da743fd7cfdbf4f51105de609b",
+      "git_blob_sha": "3830d292059c8ed92b6cd8a4b0109445f6f8fc72"
     },
     {
       "path": "desktop-host/Cargo.toml",
       "bytes": 1149,
-      "sha256": "b39642023af89be536a60f212a35f02c03c7003bd1a1c1cad837d3f7e301a62f",
-      "git_blob_sha": "d0b446ff8d45a0719903408fef93a3587411ddcf"
+      "sha256": "5b9cca51e89fa38a129bccb948f1d1a6563c6075584572987696d84834fdf2f2",
+      "git_blob_sha": "b5989e08f47dae7e73e37cc754e0452124e1091d"
     },
     {
       "path": "desktop-host/README.md",
-      "bytes": 15050,
-      "sha256": "6ccc713c8138bba0381e9bb35fce0e8a4eaccc36f91986c43a4501a1490a7840",
-      "git_blob_sha": "0552a2daf591439c53871ca1956aeb5a444d0612"
+      "bytes": 15221,
+      "sha256": "6d6f0779339bfa3b19da7652c818d10170671bd44034fac03531a964d4b10c95",
+      "git_blob_sha": "0eff6d8b5c84fbc513cf547e5a8992634b68ddfa"
     },
     {
       "path": "desktop-host/build.rs",
@@ -230,6 +230,12 @@
       "bytes": 1864,
       "sha256": "1e7a32bb5a6c8d99763f81fb927f121dd96409f3369b1a39b79d69ee5b8ecfce",
       "git_blob_sha": "f8682a7f8a56e94753849c2fb7821b729b50657c"
+    },
+    {
+      "path": "desktop-host/docs/UI-REFINEMENT-2026-11-06.md",
+      "bytes": 3839,
+      "sha256": "8a72ad1e9cf035da9e35e7553ca393371cdf77b77ee3b7ca970aa071d14b55ed",
+      "git_blob_sha": "e71b7b77b10c61ac70ff83d760e5399fbd171eee"
     },
     {
       "path": "desktop-host/docs/WALLPAPER-CONTROLS-2026-11-05.md",
@@ -694,6 +700,18 @@
       "git_blob_sha": "b204e0f03f073b6a54d674bb70dad776299ef09f"
     },
     {
+      "path": "desktop-host/evidence/ui-refinement-handoff-2026-11-06.json",
+      "bytes": 532,
+      "sha256": "f189910c8fab5d63c1b6fa1568654b6e88b2aef0e7b6573c2bcc7eefdc769b67",
+      "git_blob_sha": "ec9bb06bc1706f210209db855a111caaaf699864"
+    },
+    {
+      "path": "desktop-host/evidence/ui-refinement-upgrade-2026-11-06.json",
+      "bytes": 1084,
+      "sha256": "7ce313e4f8f9ad3e673e9dfa3b49f62f63a9c7a68fd1745a1d7248c5b3bc296c",
+      "git_blob_sha": "7e73c9e3a46ce2ba703f185921b146f8591eedb7"
+    },
+    {
       "path": "desktop-host/evidence/wallpaper-controls-handoff-2026-11-05.json",
       "bytes": 532,
       "sha256": "dbdc8f17387198bc7930dc088e835465868cafe874b5a282fe2800ed5ac824dd",
@@ -810,14 +828,14 @@
     {
       "path": "desktop-host/package-lock.json",
       "bytes": 7248,
-      "sha256": "4e592a5c827627179d6b609a0dd8a69a5957605e6ebcf5953d704891b7b0f23a",
-      "git_blob_sha": "6b21c613cee6f17b801b0f69999d3d2e15e95bf7"
+      "sha256": "4fe1cd98f0019983722b113b6f47979119d35173446836178b2edfe5fdd7867d",
+      "git_blob_sha": "fab6d09636fe83ee51a5f88677d7bce98b8e083d"
     },
     {
       "path": "desktop-host/package.json",
       "bytes": 285,
-      "sha256": "b393741a106b50130aca59952853c8cdc9bfc4e347a2716eaea892e516f1b0ed",
-      "git_blob_sha": "e3bf1854be39809aa80537b53285a4b932070e58"
+      "sha256": "7f066a8a2967c5fc7a571cd7c95c8a429f93a7d58ee7204a85a887ff87ed3a82",
+      "git_blob_sha": "54515a4836f89f459cabb4148e136f71f2c0239c"
     },
     {
       "path": "desktop-host/scripts/analyze-soak.mjs",
@@ -1078,6 +1096,12 @@
       "git_blob_sha": "cae75d226df453052bb71882f10c6a52d5fbed5d"
     },
     {
+      "path": "desktop-host/scripts/test-ui-refinement-installed.mjs",
+      "bytes": 6145,
+      "sha256": "b4557d6188a9fc9ca5a777bbf5fd1920a321e23346b5cd9d3a55cb2c30692837",
+      "git_blob_sha": "e200c32499d252fc9a41cfd94d6c0e68466fdd10"
+    },
+    {
       "path": "desktop-host/scripts/test-wallpaper-controls-upgrade-installed.mjs",
       "bytes": 8147,
       "sha256": "f1cd179d09a209c8152ef97b33a63c04728006043fb7f97f1d98a5079720a8a5",
@@ -1272,8 +1296,8 @@
     {
       "path": "desktop-host/tauri.conf.json",
       "bytes": 976,
-      "sha256": "826e7c2e8fbd3320e2513e5e7df721b676b4ea98398f09c5a97160a94bdebb0b",
-      "git_blob_sha": "ea814b18168e94ec791fdf45babd1b9fa2f25f38"
+      "sha256": "e1b10e680f7ccc37cfb1dfe48dd4432e7eb8dcc3224a03dcbad3ecc1b880ba44",
+      "git_blob_sha": "fd2524ea9dc97caee125f2118474801e069708e2"
     },
     {
       "path": "desktop-host/ui/index.html",
@@ -2268,8 +2292,8 @@
     {
       "path": "implementation-p4_2_5/evidence/verification.json",
       "bytes": 695,
-      "sha256": "830d4db624eccac5de70d309d70df3eec611e9b8f96c2f2aaa3c079f76897d8b",
-      "git_blob_sha": "d81cf6d5aa6ad494db2d4a4d73ce44f27e1ecf07"
+      "sha256": "d7aa56b9f20d2cbe8178429bbb65e849c4499fb212d2b0639387152a834df442",
+      "git_blob_sha": "a5bd0e35d46246cde1ea5db2dfbf554832fac036"
     },
     {
       "path": "implementation-p4_2_5/evidence/windows-host-partial-2026-11-03.json",
@@ -2309,9 +2333,9 @@
     },
     {
       "path": "implementation-p4_2_5/scripts/audit-layout.mjs",
-      "bytes": 18206,
-      "sha256": "d9ed72fc2f10eef53cb81ed80498b5d6fc5bc186f51de21d8d6d91f4c2209d36",
-      "git_blob_sha": "ce96250f8ec99b2ca961cdcb47e42343821bb1e1"
+      "bytes": 18697,
+      "sha256": "d5404268a9803fab0c27c1867dc1bd158280f3e99792a65eeef372a1fe2bfe4c",
+      "git_blob_sha": "27277a8aa3a67c6f179381b38586ae85f2eaf244"
     },
     {
       "path": "implementation-p4_2_5/scripts/audit-library-controls.mjs",
@@ -2363,9 +2387,9 @@
     },
     {
       "path": "implementation-p4_2_5/scripts/layout-regression-probe.js",
-      "bytes": 7407,
-      "sha256": "95fbbd38537649f1e1b7778ebd6439b598d2c41c2df2e4e099206bf6e77a78d0",
-      "git_blob_sha": "df13ef6105332950e6a56d661241e8335cbbd038"
+      "bytes": 8058,
+      "sha256": "a92d3f12a27b427680c792baa7ae747e5be39defcf5d3592d22789f58840be10",
+      "git_blob_sha": "3bf5e30829b093988eb8611980cad9e15ce77080"
     },
     {
       "path": "implementation-p4_2_5/scripts/measure-windows-host.ps1",
@@ -2399,9 +2423,9 @@
     },
     {
       "path": "implementation-p4_2_5/scripts/prepare.mjs",
-      "bytes": 25623,
-      "sha256": "598118993b0c6506d6f983f4b937029aa7c8f41e80acc2a80df18c8e893ed40c",
-      "git_blob_sha": "7c7d3f83a56aa278babaae56881fa8d2c0c732d3"
+      "bytes": 25973,
+      "sha256": "d0162cc1e302fe3d29087a423fc557871e0c3368d529b830b346c83ec28949e4",
+      "git_blob_sha": "1d9691351c4d7ba17ec7a30693d73f6b44731fd6"
     },
     {
       "path": "implementation-p4_2_5/scripts/read-windows-lifecycle-events.ps1",
@@ -2519,9 +2543,9 @@
     },
     {
       "path": "implementation-p4_2_5/src/bridge-toolbar.css",
-      "bytes": 881,
-      "sha256": "44b76e896feb09836fe8306a8f0392c3c0bd7428f59b9cceb9096927585ba153",
-      "git_blob_sha": "a9aaa9dd2d3b92c93d62a893d063c0d03319ef13"
+      "bytes": 1075,
+      "sha256": "60330dedb254e6fa82ccd7a08b85a8090ddd8ddf2f1773811255652e0af0ec40",
+      "git_blob_sha": "1172241faf6707f1b4c3812f89a3efb86d8f2de4"
     },
     {
       "path": "implementation-p4_2_5/src/calendar-client.js",
@@ -3029,15 +3053,15 @@
     },
     {
       "path": "implementation-p4_2_5/src/settings-tabs.css",
-      "bytes": 4723,
-      "sha256": "bce7042f001f16aa38630ba5651d0dd4f26b233a3809f932540ea7763f50f33a",
-      "git_blob_sha": "2737beeb1bf8e3c4ca0ac495296c01167e3e845a"
+      "bytes": 5346,
+      "sha256": "53d179d63e593189c098f6cb355999a51f531cbbff9a8025fb717affe782b0c7",
+      "git_blob_sha": "27109e1b2155516357149e7134c134b9c2dfeffd"
     },
     {
       "path": "implementation-p4_2_5/src/settings-tabs.js",
-      "bytes": 8749,
-      "sha256": "14bdeb4457506ee1ee5f83f81b68c6b1a40254dcfffc23883291d74209f780d1",
-      "git_blob_sha": "34ee50feff82f825fb263b0437a5e67e09e8efd8"
+      "bytes": 9248,
+      "sha256": "9a6f87c687b0a82cd9718f13690ce456384896a508d5cdb0b8482d1fa35ae642",
+      "git_blob_sha": "ce2ee6804cf4d664ea0cadf7e0915f1a59584854"
     },
     {
       "path": "implementation-p4_2_5/src/span-client.js",
@@ -3086,6 +3110,12 @@
       "bytes": 797,
       "sha256": "eaf59dff26248900ef598fadbba8a96f03fd156930da160ebfa9e67450892ed1",
       "git_blob_sha": "4f76c7f82065777ae81e3ac248cab78f679cb11d"
+    },
+    {
+      "path": "implementation-p4_2_5/src/toolbar-scroll.js",
+      "bytes": 986,
+      "sha256": "126f0ce8655163134a3349a1a86cd25a3ee665e839b11575fde4c1cca9df7bd7",
+      "git_blob_sha": "f0dd77d7de0a15a21d365781da27b0e60326baf8"
     },
     {
       "path": "implementation-p4_2_5/src/wallpaper.css",
@@ -3461,9 +3491,9 @@
     },
     {
       "path": "implementation-p4_2_5/tests/settings-tabs.test.mjs",
-      "bytes": 5474,
-      "sha256": "f2d4b2c7376d4b8aa063a55fd4a9b5d3735cafb9fc6f3654beb69ef409699d2b",
-      "git_blob_sha": "a6bc8385cc3c85ea83b5dccd28f5138b2c51169e"
+      "bytes": 6114,
+      "sha256": "44b4183ca587d3c7ceef26b8c64b3267c5b1528d17b61ed25773693695eb66c5",
+      "git_blob_sha": "844adfe9a1412f0c8942ab69d919c9c44c8379a0"
     },
     {
       "path": "implementation-p4_2_5/tests/shared-core-regression.test.mjs",
@@ -3506,6 +3536,12 @@
       "bytes": 766,
       "sha256": "f4f69c2953334f02bf274ef4216092dfea3f87c2a42a9ae9759f1a261770172c",
       "git_blob_sha": "504b512c9fad32d880b6406f0361e4d7ee8897d0"
+    },
+    {
+      "path": "implementation-p4_2_5/tests/toolbar-scroll.test.mjs",
+      "bytes": 1977,
+      "sha256": "ec7ca3399fc58d1f3cd3caeae7e7d2eeb2520278921eaaa99dadebb580eb598c",
+      "git_blob_sha": "93ce4454631ff12ab3d15ad0a136364daaa822fb"
     },
     {
       "path": "implementation-p4_2_5/tests/wallpaper-controls.test.mjs",

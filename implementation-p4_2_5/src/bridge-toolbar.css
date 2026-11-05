@@ -1,6 +1,7 @@
 /* Remain in document flow, then pin the apply controls above the preview. */
 body[data-render-mode="manager"] .bridge-commands {
   position: sticky;
+  margin-top: 24px !important;
   top: calc(env(safe-area-inset-top, 0px) + 12px);
   z-index: 1100;
   box-sizing: border-box;
@@ -8,7 +9,7 @@ body[data-render-mode="manager"] .bridge-commands {
   max-height: calc(100dvh - env(safe-area-inset-top, 0px) - 24px);
   overflow-y: auto;
   overscroll-behavior: contain;
-  box-shadow: 0 5px 16px #0003;
+  box-shadow: none;
 }
 body[data-render-mode="manager"] .bridge-commands > * {
   min-width: 0;
@@ -27,3 +28,6 @@ body[data-render-mode="manager"] .bridge-commands small {
   line-height: 1.5;
   text-shadow: none;
 }
+
+/* A shadow signals actual pinning, never the initial in-flow toolbar. */
+body[data-render-mode="manager"] .bridge-commands[data-stuck="true"] {box-shadow:0 6px 20px #0004;}

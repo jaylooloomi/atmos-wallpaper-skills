@@ -4,6 +4,8 @@ Atmos 是可客製化的個人資訊桌面（Personal Dashboard）：把關心�
 
 ## 最新功能
 
+- 0.7.12 管理頁修正：元件展開改用一致 SVG；工具列初始保持正常版面，捲動吸頂後才顯示陰影。[修正與驗證](desktop-host/docs/UI-REFINEMENT-2026-11-06.md)。
+
 - 0.7.11 資源最佳化：快照只保留有期限的 head 快取，時鐘、暫停計時與閒置狀態沿用文字節點；減少整頁翻譯／控制項掃描，並提供原生唯讀 heap／DOM 計數。[驗證、實測與限制](desktop-host/docs/MEMORY-VALIDATION-2026-11-05.md)。
 
 - 資訊省電模式：背景靜態顯示、簡化合成，時鐘／行程／資訊更新保留；管理頁可即時切換。[模式與本機短測](desktop-host/docs/INFORMATION-SAVING-2026-11-05.md)。

@@ -121,3 +121,6 @@ for(const [before,after] of [
  ["if(b)b.textContent=data.timer.running?'暫停':data.timer.finished?'再開始':'開始／繼續'","if(b)writeTimerText(b,data.timer.running?'暫停':data.timer.finished?'再開始':'開始／繼續')"]
 ]){if(timerSource.split(before).length!==2)throw Error('Timer allocation hook missing');timerSource=timerSource.replace(before,after)}
 fs.writeFileSync(timerFile,timerSource);
+
+fs.copyFileSync(path.join(root,'src/toolbar-scroll.js'),path.join(dist,'toolbar-scroll.js'));
+fs.writeFileSync(path.join(dist,'bridge-client.js'),fs.readFileSync(path.join(dist,'bridge-client.js'),'utf8').replace("await load('app.js');","await load('toolbar-scroll.js');window.AtmosToolbar.start({wallpaper:wallpaperMode});await load('app.js');"));
