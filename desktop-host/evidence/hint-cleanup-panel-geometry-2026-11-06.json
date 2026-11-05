@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-06",
+  "passed": true,
+  "method": "Isolated synthetic Chromium CLI; switch inspector from clock to weather, no user UI automation",
+  "cases": [
+    {
+      "width": 390,
+      "height": 844,
+      "hintsAbsent": true,
+      "previewHeightChange": 0,
+      "sceneRatio": 1.7777777777777777,
+      "targetRatio": 1.7777777777777777,
+      "failures": []
+    },
+    {
+      "width": 1280,
+      "height": 900,
+      "hintsAbsent": true,
+      "previewHeightChange": 0,
+      "sceneRatio": 1.7777777777777777,
+      "targetRatio": 1.7777777777777777,
+      "failures": []
+    }
+  ],
+  "limitations": [
+    "Synthetic fixture geometry only; not manual visibility or hardware proof"
+  ]
+}

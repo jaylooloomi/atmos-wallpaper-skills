@@ -112,7 +112,7 @@ function start({wallpaper=false}={}){
  for(const e of originalSections){e.classList.add('settings-native-controls');e.addEventListener('change',event=>event.stopPropagation());if(e.classList.contains('screensaver-settings'))e.remove();else if(e.classList.contains('provider-settings'))rows.querySelector('[data-settings-widget-card="weather"] .settings-widget-content').prepend(e);else if(e.classList.contains('weather-section')||e.classList.contains('preset-settings'))panels.appearance.prepend(e);else panels.system.append(e)}
  const theme=document.getElementById('themeSettings');if(theme){theme.addEventListener('change',event=>event.stopPropagation());panels.desktop.prepend(theme)}
  for(const empty of document.querySelectorAll('.below-preview,.settings-bottom'))if(!empty.children.length)empty.remove();
- const footer=node('div','settings-tab-footer');save=label(node('button','settings-apply'),4);save.type='button';save.onclick=()=>document.getElementById('applyDraft')?.click();footer.append(label(node('small'),5),save);section.append(footer);
+ const footer=node('div','settings-tab-footer');save=label(node('button','settings-apply'),4);save.type='button';save.onclick=()=>document.getElementById('applyDraft')?.click();footer.append(save);section.append(footer);
  const oldOpen=window.AtmosInspector.open.bind(window.AtmosInspector);window.AtmosInspector.open=id=>{select('appearance');oldOpen(id)};
  window.AtmosSettingsTabs={start,select,selectWidget,registerWidget,get selectedWidget(){return selectedWidget},get active(){return active},refresh};select('desktop');refresh();setInterval(refresh,500);
 }

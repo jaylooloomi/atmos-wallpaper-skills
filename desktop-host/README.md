@@ -1,4 +1,4 @@
-# Atmos Wallpaper Windows 0.7.22
+# Atmos Wallpaper Windows 0.7.23
 
 **目前已移除螢幕保護功能。** 設定分為桌面元件／桌布與系統設定／外觀字型三個分頁；下方版本記錄中的 `.scr` 與螢幕保護均屬歷史功能。[移除與安全升級清理](docs/SCREENSAVER-REMOVAL-2026-11-06.md)。
 
@@ -153,3 +153,5 @@ Agent 實機整合測試（會暫時變更強度再以交易還原）：node scr
 0.7.21 移除管理頁右上角核心同步角標，錯誤訊息沿用控制列；保留真實 ACK 與桌布連線恢復。[驗證](docs/MANAGER-BADGE-REMOVAL-2026-11-06.md)。
 
 0.7.22 移除控制列「說明」按鈕與展開文字，其他操作與設定保留。[驗證](docs/TOOLBAR-HELP-REMOVAL-2026-11-06.md)。
+
+0.7.23 移除預覽螢幕 metadata 與比例說明、重複宿主及分頁說明。保留目標比例計算，未偵測時於選單顯示預設比例，錯誤與儲存狀態保留。[驗證](docs/HINT-CLEANUP-2026-11-06.md)。
