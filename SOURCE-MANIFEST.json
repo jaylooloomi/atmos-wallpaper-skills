@@ -23,33 +23,33 @@
     },
     {
       "path": "README.md",
-      "bytes": 15177,
-      "sha256": "fb67bd6091a569ce5397598ca833fbe3324ccf568f8d4b19a21a02547d836346",
-      "git_blob_sha": "20b04de902ad06fe39d214f5daf5c018c7686c24"
+      "bytes": 15425,
+      "sha256": "dfb1954edca5b1247226123bfab2e9a18590e181e867eeb590f67077717addd6",
+      "git_blob_sha": "72130aeb203bb54aa3372dfde7a17b2c1edf3077"
     },
     {
       "path": "TODO.md",
-      "bytes": 23783,
-      "sha256": "ff3002bbf6ee0b713b63926a4503d0b8d3f46509191d58e5aa1a319f384e8d7a",
-      "git_blob_sha": "d9a6ce6136c70f1c1aca674dface81052a71a4e3"
+      "bytes": 23991,
+      "sha256": "a555dd99de1321cc80a6787e19778864decfbd2d44dceb9c4c9abb2d0e5ed35e",
+      "git_blob_sha": "a0edd05d51f8614a2cfb9580f56f1ae8735e983f"
     },
     {
       "path": "desktop-host/Cargo.lock",
       "bytes": 108436,
-      "sha256": "3b7b28ea2659c546e67f65152a8b6e91d2cd24ca1946293ecb167397bb75b1c3",
-      "git_blob_sha": "639b2c9eac5887ae4882e0b0b1b9811e9f64ec71"
+      "sha256": "35f5877c1853136836bae5b4e509408944d56d956eaaf31d47993b41ae22c4bc",
+      "git_blob_sha": "f0b27f87b8357d0ec60a9ca0bfe0b58b9cd6db1b"
     },
     {
       "path": "desktop-host/Cargo.toml",
-      "bytes": 1149,
-      "sha256": "347df3b396625b9be4e2ede245fa631ef54d1adb78b9883337ecdf48a6bc57a5",
-      "git_blob_sha": "728111202193d324046bb6a7067d8b11794f05c2"
+      "bytes": 1217,
+      "sha256": "9cd1feb8807863d3d3aebe57eaa936d26fe221227e6d536ca287741adbe36e8d",
+      "git_blob_sha": "a2851e2449cccdfebbed15e2eca4844454fc7dcf"
     },
     {
       "path": "desktop-host/README.md",
-      "bytes": 18062,
-      "sha256": "913d55b178c0e32e0af78328ad7fd43dea89c903066f60a8290470963a49966f",
-      "git_blob_sha": "c597c67c500f6a6a0855f93f0620b9c5c7a752f2"
+      "bytes": 18313,
+      "sha256": "13bf5f79cf24c22764b6014155e0c23140d72ea441b7def9a5b736ebc9e18d7f",
+      "git_blob_sha": "5cb57123a0e607a4ca15aa0859f01e3277b53372"
     },
     {
       "path": "desktop-host/build.rs",
@@ -152,6 +152,12 @@
       "bytes": 4998,
       "sha256": "dbc566ea1937e81e8e2f9993579065a146e74e064078dcfd64d5d6706dfbb3b9",
       "git_blob_sha": "df8bd8cef057522bfd636e97b43177ae16a4ff61"
+    },
+    {
+      "path": "desktop-host/docs/LIVE-SYSTEM-2026-11-06.md",
+      "bytes": 5966,
+      "sha256": "dd253f8f1fabcd6a689093c601c66879b493ce3462c060d0d816b2a9b6c69fc2",
+      "git_blob_sha": "e5477db60ca1949635e585d67dab1358da0c2ea8"
     },
     {
       "path": "desktop-host/docs/MANAGER-BADGE-REMOVAL-2026-11-06.md",
@@ -596,6 +602,24 @@
       "bytes": 907,
       "sha256": "98636b068f233724165c30f4f82d7d6cefa3dd9f9d2f628fc8a6ba063ff16d78",
       "git_blob_sha": "2041b1f243ef62d1f3515dfc1b7abc54887fbe17"
+    },
+    {
+      "path": "desktop-host/evidence/live-system-handoff-2026-11-06.json",
+      "bytes": 532,
+      "sha256": "f189910c8fab5d63c1b6fa1568654b6e88b2aef0e7b6573c2bcc7eefdc769b67",
+      "git_blob_sha": "ec9bb06bc1706f210209db855a111caaaf699864"
+    },
+    {
+      "path": "desktop-host/evidence/live-system-samples-2026-11-06.json",
+      "bytes": 1105,
+      "sha256": "6604817841f5a6dcd0122b7e84194ad0f99c6c077d3942ad0bb7e683145e1206",
+      "git_blob_sha": "cedb04a7b2ae2a0f8d26ed28eb6b09f460aa8cc0"
+    },
+    {
+      "path": "desktop-host/evidence/live-system-upgrade-2026-11-06.json",
+      "bytes": 1354,
+      "sha256": "a68def525e41a80c54afee3aab5379aa178eb388f3d9dceb3602880c79a5900e",
+      "git_blob_sha": "ff66e2d2f85c9e90132e125c584413570491fb05"
     },
     {
       "path": "desktop-host/evidence/manager-badge-handoff-2026-11-06.json",
@@ -1116,14 +1140,14 @@
     {
       "path": "desktop-host/package-lock.json",
       "bytes": 7248,
-      "sha256": "a21949404d2192e93b0ac083d8a27d8b69c11b9eaf802b3f35b2e3857134e3fc",
-      "git_blob_sha": "a85c1abf73f41e268eb44d3f631a913b0ad2a07d"
+      "sha256": "6179ba7eb2c834631d5ef12dc8ba9292c178e90797ae1d04865e71f720803e96",
+      "git_blob_sha": "c419d1caba1d644e1023562277fe9a09cd715905"
     },
     {
       "path": "desktop-host/package.json",
       "bytes": 285,
-      "sha256": "aa022206bab8ed5e61d6b71a50d87bf3a3f809e262f126b937aeb18416a39749",
-      "git_blob_sha": "e74bb7512f219dd396a191fa72e592534e315c7b"
+      "sha256": "625c8411a680cd31343b59e5d5ed63f3c9d2a793307fae8ed2eb694a160e5580",
+      "git_blob_sha": "abee4a30882a4ac54a090b8c1fe0c7deed332abe"
     },
     {
       "path": "desktop-host/scripts/analyze-soak.mjs",
@@ -1373,9 +1397,9 @@
     },
     {
       "path": "desktop-host/scripts/test-ui-refinement-installed.mjs",
-      "bytes": 9299,
-      "sha256": "f1ec8893525cd7ade7c64cddd506f1e4982322cbb06209b22add432d60bc483a",
-      "git_blob_sha": "9c902648b53d209aa9b2946ebffb3c4d378e5657"
+      "bytes": 9344,
+      "sha256": "1cca5157188016c82277fa70b6dfc51d0b7de30e3f93b92b47c003ab4f03f742",
+      "git_blob_sha": "6d5b9d6ea7022370ab635ca0cfcfb906de32fc22"
     },
     {
       "path": "desktop-host/scripts/test-wallpaper-controls-upgrade-installed.mjs",
@@ -1412,6 +1436,12 @@
       "bytes": 3108,
       "sha256": "dea9a6eab7d01a5050ee2289d14e05af83cf7a109c1632202821511d72f6c699",
       "git_blob_sha": "127ff42b99498827e96ed56d85df51d2b264e95b"
+    },
+    {
+      "path": "desktop-host/scripts/verify-live-system-installed.mjs",
+      "bytes": 3784,
+      "sha256": "84ab510badcd859d6e649e714219fc3a16560736e99cdcf52fccbc850cd19a91",
+      "git_blob_sha": "365d6a3d3185e82af049393cbb9ea490c17b0dfc"
     },
     {
       "path": "desktop-host/scripts/verify-reused-payload.mjs",
@@ -1559,9 +1589,9 @@
     },
     {
       "path": "desktop-host/src/telemetry.rs",
-      "bytes": 2975,
-      "sha256": "f7fd19c5cef66b8c8c725704db21d7f740a933819df47ea22f8028d6a82405e0",
-      "git_blob_sha": "c12cd3544b790256f28cf75d910e7c4feaccd57b"
+      "bytes": 6331,
+      "sha256": "5e810c7d1104eb468f72b1f47360cedc69d2f7d5dc6b4a9f39f4e6225c08c1f4",
+      "git_blob_sha": "950bc51a89bb8607c0c86f5dda4eba6665d15964"
     },
     {
       "path": "desktop-host/src/windows.rs",
@@ -1572,8 +1602,8 @@
     {
       "path": "desktop-host/tauri.conf.json",
       "bytes": 976,
-      "sha256": "2fb7b3acac9e9ed6fd5da94dab19e8f8a9930cb17a4a4774293b2fd5654c1ecf",
-      "git_blob_sha": "c82c287516b686c3e09ab36eaaeb3400fe42b7a6"
+      "sha256": "865367c9d30246157a37aa4959011c12676c2edd710340ecd2d54a6cbf7f8b66",
+      "git_blob_sha": "0b9b812760bfcb7e0a15bf72162a5acaf1c03930"
     },
     {
       "path": "desktop-host/ui/index.html",
@@ -2568,8 +2598,8 @@
     {
       "path": "implementation-p4_2_5/evidence/verification.json",
       "bytes": 695,
-      "sha256": "9a45415de620b338b500a058fd1e4e80d889bfe6779f9849105101a54ba9f41d",
-      "git_blob_sha": "8c4606fee86141b2f3e819e5eb8bd38c97a5eb07"
+      "sha256": "53ad7854af66d71c577656d5f0b0f1b9e71a1262930e267403e94689550adff0",
+      "git_blob_sha": "829112743cc7e450a7f30562fee82a25eed2ac98"
     },
     {
       "path": "implementation-p4_2_5/evidence/windows-host-partial-2026-11-03.json",
@@ -2663,9 +2693,9 @@
     },
     {
       "path": "implementation-p4_2_5/scripts/layout-regression-probe.js",
-      "bytes": 12904,
-      "sha256": "747831eb582a2f928b895f996eeb2b55837c63e6fa8b21d863946f25ca0e9d55",
-      "git_blob_sha": "18487941da17ad0eec0e23e1851ec617485ea2e6"
+      "bytes": 13352,
+      "sha256": "8642cdf5f98914464779993a4390d3546db39ac2fc61d084c132879911dfedf1",
+      "git_blob_sha": "b3d3b8173220b125ea6df288d959a5adc41b6cba"
     },
     {
       "path": "implementation-p4_2_5/scripts/measure-windows-host.ps1",
@@ -2699,9 +2729,9 @@
     },
     {
       "path": "implementation-p4_2_5/scripts/prepare.mjs",
-      "bytes": 27636,
-      "sha256": "5d4741fb94d59b285ef7def8ba5f957314ab7123c2db442a06ce38c4ed48e8e7",
-      "git_blob_sha": "7ff3f31cabf7e18c2c5746c9cead106b95cc8734"
+      "bytes": 28021,
+      "sha256": "5f1ff01ff85d4b4df77da8869af6e5d2381f83b3eb7c2bfc59f3cf44776662d3",
+      "git_blob_sha": "9ab5c945216db7addf53034813893925cd101711"
     },
     {
       "path": "implementation-p4_2_5/scripts/read-windows-lifecycle-events.ps1",
@@ -3251,21 +3281,21 @@
     },
     {
       "path": "implementation-p4_2_5/src/providers-client.css",
-      "bytes": 1030,
-      "sha256": "7f52562c1c5ef1d8451d80a8aa4d8fce04cc1211300000b83b67adfb941672c2",
-      "git_blob_sha": "4be70578eeb93bcbd61871c5a51bac4aa5c0bbc4"
+      "bytes": 1531,
+      "sha256": "67d49d5e8a0dec0ebd17cd15ca454ac6e8f85b688701c709e422a149c88513cf",
+      "git_blob_sha": "eb0c20e2104ab8d86e868d4b05039f178de76cdb"
     },
     {
       "path": "implementation-p4_2_5/src/providers-client.js",
-      "bytes": 11399,
-      "sha256": "0e4bd57ba1eca97442713f6a9494b30fa486f82fe5c5a5cd2ff414582d18d1de",
-      "git_blob_sha": "c9432edd7547c12e70f3dd67eff1d0529496338e"
+      "bytes": 14258,
+      "sha256": "736a26e4092beb7a01397d343d72f75e3689e462fc16a8492b61bf965d9ab228",
+      "git_blob_sha": "039fb09351d35985c7555dd5c2e8406d5b032d6b"
     },
     {
       "path": "implementation-p4_2_5/src/providers-service.mjs",
-      "bytes": 8044,
-      "sha256": "295c71e599fc9fa7ede36cb2585b51735cb6af52cbea5aa2619bd9feefd9d4ef",
-      "git_blob_sha": "0d40f7d362135924f7e4d183fbc8e10696abf7d5"
+      "bytes": 8495,
+      "sha256": "362924253c4a03331e130e635f185621c80dfcafd62f83b18432fde452c96f03",
+      "git_blob_sha": "47468e5ea0891c883375804ee5e6bca91ce5d730"
     },
     {
       "path": "implementation-p4_2_5/src/quick-actions.mjs",
@@ -3737,9 +3767,9 @@
     },
     {
       "path": "implementation-p4_2_5/tests/providers.test.mjs",
-      "bytes": 8695,
-      "sha256": "0525963aab7dcbab5bfd5ba6c31c2c032aa1d3c3478214cdd78cbd848046789f",
-      "git_blob_sha": "da324665c817b1a70e29c279e3dc4c288b1c078b"
+      "bytes": 9722,
+      "sha256": "de664a4116efb5568c43d424c03f23573cdaa563ce5ec04282ecf4390b60ec92",
+      "git_blob_sha": "3f00badddf34bd4e79d64f90780b563dcad84adf"
     },
     {
       "path": "implementation-p4_2_5/tests/release-version.test.mjs",
@@ -3842,6 +3872,12 @@
       "bytes": 766,
       "sha256": "f4f69c2953334f02bf274ef4216092dfea3f87c2a42a9ae9759f1a261770172c",
       "git_blob_sha": "504b512c9fad32d880b6406f0361e4d7ee8897d0"
+    },
+    {
+      "path": "implementation-p4_2_5/tests/system-live-client.test.mjs",
+      "bytes": 3198,
+      "sha256": "162b9ce5ed22b2bada1577e34514654f94c7b6e3b081b5c9a3a291496d1b9f56",
+      "git_blob_sha": "b5c2d702eb4f97ba4a2815d66089027334e57c1f"
     },
     {
       "path": "implementation-p4_2_5/tests/toolbar-scroll.test.mjs",

@@ -138,6 +138,9 @@ const youtubeBridge=fs.readFileSync(path.join(dist,'bridge-client.js'),'utf8'),y
 if(youtubeBridge.split(youtubeHook).length!==2)throw Error('YouTube manager mount hook missing');
 fs.writeFileSync(path.join(dist,'bridge-client.js'),youtubeBridge.replace(youtubeHook,youtubeHook+"if(!wallpaperMode){await load('youtube-client.js');window.AtmosYouTube.start({wallpaper:false});}"));
 const mediaFile=path.join(dist,'widgets.js');let mediaSource=fs.readFileSync(mediaFile,'utf8');
+const systemStart=mediaSource.indexOf("if(id==='system'){const demo="),systemEnd=mediaSource.indexOf("return data.mediaState==='demo'?",systemStart);
+if(systemStart<0||systemEnd<systemStart)throw Error('Legacy system presentation hook missing');
+mediaSource=mediaSource.slice(0,systemStart)+"if(id==='system')return '<p>正在讀取即時資料…</p>';"+mediaSource.slice(systemEnd);
 const mediaStart=mediaSource.indexOf("return data.mediaState==='demo'?"),mediaLineEnd=mediaSource.indexOf('\n',mediaStart),mediaTail=mediaSource.slice(mediaStart,mediaLineEnd);
 if(mediaStart<0||!mediaTail.endsWith('}'))throw Error('Legacy media presentation hook missing');
 mediaSource=mediaSource.slice(0,mediaStart)+"return '<p>YouTube 音樂</p><small>在管理頁貼上 YouTube 連結播放</small>'}"+mediaSource.slice(mediaLineEnd);
