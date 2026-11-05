@@ -110,3 +110,14 @@ fs.writeFileSync(path.join(dist,'dashboard-layouts.js'),fs.readFileSync(path.joi
 fs.writeFileSync(path.join(dist,'bridge-client.js'),fs.readFileSync(path.join(dist,'bridge-client.js'),'utf8').replace("await load('daily-feeds-client.js');","await load('dashboard-layouts.js');await load('daily-feeds-client.js');"));
 
 fs.appendFileSync(path.join(dist,'hifi.css'),'\n'+fs.readFileSync(path.join(root,'src/information-saving.css'),'utf8'));
+
+// Keep the frozen prototype untouched. Paused/hidden timers must not replace text every second.
+const timerFile=path.join(dist,'widgets.js');let timerSource=fs.readFileSync(timerFile,'utf8');
+for(const [before,after] of [
+ ['function updateTimer(){',"function writeTimerText(e,value){const node=e.firstChild;if(node?.nodeType===3&&!node.nextSibling){if(node.data!==value)node.data=value}else if(e.textContent!==value)e.textContent=value}function updateTimer(){"],
+ ["q('timerManagerStatus').textContent=text;","writeTimerText(q('timerManagerStatus'),text);"],
+ ['if(e)e.textContent=formatTime(p.remaining);','if(e)writeTimerText(e,formatTime(p.remaining));'],
+ ["if(note)note.textContent=data.timer.finished?'離開期間或本次計時已結束':data.timer.running?'計時中':'已暫停';","if(note)writeTimerText(note,data.timer.finished?'離開期間或本次計時已結束':data.timer.running?'計時中':'已暫停');"],
+ ["if(b)b.textContent=data.timer.running?'暫停':data.timer.finished?'再開始':'開始／繼續'","if(b)writeTimerText(b,data.timer.running?'暫停':data.timer.finished?'再開始':'開始／繼續')"]
+]){if(timerSource.split(before).length!==2)throw Error('Timer allocation hook missing');timerSource=timerSource.replace(before,after)}
+fs.writeFileSync(timerFile,timerSource);

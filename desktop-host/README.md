@@ -1,4 +1,4 @@
-# Atmos Wallpaper Windows 0.7.8
+# Atmos Wallpaper Windows 0.7.11
 
 Tauri 2＋Rust、Windows x64，提供單目標、各螢幕獨立、重複與全景桌布配置（新安裝預設跟隨主螢幕）。保留現有管理頁、場景、元件與 ICS 日曆，由自己的 WebView2 宿主套用，**不使用 Lively**。
 
@@ -14,13 +14,17 @@ Tauri 2＋Rust、Windows x64，提供單目標、各螢幕獨立、重複與全�
 
 0.7.8 新增「資訊省電模式」：上方與效能設定可切換，背景靜態顯示、簡化合成，資訊及設定同步保留；關閉後沿用原特效與 FPS。見 [模式、驗證與資源界線](docs/INFORMATION-SAVING-2026-11-05.md)。
 
+0.7.10 降低快照完整歷史解析、時鐘 Intl 格式器及 DOM 更新的配置壓力；省電政策不再重複清空已暫停的 Canvas，未展開診斷只保留最新證據。包含保留設定的安裝更新、最終時鐘產物與舊版本增長紀錄，見 [記憶體驗證及長測](docs/MEMORY-VALIDATION-2026-11-05.md)。不以 private bytes 單獨診斷 JS 洩漏，不保證任意負載零增長。
+
+0.7.11 減少閒置整頁翻譯／控制項掃描，暫停的番茄鐘及未變動來源文字不再替換節點。既有 `--host-command get` 的 `runtime.rendererMemory` 提供每分鐘原生 heap／DOM 計數與時間戳；只查詢兩個固定 CDP 方法，不開除錯連接埠、不執行任意程式或強制 GC，未知及失敗不填零。原生計數與程序 private bytes 要分開判讀，見同份驗證報告。
+
 ## 安裝與操作
 
 0.7.3 修正展開元件內容超出容器、蓋到螢幕保護設定的高度衝突，改為自然內容高度；包含能重現舊版錯誤的幾何回歸與 16 個修正後案例。見 [設定區重疊修正](docs/PANEL-FLOW-FIX-2026-11-05.md)。
 
 0.7.2 已將天氣元件顯示開關、資料更新狀態與「顯示並定位元件」整合到資料來源區，並拉開螢幕保護按鈕間距。本機已完成保留設定的安裝更新、實際資源比對及原生回報檢查，見 [更新驗證](docs/WEATHER-CONTROLS-UPGRADE-2026-11-05.md)。
 
-執行 `Atmos Wallpaper_0.7.8_x64-setup.exe`，完成頁預設勾選啟動 Atmos；按完成後依已保存目標套用桌布，新安裝預設跟隨主螢幕。安裝器包含 Node、隔離的 Python＋Pillow，以及官方離線 WebView2 安裝程式；一般使用者不必另外安裝 Node、Python 或 Lively，也不需要 Rust 開發工具。
+執行 `Atmos Wallpaper_0.7.11_x64-setup.exe`，完成頁預設勾選啟動 Atmos；按完成後依已保存目標套用桌布，新安裝預設跟隨主螢幕。安裝器包含 Node、隔離的 Python＋Pillow，以及官方離線 WebView2 安裝程式；一般使用者不必另外安裝 Node、Python 或 Lively，也不需要 Rust 開發工具。
 
 - 在目前使用者範圍安裝，預設 `%LOCALAPPDATA%\Atmos Wallpaper`；不新增系統 PATH 或 Windows Service。
 - 系統匣「開啟管理頁」調整設定，按「套用變更」保存；再次啟動 Atmos 捷徑也會開啟現有管理頁。

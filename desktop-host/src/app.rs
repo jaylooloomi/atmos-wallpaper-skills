@@ -21,6 +21,7 @@ struct State {
     runtime: Mutex<Option<Runtime>>,
     audio: Mutex<Option<crate::audio::AudioEngine>>,
     views: Mutex<std::collections::BTreeMap<String, crate::multi::View>>,
+    memory: crate::renderer_memory::Sampler,
     owned_handles: Mutex<Vec<isize>>,
     renderer_ready: AtomicBool,
     exiting: AtomicBool,
@@ -282,7 +283,8 @@ fn watch(
                 if !desired.is_empty()&&!s.renderer_ready.load(Ordering::SeqCst)&&elapsed>45{s.journal.event("renderer-timeout",json!({"action":"exit-and-restore"}));app2.exit(2);}
                 let configured=layout.as_ref().ok().map(|l|if l.layout.mode=="single"{desired.len()}else{l.layout.targets.len()}).unwrap_or(0);
                 let attached=!targets.is_empty()&&targets.len()==configured&&targets.iter().all(|v|v["nativeAttached"]==true);
-                let _=host_settings::atomic(&root,"host-status.json",&json!({"schemaVersion":1,"pid":std::process::id(),"capturedAtMs":crate::journal::now_ms(),"hostSessionId":session,"settingsRevision":host.as_ref().ok().map(|h|h.revision),"layoutRevision":layout.as_ref().ok().map(|l|l.revision),"targetId":desired.first().map(|p|&p.id),"bounds":desired.first().map(|p|p.bounds),"nativeAttached":attached,"targets":targets,"configuredTargetCount":configured,"presentation":"unknown","state":if attached{"attached"}else if host.as_ref().is_ok_and(|h|!h.placement.enabled){"cleared"}else{"pending-or-offline"}}));
+                let mut memory_views=desired.iter().map(|p|(p.label.clone(),"wallpaper".to_string())).collect::<Vec<_>>();memory_views.push(("manager".into(),"manager".into()));s.memory.poll(&app2,memory_views);
+                let _=host_settings::atomic(&root,"host-status.json",&json!({"schemaVersion":1,"pid":std::process::id(),"capturedAtMs":crate::journal::now_ms(),"hostSessionId":session,"settingsRevision":host.as_ref().ok().map(|h|h.revision),"layoutRevision":layout.as_ref().ok().map(|l|l.revision),"targetId":desired.first().map(|p|&p.id),"bounds":desired.first().map(|p|p.bounds),"nativeAttached":attached,"targets":targets,"rendererMemory":s.memory.snapshot(),"configuredTargetCount":configured,"presentation":"unknown","state":if attached{"attached"}else if host.as_ref().is_ok_and(|h|!h.placement.enabled){"cleared"}else{"pending-or-offline"}}));
             });
         }
     });
@@ -308,6 +310,7 @@ pub fn launch(
         runtime: Mutex::new(Some(runtime)),
         audio: Mutex::new(None),
         views: Mutex::new(std::collections::BTreeMap::new()),
+        memory: crate::renderer_memory::Sampler::default(),
         owned_handles: Mutex::new(Vec::new()),
         renderer_ready: AtomicBool::new(false),
         exiting: AtomicBool::new(false),

@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-05",
+  "version": "0.7.9",
+  "installer": {
+    "bytes": 293551513,
+    "sha256": "39db7edfcdc411cc8247a9f9856c83d30e684db38f1549a3132366a23bc70a00"
+  },
+  "checks": {
+    "silentUpgrade": true,
+    "boundedSnapshotProjectionInstalled": true,
+    "deferredDiagnosticsInstalled": true,
+    "servedInformationModeControls": true,
+    "additiveNativePolicy": true,
+    "genuineAnimationDiagnostics": true,
+    "servedPersonalDashboard": true,
+    "rssSettingsPreservedOrDefaultOff": true,
+    "servedThreeLayoutTemplates": true,
+    "sourceServiceMatchesBuild": true,
+    "servedDailyFeedAssets": true,
+    "newWidgetsPositionedForExistingClock": false,
+    "defaultDailyWidgetsEnabled": true,
+    "realGithubAndYahooFiveItems": true,
+    "servedWallpaperDisableAndResume": true,
+    "servedCategoryTabs": true,
+    "servedNaturalHeightPanelFlow": true,
+    "privatePreimageSaved": true,
+    "servedWeatherDisplayToggle": true,
+    "servedWeatherLocateAction": true,
+    "servedWeatherUpdateStatus": true,
+    "servedScreensaverButtonSpacing": true,
+    "servedAssetsMatchSourceBuild": true,
+    "savedSettingsPreserved": true,
+    "libraryAndDisplaySettingsPreserved": true,
+    "startupPreferencePreserved": true,
+    "payloadAndEmbeddedRuntimesVerified": true,
+    "installedStylesMatchSourceBuild": true,
+    "installedBootMatchesSourceBuild": true,
+    "installedDisplayControlsMatchBuild": true,
+    "installedLibraryControlsMatchBuild": true,
+    "installedAudioControlsMatchBuild": true,
+    "nativeWorkerWAttachment": true,
+    "genuineWallpaperAck": true,
+    "genuineManagerAck": true
+  },
+  "limitations": [
+    "Category navigation, widget controls, draft preservation and responsive geometry verified by automated DOM fixtures; served assets and native acknowledgements checked here. No human visual verification. No user browser or desktop UI automation.",
+    "No new reboot, sleep, GPU or long-duration test."
+  ]
+}

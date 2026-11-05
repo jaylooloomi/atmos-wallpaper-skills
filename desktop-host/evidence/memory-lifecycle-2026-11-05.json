@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "version": "0.7.11",
+  "passed": true,
+  "method": "AFTER the completed passing soak: scoped native --quit, PID/start-time checks of previously sampled owned processes, then normal Windows Shell broker restart; no UI automation",
+  "checks": {
+    "allPreviouslySampledOwnedProcessesExited": true,
+    "nativeLayerRemovedBeforeRestart": true,
+    "newInstalledHostAttached": true,
+    "informationModeAutomaticallyPreserved": true,
+    "settingsBytePreserved": true,
+    "startupPreferencePreserved": true,
+    "sameInstalledBinary": true
+  },
+  "previouslySampledOwnedProcesses": 15,
+  "preservedConfigFiles": 8,
+  "limitations": [
+    "This is a post-measurement lifecycle check, not a splice or extension of the uninterrupted two-hour sample.",
+    "Own process/layer cleanup is automatic evidence; underlying wallpaper appearance and desktop interaction were not manually confirmed."
+  ]
+}

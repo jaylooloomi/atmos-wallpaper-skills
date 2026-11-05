@@ -2,7 +2,8 @@ param(
  [ValidateRange(15,86400)][int]$DurationSeconds=7200,
  [ValidateRange(1,60)][int]$SampleSeconds=15,
  [string]$OutputDirectory,
- [switch]$Run
+ [switch]$Run,
+ [switch]$RequireInformationMode
 )
 $ErrorActionPreference='Stop'
 if(-not $Run){throw 'Explicit -Run is required. Read-only installed-host collection; no wallpaper settings change.'}
@@ -16,6 +17,7 @@ $exe=Join-Path $env:LOCALAPPDATA 'Atmos Wallpaper\atmos-wallpaper.exe'
 $store=Join-Path $env:LOCALAPPDATA 'io.atmos.wallpaper\store'
 $initial=& $exe --host-command get | ConvertFrom-Json
 if($LASTEXITCODE -ne 0 -or -not $initial.runtimeFresh -or -not $initial.runtime.nativeAttached){throw 'A fresh attached installed Atmos host is required'}
+if($RequireInformationMode -and @($initial.runtime.targets|Where-Object {-not $_.runtimePolicy.informationMode -or -not $_.runtimePolicy.paused}).Count -gt 0){throw 'Information-saving mode must already be active; sampler never changes it'}
 $rootPid=[int]$initial.runtime.pid
 $hostSession=[string]$initial.runtime.hostSessionId
 if($hostSession -notmatch '^\d+-\d+$'){throw 'Host session identity is missing'}
@@ -88,15 +90,17 @@ try{
   catch{$sample.processErrors+=('OWNERSHIP_COUNTER_FAILURE:'+ $_.Exception.GetType().Name);try{$sample.rootAlive=((Get-Process -Id $rootPid).StartTime.ToUniversalTime().ToString('o') -eq $sampler.RootStartedAt)}catch{$sample.rootAlive=$false;$rootLost=$true}}
   try{$sample.gpu=Read-AtmosGpu -OwnedPids ([int[]]@($sample.processes|ForEach-Object {$_.pid}))}catch{$sample.gpu=@{available=$false;reason='GPU_READ_FAILED';errorType=$_.Exception.GetType().Name}}
   try{$native=Read-Record (Join-Path $store 'host-status.json');$native|Add-Member -NotePropertyName observedAtMs -NotePropertyValue ([DateTimeOffset]::UtcNow.ToUnixTimeMilliseconds()) -Force;$sample.native=$native;$sample.workload=Load-Workload $native}catch{$sample.native=$null;$sample.nativeError='NATIVE_STATUS_UNAVAILABLE'}
-  try{$h=Get-Health;$sample.health=@{ackRecent=$h.rendererRecentlyAcknowledged;allTargetsAcknowledged=$h.allTargetsAcknowledged;perTarget=@($h.perTarget|Select-Object targetId,scopeId,revision,desiredHash,rendererAcknowledged,nativeAttached,lastAckAt);renderers=@($h.renderers|Select-Object role,revision,recent,capturedAtMs)}}catch{$sample.health=$null;$sample.httpError=$_.Exception.GetType().Name;$script:sessionToken=$null}
+  try{$h=Get-Health;$sample.health=@{ackRecent=$h.rendererRecentlyAcknowledged;allTargetsAcknowledged=$h.allTargetsAcknowledged;perTarget=@($h.perTarget|Select-Object targetId,scopeId,revision,desiredHash,rendererAcknowledged,nativeAttached,lastAckAt);renderers=@($h.renderers|Select-Object role,rendererId,revision,recent,capturedAtMs,animation)}}catch{$sample.health=$null;$sample.httpError=$_.Exception.GetType().Name;$script:sessionToken=$null}
+  if($RequireInformationMode -and $sample.native){$sample.informationModeVerified=(@($sample.native.targets).Count -gt 0 -and @($sample.native.targets|Where-Object {-not $_.runtimePolicy.informationMode -or -not $_.runtimePolicy.paused}).Count -eq 0)}
   $sample.at=[DateTimeOffset]::UtcNow.ToString('o')
   $sample.collectionDurationMs=$iteration.Elapsed.TotalMilliseconds
   Append-Sample 'samples.jsonl' $sample
   $count++;$lastElapsed=$elapsed
-  $progress=@{status='collecting';samples=$count;elapsedSeconds=[Math]::Round($elapsed,1);plannedSeconds=$DurationSeconds;rootAlive=$sample.rootAlive;ownedProcessCount=@($sample.processes).Count;webviewCount=@($sample.processes|Where-Object group -eq 'webview').Count;ackRecent=$sample.health.ackRecent;gpuAvailable=$sample.gpu.engine.available;gpuBusiestEnginePercent=$sample.gpu.engine.busiestEnginePercent}
+  $progress=@{privateMiB=if(@($sample.processes).Count -gt 0){[Math]::Round((($sample.processes|Measure-Object -Property privateBytes -Sum).Sum/1048576),2)}else{$null};runtimePrivateMiB=if(@($sample.processes|Where-Object group -eq 'runtime').Count -gt 0){[Math]::Round(((($sample.processes|Where-Object group -eq 'runtime')|Measure-Object -Property privateBytes -Sum).Sum/1048576),2)}else{$null};processSnapshotPartial=(@($sample.processErrors).Count -gt 0);status='collecting';samples=$count;elapsedSeconds=[Math]::Round($elapsed,1);plannedSeconds=$DurationSeconds;rootAlive=$sample.rootAlive;ownedProcessCount=@($sample.processes).Count;webviewCount=@($sample.processes|Where-Object group -eq 'webview').Count;ackRecent=$sample.health.ackRecent;gpuAvailable=$sample.gpu.engine.available;gpuBusiestEnginePercent=$sample.gpu.engine.busiestEnginePercent}
   Save-Json 'progress.json' $progress
   if($elapsed-$lastProgress -ge 60){$progress|ConvertTo-Json -Compress;$lastProgress=$elapsed}
   if($rootLost){$status='root-lost';break}
+  if($RequireInformationMode -and $sample.native -and -not $sample.informationModeVerified){$status='information-mode-lost';break}
   if(Test-Path -LiteralPath (Join-Path $OutputDirectory 'stop.request')){$status='cancelled-by-request';break}
   if($elapsed-$firstElapsed -ge $DurationSeconds){$status='collected';break}
   $slot=[Math]::Floor(($timer.Elapsed.TotalSeconds-$firstElapsed)/$SampleSeconds)+1

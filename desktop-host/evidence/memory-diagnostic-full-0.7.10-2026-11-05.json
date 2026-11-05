@@ -1,0 +1,1356 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-05",
+  "version": "0.7.10",
+  "passed": false,
+  "method": "Two continuous hours on the real installed Windows host, information-saving enabled; desktop and manager open; no forced GC, restart or policy changes during collection",
+  "checks": {
+    "completedTwoHours": true,
+    "informationModeSamples": 481,
+    "totalSamples": 481,
+    "wallpaperRecentReports": 481,
+    "managerRecentReports": 481,
+    "backgroundDrawIncreaseObservations": 0,
+    "rendererReportIdentities": 2,
+    "settingsUnchanged": true,
+    "originalHostSurvived": true,
+    "memoryGrowthReviewFlags": 2
+  },
+  "analysis": {
+    "schemaVersion": 1,
+    "kind": "native-owned-process-tree-soak-aggregate",
+    "measurement": {
+      "completeMarkerPresent": true,
+      "completionSuccessful": true,
+      "partialAnalysis": false,
+      "collectorElapsedSeconds": 7203.7835704,
+      "plannedDurationSeconds": 7200,
+      "sampleIntervalSeconds": 15,
+      "sampleCount": 481,
+      "validTimeSamples": 481,
+      "observedSpanSeconds": 7200.0039448,
+      "durationReached": true,
+      "logicalProcessors": 56,
+      "rootIdentityDeclared": true,
+      "processGroups": [
+        "host",
+        "runtime",
+        "webview",
+        "other"
+      ],
+      "cpuCoverage": {
+        "eligibleIntervals": 480,
+        "validCpuIntervals": 480,
+        "completeCohortIntervals": 233,
+        "partialCohortIntervals": 247,
+        "excludedLongGapIntervals": 0,
+        "excludedLongGapSeconds": 0,
+        "excludedQueryFailureIntervals": 0,
+        "excludedInvalidSampleIntervals": 0,
+        "excludedCounterUnavailableIntervals": 0,
+        "matchedIdentityPairs": 7200,
+        "possibleIdentityPairs": 7200,
+        "maximumSampleGapSeconds": 15.2780317,
+        "observedIntervalSeconds": 7200.0039448,
+        "completeCpuSeconds": 3495.5266266000026,
+        "partialCpuSeconds": 3704.477318199997,
+        "unmeasuredBirthTransitions": 0,
+        "unmeasuredExitTransitions": 0,
+        "completeCpuFractionOfObserved": 0.48548954325567395,
+        "partialCpuFractionOfObserved": 0.514510456744326,
+        "matchedIdentityPairRatio": 1
+      },
+      "issues": {
+        "invalidTimeSamples": 0,
+        "nonIncreasingTimeSamples": 0,
+        "processQueryFailureSamples": 0,
+        "processPartialSamples": 141,
+        "invalidProcessRows": 0,
+        "duplicateProcessRows": 0,
+        "rootMissingSamples": 0,
+        "rootIdentityMismatchSamples": 0,
+        "cpuCounterRegressionProcesses": 0,
+        "hostSessionMismatchSamples": 0,
+        "nativeStaleSamples": 0,
+        "nativeObservationTimestampInvalidSamples": 0,
+        "nativeFutureTimestampSamples": 0,
+        "nativeRootPidMismatchSamples": 0
+      },
+      "inputParsing": {
+        "invalidLines": 0,
+        "trailingPartial": false
+      },
+      "eventInputParsing": {
+        "filePresent": false,
+        "invalidLines": 0,
+        "trailingPartial": false
+      }
+    },
+    "workload": {
+      "revisionTransitions": 0,
+      "constantRevisionObserved": true,
+      "note": "Constant revision is not a proof of constant hardware load or unchanged external data."
+    },
+    "metrics": {
+      "all": {
+        "cpu": {
+          "completeCohort": {
+            "intervals": 233,
+            "observedSeconds": 3495.5266266000026,
+            "meanOneCorePercent": 49.76405019383235,
+            "p50OneCorePercent": 49.79457002206078,
+            "p95OneCorePercent": 53.8968314877891,
+            "peakOneCorePercent": 56.216976648797065,
+            "meanMachinePercent": 0.8886437534612919,
+            "p95MachinePercent": 0.9624434194248054
+          },
+          "partialCohortMatchedLowerBound": {
+            "intervals": 247,
+            "observedSeconds": 3704.477318199997,
+            "meanOneCorePercent": 49.9914486154783,
+            "p50OneCorePercent": 49.92322654055894,
+            "p95OneCorePercent": 53.81423506919839,
+            "peakOneCorePercent": 58.48277424473899,
+            "meanMachinePercent": 0.8927044395621124,
+            "p95MachinePercent": 0.9609684833785427
+          },
+          "allObservedMatchedLowerBound": {
+            "intervals": 480,
+            "observedSeconds": 7200.0039448,
+            "meanOneCorePercent": 49.881049059616345,
+            "p50OneCorePercent": 49.896959008726036,
+            "p95OneCorePercent": 53.81423506919839,
+            "peakOneCorePercent": 58.48277424473899,
+            "meanMachinePercent": 0.8907330189217204,
+            "p95MachinePercent": 0.9609684833785427
+          },
+          "normalization": "One-core 100% means one logical processor; machine percent divides by metadata.logicalProcessors. Partial-cohort CPU excludes unobserved newborn/exited process work."
+        },
+        "privateMiB": {
+          "samples": 340,
+          "first": 786.65234375,
+          "last": 858.6015625,
+          "min": 719.375,
+          "median": 842.17578125,
+          "p95": 861.5560546875,
+          "peak": 866.15234375,
+          "partialSnapshotObserved": {
+            "samples": 141,
+            "first": 724.86328125,
+            "last": 859.19921875,
+            "min": 723.82421875,
+            "median": 835.75,
+            "p95": 861.03125,
+            "peak": 864.82421875
+          },
+          "steady": {
+            "warmupExcludedSeconds": 300,
+            "samples": 325,
+            "spanSeconds": 6899.9936376,
+            "linearPerHour": 48.5695183080254,
+            "theilSenPerHour": 46.96346235847791,
+            "rSquared": 0.892259362826884,
+            "openingWindowMedian": 778.728515625,
+            "closingWindowMedian": 858.5078125,
+            "medianWindowGrowth": 79.779296875,
+            "endpointWindowSeconds": 300,
+            "windowsDisjoint": true
+          }
+        },
+        "workingSetMiB": {
+          "samples": 340,
+          "first": 1092,
+          "last": 1171.89453125,
+          "min": 1042.7421875,
+          "median": 1156.271484375,
+          "p95": 1173.20390625,
+          "peak": 1177.22265625,
+          "partialSnapshotObserved": {
+            "samples": 141,
+            "first": 1049.55859375,
+            "last": 1172.1953125,
+            "min": 1046.23046875,
+            "median": 1148.25,
+            "p95": 1172.05859375,
+            "peak": 1175.92578125
+          },
+          "steady": {
+            "warmupExcludedSeconds": 300,
+            "samples": 325,
+            "spanSeconds": 6899.9936376,
+            "linearPerHour": 39.522771147695046,
+            "theilSenPerHour": 37.67055311643176,
+            "rSquared": 0.8768040100801702,
+            "openingWindowMedian": 1103.490234375,
+            "closingWindowMedian": 1170.68359375,
+            "medianWindowGrowth": 67.193359375,
+            "endpointWindowSeconds": 300,
+            "windowsDisjoint": true
+          }
+        },
+        "handles": {
+          "samples": 340,
+          "first": 6859,
+          "last": 6913,
+          "min": 6765,
+          "median": 6901,
+          "p95": 6910.05,
+          "peak": 6918,
+          "partialSnapshotObserved": {
+            "samples": 141,
+            "first": 6860,
+            "last": 6904,
+            "min": 6771,
+            "median": 6901,
+            "p95": 6908,
+            "peak": 6916
+          },
+          "steady": {
+            "warmupExcludedSeconds": 300,
+            "samples": 325,
+            "spanSeconds": 6899.9936376,
+            "linearPerHour": 25.394557879712714,
+            "theilSenPerHour": 22.98232848459894,
+            "rSquared": 0.661286630091966,
+            "openingWindowMedian": 6864,
+            "closingWindowMedian": 6902,
+            "medianWindowGrowth": 38,
+            "endpointWindowSeconds": 300,
+            "windowsDisjoint": true
+          }
+        },
+        "threads": {
+          "samples": 340,
+          "first": 463,
+          "last": 453,
+          "min": 424,
+          "median": 447,
+          "p95": 453,
+          "peak": 477,
+          "partialSnapshotObserved": {
+            "samples": 141,
+            "first": 444,
+            "last": 450,
+            "min": 424,
+            "median": 447,
+            "p95": 451,
+            "peak": 477
+          },
+          "steady": {
+            "warmupExcludedSeconds": 300,
+            "samples": 325,
+            "spanSeconds": 6899.9936376,
+            "linearPerHour": 4.055101726662729,
+            "theilSenPerHour": 4.419123740039751,
+            "rSquared": 0.15394381992315498,
+            "openingWindowMedian": 444,
+            "closingWindowMedian": 449,
+            "medianWindowGrowth": 5,
+            "endpointWindowSeconds": 300,
+            "windowsDisjoint": true
+          }
+        },
+        "processCount": {
+          "samples": 340,
+          "first": 15,
+          "last": 15,
+          "min": 15,
+          "median": 15,
+          "p95": 15,
+          "peak": 15,
+          "partialSnapshotObserved": {
+            "samples": 141,
+            "first": 15,
+            "last": 15,
+            "min": 15,
+            "median": 15,
+            "p95": 15,
+            "peak": 15
+          },
+          "steady": {
+            "warmupExcludedSeconds": 300,
+            "samples": 325,
+            "spanSeconds": 6899.9936376,
+            "linearPerHour": 0,
+            "theilSenPerHour": 0,
+            "rSquared": 1,
+            "openingWindowMedian": 15,
+            "closingWindowMedian": 15,
+            "medianWindowGrowth": 0,
+            "endpointWindowSeconds": 300,
+            "windowsDisjoint": true
+          }
+        }
+      },
+      "host": {
+        "cpu": {
+          "completeCohort": {
+            "intervals": 233,
+            "observedSeconds": 3495.5266266000026,
+            "meanOneCorePercent": 6.168598412586895,
+            "p50OneCorePercent": 6.144291771489802,
+            "p95OneCorePercent": 7.290886541806694,
+            "peakOneCorePercent": 8.026517070601349,
+            "meanMachinePercent": 0.11015354308190883,
+            "p95MachinePercent": 0.1301944025322624
+          },
+          "partialCohortMatchedLowerBound": {
+            "intervals": 247,
+            "observedSeconds": 3704.477318199997,
+            "meanOneCorePercent": 6.20870315145449,
+            "p50OneCorePercent": 6.246487641642474,
+            "p95OneCorePercent": 7.498523940557533,
+            "peakOneCorePercent": 8.221743911828106,
+            "meanMachinePercent": 0.11086969913311588,
+            "p95MachinePercent": 0.13390221322424165
+          },
+          "allObservedMatchedLowerBound": {
+            "intervals": 480,
+            "observedSeconds": 7200.0039448,
+            "meanOneCorePercent": 6.189232720099273,
+            "p50OneCorePercent": 6.154022614306564,
+            "p95OneCorePercent": 7.3962336668073405,
+            "peakOneCorePercent": 8.221743911828106,
+            "meanMachinePercent": 0.1105220128589156,
+            "p95MachinePercent": 0.13207560119298822
+          },
+          "normalization": "One-core 100% means one logical processor; machine percent divides by metadata.logicalProcessors. Partial-cohort CPU excludes unobserved newborn/exited process work."
+        },
+        "privateMiB": {
+          "samples": 340,
+          "first": 5.4453125,
+          "last": 6.14453125,
+          "min": 5.2421875,
+          "median": 5.6484375,
+          "p95": 6.14453125,
+          "peak": 6.14453125,
+          "partialSnapshotObserved": {
+            "samples": 141,
+            "first": 5.26171875,
+            "last": 6.14453125,
+            "min": 5.26171875,
+            "median": 5.6484375,
+            "p95": 6.14453125,
+            "peak": 6.14453125
+          },
+          "steady": {
+            "warmupExcludedSeconds": 300,
+            "samples": 325,
+            "spanSeconds": 6899.9936376,
+            "linearPerHour": 0.1659394734249833,
+            "theilSenPerHour": 0.08203133708310342,
+            "rSquared": 0.20220303485418184,
+            "openingWindowMedian": 5.6328125,
+            "closingWindowMedian": 6.12890625,
+            "medianWindowGrowth": 0.49609375,
+            "endpointWindowSeconds": 300,
+            "windowsDisjoint": true
+          }
+        },
+        "workingSetMiB": {
+          "samples": 340,
+          "first": 25.046875,
+          "last": 25.53125,
+          "min": 24.96875,
+          "median": 25.4921875,
+          "p95": 25.5939453125,
+          "peak": 25.87109375,
+          "partialSnapshotObserved": {
+            "samples": 141,
+            "first": 24.97265625,
+            "last": 25.56640625,
+            "min": 24.97265625,
+            "median": 25.48828125,
+            "p95": 25.58984375,
+            "peak": 25.91796875
+          },
+          "steady": {
+            "warmupExcludedSeconds": 300,
+            "samples": 325,
+            "spanSeconds": 6899.9936376,
+            "linearPerHour": 0.07146065124481604,
+            "theilSenPerHour": 0.06449577532014854,
+            "rSquared": 0.17821507095020211,
+            "openingWindowMedian": 25.427734375,
+            "closingWindowMedian": 25.53125,
+            "medianWindowGrowth": 0.103515625,
+            "endpointWindowSeconds": 300,
+            "windowsDisjoint": true
+          }
+        },
+        "handles": {
+          "samples": 340,
+          "first": 347,
+          "last": 339,
+          "min": 338,
+          "median": 339,
+          "p95": 339.05,
+          "peak": 347,
+          "partialSnapshotObserved": {
+            "samples": 141,
+            "first": 344,
+            "last": 339,
+            "min": 338,
+            "median": 339,
+            "p95": 339,
+            "peak": 345
+          },
+          "steady": {
+            "warmupExcludedSeconds": 300,
+            "samples": 325,
+            "spanSeconds": 6899.9936376,
+            "linearPerHour": -0.25801023158866493,
+            "theilSenPerHour": 0,
+            "rSquared": 0.032318067327577644,
+            "openingWindowMedian": 339,
+            "closingWindowMedian": 339,
+            "medianWindowGrowth": 0,
+            "endpointWindowSeconds": 300,
+            "windowsDisjoint": true
+          }
+        },
+        "threads": {
+          "samples": 340,
+          "first": 13,
+          "last": 6,
+          "min": 6,
+          "median": 6,
+          "p95": 8,
+          "peak": 13,
+          "partialSnapshotObserved": {
+            "samples": 141,
+            "first": 9,
+            "last": 6,
+            "min": 6,
+            "median": 6,
+            "p95": 7,
+            "peak": 9
+          },
+          "steady": {
+            "warmupExcludedSeconds": 300,
+            "samples": 325,
+            "spanSeconds": 6899.9936376,
+            "linearPerHour": -0.2952486099297241,
+            "theilSenPerHour": 0,
+            "rSquared": 0.07709229342336356,
+            "openingWindowMedian": 8,
+            "closingWindowMedian": 6,
+            "medianWindowGrowth": -2,
+            "endpointWindowSeconds": 300,
+            "windowsDisjoint": true
+          }
+        },
+        "processCount": {
+          "samples": 340,
+          "first": 1,
+          "last": 1,
+          "min": 1,
+          "median": 1,
+          "p95": 1,
+          "peak": 1,
+          "partialSnapshotObserved": {
+            "samples": 141,
+            "first": 1,
+            "last": 1,
+            "min": 1,
+            "median": 1,
+            "p95": 1,
+            "peak": 1
+          },
+          "steady": {
+            "warmupExcludedSeconds": 300,
+            "samples": 325,
+            "spanSeconds": 6899.9936376,
+            "linearPerHour": 0,
+            "theilSenPerHour": 0,
+            "rSquared": 1,
+            "openingWindowMedian": 1,
+            "closingWindowMedian": 1,
+            "medianWindowGrowth": 0,
+            "endpointWindowSeconds": 300,
+            "windowsDisjoint": true
+          }
+        }
+      },
+      "runtime": {
+        "cpu": {
+          "completeCohort": {
+            "intervals": 233,
+            "observedSeconds": 3495.5266266000026,
+            "meanOneCorePercent": 3.883982000504894,
+            "p50OneCorePercent": 3.852569879186951,
+            "p95OneCorePercent": 4.901941282890238,
+            "peakOneCorePercent": 5.307967420460315,
+            "meanMachinePercent": 0.0693568214375874,
+            "p95MachinePercent": 0.08753466576589711
+          },
+          "partialCohortMatchedLowerBound": {
+            "intervals": 247,
+            "observedSeconds": 3704.477318199997,
+            "meanOneCorePercent": 3.963109701838749,
+            "p50OneCorePercent": 3.958715692486274,
+            "p95OneCorePercent": 4.792614518015288,
+            "peakOneCorePercent": 5.723820541962866,
+            "meanMachinePercent": 0.07076981610426337,
+            "p95MachinePercent": 0.08558240210741586
+          },
+          "allObservedMatchedLowerBound": {
+            "intervals": 480,
+            "observedSeconds": 7200.0039448,
+            "meanOneCorePercent": 3.924694030259304,
+            "p50OneCorePercent": 3.955364700280283,
+            "p95OneCorePercent": 4.806738292079863,
+            "peakOneCorePercent": 5.723820541962866,
+            "meanMachinePercent": 0.07008382196891615,
+            "p95MachinePercent": 0.08583461235856897
+          },
+          "normalization": "One-core 100% means one logical processor; machine percent divides by metadata.logicalProcessors. Partial-cohort CPU excludes unobserved newborn/exited process work."
+        },
+        "privateMiB": {
+          "samples": 340,
+          "first": 133.28125,
+          "last": 102.48046875,
+          "min": 94.33984375,
+          "median": 99.44140625,
+          "p95": 105.44609375,
+          "peak": 138.36328125,
+          "partialSnapshotObserved": {
+            "samples": 141,
+            "first": 135.98046875,
+            "last": 102.0078125,
+            "min": 94.37109375,
+            "median": 99.265625,
+            "p95": 104.8671875,
+            "peak": 138.3046875
+          },
+          "steady": {
+            "warmupExcludedSeconds": 300,
+            "samples": 325,
+            "spanSeconds": 6899.9936376,
+            "linearPerHour": 3.042804251598771,
+            "theilSenPerHour": 3.1470137668426283,
+            "rSquared": 0.5185483342334496,
+            "openingWindowMedian": 96.56640625,
+            "closingWindowMedian": 100.1796875,
+            "medianWindowGrowth": 3.61328125,
+            "endpointWindowSeconds": 300,
+            "windowsDisjoint": true
+          }
+        },
+        "workingSetMiB": {
+          "samples": 340,
+          "first": 130.53125,
+          "last": 101.4921875,
+          "min": 91.5703125,
+          "median": 97.890625,
+          "p95": 103.059375,
+          "peak": 135.4375,
+          "partialSnapshotObserved": {
+            "samples": 141,
+            "first": 132.89453125,
+            "last": 100.63671875,
+            "min": 91.4375,
+            "median": 97.671875,
+            "p95": 102.0234375,
+            "peak": 135.12890625
+          },
+          "steady": {
+            "warmupExcludedSeconds": 300,
+            "samples": 325,
+            "spanSeconds": 6899.9936376,
+            "linearPerHour": 3.1426806261545095,
+            "theilSenPerHour": 3.2711815074875563,
+            "rSquared": 0.5831298125269738,
+            "openingWindowMedian": 93.96875,
+            "closingWindowMedian": 99.3671875,
+            "medianWindowGrowth": 5.3984375,
+            "endpointWindowSeconds": 300,
+            "windowsDisjoint": true
+          }
+        },
+        "handles": {
+          "samples": 340,
+          "first": 244,
+          "last": 243,
+          "min": 240,
+          "median": 240,
+          "p95": 246,
+          "peak": 251,
+          "partialSnapshotObserved": {
+            "samples": 141,
+            "first": 242,
+            "last": 240,
+            "min": 240,
+            "median": 240,
+            "p95": 246,
+            "peak": 251
+          },
+          "steady": {
+            "warmupExcludedSeconds": 300,
+            "samples": 325,
+            "spanSeconds": 6899.9936376,
+            "linearPerHour": -0.1152373085334542,
+            "theilSenPerHour": 0,
+            "rSquared": 0.0011095410867509765,
+            "openingWindowMedian": 241,
+            "closingWindowMedian": 240,
+            "medianWindowGrowth": -1,
+            "endpointWindowSeconds": 300,
+            "windowsDisjoint": true
+          }
+        },
+        "threads": {
+          "samples": 340,
+          "first": 16,
+          "last": 14,
+          "min": 14,
+          "median": 14,
+          "p95": 15,
+          "peak": 16,
+          "partialSnapshotObserved": {
+            "samples": 141,
+            "first": 15,
+            "last": 14,
+            "min": 14,
+            "median": 14,
+            "p95": 14,
+            "peak": 16
+          },
+          "steady": {
+            "warmupExcludedSeconds": 300,
+            "samples": 325,
+            "spanSeconds": 6899.9936376,
+            "linearPerHour": -0.12449898383031266,
+            "theilSenPerHour": 0,
+            "rSquared": 0.04122845556428316,
+            "openingWindowMedian": 14,
+            "closingWindowMedian": 14,
+            "medianWindowGrowth": 0,
+            "endpointWindowSeconds": 300,
+            "windowsDisjoint": true
+          }
+        },
+        "processCount": {
+          "samples": 340,
+          "first": 1,
+          "last": 1,
+          "min": 1,
+          "median": 1,
+          "p95": 1,
+          "peak": 1,
+          "partialSnapshotObserved": {
+            "samples": 141,
+            "first": 1,
+            "last": 1,
+            "min": 1,
+            "median": 1,
+            "p95": 1,
+            "peak": 1
+          },
+          "steady": {
+            "warmupExcludedSeconds": 300,
+            "samples": 325,
+            "spanSeconds": 6899.9936376,
+            "linearPerHour": 0,
+            "theilSenPerHour": 0,
+            "rSquared": 1,
+            "openingWindowMedian": 1,
+            "closingWindowMedian": 1,
+            "medianWindowGrowth": 0,
+            "endpointWindowSeconds": 300,
+            "windowsDisjoint": true
+          }
+        }
+      },
+      "webview": {
+        "cpu": {
+          "completeCohort": {
+            "intervals": 233,
+            "observedSeconds": 3495.5266266000026,
+            "meanOneCorePercent": 39.71146978074056,
+            "p50OneCorePercent": 39.50771625935949,
+            "p95OneCorePercent": 43.440403846195316,
+            "peakOneCorePercent": 45.702319905225764,
+            "meanMachinePercent": 0.7091333889417957,
+            "p95MachinePercent": 0.7757214972534878
+          },
+          "partialCohortMatchedLowerBound": {
+            "intervals": 247,
+            "observedSeconds": 3704.477318199997,
+            "meanOneCorePercent": 39.81963576218506,
+            "p50OneCorePercent": 39.83719393980718,
+            "p95OneCorePercent": 43.478835038613,
+            "peakOneCorePercent": 46.18158465315396,
+            "meanMachinePercent": 0.7110649243247332,
+            "p95MachinePercent": 0.7764077685466607
+          },
+          "allObservedMatchedLowerBound": {
+            "intervals": 480,
+            "observedSeconds": 7200.0039448,
+            "meanOneCorePercent": 39.76712230925777,
+            "p50OneCorePercent": 39.73125417609917,
+            "p95OneCorePercent": 43.4434395870597,
+            "peakOneCorePercent": 46.18158465315396,
+            "meanMachinePercent": 0.7101271840938888,
+            "p95MachinePercent": 0.7757757069117803
+          },
+          "normalization": "One-core 100% means one logical processor; machine percent divides by metadata.logicalProcessors. Partial-cohort CPU excludes unobserved newborn/exited process work."
+        },
+        "privateMiB": {
+          "samples": 340,
+          "first": 641.7265625,
+          "last": 743.77734375,
+          "min": 581.05859375,
+          "median": 732.298828125,
+          "p95": 745.99296875,
+          "peak": 748.85546875,
+          "partialSnapshotObserved": {
+            "samples": 141,
+            "first": 577.421875,
+            "last": 744.84765625,
+            "min": 577.421875,
+            "median": 724.4296875,
+            "p95": 746.01171875,
+            "peak": 747.76171875
+          },
+          "steady": {
+            "warmupExcludedSeconds": 300,
+            "samples": 325,
+            "spanSeconds": 6899.9936376,
+            "linearPerHour": 45.36432343589354,
+            "theilSenPerHour": 42.76648915836446,
+            "rSquared": 0.8747846888903781,
+            "openingWindowMedian": 670.443359375,
+            "closingWindowMedian": 745.3671875,
+            "medianWindowGrowth": 74.923828125,
+            "endpointWindowSeconds": 300,
+            "windowsDisjoint": true
+          }
+        },
+        "workingSetMiB": {
+          "samples": 340,
+          "first": 925.1953125,
+          "last": 1033.625,
+          "min": 880.71875,
+          "median": 1022.11328125,
+          "p95": 1034.69921875,
+          "peak": 1037.6171875,
+          "partialSnapshotObserved": {
+            "samples": 141,
+            "first": 880.46484375,
+            "last": 1034.74609375,
+            "min": 880.46484375,
+            "median": 1013.046875,
+            "p95": 1034.47265625,
+            "peak": 1036.17578125
+          },
+          "steady": {
+            "warmupExcludedSeconds": 300,
+            "samples": 325,
+            "spanSeconds": 6899.9936376,
+            "linearPerHour": 36.29864202343432,
+            "theilSenPerHour": 33.62669755793003,
+            "rSquared": 0.8649536199915169,
+            "openingWindowMedian": 973.033203125,
+            "closingWindowMedian": 1034.1796875,
+            "medianWindowGrowth": 61.146484375,
+            "endpointWindowSeconds": 300,
+            "windowsDisjoint": true
+          }
+        },
+        "handles": {
+          "samples": 340,
+          "first": 6160,
+          "last": 6223,
+          "min": 6076,
+          "median": 6214,
+          "p95": 6221.05,
+          "peak": 6227,
+          "partialSnapshotObserved": {
+            "samples": 141,
+            "first": 6166,
+            "last": 6217,
+            "min": 6081,
+            "median": 6214,
+            "p95": 6220,
+            "peak": 6228
+          },
+          "steady": {
+            "warmupExcludedSeconds": 300,
+            "samples": 325,
+            "spanSeconds": 6899.9936376,
+            "linearPerHour": 25.767805419834847,
+            "theilSenPerHour": 23.186205662005342,
+            "rSquared": 0.681481727084692,
+            "openingWindowMedian": 6172,
+            "closingWindowMedian": 6215,
+            "medianWindowGrowth": 43,
+            "endpointWindowSeconds": 300,
+            "windowsDisjoint": true
+          }
+        },
+        "threads": {
+          "samples": 340,
+          "first": 432,
+          "last": 431,
+          "min": 401,
+          "median": 425,
+          "p95": 431,
+          "peak": 449,
+          "partialSnapshotObserved": {
+            "samples": 141,
+            "first": 418,
+            "last": 428,
+            "min": 401,
+            "median": 425,
+            "p95": 429,
+            "peak": 449
+          },
+          "steady": {
+            "warmupExcludedSeconds": 300,
+            "samples": 325,
+            "spanSeconds": 6899.9936376,
+            "linearPerHour": 4.59934830425308,
+            "theilSenPerHour": 4.556959150202394,
+            "rSquared": 0.2524947532266486,
+            "openingWindowMedian": 419,
+            "closingWindowMedian": 427,
+            "medianWindowGrowth": 8,
+            "endpointWindowSeconds": 300,
+            "windowsDisjoint": true
+          }
+        },
+        "processCount": {
+          "samples": 340,
+          "first": 12,
+          "last": 12,
+          "min": 12,
+          "median": 12,
+          "p95": 12,
+          "peak": 12,
+          "partialSnapshotObserved": {
+            "samples": 141,
+            "first": 12,
+            "last": 12,
+            "min": 12,
+            "median": 12,
+            "p95": 12,
+            "peak": 12
+          },
+          "steady": {
+            "warmupExcludedSeconds": 300,
+            "samples": 325,
+            "spanSeconds": 6899.9936376,
+            "linearPerHour": 0,
+            "theilSenPerHour": 0,
+            "rSquared": 1,
+            "openingWindowMedian": 12,
+            "closingWindowMedian": 12,
+            "medianWindowGrowth": 0,
+            "endpointWindowSeconds": 300,
+            "windowsDisjoint": true
+          }
+        }
+      },
+      "other": {
+        "cpu": {
+          "completeCohort": {
+            "intervals": 233,
+            "observedSeconds": 3495.5266266000026,
+            "meanOneCorePercent": 0,
+            "p50OneCorePercent": 0,
+            "p95OneCorePercent": 0,
+            "peakOneCorePercent": 0,
+            "meanMachinePercent": 0,
+            "p95MachinePercent": 0
+          },
+          "partialCohortMatchedLowerBound": {
+            "intervals": 247,
+            "observedSeconds": 3704.477318199997,
+            "meanOneCorePercent": 0,
+            "p50OneCorePercent": 0,
+            "p95OneCorePercent": 0,
+            "peakOneCorePercent": 0,
+            "meanMachinePercent": 0,
+            "p95MachinePercent": 0
+          },
+          "allObservedMatchedLowerBound": {
+            "intervals": 480,
+            "observedSeconds": 7200.0039448,
+            "meanOneCorePercent": 0,
+            "p50OneCorePercent": 0,
+            "p95OneCorePercent": 0,
+            "peakOneCorePercent": 0,
+            "meanMachinePercent": 0,
+            "p95MachinePercent": 0
+          },
+          "normalization": "One-core 100% means one logical processor; machine percent divides by metadata.logicalProcessors. Partial-cohort CPU excludes unobserved newborn/exited process work."
+        },
+        "privateMiB": {
+          "samples": 340,
+          "first": 6.19921875,
+          "last": 6.19921875,
+          "min": 6.19921875,
+          "median": 6.19921875,
+          "p95": 6.19921875,
+          "peak": 6.2578125,
+          "partialSnapshotObserved": {
+            "samples": 141,
+            "first": 6.19921875,
+            "last": 6.19921875,
+            "min": 6.19921875,
+            "median": 6.19921875,
+            "p95": 6.19921875,
+            "peak": 6.25390625
+          },
+          "steady": {
+            "warmupExcludedSeconds": 300,
+            "samples": 325,
+            "spanSeconds": 6899.9936376,
+            "linearPerHour": -0.003548852891910796,
+            "theilSenPerHour": 0,
+            "rSquared": 0.04229119938084058,
+            "openingWindowMedian": 6.19921875,
+            "closingWindowMedian": 6.19921875,
+            "medianWindowGrowth": 0,
+            "endpointWindowSeconds": 300,
+            "windowsDisjoint": true
+          }
+        },
+        "workingSetMiB": {
+          "samples": 340,
+          "first": 11.2265625,
+          "last": 11.24609375,
+          "min": 11.2265625,
+          "median": 11.24609375,
+          "p95": 11.24609375,
+          "peak": 11.2734375,
+          "partialSnapshotObserved": {
+            "samples": 141,
+            "first": 11.2265625,
+            "last": 11.24609375,
+            "min": 11.2265625,
+            "median": 11.24609375,
+            "p95": 11.24609375,
+            "peak": 11.2734375
+          },
+          "steady": {
+            "warmupExcludedSeconds": 300,
+            "samples": 325,
+            "spanSeconds": 6899.9936376,
+            "linearPerHour": 0.00998784686138411,
+            "theilSenPerHour": 0,
+            "rSquared": 0.3982463524074483,
+            "openingWindowMedian": 11.23046875,
+            "closingWindowMedian": 11.24609375,
+            "medianWindowGrowth": 0.015625,
+            "endpointWindowSeconds": 300,
+            "windowsDisjoint": true
+          }
+        },
+        "handles": {
+          "samples": 340,
+          "first": 108,
+          "last": 108,
+          "min": 108,
+          "median": 108,
+          "p95": 108,
+          "peak": 108,
+          "partialSnapshotObserved": {
+            "samples": 141,
+            "first": 108,
+            "last": 108,
+            "min": 108,
+            "median": 108,
+            "p95": 108,
+            "peak": 108
+          },
+          "steady": {
+            "warmupExcludedSeconds": 300,
+            "samples": 325,
+            "spanSeconds": 6899.9936376,
+            "linearPerHour": 0,
+            "theilSenPerHour": 0,
+            "rSquared": 1,
+            "openingWindowMedian": 108,
+            "closingWindowMedian": 108,
+            "medianWindowGrowth": 0,
+            "endpointWindowSeconds": 300,
+            "windowsDisjoint": true
+          }
+        },
+        "threads": {
+          "samples": 340,
+          "first": 2,
+          "last": 2,
+          "min": 2,
+          "median": 2,
+          "p95": 2,
+          "peak": 4,
+          "partialSnapshotObserved": {
+            "samples": 141,
+            "first": 2,
+            "last": 2,
+            "min": 2,
+            "median": 2,
+            "p95": 2,
+            "peak": 4
+          },
+          "steady": {
+            "warmupExcludedSeconds": 300,
+            "samples": 325,
+            "spanSeconds": 6899.9936376,
+            "linearPerHour": -0.1244989838303126,
+            "theilSenPerHour": 0,
+            "rSquared": 0.0412284555642831,
+            "openingWindowMedian": 2,
+            "closingWindowMedian": 2,
+            "medianWindowGrowth": 0,
+            "endpointWindowSeconds": 300,
+            "windowsDisjoint": true
+          }
+        },
+        "processCount": {
+          "samples": 340,
+          "first": 1,
+          "last": 1,
+          "min": 1,
+          "median": 1,
+          "p95": 1,
+          "peak": 1,
+          "partialSnapshotObserved": {
+            "samples": 141,
+            "first": 1,
+            "last": 1,
+            "min": 1,
+            "median": 1,
+            "p95": 1,
+            "peak": 1
+          },
+          "steady": {
+            "warmupExcludedSeconds": 300,
+            "samples": 325,
+            "spanSeconds": 6899.9936376,
+            "linearPerHour": 0,
+            "theilSenPerHour": 0,
+            "rSquared": 1,
+            "openingWindowMedian": 1,
+            "closingWindowMedian": 1,
+            "medianWindowGrowth": 0,
+            "endpointWindowSeconds": 300,
+            "windowsDisjoint": true
+          }
+        }
+      }
+    },
+    "processInventory": {
+      "newIdentityTransitions": 0,
+      "disappearedIdentityTransitions": 0,
+      "pidReuseCount": 0,
+      "uniqueObservedIdentities": 15,
+      "initialObservedIdentities": 15,
+      "firstSeenAfterStart": 0,
+      "lateDiscoveredExistingProcesses": 0,
+      "groups": {
+        "host": 1,
+        "runtime": 1,
+        "webview": 12,
+        "other": 1
+      }
+    },
+    "renderers": {
+      "expectedTargetCount": 1,
+      "observedTargetCount": 1,
+      "positiveAllTargetAckSamples": 481,
+      "negativeAllTargetAckSamples": 0,
+      "unknownAllTargetAckSamples": 0,
+      "ackOutages": [],
+      "nativeAttachmentOutages": [],
+      "peakReportedRendererCount": 2,
+      "uniqueReportedRendererCount": 2,
+      "rendererIdentityAvailable": true,
+      "rendererRowsWithoutIdentity": 0,
+      "knownRendererIdentityCountLowerBound": 2,
+      "ackTimestampCoverage": {
+        "claimedTrueReports": 481,
+        "freshReports": 481,
+        "staleReports": 0,
+        "futureReports": 0,
+        "missingTimestampReports": 0,
+        "acceptedSlightFutureReports": 0,
+        "ageMs": {
+          "samples": 481,
+          "first": 1010,
+          "last": 1007,
+          "min": 11,
+          "median": 736,
+          "p95": 1325,
+          "peak": 1405
+        },
+        "sourceFreshnessMs": 4000,
+        "readToleranceMs": 1000,
+        "futureToleranceMs": 1000
+      },
+      "perTarget": [
+        {
+          "target": "target-1",
+          "observedSamples": 481,
+          "positiveAckSamples": 481,
+          "negativeAckSamples": 0,
+          "unknownAckSamples": 0,
+          "staleAckTimestampSamples": 0,
+          "futureAckTimestampSamples": 0,
+          "missingAckTimestampSamples": 0,
+          "revisionTransitionCount": 0,
+          "firstRevision": 45,
+          "lastRevision": 45,
+          "hashChangedWithoutRevision": 0,
+          "ackOutages": []
+        }
+      ]
+    },
+    "lifecycle": {
+      "sourceAvailability": {
+        "session": true,
+        "power": true
+      },
+      "observedEventCounts": {
+        "SessionLock": 0,
+        "SessionUnlock": 0,
+        "Suspend": 0,
+        "Resume": 0
+      },
+      "eventsProveHumanVisibility": false
+    },
+    "gpu": {
+      "samplesWithData": 481,
+      "warmupSamples": 1,
+      "availableSamples": 339,
+      "attributedSamples": 339,
+      "utilizationAnalyzed": true,
+      "busiestOwnedEnginePercent": {
+        "samples": 339,
+        "first": 0.9584293443668648,
+        "last": 0.9381595645759473,
+        "min": 0.6074165986123519,
+        "median": 0.9591566713789352,
+        "p95": 1.0210547231676759,
+        "peak": 1.0853674426805453
+      },
+      "engineCount": {
+        "samples": 339,
+        "first": 10,
+        "last": 10,
+        "min": 10,
+        "median": 10,
+        "p95": 10,
+        "peak": 10
+      },
+      "counterCoverage": {
+        "samplesWithErrors": 0,
+        "samplesWithPartialOwnedTree": 141,
+        "engineSamplesWithInvalidInstances": 0,
+        "engineSamplesWithOutOfRangeInstances": 0,
+        "memorySamplesWithInvalidInstances": 0,
+        "excludedAvailableEngineSamples": 141,
+        "excludedAvailableMemorySamples": 141
+      },
+      "accountedProcessMemory": {
+        "dedicatedMiB": {
+          "samples": 340,
+          "first": 132.125,
+          "last": 128.4453125,
+          "min": 128.125,
+          "median": 128.4453125,
+          "p95": 129.6328125,
+          "peak": 132.125,
+          "partialSnapshotObserved": {
+            "samples": 0,
+            "first": null,
+            "last": null,
+            "min": null,
+            "median": null,
+            "p95": null,
+            "peak": null
+          },
+          "steady": {
+            "warmupExcludedSeconds": 300,
+            "samples": 325,
+            "spanSeconds": 6899.9936376,
+            "linearPerHour": 0.2917056532564136,
+            "theilSenPerHour": 0.17693874617401648,
+            "rSquared": 0.09578869190462881,
+            "openingWindowMedian": 128.3203125,
+            "closingWindowMedian": 128.5078125,
+            "medianWindowGrowth": 0.1875,
+            "endpointWindowSeconds": 300,
+            "windowsDisjoint": true
+          }
+        },
+        "sharedMiB": {
+          "samples": 340,
+          "first": 9.78125,
+          "last": 9.59765625,
+          "min": 8.13671875,
+          "median": 8.9140625,
+          "p95": 10.49609375,
+          "peak": 11.69921875,
+          "partialSnapshotObserved": {
+            "samples": 0,
+            "first": null,
+            "last": null,
+            "min": null,
+            "median": null,
+            "p95": null,
+            "peak": null
+          },
+          "steady": {
+            "warmupExcludedSeconds": 300,
+            "samples": 325,
+            "spanSeconds": 6899.9936376,
+            "linearPerHour": -0.34665170557698816,
+            "theilSenPerHour": -0.19652903824995904,
+            "rSquared": 0.0835621733935642,
+            "openingWindowMedian": 9.38671875,
+            "closingWindowMedian": 8.94921875,
+            "medianWindowGrowth": -0.4375,
+            "endpointWindowSeconds": 300,
+            "windowsDisjoint": true
+          }
+        }
+      },
+      "systemAdapterMemoryContextOnly": {
+        "scope": "whole-system; never Atmos attribution",
+        "dedicatedMiB": {
+          "samples": 481,
+          "first": 1404.359375,
+          "last": 1357,
+          "min": 1347.25,
+          "median": 1412.0546875,
+          "p95": 1418.984375,
+          "peak": 1436.4921875,
+          "partialSnapshotObserved": {
+            "samples": 0,
+            "first": null,
+            "last": null,
+            "min": null,
+            "median": null,
+            "p95": null,
+            "peak": null
+          },
+          "steady": {
+            "warmupExcludedSeconds": 300,
+            "samples": 461,
+            "spanSeconds": 6899.9936376,
+            "linearPerHour": -11.866087471253424,
+            "theilSenPerHour": 0.1310271146641676,
+            "rSquared": 0.17047444371264062,
+            "openingWindowMedian": 1413.2421875,
+            "closingWindowMedian": 1358.4375,
+            "medianWindowGrowth": -54.8046875,
+            "endpointWindowSeconds": 300,
+            "windowsDisjoint": true
+          }
+        },
+        "sharedMiB": {
+          "samples": 481,
+          "first": 179.171875,
+          "last": 118.6953125,
+          "min": 117.37109375,
+          "median": 136.84765625,
+          "p95": 170.21875,
+          "peak": 180.6953125,
+          "partialSnapshotObserved": {
+            "samples": 0,
+            "first": null,
+            "last": null,
+            "min": null,
+            "median": null,
+            "p95": null,
+            "peak": null
+          },
+          "steady": {
+            "warmupExcludedSeconds": 300,
+            "samples": 461,
+            "spanSeconds": 6899.9936376,
+            "linearPerHour": -7.5930951174106465,
+            "theilSenPerHour": -4.758761642797715,
+            "rSquared": 0.13138969593014538,
+            "openingWindowMedian": 138.5546875,
+            "closingWindowMedian": 135.5078125,
+            "medianWindowGrowth": -3.046875,
+            "endpointWindowSeconds": 300,
+            "windowsDisjoint": true
+          }
+        }
+      },
+      "note": "Primary GPU statistics exclude warm-up, frame errors, invalid/out-of-range instances and incomplete owned-process inventories. Owned PID counters are combined per physical engine; the busiest engine is not whole-GPU percent. Process GPU-memory counters are accounted allocations, not unique physical VRAM; system adapter memory is context only."
+    },
+    "power": {
+      "samplesWithData": 481,
+      "availableSamples": 0,
+      "wattsAnalyzed": false,
+      "energyAnalyzed": false
+    },
+    "reviewFlags": [
+      {
+        "code": "PRIVATE_MEMORY_GROWTH_REVIEW",
+        "severity": "review",
+        "group": "all",
+        "growthMiB": 79.779296875,
+        "theilSenMiBPerHour": 46.96346235847791
+      },
+      {
+        "code": "PRIVATE_MEMORY_GROWTH_REVIEW",
+        "severity": "review",
+        "group": "webview",
+        "growthMiB": 74.923828125,
+        "theilSenMiBPerHour": 42.76648915836446
+      },
+      {
+        "code": "PROCESS_COVERAGE_PARTIAL",
+        "severity": "review",
+        "queryFailures": 0,
+        "partialSamples": 141,
+        "invalidRows": 0,
+        "duplicateRows": 0
+      },
+      {
+        "code": "GPU_COUNTER_COVERAGE_PARTIAL",
+        "severity": "review",
+        "samplesWithErrors": 0,
+        "samplesWithPartialOwnedTree": 141,
+        "engineSamplesWithInvalidInstances": 0,
+        "engineSamplesWithOutOfRangeInstances": 0,
+        "memorySamplesWithInvalidInstances": 0,
+        "excludedAvailableEngineSamples": 141,
+        "excludedAvailableMemorySamples": 141
+      }
+    ],
+    "reviewRules": {
+      "diagnosticOnly": true,
+      "warmupSeconds": 300,
+      "endpointWindowSeconds": 300,
+      "growthMinimumSpanSeconds": 1800,
+      "privateGrowthMiB": "greater than max(32 MiB, 10% opening median) with positive Theil-Sen slope",
+      "handleGrowth": "greater than max(100, 10% opening median) with positive Theil-Sen slope",
+      "processGrowth": "closing median exceeds opening median by more than one, with positive slope",
+      "ackReviewSeconds": 15
+    },
+    "assessment": "Review flagged observations; these thresholds do not diagnose a leak.",
+    "limitations": [
+      "CPU complete-cohort intervals and partial matched lower bounds are reported separately. Short-lived child processes born and exited between samples are not captured.",
+      "Process identity uses PID plus creation time; CPU never crosses a reused PID, counter regression, failed query or a long sample gap.",
+      "Working set is a sum of process working sets and can double-count shared pages; private bytes are committed process-private allocations, not total physical memory.",
+      "Late-window medians, peaks, OLS and Theil-Sen slopes describe this workload/window only; caching and renderer churn need context.",
+      "Tree ownership is established by the collector. Aggregates cannot reconstruct processes never sampled or independently prove ownership from grouped counters alone.",
+      "Native attachment and renderer reports are distinct from human desktop visibility. Missing samples/lifecycle events do not prove absence of lock/sleep.",
+      "GPU engine usage is the busiest accounted physical engine, not whole-GPU percent. Process GPU memory is not unique physical VRAM; system adapter memory is context only. Power/energy are not measured by this collector; no zero-leak guarantee is made."
+    ]
+  },
+  "limitations": [
+    "Observed process memory includes allocator/GC/cache effects and is not retained-JS heap measurement. No forced collection in the installed app.",
+    "This is not a controlled old/new two-hour A/B, other hardware/workloads or a zero-leak guarantee.",
+    "GPU counters do not equal whole-GPU utilization or watts. Raw samples, sessions, settings and process identities stay private."
+  ]
+}

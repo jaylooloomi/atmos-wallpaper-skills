@@ -10,8 +10,8 @@
     {
       "name": "product-tests",
       "exitCode": 0,
-      "tests": 450,
-      "pass": 447,
+      "tests": 468,
+      "pass": 465,
       "fail": 0,
       "skipped": 3
     },

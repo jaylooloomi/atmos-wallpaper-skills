@@ -1,6 +1,6 @@
 {
   "name": "atmos-desktop-build",
-  "version": "0.7.8",
+  "version": "0.7.11",
   "private": true,
   "type": "module",
   "scripts": {

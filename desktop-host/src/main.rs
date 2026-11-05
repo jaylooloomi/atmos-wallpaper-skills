@@ -33,6 +33,8 @@ mod policy_store;
 #[cfg(windows)]
 mod runtime;
 #[cfg(windows)]
+mod renderer_memory;
+#[cfg(windows)]
 mod screensaver;
 #[cfg(windows)]
 mod screensaver_registration;

@@ -1,0 +1,70 @@
+{
+  "date": "2026-11-05",
+  "passed": true,
+  "method": "Separate fresh Node processes, same synthetic 45 revisions / 20 history entries / 45 receipts, 6000 snapshot calls; baseline uses original full live-read path",
+  "results": [
+    {
+      "arm": "baseline",
+      "calls": 6000,
+      "liveRecordBytes": 94151,
+      "liveReads": 6000,
+      "liveBytes": 564906000,
+      "elapsedMs": 10449.2832,
+      "before": {
+        "rss": 92405760,
+        "heapTotal": 16314368,
+        "heapUsed": 6439176,
+        "external": 21887981,
+        "arrayBuffers": 18487354
+      },
+      "allocated": {
+        "rss": 97415168,
+        "heapTotal": 19329024,
+        "heapUsed": 12218376,
+        "external": 22681745,
+        "arrayBuffers": 19993770
+      },
+      "settled": {
+        "rss": 93196288,
+        "heapTotal": 16314368,
+        "heapUsed": 6658944,
+        "external": 22681745,
+        "arrayBuffers": 18769807
+      },
+      "retainedHeapDelta": 219768
+    },
+    {
+      "arm": "cached-projection",
+      "calls": 6000,
+      "liveRecordBytes": 94151,
+      "liveReads": 0,
+      "liveBytes": 0,
+      "elapsedMs": 2805.7605000000003,
+      "before": {
+        "rss": 90255360,
+        "heapTotal": 16314368,
+        "heapUsed": 6452432,
+        "external": 21269440,
+        "arrayBuffers": 18487354
+      },
+      "allocated": {
+        "rss": 92516352,
+        "heapTotal": 16314368,
+        "heapUsed": 7010952,
+        "external": 21175329,
+        "arrayBuffers": 18487354
+      },
+      "settled": {
+        "rss": 92569600,
+        "heapTotal": 16314368,
+        "heapUsed": 6562760,
+        "external": 21175329,
+        "arrayBuffers": 18487354
+      },
+      "retainedHeapDelta": 110328
+    }
+  ],
+  "limitations": [
+    "Accelerated synchronous synthetic allocation test, not installed-host memory or long-duration proof. Forced GC is used only in these isolated processes. RSS/heap changes do not alone diagnose a leak."
+  ]
+}
