@@ -4,6 +4,8 @@ Atmos 是可客製化的個人資訊桌面（Personal Dashboard）：把關心�
 
 ## 最新功能
 
+- 0.7.22 移除控制列「說明」按鈕與展開文字，保留套用、取消、桌布與省電操作。[驗證](desktop-host/docs/TOOLBAR-HELP-REMOVAL-2026-11-06.md)。
+
 - 0.7.21 移除管理頁右上角重複的核心同步角標；連線錯誤仍顯示於既有控制列，內部同步與桌布恢復保留。[驗證](desktop-host/docs/MANAGER-BADGE-REMOVAL-2026-11-06.md)。
 
 - 0.7.20 將桌面元件改為三欄選取卡片，點選後於整個卡片區下方顯示單一設定區，取消元件收合箭頭；窄欄自動改為兩欄或一欄，保留開關與未儲存草稿。[驗證](desktop-host/docs/WIDGET-GRID-2026-11-06.md)。
