@@ -443,7 +443,13 @@ window.AtmosI18nCatalog = {
       "ja": "画面の中央",
       "ko": "화면 정중앙"
     },
-    "全部顯示": {"zh-TW":"全部顯示","zh-CN":"全部显示","en":"Show all","ja":"すべて表示","ko":"모두 표시"},
+    "全部顯示": {
+      "zh-TW": "全部顯示",
+      "zh-CN": "全部显示",
+      "en": "Show all",
+      "ja": "すべて表示",
+      "ko": "모두 표시"
+    },
     "全部隱藏": {
       "zh-TW": "全部隱藏",
       "zh-CN": "全部隐藏",
@@ -2389,6 +2395,41 @@ window.AtmosI18nCatalog = {
       "en": "Reduced motion is fixed off and soft lightning is allowed. Internal pause behavior and flash-frequency limits remain.",
       "ja": "動きの軽減は固定でオフ、柔らかな雷光を許可します。内部の一時停止と点滅頻度の制限は維持します。",
       "ko": "동작 줄이기는 꺼짐으로 고정하고 부드러운 번개를 허용합니다. 내부 일시 정지와 번쩍임 빈도 제한은 유지합니다."
+    },
+    "流星雨": {
+      "zh-TW": "流星雨",
+      "zh-CN": "流星雨",
+      "en": "Meteor shower",
+      "ja": "流星群",
+      "ko": "유성우"
+    },
+    "螢火蟲": {
+      "zh-TW": "螢火蟲",
+      "zh-CN": "萤火虫",
+      "en": "Fireflies",
+      "ja": "ホタル",
+      "ko": "반딧불이"
+    },
+    "櫻花雨": {
+      "zh-TW": "櫻花雨",
+      "zh-CN": "樱花雨",
+      "en": "Cherry blossoms",
+      "ja": "桜吹雪",
+      "ko": "벚꽃"
+    },
+    "煙火秀": {
+      "zh-TW": "煙火秀",
+      "zh-CN": "烟火秀",
+      "en": "Fireworks",
+      "ja": "花火",
+      "ko": "불꽃놀이"
+    },
+    "星際漩渦": {
+      "zh-TW": "星際漩渦",
+      "zh-CN": "星际漩涡",
+      "en": "Galaxy spiral",
+      "ja": "銀河の渦",
+      "ko": "은하 소용돌이"
     }
   },
   "patterns": {

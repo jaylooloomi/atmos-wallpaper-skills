@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-06",
+  "passed": true,
+  "effects": [
+    "meteor",
+    "firefly",
+    "sakura",
+    "fireworks",
+    "galaxy"
+  ],
+  "checks": {
+    "installedAgentSchemaContainsAllEffects": true,
+    "installedMergedStateValidationPassed": true,
+    "noEffectApplied": true,
+    "desiredRevisionAndHashPreserved": true
+  },
+  "limitations": [
+    "Read-only CLI/schema validation, not a visual or GPU performance test.",
+    "The configured effect and information-saving preference were not changed."
+  ],
+  "validationRuns": {
+    "initialExitCode": 4,
+    "exit4Contract": "STORE_LOCKED (retryable busy store)",
+    "initialErrorCodeWasNotCaptured": true,
+    "subsequentConsecutivePassingRuns": 2,
+    "noLockBypassOrSettingsWrite": true
+  }
+}

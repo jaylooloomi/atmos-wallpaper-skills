@@ -23,33 +23,33 @@
     },
     {
       "path": "README.md",
-      "bytes": 15661,
-      "sha256": "491fef59e9bbc862a089a2897230f236955e542c70b604a7d1ffa6d68da5bffc",
-      "git_blob_sha": "7533e0bbf01ca5d1dc7894bac4cf971b83a53cc8"
+      "bytes": 15891,
+      "sha256": "aaf6a60852f1d127f4201e316e39ba9c19bad31619ca3445ee1e1ddb3a72bf73",
+      "git_blob_sha": "5170388775237debd4f7ecbcbe857af71cf238c4"
     },
     {
       "path": "TODO.md",
-      "bytes": 24176,
-      "sha256": "f7f9b7f1d38d9c0b0aca29793ead10e8c4025b93c3373009f74d6ea0e2fafb3c",
-      "git_blob_sha": "d20c2956b5197af8fc0a032200a3f632adac10ef"
+      "bytes": 24346,
+      "sha256": "6cd975c80d51a33d205cbfd08d44ba1aa3094823845f19346b974af1e9ef74c8",
+      "git_blob_sha": "bf9bad26cbf832f05215c8df32982a25ca1a762e"
     },
     {
       "path": "desktop-host/Cargo.lock",
       "bytes": 108436,
-      "sha256": "aab591d7eac815b4e36c06b4d4ca499687be59b649dff12773f9a32054a44258",
-      "git_blob_sha": "633d528728fafff8116193d376842e30c48c409d"
+      "sha256": "732053366ed3690a653576065213710eaf09c9c64e04fc1aca54a28d70ba674a",
+      "git_blob_sha": "facfaee45bd07cb74924b70f139ef817d6bbef82"
     },
     {
       "path": "desktop-host/Cargo.toml",
       "bytes": 1217,
-      "sha256": "96f6b5a7f9ab0c9a36413fbfd9e0af9d211484819a11ff8001efed6ce6b69995",
-      "git_blob_sha": "f81112a074c44770c4893dc289d7160a7aecc1d4"
+      "sha256": "b43ccaf605d6615e213f8e84e21afeee7332b2bd317979d1b427233daa7c806a",
+      "git_blob_sha": "24eab564f09448a5f89db9ad9943a9d6312e627a"
     },
     {
       "path": "desktop-host/README.md",
-      "bytes": 18468,
-      "sha256": "fe9cb8d4c92c68904189a22ba39a7fb2f4c10b3906d4cfac8f09584c5bc02e12",
-      "git_blob_sha": "86941aa1f58a41ed87fd4f1bb6ccdfe10a52aeb9"
+      "bytes": 18612,
+      "sha256": "f363b3a93abd5f53ba94ac7fd2ef51230a7305883737350a9966b1ba56f4457b",
+      "git_blob_sha": "dbc5558572cbf66e25e79f194aeb3ccb3280810c"
     },
     {
       "path": "desktop-host/build.rs",
@@ -71,9 +71,9 @@
     },
     {
       "path": "desktop-host/docs/AGENT-API.md",
-      "bytes": 7658,
-      "sha256": "3020c0e7d9cccf1bdf35e7d265e79055326fbf45e4740e99e57f2420190bfeff",
-      "git_blob_sha": "6d3869c2fb2f55c9eb0b65090f7fa4d444d0daca"
+      "bytes": 8016,
+      "sha256": "59d73f81a57a9560caae0bec4459235504015c0905263aeabc3aa675ca3653d4",
+      "git_blob_sha": "3b1a66b5874493710bf5333cd0582c0c7bf78594"
     },
     {
       "path": "desktop-host/docs/ANIMATED-LOADING-2026-11-04.md",
@@ -188,6 +188,12 @@
       "bytes": 3434,
       "sha256": "4bf82422be00bdf0831b85b0eb81153c0eceb3564936dc6b9cf5d815bd680ae4",
       "git_blob_sha": "048bd7008f7e7fe012e3ca42d254dac9da134577"
+    },
+    {
+      "path": "desktop-host/docs/PARTICLE-EFFECTS-2026-11-06.md",
+      "bytes": 5613,
+      "sha256": "7191b94bf3ca64bb81e45a3aa03251325735ddad40e0e21cca08cfccc751dc54",
+      "git_blob_sha": "7c4c1f2727cdcf61a86bc21b21562055d3b43efc"
     },
     {
       "path": "desktop-host/docs/PERSONAL-DASHBOARD-2026-11-05.md",
@@ -724,6 +730,12 @@
       "git_blob_sha": "c5bcf96a3f2f9e6024274280e26955ee19b8fad7"
     },
     {
+      "path": "desktop-host/evidence/offline-particles-2026-11-06.json",
+      "bytes": 780,
+      "sha256": "bdacf21a87f4d57a193c5c1dfc93306c3e206a45652f55b09e3bbb7af8f0a62a",
+      "git_blob_sha": "eb49a295779a0074595d48c72956694000fd3b0c"
+    },
+    {
       "path": "desktop-host/evidence/panel-flow-handoff-2026-11-05.json",
       "bytes": 532,
       "sha256": "dbdc8f17387198bc7930dc088e835465868cafe874b5a282fe2800ed5ac824dd",
@@ -740,6 +752,24 @@
       "bytes": 1331,
       "sha256": "481d542922c2f2b720274d4d7ea97dce6efdd1f7c5dfeee0114b8799fc449617",
       "git_blob_sha": "c6c603ef3bd379e256fc5fa38e6c7e961b9eefe1"
+    },
+    {
+      "path": "desktop-host/evidence/particle-agent-installed-2026-11-06.json",
+      "bytes": 776,
+      "sha256": "01269c8a650376b557e089f82923a5d298bd6912c0bc7e20a4b87f749e878c13",
+      "git_blob_sha": "7b2ff902d3f620bed33da0e59041f7927abfd388"
+    },
+    {
+      "path": "desktop-host/evidence/particle-effects-handoff-2026-11-06.json",
+      "bytes": 532,
+      "sha256": "f189910c8fab5d63c1b6fa1568654b6e88b2aef0e7b6573c2bcc7eefdc769b67",
+      "git_blob_sha": "ec9bb06bc1706f210209db855a111caaaf699864"
+    },
+    {
+      "path": "desktop-host/evidence/particle-effects-upgrade-2026-11-06.json",
+      "bytes": 1354,
+      "sha256": "1de1741c90fa5b1059bb85cf7a7634ef5bd2f245350b0b8869ddd29c8cbb7634",
+      "git_blob_sha": "3e1dae39105ec0a71b0e49015d736ba479d9ee21"
     },
     {
       "path": "desktop-host/evidence/personal-dashboard-handoff-2026-11-05.json",
@@ -1158,14 +1188,14 @@
     {
       "path": "desktop-host/package-lock.json",
       "bytes": 7248,
-      "sha256": "9d91afae9bfd5ead3e94346a7dce730a69074592a4882520f5735ac5fa3e2225",
-      "git_blob_sha": "a13f7534f8344672b0b56ec872c3e8cd1e4bd033"
+      "sha256": "2a6f4e9804bfb23759b64c9b9404a052f4fae399d682761b59b7f7c894ac952d",
+      "git_blob_sha": "9c434803a1d5d49f33dc7ca745bda4362da326f6"
     },
     {
       "path": "desktop-host/package.json",
       "bytes": 285,
-      "sha256": "ca781895283809a96b5f854c569e6dd4637234c6eee363506e66c81c1cc1bc4f",
-      "git_blob_sha": "20c3cffa1e421b67bfbadbc769a4a38df3d21e35"
+      "sha256": "1cd8e195b4c5d57e3398dcedaca4f94be2025c86f29297499e273728adfe33ed",
+      "git_blob_sha": "0bf6182e76635a8a9f2943a83de427b623929012"
     },
     {
       "path": "desktop-host/scripts/analyze-soak.mjs",
@@ -1415,9 +1445,9 @@
     },
     {
       "path": "desktop-host/scripts/test-ui-refinement-installed.mjs",
-      "bytes": 9402,
-      "sha256": "fba89fc0e39d839a8a35c979018bcc48b9b3cfe53a6f7614b050b1b1f80d7961",
-      "git_blob_sha": "5b0635b75a1506e32da6de52aaa426837e6b4144"
+      "bytes": 9423,
+      "sha256": "a97809476843e8e27a7efcc9f88f303b9aec9eccd8e0b9ff58a75b1c5fc6845a",
+      "git_blob_sha": "7bee9073a29e8e71e252dd134b54185e25d97034"
     },
     {
       "path": "desktop-host/scripts/test-wallpaper-controls-upgrade-installed.mjs",
@@ -1460,6 +1490,18 @@
       "bytes": 3784,
       "sha256": "84ab510badcd859d6e649e714219fc3a16560736e99cdcf52fccbc850cd19a91",
       "git_blob_sha": "365d6a3d3185e82af049393cbb9ea490c17b0dfc"
+    },
+    {
+      "path": "desktop-host/scripts/verify-offline-particles.mjs",
+      "bytes": 5236,
+      "sha256": "5c8c9d064f990df99de2590ae2438c8903a55a27fa1fd2a2f03ee2dd80630c96",
+      "git_blob_sha": "2e2fdb996a4e69f410cf57bd104a655249bed7a3"
+    },
+    {
+      "path": "desktop-host/scripts/verify-particle-effects-installed.mjs",
+      "bytes": 2106,
+      "sha256": "0a1c87d21f60c5ffa2fc4963a4ccec0b7f7cc897edd3febe70b31dc3598ebb52",
+      "git_blob_sha": "e178883db29af18a53a246f9cee49f2211de6a10"
     },
     {
       "path": "desktop-host/scripts/verify-reused-payload.mjs",
@@ -1620,8 +1662,8 @@
     {
       "path": "desktop-host/tauri.conf.json",
       "bytes": 976,
-      "sha256": "7ad33efc153b1ffa2735609bd90727b49c76a66966a544a45b5cbb941ae17e7a",
-      "git_blob_sha": "bb2e27b0f394cd73771b579ed3a693ef81c2a821"
+      "sha256": "b7ca025e0e0683ba23d5172e2392eb20f010514f14d7b3496b22a24b8b2a091d",
+      "git_blob_sha": "e9e4ba5fca7ce7259ae85a40ef7528ee706bac96"
     },
     {
       "path": "desktop-host/ui/index.html",
@@ -1913,9 +1955,9 @@
     },
     {
       "path": "implementation-p4_2_5/bin/atmos.mjs",
-      "bytes": 3993,
-      "sha256": "8b8edecc1ff6285dc262b18f1282cb28c4f5845ddc15e2f1fda8449f119bd7be",
-      "git_blob_sha": "e46ba3186772ff8ece92b76ff7266d7abae449e0"
+      "bytes": 4042,
+      "sha256": "208f97c16dc6c0e37854349aca4f812f8958299c8fb026719f06d550c8c9f1ee",
+      "git_blob_sha": "17979c871e44ea58513418a094c20d353996218f"
     },
     {
       "path": "implementation-p4_2_5/docs/AGENT-FILE-WATCH.md",
@@ -2616,8 +2658,8 @@
     {
       "path": "implementation-p4_2_5/evidence/verification.json",
       "bytes": 695,
-      "sha256": "9a13d19f225a6db3a7a08eaaaf4cd5c13bb400bcf72788bf982426fd682d38c6",
-      "git_blob_sha": "0a041ec631f935e856e6d8dbe9906a165d767bb7"
+      "sha256": "77ee98f11d895d888a8ff979b6ac814c29bb235d8db47fe5bb8f54afba34b1ad",
+      "git_blob_sha": "dd35102167ce098f9e7e80b0e5497b5e89ec21ac"
     },
     {
       "path": "implementation-p4_2_5/evidence/windows-host-partial-2026-11-03.json",
@@ -2711,9 +2753,9 @@
     },
     {
       "path": "implementation-p4_2_5/scripts/layout-regression-probe.js",
-      "bytes": 13818,
-      "sha256": "3e0d9b4cd268253ef97c20041e600641db63c5775303ed0acdceee79e4f1d491",
-      "git_blob_sha": "1689459bd815f5262692600675112341cccf87c7"
+      "bytes": 14455,
+      "sha256": "88170d0030d6d5251b55fad0b70464586182d787d53a8c3893d3ac5b8eff67f8",
+      "git_blob_sha": "eeea87670afc20fdf5147293addb5331d91753e4"
     },
     {
       "path": "implementation-p4_2_5/scripts/measure-windows-host.ps1",
@@ -2747,9 +2789,9 @@
     },
     {
       "path": "implementation-p4_2_5/scripts/prepare.mjs",
-      "bytes": 27966,
-      "sha256": "1bedd4ddf4d1b9d70c25a2dda5c469da60858f99d5b9f83797467183c197eab2",
-      "git_blob_sha": "2fe95f8d1f85785144cf67b1e2c4fb167434f2a1"
+      "bytes": 29548,
+      "sha256": "56a2318d005d22c6e90762e25ebbdc9b79e4aae9680614bd42edbe1c06945c14",
+      "git_blob_sha": "fecade644730ee76999ba5367b8b75002ead4689"
     },
     {
       "path": "implementation-p4_2_5/scripts/read-windows-lifecycle-events.ps1",
@@ -2801,9 +2843,9 @@
     },
     {
       "path": "implementation-p4_2_5/src/agent-contract.mjs",
-      "bytes": 15013,
-      "sha256": "b3f5b8b95a2fb54f38decc985d16a71d308f60eba323c161b92e5372932a8079",
-      "git_blob_sha": "fa0ff8a9f939a8894a5c3eb6b0accc9bb94fe86e"
+      "bytes": 15062,
+      "sha256": "8d0f4a1b5f5b4e7ff02905bb7ef337d87346318153354cebc5ca895c6a42365c",
+      "git_blob_sha": "57884ca2296fcecc8648c9c3dc05cc8ad5a426ca"
     },
     {
       "path": "implementation-p4_2_5/src/agent-watch.mjs",
@@ -3023,9 +3065,9 @@
     },
     {
       "path": "implementation-p4_2_5/src/export-renderer.mjs",
-      "bytes": 13026,
-      "sha256": "324109ad4ae124262c53e57cc899e6fb8a1cc742370d0f7021ce90e440f4e959",
-      "git_blob_sha": "7de3fe27b7214e4461d85c65e3389787013dd05f"
+      "bytes": 13315,
+      "sha256": "b45fb482904c26234c4cba604be8bd29d5c3740f15fb154fd40017b084dae6d0",
+      "git_blob_sha": "56bd43ddc4889fc38fc62ef58129bdd0bb4379e8"
     },
     {
       "path": "implementation-p4_2_5/src/focus-client.css",
@@ -3059,9 +3101,9 @@
     },
     {
       "path": "implementation-p4_2_5/src/i18n-catalog.js",
-      "bytes": 123398,
-      "sha256": "1136825a95e720fdd2799b8a475a21dd31548f334b270e836cfdaebc505418ec",
-      "git_blob_sha": "b48b77cb32b4c6964bb2504bad02806c60dd3d3d"
+      "bytes": 124259,
+      "sha256": "3b4a8c0007d1e00a34a0a94f845f98b097b39cba9073cd54cdd369ef2e9b7beb",
+      "git_blob_sha": "4115b45343f3b5a7edb174a2f157e2192a5e56f5"
     },
     {
       "path": "implementation-p4_2_5/src/information-saving.css",
@@ -3250,6 +3292,18 @@
       "git_blob_sha": "a70211cd3059575987fc94b75f266134742b6fb4"
     },
     {
+      "path": "implementation-p4_2_5/src/particle-client.js",
+      "bytes": 1529,
+      "sha256": "c225a1721b9fc97ad4f66f94fb7235f01ef6c6bfaab298c7a88308e15d2ab653",
+      "git_blob_sha": "ba239569caadeeeb31c764fae30fb1308291c0c1"
+    },
+    {
+      "path": "implementation-p4_2_5/src/particle-model.mjs",
+      "bytes": 2854,
+      "sha256": "e7484fa0fe4d41f03b6dc346272918462e817815af7f6cd83fa98b850d4342dd",
+      "git_blob_sha": "05069ec76cdcea8a1f1a8f4cb9347732d3a2a8ed"
+    },
+    {
       "path": "implementation-p4_2_5/src/performance-client.js",
       "bytes": 6742,
       "sha256": "99aba4fae80b9db6518ee54298c886bcce89fdbc49d45557afa903d68be861db",
@@ -3425,15 +3479,15 @@
     },
     {
       "path": "implementation-p4_2_5/src/state.mjs",
-      "bytes": 7781,
-      "sha256": "64771ff17b4d4961816a2f1653b8acfaa249040854490220fc7a810cca0f61e8",
-      "git_blob_sha": "81f485b8c734236ee5cde4cd45d8415f2acc9091"
+      "bytes": 7830,
+      "sha256": "3a546e911523f926012297e2484ffec39da8e33081c0e7a735b32651f1c71c1e",
+      "git_blob_sha": "8609920245f602730e406d5e8d851d5b0d30ba8c"
     },
     {
       "path": "implementation-p4_2_5/src/storm-renderer.mjs",
-      "bytes": 797,
-      "sha256": "eaf59dff26248900ef598fadbba8a96f03fd156930da160ebfa9e67450892ed1",
-      "git_blob_sha": "4f76c7f82065777ae81e3ac248cab78f679cb11d"
+      "bytes": 1230,
+      "sha256": "2afe2b09aea6e1f055c84b442f54421c15ef50e678ea21bdbf5673ec98ab389c",
+      "git_blob_sha": "9391e0ff83b99bbd8d6fe779a2bbf3f7fd241ab7"
     },
     {
       "path": "implementation-p4_2_5/src/toolbar-scroll.js",
@@ -3752,6 +3806,12 @@
       "bytes": 1085,
       "sha256": "41bcf960e79dd008d3a60c652cb211dee6af74863117483bf58f8b1aaae2a240",
       "git_blob_sha": "78ae08d34bc46d5e8cb33f24541d60f45228adf0"
+    },
+    {
+      "path": "implementation-p4_2_5/tests/particles.test.mjs",
+      "bytes": 3873,
+      "sha256": "3a88b7c73ffaca4701b37bb4f0543cc6b3dfd206a9c2dc81ba4742aeee5e6419",
+      "git_blob_sha": "4dbdaa3367d866cb997a2220e5dd485818e5a3f0"
     },
     {
       "path": "implementation-p4_2_5/tests/performance.test.mjs",
