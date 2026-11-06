@@ -1,8 +1,9 @@
-# Runtime migration: stage 1
+# Runtime migration
 
-This branch does **not** remove the product's Node.js runtime yet. It establishes
-the current dependency baseline and extracts the existing HTTP adapter without
-changing the bridge or frontend. Do not ship a payload without Node at this stage.
+This branch does **not** remove the product's Node.js runtime yet. Stage 1 establishes
+the dependency baseline and extracts the HTTP adapter. Stage 2 migrates the static
+CLI catalogs and global provider/focus policy entry points to native Rust. Do not
+ship a payload without Node while the remaining services still depend on it.
 
 Base: `f388bcdf0ac3833a2c1c926f1895c3ebbf01620b`. The new branch is
 `refactor/remove-node-runtime`; `main` is unchanged. No `.agents/skills` directory
@@ -38,7 +39,7 @@ also checks denied sessions/origins, wallpaper write denial, successful manager
 writes, durable request replay and stale revision rejection, with no renderer ACKs.
 Mock bridge fixtures check wire conversion separately from business semantics.
 
-## Remaining migration work
+## Capability inventory and parity requirements
 
 | Capability | Existing implementation | Required equivalence before switching |
 | --- | --- | --- |
@@ -79,3 +80,67 @@ used `TAURI_CONFIG={"bundle":{"resources":[]}}` because this source checkout has
 generated installer payload; this does not establish packaging readiness. Earlier
 failed attempts and unexecuted checks are recorded, without raw logs or personal
 data, in `desktop-host/evidence/node-runtime-stage1-validation.json`.
+
+## Stage 2: native policy entry points
+
+`--agent-help`, `--agent-schema`, `--host-schema`, `--appearance-help`,
+`--providers-command get|update`, and `--focus-command get|update` now execute
+without Node or a payload. The tray's normal/focus/showcase actions also write
+native focus policy; next-preset still uses Node. Static catalogs are generated
+from the existing contract modules at build time. Installer builds reject stale
+catalogs before running the unchanged Chromium packaging gate.
+
+The native policy store uses the existing owner `.lock`, not an unrelated named
+mutex. Provider settings, previous settings and request receipt names match the
+legacy JS service. The focus file, session reset, global scope, request fingerprints
+and receipts also remain compatible. Atomic writes use unique exclusive temporary
+files, file sync and Windows replace/write-through; path components reject reparse
+points. Dead-owner recovery marks the exact opened stale lock for deletion rather
+than unlinking a potentially replaced pathname.
+
+The policy fingerprint implementation is intentionally limited to validated ASCII
+keys/IDs/enums, fixed city names and normalized safe integers. It must not be used
+for arbitrary desired-state JSON: JS floating-point formatting, UTF-16 key ordering
+and lone-surrogate strings need a separate compatibility implementation. CLI policy
+commands do not initialize, migrate or rewrite appearance state as a side effect;
+the existing appearance service remains responsible until that domain is ported.
+
+Differential checks invoke the source candidate with no adjacent payload, empty
+PATH and poisoned Node environment variables. They compare JS/native reads, mutual
+receipt replay, numeric spellings, CAS/conflicts, pending recovery, live-owner and
+dead-owner locks, junction denial, concurrent writers, host-session freshness/reset
+and unchanged appearance/backups. Synthetic host-status records support focus-policy
+tests only; no renderer or OS visibility acknowledgement is fabricated.
+
+## Stage 3: native appearance Agent and watcher
+
+`--get-state`, `--validate-json`, `--apply-json`, `--get-result`, and `--watch-json`
+now use Rust, including current and legacy desired validation, byte-preserved
+migration backups, preview/apply fingerprints, revision watermarks, retained
+history/receipts, configured asset-library resolution and independent target
+seeding/ownership. Mixed JS/native writer tests establish interoperability while
+the HTTP backend continues to use the original JS store implementation.
+
+The JSON AST preserves UTF-16 code units, including lone surrogates. Canonical
+keys sort as JS keys do; numbers use the pinned [ryu-js implementation](https://github.com/boa-dev/ryu-js)
+of ECMAScript number formatting. Tests compare 4,096 deterministic floating-point
+values and Unicode boundaries against the original `canonical()` function. A
+further 335 source-derived fixtures cover all four desired formats and their
+normalization. The existing [time crate](https://docs.rs/time/0.3.55/time/struct.OffsetDateTime.html)
+parses the RFC3339 timestamps produced by the application. Native JSON parsing
+uses a depth bound of 256; supported desired/receipt envelopes are much shallower.
+
+The watcher reads one exact external file, checks opened-file identity/size/write
+timestamps before/after reading and against the current path, settles unchanged
+bytes, and submits those same bytes. It keeps the initial target mapping, retries
+busy requests at most three times with backoff, deduplicates errors/results and
+supports finite sessions and console cancellation. Its former Node subprocess
+and parent/child gate are removed: the watcher runs in the CLI process itself.
+
+Validation at this checkpoint: 63 Windows native tests pass; 20 native/legacy
+differential tests cover policy, Agent, watcher, asset-library and concurrency
+contracts. Candidate CLI checks use no bundled payload, empty PATH and invalid
+Node environment settings. The full frontend gate remains the stage 1 result;
+frontend bytes and its verification limits are unchanged. The backend HTTP service,
+preset/schedule automation, next-preset tray action and library jobs still require
+Node and remain the next migration domains. No Node-free installer is claimed.

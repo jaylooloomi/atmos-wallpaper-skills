@@ -178,6 +178,9 @@ fn tray_quick_action(
     target: &str,
     session: &str,
 ) -> Result<(), String> {
+    if action != "next-preset" {
+        return crate::focus::quick_action(action, store, session);
+    }
     use std::{
         os::windows::process::CommandExt,
         process::{Command, Stdio},

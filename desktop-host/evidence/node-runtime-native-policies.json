@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "productStillRequiresNode": true,
+  "nativeEntrypoints": ["--agent-help", "--agent-schema", "--host-schema", "--appearance-help", "--providers-command", "--focus-command"],
+  "nativeTrayActions": ["normal", "focus", "showcase"],
+  "differentialTests": {"tests": 8, "passed": 8, "failed": 0, "skipped": 0},
+  "candidateHasBundledPayload": false,
+  "candidatePathEnvironment": "empty",
+  "candidateNodeEnvironment": "intentionally invalid",
+  "sharedWriterProtocol": "legacy owner .lock; legacy provider/focus policy and receipt paths",
+  "checks": ["catalog equality and argument denials", "bidirectional legacy/native receipts", "safe-integer spellings", "provider pending pointer recovery", "revision/request conflicts", "12 simultaneous legacy/native writers", "live and dead owner locks", "junction and root rejection", "focus host freshness and session reset", "appearance and backup byte preservation"],
+  "limitations": ["No installer or installed candidate was tested", "Focus host-status fixtures are synthetic and do not establish renderer ACK, native attachment or visibility", "Generic appearance hashing/transactions and remaining runtime services are not migrated yet"],
+  "userInstallationChanged": false,
+  "userDataReadOrChanged": false,
+  "pushed": false
+}

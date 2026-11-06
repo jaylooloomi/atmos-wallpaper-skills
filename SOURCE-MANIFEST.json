@@ -35,15 +35,15 @@
     },
     {
       "path": "desktop-host/Cargo.lock",
-      "bytes": 108436,
-      "sha256": "d6f9328af4167096cb9b0c13e14b2497eea93c2a71984f82623d0281e610fb3a",
-      "git_blob_sha": "ef75011a0fdf4395f0eb23a74ebe6bc403a04511"
+      "bytes": 108646,
+      "sha256": "0d378c9693113a529ef082b5569dcf0ae72ad8b4aea143a8da6e00ef62887c9f",
+      "git_blob_sha": "40eca55b4b36f4645daba8533fcddf8405c628ca"
     },
     {
       "path": "desktop-host/Cargo.toml",
-      "bytes": 1217,
-      "sha256": "00fb2efb1f9147ff01ee18965e74d22cfe638c7225a1f11ecc1f694b65f3858f",
-      "git_blob_sha": "fa2c694114b0c6d654f41934e0c288273255f811"
+      "bytes": 1328,
+      "sha256": "9c4b850ea722d11a3fbbd370c7f37897dd7717ba68d9b3edc0cfb3539aca5e2f",
+      "git_blob_sha": "1f1f947343816ee41f8b932e635ecafd4fceecff"
     },
     {
       "path": "desktop-host/README.md",
@@ -239,9 +239,9 @@
     },
     {
       "path": "desktop-host/docs/REMOVE-NODE-RUNTIME.md",
-      "bytes": 6632,
-      "sha256": "ecdf9c63fba586259a5fa79ca8c992aac42e5d2bed9aae69bfb787075b811c37",
-      "git_blob_sha": "6e91d55a86ffb30743d78098bc46becdf2725529"
+      "bytes": 10998,
+      "sha256": "cfa7a3ab695a9b3d14065a2a7c91b34cf949068f85e61ffc5c1e7d95341b4d69",
+      "git_blob_sha": "ebb5a4097b0a17ac9effdf5e98cc0a8b226702cd"
     },
     {
       "path": "desktop-host/docs/RENDERER-SECTION-INVESTIGATION-2026-11-05.md",
@@ -752,6 +752,18 @@
       "bytes": 15987,
       "sha256": "21d1a4869f94e1f359cbf9b11ec6b820337910ff053c1e19dd807779a2604865",
       "git_blob_sha": "6369d69d4b80959f0bdcfd2d525dff2fe477315b"
+    },
+    {
+      "path": "desktop-host/evidence/node-runtime-native-agent.json",
+      "bytes": 1625,
+      "sha256": "c6d2d1f04ead97f53d4d6bacb0d4a171d5a55fd8955a9cc0ecc4e4c80840ab45",
+      "git_blob_sha": "0dff2795cf67b87b4724ae6e7d8b24ea388d9da4"
+    },
+    {
+      "path": "desktop-host/evidence/node-runtime-native-policies.json",
+      "bytes": 1300,
+      "sha256": "0eeef76e3db17ab1e15973c12e8891e48b6e3dfa84a6569dc092de41a6bfdf43",
+      "git_blob_sha": "f85be48282339a42142de88172fc5f971b8a937a"
     },
     {
       "path": "desktop-host/evidence/node-runtime-stage1-validation.json",
@@ -1283,9 +1295,9 @@
     },
     {
       "path": "desktop-host/scripts/build-installer.mjs",
-      "bytes": 1765,
-      "sha256": "262a214d0b8e00ff9c05dacf0197a2586c760529da0a4397e32367bd2c8ab72a",
-      "git_blob_sha": "0b3a8ee1c41daed5da3526afdcb83e821432d30c"
+      "bytes": 1985,
+      "sha256": "83752222bbab6cfb03fde65fcbf1116d11137c9a35b1eb4b17db0e63e397a7c0",
+      "git_blob_sha": "de562e885bbc16707796e06220e75e35ada79d01"
     },
     {
       "path": "desktop-host/scripts/fixtures/screensaver-parent.rs",
@@ -1298,6 +1310,24 @@
       "bytes": 1560,
       "sha256": "8399ac89154f473b6ebca5c181e418b835b8e1315abec9908bd195b29c9e7465",
       "git_blob_sha": "a0c462483f4cd3bc1a8a10fbbd3bb08a5249ef58"
+    },
+    {
+      "path": "desktop-host/scripts/generate-cli-catalogs.mjs",
+      "bytes": 1097,
+      "sha256": "9268e25be5e7134b21eadc40b20b1b87deb77b190016dc742f382c052b2c1b67",
+      "git_blob_sha": "89a5b22b452492305d4b6f1858a302ae67fda9b2"
+    },
+    {
+      "path": "desktop-host/scripts/generate-js-json-fixtures.mjs",
+      "bytes": 1798,
+      "sha256": "71bf4c3a0a61fa2118909262a0963a07e2e0392c54b25ba9ddc7482df1b578b7",
+      "git_blob_sha": "c5b459bbb900eb7c47b044124effbd5ebd53dcad"
+    },
+    {
+      "path": "desktop-host/scripts/generate-state-contracts.mjs",
+      "bytes": 2937,
+      "sha256": "c1ce07b5a766dfe07fb49e230cc9acf24f2d7bbe9f02ffb40bb4136cb277021d",
+      "git_blob_sha": "65d12e4d2cb01982fea6dbd88ab07889bfe712ba"
     },
     {
       "path": "desktop-host/scripts/inspect-process-handle-types.ps1",
@@ -1346,6 +1376,12 @@
       "bytes": 14779,
       "sha256": "90feef1dae3e5a7fac6d8de0fd651c3eee5489d26547bfc7327a236b16e35800",
       "git_blob_sha": "32defc2a8153a2fe47dccb3ad55123df675fb9b3"
+    },
+    {
+      "path": "desktop-host/scripts/refresh-source-manifest.mjs",
+      "bytes": 2086,
+      "sha256": "2a1d49f8aa61e7634ee5361255391952ee90b749d58bc059b92f1d73e8e0bccc",
+      "git_blob_sha": "d433499a6ed7e83d47317bd40aab624326f6a62c"
     },
     {
       "path": "desktop-host/scripts/renderer-memory-summary.mjs",
@@ -1466,6 +1502,30 @@
       "bytes": 7232,
       "sha256": "224dba499657ae5fa464b314424ea054e23f1ad8480fb93c66cacd3c6bd410d0",
       "git_blob_sha": "1cdaa4f1a757f6aa7d94a019b9d22bceae7e9884"
+    },
+    {
+      "path": "desktop-host/scripts/test-native-appearance-agent.mjs",
+      "bytes": 12097,
+      "sha256": "3eaa38086187e958d42e413f052f4d5ee1a3425c376a83ffb182879fc28cc930",
+      "git_blob_sha": "77f85ba52d3ca23fcfabee146783a4ed30e9c683"
+    },
+    {
+      "path": "desktop-host/scripts/test-native-appearance-watch.mjs",
+      "bytes": 6112,
+      "sha256": "99ec02ee712cde1019f78e0097ca47d4b6a2b5e7db98a7e32462b917b84be0e7",
+      "git_blob_sha": "8db22e840eaf58322cdaf4ba06e9e32a8954ffe3"
+    },
+    {
+      "path": "desktop-host/scripts/test-native-focus-policy.mjs",
+      "bytes": 5014,
+      "sha256": "f7f37c7699d9cda907adcbc30a64fbbebd4471670a992cdaef70271e5c48936b",
+      "git_blob_sha": "4a6372683e653bf44c9fcb77228ced4b190d697f"
+    },
+    {
+      "path": "desktop-host/scripts/test-native-provider-policy.mjs",
+      "bytes": 8823,
+      "sha256": "adcec5ebd4adbc9be86b2d0219a8b556ad813d812304b8951ef9336065fdea18",
+      "git_blob_sha": "960dfc499b214d0d37d094fae0543dd2bb18610f"
     },
     {
       "path": "desktop-host/scripts/test-owned-processes.ps1",
@@ -1607,15 +1667,39 @@
     },
     {
       "path": "desktop-host/src/agent.rs",
-      "bytes": 6684,
-      "sha256": "7642df8fb3356c6eea9924a91d40d7d849987f65cbeb9a4140487043ed14b107",
-      "git_blob_sha": "290870932d080d890961e3e07b5816107af49db6"
+      "bytes": 5168,
+      "sha256": "d444db336b152351763835da0c181f4b2fc5159cf62a6587d0c62d5fde7a9aa1",
+      "git_blob_sha": "cecbffd21fdb9767600d6d04aae157e7199ed193"
     },
     {
       "path": "desktop-host/src/app.rs",
-      "bytes": 18245,
-      "sha256": "6b0bb44d9c7350bf57ca75894f98b61cbcf331471bc8a438fffb7279afe339d0",
-      "git_blob_sha": "2376937a096ca2f7703f4cc39956795a578a2f0e"
+      "bytes": 18351,
+      "sha256": "41d7005915d83c308b8d863cbda15d480ee37b8d5b585204f383b45b9f9c6d51",
+      "git_blob_sha": "6b26dab13f41cdd39e1c1229a2097e9a24abd1a9"
+    },
+    {
+      "path": "desktop-host/src/appearance_agent.rs",
+      "bytes": 17541,
+      "sha256": "a01e21c70e0f5ffe15e5edddc5f3134446810cb12524308c8e75b7a587d6f1cc",
+      "git_blob_sha": "1fb05830f7cc00455f6f3a8df5ff0941db44c517"
+    },
+    {
+      "path": "desktop-host/src/appearance_core.rs",
+      "bytes": 24234,
+      "sha256": "46dfbae31ad11d1d5d8563dc77d55428e0a0f50aa9e16a3afeca44526861436e",
+      "git_blob_sha": "833d9323dffc0de391e42b5c8010ff30648fa620"
+    },
+    {
+      "path": "desktop-host/src/appearance_watch.rs",
+      "bytes": 13175,
+      "sha256": "ed8f4f25e4b6a8889740c69e014a6ceaadd228b1b36ba1396917c8d35c21858c",
+      "git_blob_sha": "bbc0ed4a33ecb18449ac7aea13c485abd04e29b0"
+    },
+    {
+      "path": "desktop-host/src/asset_store.rs",
+      "bytes": 4432,
+      "sha256": "c03a17e41ea5a1d499ddbebbecfbdca0159df71765303e608f82ad197abf04e2",
+      "git_blob_sha": "90bff21cbb369147058da0f95bdffe790a3d2d7d"
     },
     {
       "path": "desktop-host/src/audio.rs",
@@ -1636,16 +1720,64 @@
       "git_blob_sha": "b7b1a327fbc13b7ad8add55fd485457f8e287714"
     },
     {
+      "path": "desktop-host/src/cli-catalogs/agent-help.json",
+      "bytes": 13351,
+      "sha256": "0f7f17b6c4427014ee363b3a023c2d2eb15318affc99d9793225e66ad31e5010",
+      "git_blob_sha": "98e1e7fdf08f90fcdfd0e339a5f8160e7ef8dae2"
+    },
+    {
+      "path": "desktop-host/src/cli-catalogs/agent-schema.json",
+      "bytes": 21671,
+      "sha256": "1d4e222e2ec7a41f62e669c9f57560f9246214af5dff50fa2a0b269fdfc97357",
+      "git_blob_sha": "9872162448683a23218733dcb00ab4fce82cde5a"
+    },
+    {
+      "path": "desktop-host/src/cli-catalogs/appearance-help.json",
+      "bytes": 2678,
+      "sha256": "22a956a859179062fe37cdd088a2af33799153b0cbabe1e2fd91cefb765207b4",
+      "git_blob_sha": "7bc56e865ba0688af30c0e6527968c3c0d3facd4"
+    },
+    {
+      "path": "desktop-host/src/cli-catalogs/host-schema.json",
+      "bytes": 11101,
+      "sha256": "1f6951d0dcec3b2914b82e1e78785483a7b81d9d740156475a0faa05817f7531",
+      "git_blob_sha": "5f969b5d21587ea1caf5def484228384d01b479b"
+    },
+    {
+      "path": "desktop-host/src/cli-catalogs/state-defaults.json",
+      "bytes": 11930,
+      "sha256": "ffe931306e302d45b0490ee38c037b27955daddad2773f1042759ebb4f450eab",
+      "git_blob_sha": "ff0437360313a55213527d327e42fcd96f545f8e"
+    },
+    {
+      "path": "desktop-host/src/cli_catalogs.rs",
+      "bytes": 1708,
+      "sha256": "09655bf1395f87cc0813248aa3384b33c476a896053f219e04501c89c2e58183",
+      "git_blob_sha": "16262018a7b485f9e5da3961fb10bdbec9e251f4"
+    },
+    {
       "path": "desktop-host/src/control.rs",
       "bytes": 2485,
       "sha256": "957a3fa1e528316380a374b3034f750b0e84521b9e46e59717e733c419bbd43a",
       "git_blob_sha": "1f3ebd3972d3de394606f3895bf595b0e700d52e"
     },
     {
+      "path": "desktop-host/src/desired_state.rs",
+      "bytes": 12464,
+      "sha256": "3ea5cf1753192ef96e9c0dff446216c4176c9181f883687dafa0b8ba2bdf861d",
+      "git_blob_sha": "2ed2c66eb543c782c62a8b6f2aea0abdb868df19"
+    },
+    {
       "path": "desktop-host/src/displays.rs",
       "bytes": 8876,
       "sha256": "d44a597a39decf312f92b838564da24816b37ba0ebe628ee770b8a42b8380727",
       "git_blob_sha": "1af8b6eb94b0ff99adec257eb946b39a983e78bf"
+    },
+    {
+      "path": "desktop-host/src/focus.rs",
+      "bytes": 8331,
+      "sha256": "a5dc49fd2eed0a02a49af6acc48c2da4c9646646d63c154555fda7c5eb637d87",
+      "git_blob_sha": "b38c78ed0a70ccf5731dcd2ae1426fef113443b6"
     },
     {
       "path": "desktop-host/src/host_settings.rs",
@@ -1664,6 +1796,12 @@
       "bytes": 1268,
       "sha256": "88e0e19ccbc30c6614ef66b5d8bcbbe791ec7bc990930095353335697ddf15f6",
       "git_blob_sha": "4d1f3ea98d0244513f24edd2bbf5fa5f4c3f81be"
+    },
+    {
+      "path": "desktop-host/src/js_json.rs",
+      "bytes": 14269,
+      "sha256": "fc47aa62a9db623b75909f47ea18d5e5c165a367ad392ee28022dc0f18a25433",
+      "git_blob_sha": "ea8335f95df40e7db8e264fb88d9393880e13975"
     },
     {
       "path": "desktop-host/src/layout.rs",
@@ -1691,9 +1829,9 @@
     },
     {
       "path": "desktop-host/src/main.rs",
-      "bytes": 13901,
-      "sha256": "cb611694b89366da11924cef25d0f6e0a4aee91cfb47dc49511917746967f4ca",
-      "git_blob_sha": "65c1fa02a59debc348cd6d25dd6ac92f40b245de"
+      "bytes": 14239,
+      "sha256": "6e174a072e67e3c2e7690e6fe75e68797203535d8a457007affa197fd0aff012",
+      "git_blob_sha": "003ff802f94122efea3448bce5247d5a57187a71"
     },
     {
       "path": "desktop-host/src/multi.rs",
@@ -1718,6 +1856,18 @@
       "bytes": 9189,
       "sha256": "3222f2da650fc0631df0b5681323127d0a37a45be4d0c39c5245a99e44e6f6d2",
       "git_blob_sha": "dd0dbe7bfd31e19f840e05e0487c9ae94289b549"
+    },
+    {
+      "path": "desktop-host/src/portable_store.rs",
+      "bytes": 12855,
+      "sha256": "6649e92de7f219bd900a6a84e42f7af1c5f7c295fcf29f5c29c3c2a9cf28f437",
+      "git_blob_sha": "332c5ad7292acc31c25222681313eedd662f4640"
+    },
+    {
+      "path": "desktop-host/src/providers.rs",
+      "bytes": 9963,
+      "sha256": "6b3b814e295d01815c60b478aae8a717d68c7a9f24181dc457eb7e518ed74348",
+      "git_blob_sha": "3093896f5128b7d867f4c40c8117c2069313b9ee"
     },
     {
       "path": "desktop-host/src/renderer_memory.rs",
@@ -1754,6 +1904,18 @@
       "bytes": 976,
       "sha256": "77f1878b4592e333aeb2d45ab0b4be1f783c91b934a607c8875ebc900d5b2f1e",
       "git_blob_sha": "1b53c31701e0b97a6d75e85fe41391afdf708761"
+    },
+    {
+      "path": "desktop-host/tests/fixtures/desired-state-contract.json",
+      "bytes": 681014,
+      "sha256": "d42f6e3e7e52422710e29679655823928c571df16c43439456ce671441ee1f3d",
+      "git_blob_sha": "047345fd20507b16226c64a93736816e771480c7"
+    },
+    {
+      "path": "desktop-host/tests/fixtures/js-json-contract.json",
+      "bytes": 199256,
+      "sha256": "e832f1cd6390a8753edb410549c2eca4e4bb80c309cddc06b13e488fb8afa860",
+      "git_blob_sha": "538f593d7d809b6c4c30f56bce3b98ba789a37a9"
     },
     {
       "path": "desktop-host/ui/index.html",

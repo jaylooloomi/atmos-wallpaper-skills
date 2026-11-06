@@ -1,0 +1,409 @@
+{
+  "apiVersion": 1,
+  "title": "Atmos host policy command schemas",
+  "schemas": {
+    "layoutUpdate": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "urn:atmos:host:layout:1",
+      "title": "Atmos layout update v1",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "requestId",
+        "expectedRevision",
+        "layout"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "requestId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,79}$"
+        },
+        "expectedRevision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "layout": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "mode",
+                "targets",
+                "askOnApply"
+              ],
+              "properties": {
+                "mode": {
+                  "const": "single"
+                },
+                "targets": {
+                  "type": "array",
+                  "minItems": 0,
+                  "maxItems": 0,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "pattern": "^display-[a-f0-9]{64}$"
+                  }
+                },
+                "askOnApply": {
+                  "type": "boolean"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "mode",
+                "targets",
+                "askOnApply"
+              ],
+              "properties": {
+                "mode": {
+                  "enum": [
+                    "independent",
+                    "duplicate",
+                    "span"
+                  ]
+                },
+                "targets": {
+                  "type": "array",
+                  "minItems": 1,
+                  "maxItems": 16,
+                  "uniqueItems": true,
+                  "items": {
+                    "type": "string",
+                    "pattern": "^display-[a-f0-9]{64}$"
+                  }
+                },
+                "askOnApply": {
+                  "type": "boolean"
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "audioUpdate": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "urn:atmos:host:audio:1",
+      "title": "Atmos audio update v1",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "requestId",
+        "expectedRevision",
+        "audio"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "requestId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,79}$"
+        },
+        "expectedRevision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "audio": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "enabled",
+            "muted",
+            "volume",
+            "focusOnly",
+            "source",
+            "output"
+          ],
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "muted": {
+              "type": "boolean"
+            },
+            "volume": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "focusOnly": {
+              "type": "boolean"
+            },
+            "source": {
+              "enum": [
+                "weather",
+                "rain",
+                "thunder"
+              ]
+            },
+            "output": {
+              "oneOf": [
+                {
+                  "const": "system-default"
+                },
+                {
+                  "type": "string",
+                  "pattern": "^device-[a-f0-9]{64}$"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "audioRoutingUpdate": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "urn:atmos:host:audio-routing:1",
+      "title": "Atmos audio-routing update v1",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "requestId",
+        "expectedRevision",
+        "routing"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "requestId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,79}$"
+        },
+        "expectedRevision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "routing": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "mode",
+                "target"
+              ],
+              "properties": {
+                "mode": {
+                  "enum": [
+                    "primary",
+                    "all"
+                  ]
+                },
+                "target": {
+                  "type": "null"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "mode",
+                "target"
+              ],
+              "properties": {
+                "mode": {
+                  "const": "display"
+                },
+                "target": {
+                  "type": "string",
+                  "pattern": "^display-[a-f0-9]{64}$"
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "performanceUpdate": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "urn:atmos:host:performance:1",
+      "title": "Atmos performance update v1",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "requestId",
+        "expectedRevision",
+        "performance"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "requestId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,79}$"
+        },
+        "expectedRevision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "performance": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "fps",
+            "pauseBattery",
+            "pauseFullscreen"
+          ],
+          "properties": {
+            "fps": {
+              "enum": [
+                5,
+                15,
+                30
+              ]
+            },
+            "pauseBattery": {
+              "type": "boolean"
+            },
+            "pauseFullscreen": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "providerUpdate": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "urn:atmos:host:providers:1",
+      "title": "Atmos providers update v1",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "requestId",
+        "expectedRevision",
+        "weather"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "requestId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,79}$"
+        },
+        "expectedRevision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "weather": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "enabled",
+            "city"
+          ],
+          "properties": {
+            "enabled": {
+              "type": "boolean"
+            },
+            "city": {
+              "enum": [
+                "台北",
+                "東京",
+                "倫敦",
+                "紐約"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "libraryArchive": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "$id": "urn:atmos:host:library-archive:1",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schemaVersion",
+        "requestId",
+        "expectedRevision",
+        "auditHash"
+      ],
+      "properties": {
+        "schemaVersion": {
+          "const": 1
+        },
+        "requestId": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 80,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,79}$"
+        },
+        "expectedRevision": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "auditHash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    }
+  },
+  "namespaces": {
+    "layout": {
+      "command": "--layout-command get|update",
+      "schema": "layoutUpdate"
+    },
+    "audio": {
+      "command": "--audio-command get|update",
+      "schema": "audioUpdate"
+    },
+    "audioRouting": {
+      "command": "--audio-routing-command get|update",
+      "schema": "audioRoutingUpdate"
+    },
+    "performance": {
+      "command": "--performance-command get|update",
+      "schema": "performanceUpdate"
+    },
+    "providers": {
+      "command": "--providers-command get|update",
+      "schema": "providerUpdate"
+    },
+    "libraryArchive": {
+      "command": "--library-command audit|archive|result",
+      "schema": "libraryArchive"
+    }
+  },
+  "rules": [
+    "Schemas describe strict update input; read namespace state/revision before submitting. Namespace revisions are separate from appearance revisions.",
+    "Native commands validate connected display identities, filesystem ownership and current OS capability in addition to JSON Schema. Schema acceptance alone does not reserve a revision or prove a commit.",
+    "All global host namespaces reject --target; appearance presets/schedules use explicit target in independent mode. Provider commands do not fetch weather, sample system metrics or launch the host.",
+    "Library archive requires auditHash from a fresh audit. Retained references or inventory changes invalidate it. Archive retains copies; no permanent deletion or disk savings.",
+    "committed is persistence only; renderer acknowledgement, native attachment and OS visibility are separate."
+  ]
+}

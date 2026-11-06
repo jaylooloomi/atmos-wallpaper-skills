@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "productStillRequiresNode": true,
+  "nativeEntrypoints": ["--get-state", "--validate-json", "--apply-json", "--get-result", "--watch-json"],
+  "nativeTests": {"passed": 63, "failed": 0, "ignored": 0, "testOnlyTauriResourcesOverride": true},
+  "differentialTests": {"policyAndCatalog": 8, "appearanceAndAssets": 7, "watcher": 5, "total": 20},
+  "canonicalOracle": {"cases": 29, "deterministicFloatValues": 4096, "utf16AndLoneSurrogates": true},
+  "desiredOracle": {"versions": 4, "validationAndMigrationCases": 335},
+  "checks": ["native/legacy bidirectional receipts", "preview/apply IDs and desired hashes", "old-format migration backup bytes", "independent scope ownership and seed recovery", "10 simultaneous native/legacy Agent writers", "configured PNG byte and asset ID preservation", "offline library without recreation or fallback", "synthetic acknowledgement trust separation", "exact settled watch input", "error/result deduplication", "three bounded busy backoffs", "pinned target mapping"],
+  "candidatePayloadPresent": false,
+  "candidatePathEnvironment": "empty",
+  "candidateNodeEnvironment": "intentionally invalid",
+  "jsonParserDepthLimit": 256,
+  "remainingNodeDependencies": ["local HTTP bridge", "preset/schedule automation", "next-preset tray action", "library CLI/jobs", "calendar/data-source services", "payload/self-check requirements"],
+  "userInstallationChanged": false,
+  "userDataReadOrChanged": false,
+  "rendererAcknowledgements": "isolated synthetic observation fixtures only; no real renderer or OS visibility claim",
+  "pushed": false,
+  "installerBuilt": false
+}

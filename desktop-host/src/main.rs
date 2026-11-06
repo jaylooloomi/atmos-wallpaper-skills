@@ -10,6 +10,8 @@ mod audio_diagnostics;
 #[cfg(windows)]
 mod audio_routing;
 #[cfg(windows)]
+mod cli_catalogs;
+#[cfg(windows)]
 mod control;
 #[cfg(windows)]
 mod displays;
@@ -34,6 +36,24 @@ mod options;
 mod performance;
 #[cfg(windows)]
 mod policy_store;
+#[cfg(windows)]
+mod portable_store;
+#[cfg(windows)]
+mod providers;
+#[cfg(windows)]
+mod focus;
+#[cfg(windows)]
+mod js_json;
+#[cfg(windows)]
+mod desired_state;
+#[cfg(windows)]
+mod asset_store;
+#[cfg(windows)]
+mod appearance_core;
+#[cfg(windows)]
+mod appearance_agent;
+#[cfg(windows)]
+mod appearance_watch;
 #[cfg(windows)]
 mod renderer_memory;
 #[cfg(windows)]
