@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-06",
+  "passed": true,
+  "checks": {
+    "nativeHostAttached": true,
+    "localSvgAssetsVerified": 26,
+    "staticAssetsContainNoAnimation": true,
+    "allThirdPartyLicensesPresent": true,
+    "providerOptInRespected": true,
+    "liveWeatherAvailable": true,
+    "dayNightFieldVerified": true,
+    "conditionMappingVerified": true,
+    "genuineWallpaperAck": true
+  },
+  "limitations": [
+    "Read-only real API/assets checks, not manual visibility or GPU/power measurement."
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-06",
+  "passed": true,
+  "method": "Actual production React bundle and local SVGs in two isolated Chromium CLI profiles, normal and forced reduced motion",
+  "results": [
+    {
+      "passed": true,
+      "osReduced": false,
+      "conditions": 6,
+      "rootReplacements": 80,
+      "rootsAfterCleanup": 0,
+      "staticDataUpdated": true,
+      "hiddenPageStatic": true,
+      "allImagesLoaded": true
+    },
+    {
+      "passed": true,
+      "osReduced": true,
+      "conditions": 6,
+      "rootReplacements": 80,
+      "rootsAfterCleanup": 0,
+      "staticDataUpdated": true,
+      "hiddenPageStatic": true,
+      "allImagesLoaded": true
+    }
+  ],
+  "noApiRequests": true,
+  "limitations": [
+    "Synthetic values and policies only; no user browser/desktop automation, live host ACK or GPU benchmark."
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-06",
+  "passed": true,
+  "method": "Five isolated offline exports served locally to fresh headless Chromium CLI profiles",
+  "effects": [
+    {
+      "effect": "meteor",
+      "passed": true
+    },
+    {
+      "effect": "firefly",
+      "passed": true
+    },
+    {
+      "effect": "sakura",
+      "passed": true
+    },
+    {
+      "effect": "fireworks",
+      "passed": true
+    },
+    {
+      "effect": "galaxy",
+      "passed": true
+    }
+  ],
+  "checks": {
+    "localRuntimesLoaded": true,
+    "canvasDrawPassed": true,
+    "plainCalendarPresent": true,
+    "bootOverlayRemoved": true,
+    "noApiRequests": true,
+    "offlineWeatherStaticAndUnavailable": true
+  },
+  "limitations": [
+    "Synthetic fixtures only; not user UI automation, real desktop ACKs or GPU benchmarks."
+  ]
+}

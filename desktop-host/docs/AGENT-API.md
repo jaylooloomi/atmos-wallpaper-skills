@@ -101,3 +101,5 @@ Schema 描述格式與欄位範圍，最終以**合併後核心驗證**為準：
 本階段完成明確提交的 JSON＋原生命令。沒有自動檔案監看，也不需要刷新整個管理頁；執行中的桌布會同步新 revision。後續若增加監看，仍須使用同一交易入口並處理半寫入、去重與衝突，不能繞過這些規則。
 
 0.7.30 的 `visual.effect` 可用值：`clear`、`rain`、`snow`、`typhoon`、`thunder`、`meteor`（流星雨）、`firefly`（螢火蟲）、`sakura`（櫻花雨）、`fireworks`（煙火秀）、`galaxy`（星際漩渦）。資訊省電政策開啟時保留所選 effect 但暫停背景動畫，不應因畫面靜止而改寫使用者的省電偏好。
+
+0.7.31 的天氣卡片以 provider 真實天氣碼及日夜欄位顯示 React／Meteocons 圖示；`visual.effect` 是使用者選用的背景效果，不決定卡片上的天氣。省電模式只切換靜態圖示，資料來源與更新仍沿用 provider 設定；舊 widgets.city／weatherState 相容欄位不會覆蓋真實天氣。

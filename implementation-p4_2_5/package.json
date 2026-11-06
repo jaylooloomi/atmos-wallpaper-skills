@@ -19,5 +19,12 @@
     "ical.js": "2.2.1",
     "linkedom": "0.18.12",
     "luxon": "3.7.2"
+  },
+  "devDependencies": {
+    "@meteocons/svg": "0.1.0",
+    "@meteocons/svg-static": "0.1.0",
+    "esbuild": "0.28.2",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
   }
 }

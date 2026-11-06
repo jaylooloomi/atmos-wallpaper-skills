@@ -1,3 +1,5 @@
+import {buildSync} from 'esbuild';
+import {weatherSlugs} from '../src/weather-model.mjs';
 import {upgradeStormRenderer} from '../src/storm-renderer.mjs';
 import fs from 'node:fs';import path from 'node:path';import {fileURLToPath} from 'node:url';import {ControlCore} from '../src/portable-core.mjs';import {hash} from '../../implementation-p1/src/contract.mjs';
 const root=fileURLToPath(new URL('../',import.meta.url)),prototype=path.resolve(root,'../prototype-v8.1-frozen'),dist=path.join(root,'dist');fs.mkdirSync(dist,{recursive:true});const manifest=JSON.parse(fs.readFileSync(path.join(prototype,'manifest.json')));for(const f of manifest.files.filter(f=>['index.html','app.js','hifi.css','widgets.js','widgets.css'].includes(f.path)||f.path.startsWith('assets/'))){const data=fs.readFileSync(path.join(prototype,f.path));if(hash(data)!==f.sha256)throw Error('Frozen baseline changed');fs.mkdirSync(path.dirname(path.join(dist,f.path)),{recursive:true});fs.writeFileSync(path.join(dist,f.path),data)}
@@ -92,10 +94,15 @@ extrasBridge=extrasBridge.replace("await load('p423-ui.js');","await load('p423-
 extrasBridge=extrasBridge.replace("window.AtmosAudio.start({headers,wallpaper:wallpaperMode});","window.AtmosAudio.start({headers,wallpaper:wallpaperMode});await load('presets-client.js');window.AtmosPresets.start({headers,wallpaper:wallpaperMode});await load('schedule-client.js');window.AtmosSchedule.start({headers,wallpaper:wallpaperMode});window.AtmosPerformance.start({headers,wallpaper:wallpaperMode});window.AtmosFocus.start({headers,wallpaper:wallpaperMode});");
 fs.writeFileSync(path.join(dist,'bridge-client.js'),extrasBridge);
 
+// One production React island; pinned local SVGs, with real static variants for power saving.
+buildSync({entryPoints:[path.join(root,'src/weather-entry.js')],outfile:path.join(dist,'weather-react.js'),bundle:true,minify:true,format:'iife',platform:'browser',target:'chrome105',define:{'process.env.NODE_ENV':'"production"'},legalComments:'inline'});
+for(const [kind,pkg]of [['animated','@meteocons/svg'],['static','@meteocons/svg-static']])for(const slug of weatherSlugs){const from=path.join(root,'node_modules',pkg,'fill',slug+'.svg'),to=path.join(dist,'assets/weather',kind,slug+'.svg');fs.mkdirSync(path.dirname(to),{recursive:true});fs.copyFileSync(from,to)}
+for(const pkg of ['react','react-dom','scheduler','@meteocons/svg','@meteocons/svg-static']){const to=path.join(dist,'licenses',pkg.replaceAll('/','-')+'-LICENSE.txt');fs.mkdirSync(path.dirname(to),{recursive:true});fs.copyFileSync(pkg.startsWith('@meteocons/')?path.join(root,'src/licenses/METEOCONS-LICENSE.txt'):path.join(root,'node_modules',pkg,'LICENSE'),to)}
+fs.appendFileSync(path.join(dist,'hifi.css'),'\n'+fs.readFileSync(path.join(root,'src/weather-card.css'),'utf8'));
 // Live data remains outside desired appearance and demo state.
 fs.copyFileSync(path.join(root,'src/providers-client.js'),path.join(dist,'providers-client.js'));
 fs.appendFileSync(path.join(dist,'hifi.css'),'\n'+fs.readFileSync(path.join(root,'src/providers-client.css'),'utf8'));
-fs.writeFileSync(path.join(dist,'bridge-client.js'),fs.readFileSync(path.join(dist,'bridge-client.js'),'utf8').replace("window.AtmosAudio.start({headers,wallpaper:wallpaperMode});","window.AtmosAudio.start({headers,wallpaper:wallpaperMode});await load('providers-client.js');window.AtmosProviders.start({headers,wallpaper:wallpaperMode});"));
+fs.writeFileSync(path.join(dist,'bridge-client.js'),fs.readFileSync(path.join(dist,'bridge-client.js'),'utf8').replace("window.AtmosAudio.start({headers,wallpaper:wallpaperMode});","window.AtmosAudio.start({headers,wallpaper:wallpaperMode});await load('weather-react.js');await load('providers-client.js');window.AtmosProviders.start({headers,wallpaper:wallpaperMode});"));
 
 const spanModel=fs.readFileSync(path.join(root,'src/span-layout.mjs'),'utf8').replace(/\bexport /g,'');
 fs.writeFileSync(path.join(dist,'span-client.js'),spanModel+'\n'+fs.readFileSync(path.join(root,'src/span-client.js'),'utf8'));

@@ -7,3 +7,5 @@
 - Use isolated synthetic Chromium CLI fixtures for automated UI checks. Do not operate the user's browser or desktop with UI automation. Do not fabricate live renderer acknowledgements.
 - Keep installers, executables, private settings, backup contents, browser profiles and raw logs out of Git. Public evidence must be aggregate-only.
 - Preserve `prototype-v8.1-frozen` and the original source-release provenance. Refresh `SOURCE-MANIFEST.json` from staged Git blobs when committing source changes.
+
+- Weather-card coverage also requires 60 condition/width cases per viewport (five conditions กั three widths กั four themes), each checking animated icons, static power-saving icons with changed data, unclipped original S-card height, and React root cleanup. Missing weather cases must fail the gate.

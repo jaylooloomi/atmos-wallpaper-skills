@@ -4,6 +4,8 @@ Atmos 是可客製化的個人資訊桌面（Personal Dashboard）：把關心�
 
 ## 最新功能
 
+- 0.7.31 天氣卡片改用 React＋Meteocons SVG 與小型溫度計，依 WMO／日夜資料切換圖示，省電／低動態改用真正靜態 SVG；保留資料更新與設定。[實作與驗證](desktop-host/docs/REACT-WEATHER-2026-11-06.md)。
+
 - 0.7.30 新增流星雨、螢火蟲、櫻花雨、煙火秀、星際漩渦五種可選粒子特效，保留強度、JSON 套用與資訊省電政策。[開源調研與驗證](desktop-host/docs/PARTICLE-EFFECTS-2026-11-06.md)。
 
 - 0.7.29：日曆改為純月曆，依本機日期顯示當月與今天，移除登入、ICS 匯入／訂閱及資料情境入口；保留原設定與已存資料。見 [驗證紀錄](desktop-host/docs/PLAIN-CALENDAR-2026-11-06.md)。
