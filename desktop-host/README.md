@@ -1,4 +1,4 @@
-# Atmos Wallpaper Windows 0.7.31
+# Atmos Wallpaper Windows 0.7.32
 
 **目前已移除螢幕保護功能。** 設定分為桌面元件／桌布與系統設定／外觀字型三個分頁；下方版本記錄中的 `.scr` 與螢幕保護均屬歷史功能。[移除與安全升級清理](docs/SCREENSAVER-REMOVAL-2026-11-06.md)。
 
@@ -171,3 +171,5 @@ Agent 實機整合測試（會暫時變更強度再以交易還原）：node scr
 0.7.30 新增五種粒子特效，沿用現有動畫時鐘、強度與省電政策；[調研與驗證](docs/PARTICLE-EFFECTS-2026-11-06.md)。
 
 0.7.31 以局部 React 元件呈現真實天氣、Meteocons 圖示及溫度計；省電時使用靜態 SVG，資料更新不變。[驗證](docs/REACT-WEATHER-2026-11-06.md)。
+
+0.7.32 元件名稱與開關改為同列，縮小卡片高度；[驗證](docs/WIDGET-SINGLE-ROW-2026-11-06.md)。
