@@ -1,0 +1,564 @@
+{
+  "schemaVersion": 1,
+  "method": "literal ES module imports and new URL worker edges; source bytes, not installed footprint or process memory",
+  "limitations": [
+    "Dynamic/computed imports, external package transitive dependencies and generated browser bundles are not traversed.",
+    "API literals include prefixes; this is an inventory, not proof of route or runtime parity.",
+    "No installed application, user store, backup or process was read."
+  ],
+  "entries": [
+    "implementation-p4_2_5/src/windows-runtime.mjs",
+    "implementation-p4_2_5/src/agent-cli.mjs",
+    "implementation-p4_2_5/src/appearance-cli.mjs",
+    "implementation-p4_2_5/src/library-cli.mjs",
+    "implementation-p4_2_5/src/quick-actions.mjs",
+    "implementation-p4_2_5/src/library-worker.mjs",
+    "implementation-p4_2_5/src/calendar-worker.mjs"
+  ],
+  "nativeLaunchSites": [
+    {
+      "path": "desktop-host/src/agent.rs",
+      "line": 56
+    },
+    {
+      "path": "desktop-host/src/agent.rs",
+      "line": 126
+    },
+    {
+      "path": "desktop-host/src/app.rs",
+      "line": 187
+    },
+    {
+      "path": "desktop-host/src/library.rs",
+      "line": 139
+    },
+    {
+      "path": "desktop-host/src/runtime.rs",
+      "line": 53
+    },
+    {
+      "path": "desktop-host/src/runtime.rs",
+      "line": 131
+    }
+  ],
+  "summary": {
+    "sourceModules": 45,
+    "sourceBytes": 250075,
+    "nodeBuiltins": 11,
+    "externalPackages": 3,
+    "apiLiterals": 26
+  },
+  "builtins": [
+    "node:child_process",
+    "node:crypto",
+    "node:dns/promises",
+    "node:fs",
+    "node:http",
+    "node:https",
+    "node:net",
+    "node:path",
+    "node:readline",
+    "node:url",
+    "node:worker_threads"
+  ],
+  "packages": [
+    "ical.js",
+    "linkedom",
+    "luxon"
+  ],
+  "apiLiterals": [
+    "/api/ack",
+    "/api/artwork/",
+    "/api/calendar/",
+    "/api/calendar/events",
+    "/api/calendar/import",
+    "/api/commands",
+    "/api/daily-feeds",
+    "/api/health",
+    "/api/host/",
+    "/api/host/audio",
+    "/api/host/audio/routing",
+    "/api/host/audio/test",
+    "/api/host/displays",
+    "/api/host/focus",
+    "/api/host/layout",
+    "/api/host/library",
+    "/api/host/performance",
+    "/api/host/screensaver",
+    "/api/host/screensaver/settings",
+    "/api/host/startup",
+    "/api/presets",
+    "/api/providers/settings",
+    "/api/providers/system",
+    "/api/providers/weather",
+    "/api/schedule",
+    "/api/snapshot"
+  ],
+  "modules": [
+    {
+      "path": "implementation-p1/src/contract.mjs",
+      "bytes": 247,
+      "sha256": "f67b0cb19abd25de2d62766b5df4651055fff9fef57de666de570c101ec64b6a",
+      "dependencies": [
+        "./state.mjs",
+        "node:crypto"
+      ]
+    },
+    {
+      "path": "implementation-p1/src/state.mjs",
+      "bytes": 6085,
+      "sha256": "7c208da1f62deba14d08dce30725343c832cf83061f9001ac1a845ef300f0b0d",
+      "dependencies": []
+    },
+    {
+      "path": "implementation-p1/src/store.mjs",
+      "bytes": 5283,
+      "sha256": "fb81fc8702344919c96743e1b0bd525725e02939c01087f421d64f9d9acfc9af",
+      "dependencies": [
+        "./contract.mjs",
+        "node:crypto",
+        "node:fs",
+        "node:path"
+      ]
+    },
+    {
+      "path": "implementation-p4_2_5/src/agent-cli.mjs",
+      "bytes": 10040,
+      "sha256": "00995bed121fcb503ca1f38f0159410d2ab7ead988fa0b742ce6bc0402430be6",
+      "dependencies": [
+        "./agent-contract.mjs",
+        "./agent-watch.mjs",
+        "./commands.mjs",
+        "./contract.mjs",
+        "./host-contract.mjs",
+        "./portable-core.mjs",
+        "./scope-registry.mjs",
+        "node:fs",
+        "node:path",
+        "node:readline",
+        "node:url"
+      ]
+    },
+    {
+      "path": "implementation-p4_2_5/src/agent-contract.mjs",
+      "bytes": 15062,
+      "sha256": "8d0f4a1b5f5b4e7ff02905bb7ef337d87346318153354cebc5ca895c6a42365c",
+      "dependencies": []
+    },
+    {
+      "path": "implementation-p4_2_5/src/agent-watch.mjs",
+      "bytes": 4950,
+      "sha256": "a256034f5beb15744922d22347369329feabe2cf663757853967cf0cb3d80148",
+      "dependencies": [
+        "node:crypto",
+        "node:fs",
+        "node:path"
+      ]
+    },
+    {
+      "path": "implementation-p4_2_5/src/appearance-cli.mjs",
+      "bytes": 7060,
+      "sha256": "1d658f7d2c621608585fd6452fdf07cd348707e905ef6d3723147deb247e6edf",
+      "dependencies": [
+        "node:fs",
+        "node:path"
+      ]
+    },
+    {
+      "path": "implementation-p4_2_5/src/audio-service.mjs",
+      "bytes": 4310,
+      "sha256": "4a752833e0230e703f32f54e9430f43a98b414fa804f133feb495677587a4823",
+      "dependencies": [
+        "node:fs",
+        "node:path"
+      ]
+    },
+    {
+      "path": "implementation-p4_2_5/src/calendar-fetch.mjs",
+      "bytes": 2970,
+      "sha256": "201bc3f1167b9d40fa5fc1e7fed3bc40542f2584789d0c8d72892329b7db6216",
+      "dependencies": [
+        "node:dns/promises",
+        "node:https",
+        "node:net"
+      ]
+    },
+    {
+      "path": "implementation-p4_2_5/src/calendar-parse.mjs",
+      "bytes": 3193,
+      "sha256": "710180b1957bd86adf28076adc6efaf58d2540f91c9ed8523c44c91d63828e9e",
+      "dependencies": [
+        "ical.js",
+        "luxon"
+      ]
+    },
+    {
+      "path": "implementation-p4_2_5/src/calendar-service.mjs",
+      "bytes": 4273,
+      "sha256": "3ad31af77102ea9cbd742fc08e0087dd9cb0063d964a16376ee8e76748c5df1d",
+      "dependencies": [
+        "./calendar-fetch.mjs",
+        "./calendar-worker.mjs",
+        "node:child_process",
+        "node:fs",
+        "node:path",
+        "node:worker_threads"
+      ]
+    },
+    {
+      "path": "implementation-p4_2_5/src/calendar-worker.mjs",
+      "bytes": 278,
+      "sha256": "214cf86091d9ebd7e140479c4e78536e922ae3de12bf0317cfb953dc76e9c513",
+      "dependencies": [
+        "./calendar-parse.mjs",
+        "node:worker_threads"
+      ]
+    },
+    {
+      "path": "implementation-p4_2_5/src/commands.mjs",
+      "bytes": 1540,
+      "sha256": "e193aec900c4e9ebf6808720e5698afd2888ac554c79414cd273ea0541d76ac3",
+      "dependencies": [
+        "./contract.mjs"
+      ]
+    },
+    {
+      "path": "implementation-p4_2_5/src/contract.mjs",
+      "bytes": 247,
+      "sha256": "f67b0cb19abd25de2d62766b5df4651055fff9fef57de666de570c101ec64b6a",
+      "dependencies": [
+        "./state.mjs",
+        "node:crypto"
+      ]
+    },
+    {
+      "path": "implementation-p4_2_5/src/daily-feeds.mjs",
+      "bytes": 10478,
+      "sha256": "41ab2a41f9b69830ec6e10aabe5c6f81717220366642a7d897136f9897f216ed",
+      "dependencies": [
+        "./calendar-fetch.mjs",
+        "./portable-store.mjs",
+        "linkedom",
+        "node:crypto",
+        "node:fs",
+        "node:net"
+      ]
+    },
+    {
+      "path": "implementation-p4_2_5/src/display-service.mjs",
+      "bytes": 4013,
+      "sha256": "26a84d569b0b3248a6a87fa42808dfc873b807a4c75ace3c1bb5a48764454735",
+      "dependencies": [
+        "./monitor-adapter.mjs",
+        "node:child_process",
+        "node:fs",
+        "node:path"
+      ]
+    },
+    {
+      "path": "implementation-p4_2_5/src/focus-core.mjs",
+      "bytes": 2221,
+      "sha256": "fb8d3a2b99c1d8b100c4c4dd7eda74c760165bd2f2d8f04ed2eebefd6b9d9e18",
+      "dependencies": [
+        "node:fs"
+      ]
+    },
+    {
+      "path": "implementation-p4_2_5/src/host-contract.mjs",
+      "bytes": 3479,
+      "sha256": "da001b4b6f3ddc83629f341f05bbad19a3a940d2c636c8b279ab6d8b68170d89",
+      "dependencies": []
+    },
+    {
+      "path": "implementation-p4_2_5/src/host-router.mjs",
+      "bytes": 10571,
+      "sha256": "4c7495c08e8e733f12e71846ce9b8c24356cb775ad63b0179968dc5ae44c406f",
+      "dependencies": [
+        "./calendar-service.mjs",
+        "./library-paths.mjs",
+        "./router.mjs",
+        "./schedule-core.mjs",
+        "./scope-registry.mjs",
+        "./span-layout.mjs",
+        "node:fs",
+        "node:path"
+      ]
+    },
+    {
+      "path": "implementation-p4_2_5/src/http-transport.mjs",
+      "bytes": 1583,
+      "sha256": "bef416e1ff381d7ed27fb9332bdbd3c5ee7bdf821962e8473696dc51709fdac6",
+      "dependencies": [
+        "node:http"
+      ]
+    },
+    {
+      "path": "implementation-p4_2_5/src/layout-service.mjs",
+      "bytes": 1807,
+      "sha256": "4beb48553e23a42eb3a05f7458a51c807935690bfd39ac87cf4a7e8bf0b07f85",
+      "dependencies": []
+    },
+    {
+      "path": "implementation-p4_2_5/src/legacy-config.mjs",
+      "bytes": 1264,
+      "sha256": "b67d566790772cb226298cc81ad9eb18c115be646b078e00419e2549db152a0f",
+      "dependencies": [
+        "../../implementation-p1/src/contract.mjs",
+        "./contract.mjs",
+        "./state-v2.mjs",
+        "./state-v3.mjs"
+      ]
+    },
+    {
+      "path": "implementation-p4_2_5/src/library-cleanup.mjs",
+      "bytes": 9851,
+      "sha256": "7dde2a296a0ebe56656a10c4c3a150b235ab1a055763ddbde7f2b4f2ef6d82b3",
+      "dependencies": [
+        "./contract.mjs",
+        "./legacy-config.mjs",
+        "./library-paths.mjs",
+        "./portable-store.mjs",
+        "node:fs",
+        "node:path"
+      ]
+    },
+    {
+      "path": "implementation-p4_2_5/src/library-cli.mjs",
+      "bytes": 3938,
+      "sha256": "75caead42c258a1e8273f95d5138d5bf57e2ab671654b1cece0a37c007d6ef8e",
+      "dependencies": [
+        "node:fs",
+        "node:path"
+      ]
+    },
+    {
+      "path": "implementation-p4_2_5/src/library-core.mjs",
+      "bytes": 11097,
+      "sha256": "b2ef363de5b94e79d04e82ad69d8499f32d2addc96272183ba9447985c5cc914",
+      "dependencies": [
+        "./library-cleanup.mjs",
+        "./library-paths.mjs",
+        "./portable-store.mjs",
+        "node:child_process",
+        "node:crypto",
+        "node:fs",
+        "node:path"
+      ]
+    },
+    {
+      "path": "implementation-p4_2_5/src/library-paths.mjs",
+      "bytes": 2620,
+      "sha256": "5304af8dc72f5a214afdf6d5f722fdb8be550a0e35f2219d069d41ec98484307",
+      "dependencies": [
+        "node:crypto",
+        "node:fs",
+        "node:path"
+      ]
+    },
+    {
+      "path": "implementation-p4_2_5/src/library-service.mjs",
+      "bytes": 4858,
+      "sha256": "5ab2dc830929417f2a2e125343cf6342ea9e559ce44a436996dd8c296e11bebb",
+      "dependencies": [
+        "./library-worker.mjs",
+        "node:fs",
+        "node:path"
+      ]
+    },
+    {
+      "path": "implementation-p4_2_5/src/library-worker.mjs",
+      "bytes": 796,
+      "sha256": "8ef6505650d9cbda813cc93acb8149115eb84192d4174b076ed9f4a277311685",
+      "dependencies": [
+        "./library-core.mjs"
+      ]
+    },
+    {
+      "path": "implementation-p4_2_5/src/monitor-adapter.mjs",
+      "bytes": 7021,
+      "sha256": "8645f4d7dbd5fb7cd0369eeb96efe54b07d158e6da045a85e8c12d8162027f1a",
+      "dependencies": [
+        "node:child_process",
+        "node:path"
+      ]
+    },
+    {
+      "path": "implementation-p4_2_5/src/performance-service.mjs",
+      "bytes": 2515,
+      "sha256": "9403f67966264206277c52ae7f4d7966178b381356bfdfcf3a6ff298f3c1675e",
+      "dependencies": [
+        "node:fs",
+        "node:path"
+      ]
+    },
+    {
+      "path": "implementation-p4_2_5/src/portable-core.mjs",
+      "bytes": 15191,
+      "sha256": "7cbfbc29c546360d812d0e8298e531235e83bbf852020f4a6921395283a93ca9",
+      "dependencies": [
+        "../../implementation-p1/src/contract.mjs",
+        "./contract.mjs",
+        "./legacy-config.mjs",
+        "./portable-store.mjs",
+        "node:child_process",
+        "node:fs",
+        "node:path",
+        "node:url"
+      ]
+    },
+    {
+      "path": "implementation-p4_2_5/src/portable-store.mjs",
+      "bytes": 8632,
+      "sha256": "61b809d707237f17ed6c3c442706b319913e7b2e2d826739154a89423ad44c03",
+      "dependencies": [
+        "../../implementation-p1/src/store.mjs",
+        "./contract.mjs",
+        "./legacy-config.mjs",
+        "./library-paths.mjs",
+        "node:crypto",
+        "node:fs",
+        "node:path"
+      ]
+    },
+    {
+      "path": "implementation-p4_2_5/src/presets-core.mjs",
+      "bytes": 4818,
+      "sha256": "2f7a518429736e06f02a3f937fff6262f01113c701a4ad704130f96b7d40372b",
+      "dependencies": [
+        "./contract.mjs",
+        "node:fs"
+      ]
+    },
+    {
+      "path": "implementation-p4_2_5/src/providers-service.mjs",
+      "bytes": 8605,
+      "sha256": "182c997b9a89dce7508abce46b7174d7d6f0abe38e4a2d83889f81d03a480061",
+      "dependencies": [
+        "./contract.mjs",
+        "./portable-store.mjs",
+        "node:child_process",
+        "node:fs",
+        "node:path"
+      ]
+    },
+    {
+      "path": "implementation-p4_2_5/src/quick-actions.mjs",
+      "bytes": 2139,
+      "sha256": "91ceaf1c6e14010b56bfcffea5b8e252b303f8849bf6436ccc1b165cba6101f2",
+      "dependencies": [
+        "node:fs",
+        "node:path"
+      ]
+    },
+    {
+      "path": "implementation-p4_2_5/src/router.mjs",
+      "bytes": 26337,
+      "sha256": "80060dc74e09bd4db6ce5e7e230733b54e52f7ed398adf20297acc53c84c6c6a",
+      "dependencies": [
+        "./audio-service.mjs",
+        "./calendar-service.mjs",
+        "./commands.mjs",
+        "./contract.mjs",
+        "./display-service.mjs",
+        "./focus-core.mjs",
+        "./layout-service.mjs",
+        "./monitor-adapter.mjs",
+        "./performance-service.mjs",
+        "./portable-core.mjs",
+        "./presets-core.mjs",
+        "./providers-service.mjs",
+        "./schedule-core.mjs",
+        "node:crypto",
+        "node:fs",
+        "node:path"
+      ]
+    },
+    {
+      "path": "implementation-p4_2_5/src/runtime-options.mjs",
+      "bytes": 751,
+      "sha256": "60f1c9be02e6bd254c3a323d6a43ec901dbe54fb27e361fddc37623c964433a4",
+      "dependencies": []
+    },
+    {
+      "path": "implementation-p4_2_5/src/schedule-core.mjs",
+      "bytes": 6509,
+      "sha256": "fadb0882fa71e3c56c565442714043fe9971b1136dfae2f4faba32d8d9b34927",
+      "dependencies": [
+        "node:fs"
+      ]
+    },
+    {
+      "path": "implementation-p4_2_5/src/scope-registry.mjs",
+      "bytes": 3796,
+      "sha256": "ef0ff52c4e520dedbaba89432a97acd4b72d963048f85e15144eb1d280c2eb4d",
+      "dependencies": [
+        "node:fs",
+        "node:path"
+      ]
+    },
+    {
+      "path": "implementation-p4_2_5/src/span-layout.mjs",
+      "bytes": 1385,
+      "sha256": "4db6eb4202d2bcd07dcd21793c84b6274cffe4dec1b672be0923b97c9e1fce59",
+      "dependencies": []
+    },
+    {
+      "path": "implementation-p4_2_5/src/startup-service.mjs",
+      "bytes": 1531,
+      "sha256": "9cdd25b099f47aecf65eec03961afced46680840b2bed35530ac337080e87768",
+      "dependencies": [
+        "node:child_process",
+        "node:fs",
+        "node:path"
+      ]
+    },
+    {
+      "path": "implementation-p4_2_5/src/state-v2.mjs",
+      "bytes": 7290,
+      "sha256": "ee5df400a1efe9a32538110f1cec14d6cb5f6bfb2d78e13625835c8c83fa6bd4",
+      "dependencies": [
+        "../../implementation-p1/src/state.mjs"
+      ]
+    },
+    {
+      "path": "implementation-p4_2_5/src/state-v3.mjs",
+      "bytes": 7671,
+      "sha256": "9e44a7bb05e9edca471769f93289ed067aa900c78eefac4cac892b6783740ab6",
+      "dependencies": [
+        "../../implementation-p1/src/state.mjs"
+      ]
+    },
+    {
+      "path": "implementation-p4_2_5/src/state.mjs",
+      "bytes": 7830,
+      "sha256": "3a546e911523f926012297e2484ffec39da8e33081c0e7a735b32651f1c71c1e",
+      "dependencies": [
+        "../../implementation-p1/src/state.mjs"
+      ]
+    },
+    {
+      "path": "implementation-p4_2_5/src/windows-runtime.mjs",
+      "bytes": 3940,
+      "sha256": "063dda5e735cc918485365c0d60419b2cd6e34af7736872fb453e9d8cefc3621",
+      "dependencies": [
+        "./audio-service.mjs",
+        "./daily-feeds.mjs",
+        "./display-service.mjs",
+        "./host-router.mjs",
+        "./http-transport.mjs",
+        "./layout-service.mjs",
+        "./library-service.mjs",
+        "./monitor-adapter.mjs",
+        "./performance-service.mjs",
+        "./portable-core.mjs",
+        "./portable-store.mjs",
+        "./providers-service.mjs",
+        "./runtime-options.mjs",
+        "./startup-service.mjs",
+        "node:fs",
+        "node:path",
+        "node:url"
+      ]
+    }
+  ]
+}

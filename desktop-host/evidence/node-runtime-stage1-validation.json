@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "scope": "HTTP transport extraction and source dependency inventory; runtime replacement unfinished",
+  "productStillRequiresNode": true,
+  "transportContract": {
+    "tests": 5,
+    "passed": 5,
+    "failed": 0,
+    "realLoopbackSocket": true,
+    "realBridgeFixture": true
+  },
+  "nativeUnitTests": {
+    "command": "cargo test --locked --offline",
+    "testOnlyEnvironment": {
+      "TAURI_CONFIG": "{\"bundle\":{\"resources\":[]}}"
+    },
+    "reason": "Fresh source checkout has no generated installer payload. This override applies only to the unit-test build; no packaging check or product integrity validation was changed.",
+    "passed": 52,
+    "failed": 0,
+    "ignored": 0,
+    "windowsDesktopMetadataAccessRequired": true
+  },
+  "fullFrontendGate": {
+    "command": "npm run verify",
+    "equivalentInvocation": "node scripts/verify.mjs",
+    "passed": true,
+    "viewports": 12,
+    "componentThemeStates": 336,
+    "feedWidgetStates": 1008,
+    "weatherCardStates": 720,
+    "injectedOverlapRejected": true,
+    "evidence": "implementation-p4_2_5/evidence/verification.json and layout-regression.json"
+  },
+  "earlierAttempts": [
+    {
+      "check": "fresh-checkout frontend verification",
+      "status": "failed",
+      "reason": "missing npm dependencies"
+    },
+    {
+      "check": "sandbox frontend preparation",
+      "status": "failed",
+      "reason": "esbuild parent-directory access denied"
+    },
+    {
+      "check": "first complete Chromium gate attempt",
+      "status": "failed",
+      "reason": "later viewport measurements missing; no geometry limits were changed"
+    },
+    {
+      "check": "fresh-checkout cargo test",
+      "status": "failed",
+      "reason": "generated payload resource directory absent"
+    },
+    {
+      "check": "sandbox Windows native tests",
+      "status": "failed",
+      "passed": 51,
+      "failed": 1,
+      "reason": "desktop window enumeration unavailable"
+    }
+  ],
+  "notRun": [
+    "installer build and packaging integrity validation",
+    "installed candidate CLI, host, upgrade and backup compatibility checks",
+    "Node-free product startup and process-tree verification",
+    "installed footprint, startup latency and runtime memory comparison",
+    "real renderer acknowledgement, desktop attachment and actual visibility validation"
+  ],
+  "userInstallationChanged": false,
+  "userDataReadOrChanged": false,
+  "rendererAcknowledgementsFabricated": false,
+  "pushed": false,
+  "pullRequestOpened": false,
+  "remaining": "Port all existing backend/CLI/watcher/tray/library/provider/schedule contracts and replace every Node launch and payload dependency before Node can be removed.",
+  "productTests": {
+    "tests": 500,
+    "passed": 497,
+    "failed": 0,
+    "skipped": 3,
+    "finalSuiteRerunAfterAddingRealBridgeFixture": true
+  },
+  "coreTests": {
+    "tests": 43,
+    "passed": 41,
+    "failed": 0,
+    "skipped": 2
+  }
+}

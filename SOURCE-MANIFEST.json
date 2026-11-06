@@ -238,6 +238,12 @@
       "git_blob_sha": "288f21b905aa742de25aebb31c7429d644ce52b7"
     },
     {
+      "path": "desktop-host/docs/REMOVE-NODE-RUNTIME.md",
+      "bytes": 6632,
+      "sha256": "ecdf9c63fba586259a5fa79ca8c992aac42e5d2bed9aae69bfb787075b811c37",
+      "git_blob_sha": "6e91d55a86ffb30743d78098bc46becdf2725529"
+    },
+    {
       "path": "desktop-host/docs/RENDERER-SECTION-INVESTIGATION-2026-11-05.md",
       "bytes": 4402,
       "sha256": "29f8831a08969025755108cf4547150d9c053a5a01cfcc80d2334a6ae047c739",
@@ -740,6 +746,18 @@
       "bytes": 773,
       "sha256": "00b075df29961682777a84230d58841e02e4b80e12b6c936f3d3258a9f1635b6",
       "git_blob_sha": "c5bcf96a3f2f9e6024274280e26955ee19b8fad7"
+    },
+    {
+      "path": "desktop-host/evidence/node-runtime-baseline.json",
+      "bytes": 15987,
+      "sha256": "21d1a4869f94e1f359cbf9b11ec6b820337910ff053c1e19dd807779a2604865",
+      "git_blob_sha": "6369d69d4b80959f0bdcfd2d525dff2fe477315b"
+    },
+    {
+      "path": "desktop-host/evidence/node-runtime-stage1-validation.json",
+      "bytes": 2933,
+      "sha256": "8531a825542239d2f55754e7e80af47d607c67f7e52c4388020f885a1ab72509",
+      "git_blob_sha": "2a91ca0201499abc72a186b36b2e3611880876a2"
     },
     {
       "path": "desktop-host/evidence/offline-particles-2026-11-06.json",
@@ -1286,6 +1304,12 @@
       "bytes": 5589,
       "sha256": "ccc5f0cab65d1227be657565c96d1d4c306744663e6f4ff0a62a5816495efa51",
       "git_blob_sha": "89622ab7dff399302cf21c1f3866b2944c8dae6c"
+    },
+    {
+      "path": "desktop-host/scripts/inventory-node-runtime.mjs",
+      "bytes": 2993,
+      "sha256": "9847b58b47ced1560b233501b4712d753afb85cc54c3fd9f2fec1131187da437",
+      "git_blob_sha": "682f821487b474492b47b00f649dd63b2430a9b4"
     },
     {
       "path": "desktop-host/scripts/measure-installed-soak.ps1",
@@ -2724,8 +2748,8 @@
     {
       "path": "implementation-p4_2_5/evidence/verification.json",
       "bytes": 695,
-      "sha256": "9f00d87ff39a7fea6b26151276626b88a13269524a5c2dafb0002cf1c59b3067",
-      "git_blob_sha": "6676e090f765840e4f7ab89624bf139cb6f82183"
+      "sha256": "2b2f33639d230a9a8f867716fd04c9f7a9ae0736d7db88da8fe83e140995bc23",
+      "git_blob_sha": "46c314b14e38c7afff79c045d9a64b793857c357"
     },
     {
       "path": "implementation-p4_2_5/evidence/windows-host-partial-2026-11-03.json",
@@ -3164,6 +3188,12 @@
       "bytes": 10571,
       "sha256": "4c7495c08e8e733f12e71846ce9b8c24356cb775ad63b0179968dc5ae44c406f",
       "git_blob_sha": "c63669b2389f7a582f73494c406afeca498a36a3"
+    },
+    {
+      "path": "implementation-p4_2_5/src/http-transport.mjs",
+      "bytes": 1583,
+      "sha256": "bef416e1ff381d7ed27fb9332bdbd3c5ee7bdf821962e8473696dc51709fdac6",
+      "git_blob_sha": "219c8f47d80a7fa76a99b9f71a8b62c2ddfdf0eb"
     },
     {
       "path": "implementation-p4_2_5/src/i18n-catalog.js",
@@ -3605,9 +3635,9 @@
     },
     {
       "path": "implementation-p4_2_5/src/windows-runtime.mjs",
-      "bytes": 4962,
-      "sha256": "96d1759a69f10eecfa6de7f3ff45a58f6698f1a201f15d8f5dcba5a63669e766",
-      "git_blob_sha": "debf3d84c1caeda9b7335ed27ef0f9b28e7af313"
+      "bytes": 3940,
+      "sha256": "063dda5e735cc918485365c0d60419b2cd6e34af7736872fb453e9d8cefc3621",
+      "git_blob_sha": "de31a1277de467fb5e5871ab48fb8c74a5b327b3"
     },
     {
       "path": "implementation-p4_2_5/src/youtube-client.js",
@@ -3800,6 +3830,12 @@
       "bytes": 2237,
       "sha256": "2e6f0c08b406734c8688eae1ca2d90ec31ebc16a081e9acb9ac4fdfc326f5ac3",
       "git_blob_sha": "8252ae34387a3e62bc9e1d2e8571fa8f7ed9d15c"
+    },
+    {
+      "path": "implementation-p4_2_5/tests/http-transport.test.mjs",
+      "bytes": 5915,
+      "sha256": "e647afa1b61d8f8a01592e524c11a8c8a44684e29bd21921fb6d13de454ee14c",
+      "git_blob_sha": "68e4da1d4ce9014e86f4207966dfd6806b3ba662"
     },
     {
       "path": "implementation-p4_2_5/tests/i18n.test.mjs",
