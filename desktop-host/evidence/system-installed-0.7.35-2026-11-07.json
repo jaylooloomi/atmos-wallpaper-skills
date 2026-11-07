@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-07",
+  "passed": true,
+  "method": "Six read-only authenticated installed /api/providers/system calls, separated by 2.6 seconds; genuine native Windows telemetry",
+  "samples": 6,
+  "distinctSampleTimes": 6,
+  "observedSeconds": 14.441,
+  "cpuPercent": {
+    "min": 11.495535714285714,
+    "max": 16.450216450216452
+  },
+  "memoryUsedGiB": {
+    "min": 63.080387115478516,
+    "max": 63.585174560546875
+  },
+  "receiveBytesPerSecond": {
+    "min": 9630.539998988772,
+    "max": 684106.190780068
+  },
+  "sendBytesPerSecond": {
+    "min": 10032.641917094546,
+    "max": 122485.21687259282
+  },
+  "networkScopes": [
+    "active-physical-interfaces"
+  ],
+  "checks": {
+    "nativeHostAttached": true,
+    "freshSamples": true,
+    "networkAvailable": true,
+    "noGpuOrPowerClaims": true
+  },
+  "limitations": [
+    "Short data-path check, not a soak, visual proof or benchmark.",
+    "CPU uses the primary processor group. Network is interface throughput, not internet speed.",
+    "No adapter identity, session secret, private settings or raw series is exported."
+  ]
+}

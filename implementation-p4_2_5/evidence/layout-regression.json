@@ -116,13 +116,13 @@
     "passed": true,
     "expectedOverlapRejected": true
   },
-  "elapsedMs": 160239,
+  "elapsedMs": 157001,
   "phases": [
     {
       "name": "layout-negative",
       "exitCode": 1,
       "expectedExit": 1,
-      "elapsedMs": 12092,
+      "elapsedMs": 12728,
       "timedOut": false,
       "aborted": false
     },
@@ -130,14 +130,14 @@
       "name": "layout-positive",
       "exitCode": 0,
       "expectedExit": 0,
-      "elapsedMs": 146735,
+      "elapsedMs": 143034,
       "timedOut": false,
       "aborted": false
     }
   ],
   "input": {
-    "sha256": "00684a538b5d648554eebe3090c5cdb7b2ba6c1dda0278f29d8cbfdce17fece8",
-    "files": 398,
+    "sha256": "460b0ca8b3288ca037d317060f64d32f87835e726585d6ed0e3ce6c4e3e8647d",
+    "files": 407,
     "node": "v24.13.0",
     "cacheHit": false,
     "scope": "Working-tree source, tests, scripts, frozen prototype and dependency lockfiles; telemetry only, not a cache authorization"

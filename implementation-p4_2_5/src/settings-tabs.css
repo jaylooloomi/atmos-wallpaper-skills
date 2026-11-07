@@ -47,7 +47,7 @@ body[data-render-mode=manager] .settings-tabpanel #themeSettings.theme-banner>.t
 .settings-tabs .settings-widget-summary .settings-widget-select:focus-visible{outline:none}
 .settings-widget-summary:has(.settings-widget-select:focus-visible){outline:2px solid var(--accent,#71d9ff);outline-offset:2px}
 
-.settings-section-accordion{min-width:0;max-width:100%;border:1px solid var(--line,#637787);border-radius:10px;background:var(--control,transparent);overflow:clip}.settings-section-accordion>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:44px;padding:8px 14px;cursor:pointer;list-style:none;font-weight:600;color:var(--text,inherit);overflow-wrap:anywhere}.settings-section-accordion>summary::-webkit-details-marker{display:none}.settings-section-accordion>summary:hover{background:color-mix(in srgb,var(--accent,#71d9ff) 14%,transparent)}.settings-section-accordion>summary:focus-visible{outline:2px solid var(--accent,#71d9ff);outline-offset:-3px}.settings-section-accordion[open]>summary{border-bottom:1px solid var(--line,#637787)}.settings-section-chevron{flex:none;font-size:18px}.settings-section-accordion[open]>summary .settings-section-chevron{transform:rotate(180deg)}.settings-section-accordion>.settings-accordion-body{margin:0!important;border:0!important;border-radius:0;padding:14px;min-width:0;max-width:100%;box-sizing:border-box}.settings-section-accordion [data-accordion-heading]{display:none!important}
+.settings-section-accordion{min-width:0;max-width:100%;border:1px solid var(--line,#637787);border-radius:10px;background:var(--control,transparent);overflow:clip}.settings-section-accordion>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:44px;padding:8px 14px;cursor:pointer;list-style:none;font-weight:600;color:var(--text,inherit);overflow-wrap:anywhere}.settings-section-accordion>summary::-webkit-details-marker{display:none}.settings-section-accordion>summary:hover{background:color-mix(in srgb,var(--accent,#71d9ff) 14%,transparent)}.settings-section-accordion>summary:focus-visible{outline:2px solid var(--accent,#71d9ff);outline-offset:-3px}.settings-section-accordion[open]>summary{border-bottom:1px solid var(--line,#637787)}.settings-section-chevron{display:inline-flex;align-items:center;justify-content:center;flex:0 0 24px;width:24px;height:24px;opacity:.8;transform-origin:center;transition:transform 160ms ease}.settings-section-chevron svg{display:block;flex:none}.settings-section-accordion[open]>summary .settings-section-chevron{transform:rotate(180deg)}.settings-section-accordion>.settings-accordion-body{margin:0!important;border:0!important;border-radius:0;padding:14px;min-width:0;max-width:100%;box-sizing:border-box}.settings-section-accordion [data-accordion-heading]{display:none!important}
 
 body[data-render-mode=manager] .retired-manager-chrome{display:none!important}
 
@@ -57,3 +57,12 @@ body[data-render-mode=manager] .retired-manager-chrome{display:none!important}
 body[data-render-mode=manager] .settings-tabs .settings-widget-content>.settings-widget-detail-title{margin:0 0 10px!important;padding:0;font-size:14px;line-height:1.4}
 .settings-widget-content>.inspect-props>.inspect-extra:first-child{margin-top:0}
 .settings-tabs .settings-section-accordion>.settings-accordion-body{padding-top:10px}
+
+@media(prefers-reduced-motion:reduce){.settings-section-chevron{transition:none}}
+
+.settings-tabs #weatherOptions{display:flex;flex-wrap:wrap;gap:6px}.settings-tabs #weatherOptions button{white-space:nowrap;flex:0 0 auto;min-width:38px;padding:6px 8px}
+
+/* The panel gap owns vertical spacing; legacy toolbar margins must not add a second gap. */
+body[data-render-mode=manager] .settings-tabs .component-tools{margin:0;padding:0;width:100%;box-sizing:border-box}
+body[data-render-mode=manager] .settings-tabs .component-tools button{margin:0;flex:1 1 auto}
+body[data-render-mode=manager] .settings-tabs .settings-widget-list{margin:0;padding:0}

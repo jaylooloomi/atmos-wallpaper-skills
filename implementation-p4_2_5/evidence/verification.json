@@ -4,8 +4,8 @@
   "platform": "win32",
   "node": "v24.13.0",
   "input": {
-    "sha256": "00684a538b5d648554eebe3090c5cdb7b2ba6c1dda0278f29d8cbfdce17fece8",
-    "files": 398,
+    "sha256": "460b0ca8b3288ca037d317060f64d32f87835e726585d6ed0e3ce6c4e3e8647d",
+    "files": 407,
     "node": "v24.13.0",
     "cacheHit": false,
     "scope": "Working-tree source, tests, scripts, frozen prototype and dependency lockfiles; telemetry only, not a cache authorization"
@@ -23,24 +23,24 @@
     ],
     "cacheReuseEnabled": false
   },
-  "startedAt": "2026-11-07T02:23:00.130Z",
-  "elapsedMs": 205211,
+  "startedAt": "2026-11-07T03:18:23.171Z",
+  "elapsedMs": 201165,
   "checks": [
     {
       "name": "prepare",
       "exitCode": 0,
-      "elapsedMs": 582,
+      "elapsedMs": 565,
       "timedOut": false,
       "aborted": false
     },
     {
       "name": "product-tests",
       "exitCode": 0,
-      "tests": 558,
-      "pass": 555,
+      "tests": 567,
+      "pass": 564,
       "fail": 0,
       "skipped": 3,
-      "elapsedMs": 12256,
+      "elapsedMs": 11213,
       "timedOut": false,
       "aborted": false
     },
@@ -51,21 +51,21 @@
       "pass": 41,
       "fail": 0,
       "skipped": 2,
-      "elapsedMs": 8035,
+      "elapsedMs": 7905,
       "timedOut": false,
       "aborted": false
     },
     {
       "name": "draft-review",
       "exitCode": 0,
-      "elapsedMs": 138,
+      "elapsedMs": 142,
       "timedOut": false,
       "aborted": false
     },
     {
       "name": "path-review",
       "exitCode": 0,
-      "elapsedMs": 152,
+      "elapsedMs": 163,
       "timedOut": false,
       "aborted": false
     },
@@ -79,26 +79,26 @@
     {
       "name": "feed-global-apply",
       "exitCode": 0,
-      "elapsedMs": 8026,
+      "elapsedMs": 8042,
       "timedOut": false,
       "aborted": false
     },
     {
       "name": "layout-regression",
       "exitCode": 0,
-      "elapsedMs": 160241,
+      "elapsedMs": 157002,
       "timedOut": false,
       "aborted": false
     }
   ],
-  "integrityCheckMs": 4661,
-  "artifactCaptureMs": 6492,
+  "integrityCheckMs": 4949,
+  "artifactCaptureMs": 6651,
   "passed": true,
   "status": "complete",
   "artifact": {
-    "inputHash": "8eb6d6ce15d023437eaef082d234685c62ce2d93304fefcad5653450d3d87589",
-    "sha256": "586a32f2bc87b1ed90ea46df438768bccfe520dfc8f92d1ea881ca4ab56d0fd9",
-    "files": 88
+    "inputHash": "8437975f4ef2be9b44f5728cb537d46362345465fb9766c2da4caa11384e6970",
+    "sha256": "1aca206e5c197313426196f7ab1c1d2a0b684c6e23cd3c39220ace0ae1de7174",
+    "files": 89
   },
   "invocations": {
     "prepare": 1,

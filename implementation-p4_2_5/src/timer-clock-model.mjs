@@ -1,0 +1,1 @@
+export function timerClockProjection(timer,remaining){const duration=Number.isFinite(timer?.minutes)&&timer.minutes>0?timer.minutes*60000:1,ms=Number.isFinite(remaining)?Math.max(0,Math.min(duration,remaining)):0,elapsed=duration-ms;return {remainingPercent:ms/duration*100,handDegrees:elapsed/1000*6,state:timer?.finished||ms===0?'finished':timer?.running?'running':'paused'}}

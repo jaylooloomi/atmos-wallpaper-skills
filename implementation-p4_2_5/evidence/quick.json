@@ -5,37 +5,37 @@
   "validationTier": "development-targeted",
   "diagnosticOnly": false,
   "releaseEligible": false,
-  "widget": "audio",
+  "widget": "clock",
   "tests": [
     "tests\\settings-tabs.test.mjs"
   ],
-  "elapsedMs": 17763,
+  "elapsedMs": 17688,
   "checks": [
     {
       "name": "prepare",
       "exitCode": 0,
-      "elapsedMs": 531,
+      "elapsedMs": 570,
       "timedOut": false,
       "aborted": false
     },
     {
       "name": "targeted-tests",
       "exitCode": 0,
-      "elapsedMs": 888,
+      "elapsedMs": 910,
       "timedOut": false,
       "aborted": false
     },
     {
       "name": "desktop-mobile",
       "exitCode": 0,
-      "elapsedMs": 15547,
+      "elapsedMs": 15402,
       "timedOut": false,
       "aborted": false
     }
   ],
   "input": {
-    "sha256": "37da18b135aae42ca8c6414de0776b47c5284178871084d6a8ea71e5b77930cb",
-    "files": 398,
+    "sha256": "41542f4a9ffa81eb8998756511d7f190e2385108dc777d5926ffa06f6d8cfbd3",
+    "files": 407,
     "node": "v24.13.0",
     "cacheHit": false,
     "scope": "Working-tree source, tests, scripts, frozen prototype and dependency lockfiles; telemetry only, not a cache authorization"

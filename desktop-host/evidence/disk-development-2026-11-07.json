@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-07",
+  "passed": true,
+  "developmentOnly": true,
+  "releaseEligible": false,
+  "productTests": {
+    "tests": 562,
+    "passed": 559,
+    "failed": 0,
+    "skipped": 3
+  },
+  "rustTests": {
+    "passed": 53,
+    "failed": 0
+  },
+  "quick": {
+    "targetedPassed": 17,
+    "viewports": 2,
+    "elapsedMs": 19306
+  },
+  "nativePipeline": {
+    "sourceDebugBinaryReadOnly": true,
+    "availableDriveCount": 2,
+    "cacheReused": true,
+    "noDesktopLaunch": true
+  },
+  "layout": {
+    "passed": true,
+    "cases": 24,
+    "independentToggles": true,
+    "powerSavingUpdates": true,
+    "unavailableHonest": true,
+    "noNetworkBoxes": true,
+    "noAnchorOrSiblingMovement": true,
+    "stageAndCollisionLimits": true,
+    "scrollFallback": true,
+    "baseHeightRestored": true
+  },
+  "limitations": [
+    "No installed App update or native wallpaper visibility claim.",
+    "Demo capacities and geometry fixture are synthetic.",
+    "Raw capacity values and private settings are not exported.",
+    "No full release gate, installer, commit or push."
+  ]
+}

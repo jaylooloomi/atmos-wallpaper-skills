@@ -43,6 +43,8 @@ mod startup;
 #[cfg(windows)]
 mod telemetry;
 #[cfg(windows)]
+mod disks;
+#[cfg(windows)]
 mod windows;
 
 #[cfg(not(windows))]
@@ -113,6 +115,7 @@ fn run() -> Result<i32, String> {
         );
         return Ok(2);
     }
+    if args == ["--disk-info"] { return disks::command(); }
     if args == ["--system-info"] {
         return telemetry::command();
     }
@@ -207,7 +210,7 @@ fn run() -> Result<i32, String> {
         return agent::run(args);
     }
     if args == ["--help"] {
-        println!("Atmos Wallpaper\nLibrary: --library-command help|get|move|reset|audit|archive|result [--store DIR]; move/reset/result read JSON on stdin.\nHost configuration: --host-help, --list-displays, --host-command get|update [--store DIR] (update JSON on stdin).\nAgent JSON API: --agent-help, --agent-schema, --get-state, --validate-json FILE, --apply-json FILE [--wait-ms 0..30000], --get-result REQUEST_ID [--wait-ms 0..30000].\nMachine schemas: --host-schema. Provider configuration: --providers-command get|update (global owner; no --target).\nAdditional APIs: --layout-command get|update, --audio-command get|update|probe|diagnose|test, --audio-routing-command get|update, --performance-command get|update, --system-info.\nAppearance: --appearance-help, --preset-command get|save|apply|delete, --schedule-command get|update, --focus-command get|update.\nAgent watcher: --watch-json FILE [--target DISPLAY_ID] [--duration-ms N]; explicit opt-in, never watches live.json.\nNo arguments: verify bundled resources, launch embedded runtimes and apply to the primary monitor until tray Exit.\n--autostart status|enable|disable: manage sign-in registration.\n--autostart-launch: background logon entry (waits for Explorer).\n--quit: close only this executable's instance (upgrade/uninstall).\n--manager: open the running manager, or start and open it.\n--check-install: verify payload and embedded runtimes without applying wallpaper.\n--inspect-desktop: read native desktop metadata.\nDeveloper mode: --runtime-root DIR --node EXE --python EXE --store DIR --status FILE [--run-seconds 5..3600].\nInstalled mode also accepts --store, --status and --run-seconds for diagnostics.");
+        println!("Atmos Wallpaper\nLibrary: --library-command help|get|move|reset|audit|archive|result [--store DIR]; move/reset/result read JSON on stdin.\nHost configuration: --host-help, --list-displays, --host-command get|update [--store DIR] (update JSON on stdin).\nAgent JSON API: --agent-help, --agent-schema, --get-state, --validate-json FILE, --apply-json FILE [--wait-ms 0..30000], --get-result REQUEST_ID [--wait-ms 0..30000].\nMachine schemas: --host-schema. Provider configuration: --providers-command get|update (global owner; no --target).\nAdditional APIs: --layout-command get|update, --audio-command get|update|probe|diagnose|test, --audio-routing-command get|update, --performance-command get|update, --system-info, --disk-info.\nAppearance: --appearance-help, --preset-command get|save|apply|delete, --schedule-command get|update, --focus-command get|update.\nAgent watcher: --watch-json FILE [--target DISPLAY_ID] [--duration-ms N]; explicit opt-in, never watches live.json.\nNo arguments: verify bundled resources, launch embedded runtimes and apply to the primary monitor until tray Exit.\n--autostart status|enable|disable: manage sign-in registration.\n--autostart-launch: background logon entry (waits for Explorer).\n--quit: close only this executable's instance (upgrade/uninstall).\n--manager: open the running manager, or start and open it.\n--check-install: verify payload and embedded runtimes without applying wallpaper.\n--inspect-desktop: read native desktop metadata.\nDeveloper mode: --runtime-root DIR --node EXE --python EXE --store DIR --status FILE [--run-seconds 5..3600].\nInstalled mode also accepts --store, --status and --run-seconds for diagnostics.");
         return Ok(0);
     }
     if args == ["--quit"] {

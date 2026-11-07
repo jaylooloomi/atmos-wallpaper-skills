@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-07",
+  "version": "0.7.35",
+  "passed": true,
+  "verification": {
+    "elapsedMs": 201165,
+    "tests": [
+      {
+        "name": "product-tests",
+        "exitCode": 0,
+        "tests": 567,
+        "pass": 564,
+        "fail": 0,
+        "skipped": 3,
+        "elapsedMs": 11213,
+        "timedOut": false,
+        "aborted": false
+      },
+      {
+        "name": "core-tests",
+        "exitCode": 0,
+        "tests": 43,
+        "pass": 41,
+        "fail": 0,
+        "skipped": 2,
+        "elapsedMs": 7905,
+        "timedOut": false,
+        "aborted": false
+      }
+    ],
+    "prepareInvocations": 1,
+    "fullLayoutInvocations": 1
+  },
+  "build": {
+    "elapsedMs": 370797,
+    "phases": [
+      {
+        "name": "full-verification",
+        "elapsedMs": 201167,
+        "exitCode": 0
+      },
+      {
+        "name": "payload",
+        "elapsedMs": 17101,
+        "exitCode": 0
+      },
+      {
+        "name": "tauri-build-and-nsis",
+        "elapsedMs": 125725,
+        "exitCode": 0
+      }
+    ]
+  },
+  "additionalChecks": {
+    "rustTestsPassed": 53,
+    "timerSyntheticCases": 72,
+    "diskSyntheticCases": 24,
+    "networkNormalAndReduced": true,
+    "installedSettingsBytePreserved": 11,
+    "installedDiskRefreshVerified": true
+  },
+  "firstAttempt": {
+    "verificationPassed": true,
+    "verificationElapsedMs": 206149,
+    "packagingPassed": false,
+    "error": "PAYLOAD_SOURCE_MISMATCH",
+    "reason": "New source files were not in Git index; added tracked sources and refreshed manifest before retry. No validation bypass."
+  },
+  "installer": {
+    "bytes": 293818300,
+    "sha256": "2c97e95fab83908a04bd7bcb867176313e31f356d05be360d0863159fa3bec00"
+  },
+  "limitations": [
+    "No Computer Use, user browser automation or manual visibility test.",
+    "Synthetic timer/layout fixtures do not prove native desktop visibility. Genuine native ACK checked separately.",
+    "No new GPU, power, long soak or YouTube audio playback test.",
+    "Installers and private configuration backups remain local."
+  ]
+}

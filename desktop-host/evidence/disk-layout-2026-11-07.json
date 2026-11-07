@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-07",
+  "passed": true,
+  "method": "Actual provider renderer and production CSS; isolated synthetic telemetry/obstacles only",
+  "checks": {
+    "passed": true,
+    "cases": 24,
+    "independentToggles": true,
+    "powerSavingUpdates": true,
+    "unavailableHonest": true,
+    "noNetworkBoxes": true,
+    "noAnchorOrSiblingMovement": true,
+    "stageAndCollisionLimits": true,
+    "scrollFallback": true,
+    "baseHeightRestored": true
+  },
+  "limitations": [
+    "Not installed app visibility or genuine renderer acknowledgement.",
+    "Capacity values in fixture are explicitly synthetic."
+  ]
+}

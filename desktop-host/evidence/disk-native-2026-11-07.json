@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-07",
+  "passed": true,
+  "method": "Read-only debug native --disk-info with empty PATH and invalid Node options; no desktop launch",
+  "drives": [
+    {
+      "drive": "C:",
+      "available": true,
+      "validBytes": true
+    },
+    {
+      "drive": "D:",
+      "available": true,
+      "validBytes": true
+    }
+  ],
+  "limitations": [
+    "Current source debug binary only; installed App not updated.",
+    "No raw capacity values, volume names, file lists or user settings exported."
+  ]
+}

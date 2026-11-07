@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-07",
+  "version": "0.7.35",
+  "passed": true,
+  "drives": [
+    {
+      "drive": "C:",
+      "available": true,
+      "validBytes": true
+    },
+    {
+      "drive": "D:",
+      "available": true,
+      "validBytes": true
+    }
+  ],
+  "checks": {
+    "nativeCommandWithoutNode": true,
+    "servedAssetsMatchBuild": true,
+    "installedAssetsMatchBuild": true,
+    "renamedTabs": true,
+    "presetUiNotStarted": true,
+    "diskCacheVerified": true,
+    "diskRefreshAfter31Seconds": true,
+    "genuineWallpaperAck": true
+  },
+  "limitations": [
+    "Read-only installed data and asset checks; no manual visibility proof.",
+    "Countdown animation and clipping are checked separately in isolated synthetic Chromium fixtures.",
+    "No raw capacity, session secret or private settings exported."
+  ]
+}
