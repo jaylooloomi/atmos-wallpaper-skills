@@ -1,19 +1,48 @@
 {
   "layoutRequired": true,
+  "diagnosticOnly": false,
   "platform": "win32",
   "node": "v24.13.0",
+  "input": {
+    "sha256": "e0aa09b11540054b805dfbaed130b67609d71a199cda0837fd268d676123c8dd",
+    "files": 395,
+    "node": "v24.13.0",
+    "cacheHit": false,
+    "scope": "Working-tree source, tests, scripts, frozen prototype and dependency lockfiles; telemetry only, not a cache authorization"
+  },
+  "tools": {
+    "node": "v24.13.0",
+    "pythonPillow": "3.14.2 / Pillow 12.1.0",
+    "bundler": "0.28.2",
+    "browserVersion": "156.0.8078.75",
+    "browserBinarySha256": "7c2fe7741b1bc13ca1565658557a15773f8ebbf0a66fb5448f0fdf67bccf50fa",
+    "browserFlags": [
+      "headless=new",
+      "virtual-time-budget=24000",
+      "force-device-scale-factor=1"
+    ],
+    "cacheReuseEnabled": false
+  },
+  "startedAt": "2026-11-07T01:31:37.122Z",
+  "elapsedMs": 193352,
   "checks": [
     {
       "name": "prepare",
-      "exitCode": 0
+      "exitCode": 0,
+      "elapsedMs": 507,
+      "timedOut": false,
+      "aborted": false
     },
     {
       "name": "product-tests",
       "exitCode": 0,
-      "tests": 495,
-      "pass": 492,
+      "tests": 554,
+      "pass": 551,
       "fail": 0,
-      "skipped": 3
+      "skipped": 3,
+      "elapsedMs": 11171,
+      "timedOut": false,
+      "aborted": false
     },
     {
       "name": "core-tests",
@@ -21,24 +50,58 @@
       "tests": 43,
       "pass": 41,
       "fail": 0,
-      "skipped": 2
+      "skipped": 2,
+      "elapsedMs": 8001,
+      "timedOut": false,
+      "aborted": false
     },
     {
       "name": "draft-review",
-      "exitCode": 0
+      "exitCode": 0,
+      "elapsedMs": 147,
+      "timedOut": false,
+      "aborted": false
     },
     {
       "name": "path-review",
-      "exitCode": 0
+      "exitCode": 0,
+      "elapsedMs": 163,
+      "timedOut": false,
+      "aborted": false
     },
     {
       "name": "cli-help",
-      "exitCode": 0
+      "exitCode": 0,
+      "elapsedMs": 149,
+      "timedOut": false,
+      "aborted": false
+    },
+    {
+      "name": "feed-global-apply",
+      "exitCode": 0,
+      "elapsedMs": 7765,
+      "timedOut": false,
+      "aborted": false
     },
     {
       "name": "layout-regression",
-      "exitCode": 0
+      "exitCode": 0,
+      "elapsedMs": 149872,
+      "timedOut": false,
+      "aborted": false
     }
   ],
-  "passed": true
+  "integrityCheckMs": 4795,
+  "artifactCaptureMs": 6533,
+  "passed": true,
+  "status": "complete",
+  "artifact": {
+    "inputHash": "096bdc010a55b82184639d0633265c1d8f1aa6d4d05847fc289af68fec6f6fe7",
+    "sha256": "a4a1cf98f4325388ef1afb3f2481d96ba53ed7aaa29bd8e258226f585bd14062",
+    "files": 88
+  },
+  "invocations": {
+    "prepare": 1,
+    "fullLayout": 1
+  }
 }

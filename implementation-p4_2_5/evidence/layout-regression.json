@@ -115,5 +115,31 @@
   "negativeControl": {
     "passed": true,
     "expectedOverlapRejected": true
+  },
+  "elapsedMs": 149870,
+  "phases": [
+    {
+      "name": "layout-negative",
+      "exitCode": 1,
+      "expectedExit": 1,
+      "elapsedMs": 11961,
+      "timedOut": false,
+      "aborted": false
+    },
+    {
+      "name": "layout-positive",
+      "exitCode": 0,
+      "expectedExit": 0,
+      "elapsedMs": 136717,
+      "timedOut": false,
+      "aborted": false
+    }
+  ],
+  "input": {
+    "sha256": "e0aa09b11540054b805dfbaed130b67609d71a199cda0837fd268d676123c8dd",
+    "files": 395,
+    "node": "v24.13.0",
+    "cacheHit": false,
+    "scope": "Working-tree source, tests, scripts, frozen prototype and dependency lockfiles; telemetry only, not a cache authorization"
   }
 }

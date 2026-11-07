@@ -1,12 +1,16 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import {fileURLToPath} from 'node:url';
+import {fileURLToPath,pathToFileURL} from 'node:url';
 import {spawnSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
 
+import {assertVerified,verifyWorkflow,disposeVerification} from '../../implementation-p4_2_5/scripts/workflow.mjs';
+import {payloadPolicy} from './payload-integrity.mjs';
+export async function preparePayload({proof}={}){
+const verified=assertVerified(proof);
 if(process.platform!=='win32')throw Error('Windows x64 payload build only');
 const root=fileURLToPath(new URL('../',import.meta.url)),repo=path.dirname(root);
-const payload=path.join(root,'payload'),cache=path.join(process.env.LOCALAPPDATA,'AtmosWallpaper/installer-build-cache');
+const payload=path.join(root,'payload');payloadPolicy.invalidate(payload);const cache=path.join(process.env.LOCALAPPDATA,'AtmosWallpaper/installer-build-cache');
 const python=process.env.ATMOS_BUILD_PYTHON||'C:\\Python314\\python.exe';
 const git=process.env.ATMOS_GIT||'C:\\Program Files\\Git\\cmd\\git.exe';
 const cargo=path.join(process.env.USERPROFILE,'.cargo/bin/cargo.exe');
@@ -59,8 +63,9 @@ for(const file of tracked.filter(f=>prefixes.some(p=>f.startsWith(p)))){
 }
 const product=path.join(payload,'app/implementation-p4_2_5');
 for(const name of ['package.json','package-lock.json'])copy(path.join(repo,'implementation-p4_2_5',name),path.join(product,name));
-run(process.execPath,[path.join(repo,'implementation-p4_2_5/scripts/prepare.mjs'),'--assets-only']);
-fs.cpSync(path.join(repo,'implementation-p4_2_5/dist'),path.join(product,'dist'),{recursive:true});
+fs.cpSync(verified.artifact.dist,path.join(product,'dist'),{recursive:true});
+for(const file of walk(path.join(product,'dist')))fs.chmodSync(path.join(product,'dist',file),0o644);
+copy(path.join(repo,'SOURCE-MANIFEST.json'),path.join(payload,'app/SOURCE-MANIFEST.json'));
 const npmCli=path.join(path.dirname(process.execPath),'node_modules/npm/bin/npm-cli.js');
 run(process.execPath,[npmCli,'ci','--omit=dev','--ignore-scripts','--no-audit','--no-fund'],{cwd:product});
 // Isolated embedded Python must be able to import its bundled Pillow codecs.
@@ -82,5 +87,9 @@ fs.writeFileSync(path.join(notices,'RUST-DEPENDENCIES.json'),JSON.stringify(lice
 copy(path.join(root,'installer/runtime-lock.json'),path.join(notices,'RUNTIME-SOURCES.json'));
 const files=walk(payload).map(p=>{const b=fs.readFileSync(path.join(payload,p));return {path:p,bytes:b.length,sha256:sha(b)}});
 const manifest={schemaVersion:1,architecture:'x86_64',versions:{node:pins.node.version,python:pins.python.version,pillow:pins.pillow.version},files};
-fs.writeFileSync(path.join(payload,'payload-manifest.json'),JSON.stringify(manifest,null,2)+'\n');
-console.log(JSON.stringify({payloadPrepared:true,files:files.length,bytes:files.reduce((s,x)=>s+x.bytes,0),embeddedPython:check,systemRuntimeRequired:false}));
+const sealed=payloadPolicy.seal(proof,payload,manifest);
+console.log(JSON.stringify({payloadPrepared:true,files:sealed.files.length,bytes:sealed.files.reduce((s,x)=>s+x.bytes,0),embeddedPython:check,systemRuntimeRequired:false}));
+
+return {payload,files:sealed.files.length};
+}
+if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){let proof;try{({proof}=await verifyWorkflow());await preparePayload({proof})}catch(e){console.error(e.message);process.exitCode=1}finally{if(proof)disposeVerification(proof)}}

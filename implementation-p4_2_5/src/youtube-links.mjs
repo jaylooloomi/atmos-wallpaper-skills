@@ -28,6 +28,6 @@ export function youtubeEmbedUrl(value,origin){
  const source=parseYouTubeLink(value),base=new URL(origin);
  if(base.origin!==origin||base.protocol!=='http:'||base.hostname!=='127.0.0.1'||!base.port)throw Error('YOUTUBE_ORIGIN_INVALID');
  const embed=new URL('https://www.youtube-nocookie.com/embed/'+(source.videoId||'videoseries'));
- for(const [key,item]of Object.entries({autoplay:'1',controls:'1',playsinline:'1',origin,...(source.listId?{list:source.listId,listType:'playlist'}:{}),...(source.startSeconds?{start:String(source.startSeconds)}:{})}))embed.searchParams.set(key,item);
+ for(const [key,item]of Object.entries({autoplay:'1',controls:'1',playsinline:'1',enablejsapi:'1',origin,...(source.listId?{list:source.listId,listType:'playlist'}:{}),...(source.startSeconds?{start:String(source.startSeconds)}:{})}))embed.searchParams.set(key,item);
  return embed.href;
 }

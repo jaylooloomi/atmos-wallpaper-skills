@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-07",
+  "passed": true,
+  "scope": "User-approved tiered workflow; different coverage, not equal-workload algorithm benchmark",
+  "before": {
+    "localUiCompletionMs": 167094,
+    "policy": "Every UI change required full verify",
+    "prepareCallsInVerifyThenBuild": 4,
+    "fullLayoutCallsInVerifyThenBuild": 2,
+    "source": "P0 recorded mean, baseline source call chain"
+  },
+  "after": {
+    "localizedChangeCompletionMs": 17161,
+    "waitingSecondsSaved": 149.933,
+    "waitingReductionPercent": 89.73,
+    "policy": "Targeted unit tests plus 390px mobile and 1280px desktop for localized changes only",
+    "quickReleaseEligible": false,
+    "fullVerificationMs": 175707,
+    "fullPrepareCalls": 1,
+    "fullLayoutCalls": 1,
+    "payloadBuildMs": 16439,
+    "payloadFiles": 2021,
+    "payloadBytes": 184534906
+  },
+  "coverage": {
+    "product": {
+      "name": "product-tests",
+      "exitCode": 0,
+      "tests": 545,
+      "pass": 542,
+      "fail": 0,
+      "skipped": 3,
+      "elapsedMs": 11636,
+      "timedOut": false,
+      "aborted": false
+    },
+    "core": {
+      "name": "core-tests",
+      "exitCode": 0,
+      "tests": 43,
+      "pass": 41,
+      "fail": 0,
+      "skipped": 2,
+      "elapsedMs": 7887,
+      "timedOut": false,
+      "aborted": false
+    },
+    "fullMatrixPreserved": true,
+    "negativeControlPreserved": true,
+    "targetedTests": [
+      "tests\\daily-feeds-client.test.mjs"
+    ],
+    "quickViewports": 2,
+    "smokeViewports": 1
+  },
+  "checks": {
+    "sameFinalSourceForFullAndQuick": true,
+    "sameVerifiedFrontendForPayload": true,
+    "realPayloadVerifiedTwice": true,
+    "noPersistedReportAuthorization": true,
+    "noCrossProcessPayloadReuse": true,
+    "noInstallerBuild": true,
+    "noInstalledAppOrRealSettingsChanged": true,
+    "noPush": true
+  },
+  "limitations": [
+    "Quick intentionally has reduced scope and cannot authorize release, shared layout/core/schema or cross-widget changes.",
+    "P0 excludes tool preflight; current full timing includes it and more tests/content guards, so full times are observations, not equal-workload speed measurements.",
+    "OS/browser caches were not flushed, background load not controlled; no statistically controlled speedup claimed.",
+    "Prepare 4→1 and layout 2→1 refer to one connected release flow; command/code-path tests plus actual verify/payload run establish counts. NSIS was not executed, so end-to-end release speedup is unmeasured.",
+    "Cross-run cache reuse and parallel Chromium were intentionally not introduced."
+  ]
+}

@@ -1,8 +1,51 @@
 # Atmos 後續執行 TODO
 
-更新：2026-11-06。Windows 0.7.32；原 0.7.0 功能矩陣保留為歷史驗證範圍。
+更新：2026-11-07。Windows 已安裝版 0.7.33；原 0.7.0 功能矩陣保留為歷史驗證範圍。
 
 本文件保存已授權功能與驗證界線。使用者本輪要求先完成程式與自動腳本，不先安排人工測試。下列核取代表功能已實作且有對應自動單元／合成／原生腳本證據，不代表所有硬體、人眼或人工生命週期皆通過；HOST-03 另外追蹤最終驗證矩陣。完整對照見 `desktop-host/docs/AUTOMATED-ROADMAP-VALIDATION-2026-11-04.md`，執行順序見 `desktop-host/docs/ROADMAP-EXECUTION-2026-11-04.md`。
+
+## 近期修改整合交付（0.7.33）
+
+- [x] UI-BATCH-RELEASE：完整驗證、NSIS 建置、保留 11 份設定及開機／省電偏好的本機更新通過；新增月曆正方形及窄格回歸檢查。詳見 `desktop-host/docs/UI-BATCH-RELEASE-2026-11-07.md`。不宣稱 YouTube 實播、人眼畫面或長時間耗用通過。
+
+## YouTube 播放狀態卡片（0.7.33）
+
+- [x] YOUTUBE-LIVE-CARD：官方 IFrame API 啟動及真正播放事件同步卡片；播放時 5 音柱、暫停／結束／錯誤停止，省電保留小型狀態動畫、系統減少動態則靜態。嵌入／自動播放／SDK 失敗提示與外部開啟。9 項 contract／安全測試、桌面／手機 quick（16.948 秒）、320px 幾何 smoke 與正常／減少動態 CSS fixture 通過；沒有實播或偽造 live ACK。
+
+## 特效即時預覽（0.7.33）
+
+- [x] EFFECT-LIVE-PREVIEW：修正強度滑桿未綁定／回填；天氣與強度即時預覽。省電時本頁互動預覽 8 秒，繼續調整延長；取消／隱藏／減少動態停止，不改桌布省電政策。15 項相關測試、桌面／手機 quick（17.110 秒）及隔離實際 Canvas 像素／強度 0 清除／恢復／到期／草稿不提交測試通過。
+
+## 移除模式／排程介面（開發中）
+
+- [x] MODE-PANELS-REMOVE：移除專注與展示、換景／播放清單兩個管理區塊；保留既有模式同步、後端與設定，不產生設定寫入。10 項相關測試及桌面／手機 quick 通過（18.885 秒）。
+
+## 元件設定集中（開發中）
+
+- [x] WIDGET-INLINE-PROPS：日期／日曆／天氣／待辦／番茄鐘／系統／播放資訊的字型、字級、顏色、尺寸及位置集中在桌面元件的選定卡片下方；保留原節點與草稿，移除二次跳轉。25 項相關測試、桌面／手機 quick（17.089 秒）、單 viewport 四主題元件 smoke 與重疊負控制通過。
+- [x] WF-RELEASE-ONLY：依使用者最新要求，日常針對性測試＋UI quick；完整 verify 只在正式安裝器／發版自動觸發，或由使用者明確要求。
+
+## 資訊設定區塊精簡（0.7.33）
+
+- [x] FEED-TOOLS-REMOVE：移除資訊配置／來源工具和獨立儲存區；保留元件欄位、上方套用／取消與錯誤回報，完整矩陣通過，已隨 0.7.33 更新安裝版。
+
+## 開發流程改善（依 2026-11-06 審查文件）
+
+- [x] WF-P0-POLICY：日常與 release 分開；2026-11-07 使用者同意局部小改用 targeted＋desktop/mobile quick；後續使用者再調整為日常 targeted＋UI quick，僅正式封裝／明確要求時 full verify，不自動升版、安裝或推送。
+- [x] WF-P0-STREAM：verify／layout 即時輸出、階段／viewport 實耗、timeout／中斷、原子成功／失敗狀態；原始日誌留本機。
+- [x] WF-P0-MEASURE：同來源兩輪完整 verify 166.652／167.536 秒；平均排版 83.38%、產品測試 6.66%、核心測試 4.68%。OS/browser cache 未清空，不冒充嚴格冷快取；未宣稱加速。
+- [x] WF-P1-ARTIFACT：read-only snapshot＋單次 orchestrator，實測 prepare／完整 layout 各一次；活躍程序憑證與來源／產物／工具 guard；獨立入口完整驗證，不信任 passed:true。
+- [x] WF-P1-PAYLOAD：完整輸入 sidecar／輸出 hash，涵蓋後端、依賴、runtime、凍結、工具、source manifest；真實 2021 檔 payload 建立與兩次核對通過，保留 Rust schema。僅同次程序重用，跨次 flag fail closed。
+- [x] WF-P1-ACCEPTANCE：上述來源失效、僅後端變更、產物多檔／少檔／同大小改寫／symlink、未確認結果／中斷／負控制／覆蓋失敗、serialized green／quick／unit 不可發版等負向測試通過；545 產品＋43 核心與完整矩陣通過（既有 skip 5）。
+- [x] WF-P2-SMOKE：診斷 smoke 實測通過；正式局部小改 quick 含針對測試及 390/1280px，17.161 秒；相較舊小改完成流程平均 167.094 秒，等待少 89.73%（不同覆蓋範圍，非完整驗證加速）。
+- [ ] WF-P2-BROWSER：依量測再評估有限並行／process 重用；隔離狀態、取消清理與完整覆蓋。
+- [x] WF-P3-MAP：WORKFLOW-P0 文件先列來源→轉換→dist 維護入口圖。
+- [ ] WF-P3-SOURCE：逐個 replace 錨點補恰好替換一次斷言，再小步模組化，保留 frozen/provenance。
+- [x] WF-RELOAD：隔離測試既有檔案新 bytes、新增／刪除需重建索引、Node 模組需重啟通過；不宣稱完整 HMR。
+
+## 資訊元件共用套用（0.7.33）
+
+- [x] FEED-GLOBAL-APPLY：GitHub／Yahoo／RSS 預覽、上方套用與取消；CAS 衝突、無效 RSS、未確認回覆保留草稿；真實控制項／獨立桌布讀取器自動測試。
 
 ## 元件選取卡片同列（0.7.32）
 

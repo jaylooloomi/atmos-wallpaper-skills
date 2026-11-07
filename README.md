@@ -2,7 +2,17 @@
 
 Atmos 是可客製化的個人資訊桌面（Personal Dashboard）：把關心的資訊、生活安排與系統狀態，放進自己設計的動態桌布。動態桌布提供氛圍，元件匯集資料，JSON／Agent 介面負責自動化。採本機優先架構，保留既有桌布、日曆及管理能力。
 
+## 開發入口
+
+日常 Windows 開發、完整驗證與正式交付請先看 [DEVELOPMENT.md](DEVELOPMENT.md)。一般修改不自動升版、打包或安裝；以下歷史功能紀錄不代表每次修改都要重新發版。
+
+2026-11-07 已採使用者同意的分層驗證：局部小改 quick 實測 **17.2 秒**，最新規則為日常相關測試＋UI quick，正式安裝版／發版才自動完整驗證。P1 已完成同流程 artifact 去重及完整 payload manifest；不自動安裝或推送。[改善報告與實測界線](desktop-host/docs/WORKFLOW-IMPROVEMENT-2026-11-07.md)。
+
 ## 最新功能
+
+- 0.7.33 整合近期管理頁與元件修改，修正月曆正方形標記的窄格溢出；已完成保留設定的本機更新。[更新與完整驗證](desktop-host/docs/UI-BATCH-RELEASE-2026-11-07.md)。
+
+- 0.7.33 修正 GitHub／Yahoo／RSS 開關未隨上方「套用」保存：現在支援本頁預覽、共用套用與取消，保留衝突與失敗草稿。[驗證](desktop-host/docs/FEED-GLOBAL-APPLY-2026-11-06.md)。
 
 - 0.7.32 元件選取卡片改為名稱／開關同列，降低高度，保留三欄與窄欄響應排列。[驗證](desktop-host/docs/WIDGET-SINGLE-ROW-2026-11-06.md)。
 
@@ -52,7 +62,7 @@ Atmos 是可客製化的個人資訊桌面（Personal Dashboard）：把關心�
 
 - 個人資訊桌面：GitHub／Yahoo 每日資訊，加上自訂 RSS／Atom、更新頻率、來源狀態與三種資訊卡片配置範本。[定位、操作與 Agent 介面](desktop-host/docs/PERSONAL-DASHBOARD-2026-11-05.md)。
 
-前端修改請執行 `implementation-p4_2_5` 的 `npm run verify`：已包含 12 情境／336 狀態的排版回歸，Windows 封裝亦強制執行。[排版測試與規則](implementation-p4_2_5/docs/LAYOUT-REGRESSION.md)。
+日常前端修改執行相關測試與桌面／手機 quick；Windows 封裝／正式發版才自動執行 `implementation-p4_2_5` 的完整 `npm run verify`，包含 12 情境／336 狀態的排版回歸。[排版測試與規則](implementation-p4_2_5/docs/LAYOUT-REGRESSION.md)。
 
 - 「全部顯示／全部隱藏」控制七類元件；只改顯示狀態，不重排已存位置。
 - 元件設定使用真正行內展開，移除重複分隔線。

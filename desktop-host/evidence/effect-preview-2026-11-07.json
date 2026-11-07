@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-07",
+  "passed": true,
+  "checks": {
+    "passed": true,
+    "realCanvasPixels": true,
+    "zeroAndNonzeroStrength": true,
+    "draftOnly": true,
+    "powerPreferencePreserved": true,
+    "automaticExpiry": true
+  },
+  "limitations": [
+    "Isolated real manager and Canvas; synthetic store/power policy. No native desktop visibility or live ACK claim."
+  ]
+}

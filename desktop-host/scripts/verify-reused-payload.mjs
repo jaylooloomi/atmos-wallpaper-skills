@@ -1,3 +1,4 @@
+// Diagnostic frontend comparison only; never authorizes release or payload reuse.
 import fs from 'node:fs';import path from 'node:path';import {createHash} from 'node:crypto';
 export function verifyReusedFrontend(prepared,cached){
  const fail=()=>{throw Error('REUSED_PAYLOAD_STALE: rebuild without --reuse-payload')};

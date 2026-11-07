@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-07",
+  "passed": true,
+  "method": "Actual prepared manager and wallpaper reader, isolated store and real CAS endpoints; synthetic feed caches and RSS fetcher",
+  "checks": {
+    "passed": true,
+    "previewAndCancel": true,
+    "combinedApply": true,
+    "feedOnlyApply": true,
+    "wallpaperReaderVisible": true,
+    "invalidRssBlocked": true,
+    "conflictPreservesDraft": true,
+    "lostReceiptNotClaimed": true,
+    "busyDoubleClickGuard": true,
+    "primaryRevision": 1,
+    "feedWrites": 6
+  },
+  "limitations": [
+    "Isolated Chromium only; not user UI automation, native desktop visibility proof or a live renderer ACK.",
+    "Primary appearance and feeds remain separate transactions; no cross-namespace atomicity is claimed."
+  ]
+}

@@ -36,7 +36,13 @@ body[data-render-mode=manager] .settings-tabpanel #themeSettings.theme-banner{wi
 body[data-render-mode=manager] .settings-tabpanel #themeSettings.theme-banner>.theme-section{width:100%;max-width:100%;min-width:0;box-sizing:border-box;margin:0!important}
 
 .settings-widget-list .daily-feed-settings{display:contents}
-.settings-widget-list .daily-feed-tools,.settings-widget-list .daily-feed-actions{grid-column:1/-1;order:2}
-.settings-widget-list .daily-feed-settings:not([data-active=true])>.daily-feed-tools,.settings-widget-list .daily-feed-settings:not([data-active=true])>.daily-feed-actions{display:none}
 
 .settings-widget-detail-title{margin:0 0 12px;font-size:16px;line-height:1.5}.settings-widget-summary{cursor:pointer}
+
+.settings-widget-content>.inspect-props{padding:0}.settings-widget-content>.inspect-props[hidden]{display:none!important}.settings-tabs .settings-edit-appearance{display:none}
+
+/* Highlight the entire tile, never a second pill behind its label. */
+.settings-widget-summary:hover,.settings-widget-summary:has(.settings-widget-select:focus-visible){background:color-mix(in srgb,var(--accent,#71d9ff) 22%,var(--control,#142336));border-color:var(--accent,#71d9ff)}
+.settings-tabs .settings-widget-summary .settings-widget-select:is(:hover,:active,:focus-visible){background:transparent!important;box-shadow:none!important}
+.settings-tabs .settings-widget-summary .settings-widget-select:focus-visible{outline:none}
+.settings-widget-summary:has(.settings-widget-select:focus-visible){outline:2px solid var(--accent,#71d9ff);outline-offset:2px}

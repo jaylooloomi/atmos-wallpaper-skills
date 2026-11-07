@@ -1,0 +1,297 @@
+{
+  "schemaVersion": 1,
+  "baselineHead": "f388bcdf0ac3833a2c1c926f1895c3ebbf01620b",
+  "passed": true,
+  "scope": "P0 observability baseline, not optimization benchmark or release authorization",
+  "tools": {
+    "node": "v24.13.0",
+    "pythonPillow": null,
+    "bundler": "0.28.2",
+    "browserVersion": "156.0.8078.75",
+    "browserBinarySha256": "7c2fe7741b1bc13ca1565658557a15773f8ebbf0a66fb5448f0fdf67bccf50fa",
+    "browserFlags": [
+      "headless=new",
+      "virtual-time-budget=24000",
+      "force-device-scale-factor=1"
+    ],
+    "cacheReuseEnabled": false
+  },
+  "runs": [
+    {
+      "index": 1,
+      "condition": "Initial observed run; OS/browser cache not cleared",
+      "inputFingerprint": "25c0f21d3ff0852743cfee450afe8ad5215662af9f17bc423497d1c26e19f78c",
+      "passed": true,
+      "elapsedMs": 166652,
+      "phases": [
+        {
+          "event": "complete",
+          "name": "prepare",
+          "exitCode": 0,
+          "elapsedMs": 542,
+          "timedOut": false,
+          "aborted": false
+        },
+        {
+          "event": "complete",
+          "name": "product-tests",
+          "exitCode": 0,
+          "tests": 503,
+          "pass": 500,
+          "fail": 0,
+          "skipped": 3,
+          "elapsedMs": 10996,
+          "timedOut": false,
+          "aborted": false
+        },
+        {
+          "event": "complete",
+          "name": "core-tests",
+          "exitCode": 0,
+          "tests": 43,
+          "pass": 41,
+          "fail": 0,
+          "skipped": 2,
+          "elapsedMs": 7907,
+          "timedOut": false,
+          "aborted": false
+        },
+        {
+          "event": "complete",
+          "name": "draft-review",
+          "exitCode": 0,
+          "elapsedMs": 205,
+          "timedOut": false,
+          "aborted": false
+        },
+        {
+          "event": "complete",
+          "name": "path-review",
+          "exitCode": 0,
+          "elapsedMs": 190,
+          "timedOut": false,
+          "aborted": false
+        },
+        {
+          "event": "complete",
+          "name": "cli-help",
+          "exitCode": 0,
+          "elapsedMs": 174,
+          "timedOut": false,
+          "aborted": false
+        },
+        {
+          "event": "complete",
+          "name": "feed-global-apply",
+          "exitCode": 0,
+          "elapsedMs": 8115,
+          "timedOut": false,
+          "aborted": false
+        },
+        {
+          "event": "complete",
+          "name": "layout-regression",
+          "exitCode": 0,
+          "elapsedMs": 138505,
+          "timedOut": false,
+          "aborted": false
+        }
+      ],
+      "layoutPhases": [
+        {
+          "event": "complete",
+          "name": "prepare",
+          "exitCode": 0,
+          "expectedExit": 0,
+          "elapsedMs": 526,
+          "timedOut": false,
+          "aborted": false
+        },
+        {
+          "event": "complete",
+          "name": "layout-negative",
+          "exitCode": 1,
+          "expectedExit": 1,
+          "elapsedMs": 10958,
+          "timedOut": false,
+          "aborted": false
+        },
+        {
+          "event": "complete",
+          "name": "layout-positive",
+          "exitCode": 0,
+          "expectedExit": 0,
+          "elapsedMs": 126291,
+          "timedOut": false,
+          "aborted": false
+        }
+      ],
+      "layoutChromiumCases": 13,
+      "viewportElapsedMs": {
+        "min": 9803,
+        "max": 11908
+      },
+      "prepareInvocations": 2
+    },
+    {
+      "index": 2,
+      "condition": "Consecutive run; warm environment, fresh isolated fixture profiles",
+      "inputFingerprint": "25c0f21d3ff0852743cfee450afe8ad5215662af9f17bc423497d1c26e19f78c",
+      "passed": true,
+      "elapsedMs": 167536,
+      "phases": [
+        {
+          "event": "complete",
+          "name": "prepare",
+          "exitCode": 0,
+          "elapsedMs": 543,
+          "timedOut": false,
+          "aborted": false
+        },
+        {
+          "event": "complete",
+          "name": "product-tests",
+          "exitCode": 0,
+          "tests": 503,
+          "pass": 500,
+          "fail": 0,
+          "skipped": 3,
+          "elapsedMs": 11277,
+          "timedOut": false,
+          "aborted": false
+        },
+        {
+          "event": "complete",
+          "name": "core-tests",
+          "exitCode": 0,
+          "tests": 43,
+          "pass": 41,
+          "fail": 0,
+          "skipped": 2,
+          "elapsedMs": 7742,
+          "timedOut": false,
+          "aborted": false
+        },
+        {
+          "event": "complete",
+          "name": "draft-review",
+          "exitCode": 0,
+          "elapsedMs": 129,
+          "timedOut": false,
+          "aborted": false
+        },
+        {
+          "event": "complete",
+          "name": "path-review",
+          "exitCode": 0,
+          "elapsedMs": 147,
+          "timedOut": false,
+          "aborted": false
+        },
+        {
+          "event": "complete",
+          "name": "cli-help",
+          "exitCode": 0,
+          "elapsedMs": 139,
+          "timedOut": false,
+          "aborted": false
+        },
+        {
+          "event": "complete",
+          "name": "feed-global-apply",
+          "exitCode": 0,
+          "elapsedMs": 7396,
+          "timedOut": false,
+          "aborted": false
+        },
+        {
+          "event": "complete",
+          "name": "layout-regression",
+          "exitCode": 0,
+          "elapsedMs": 140147,
+          "timedOut": false,
+          "aborted": false
+        }
+      ],
+      "layoutPhases": [
+        {
+          "event": "complete",
+          "name": "prepare",
+          "exitCode": 0,
+          "expectedExit": 0,
+          "elapsedMs": 607,
+          "timedOut": false,
+          "aborted": false
+        },
+        {
+          "event": "complete",
+          "name": "layout-negative",
+          "exitCode": 1,
+          "expectedExit": 1,
+          "elapsedMs": 10870,
+          "timedOut": false,
+          "aborted": false
+        },
+        {
+          "event": "complete",
+          "name": "layout-positive",
+          "exitCode": 0,
+          "expectedExit": 0,
+          "elapsedMs": 127943,
+          "timedOut": false,
+          "aborted": false
+        }
+      ],
+      "layoutChromiumCases": 13,
+      "viewportElapsedMs": {
+        "min": 9759,
+        "max": 12007
+      },
+      "prepareInvocations": 2
+    }
+  ],
+  "meanTotalMs": 167094,
+  "topThree": [
+    {
+      "stage": "layout-regression",
+      "meanMs": 139326,
+      "percentOfMeanTotal": 83.38
+    },
+    {
+      "stage": "product-tests",
+      "meanMs": 11136.5,
+      "percentOfMeanTotal": 6.66
+    },
+    {
+      "stage": "core-tests",
+      "meanMs": 7824.5,
+      "percentOfMeanTotal": 4.68
+    }
+  ],
+  "coverage": {
+    "viewports": 12,
+    "componentThemeStates": 336,
+    "feedWidgetStates": 1008,
+    "dashboardTemplateStates": 1008,
+    "informationModeStates": 336,
+    "youtubePlayerStates": 336,
+    "weatherCardStates": 720,
+    "negativeControl": {
+      "passed": true,
+      "expectedOverlapRejected": true
+    }
+  },
+  "sideEffects": {
+    "installedAppUpdated": false,
+    "realSettingsChanged": false,
+    "pushed": false,
+    "additionalBenchmarkInstallerBuild": false
+  },
+  "limitations": [
+    "Both runs use the same working-tree fingerprint and tool installation; OS/browser cache was not flushed, so neither is a controlled cold-cache benchmark.",
+    "Top-level timer starts after tool-information preflight and excludes shell/Node startup.",
+    "No before/after speedup measured, and duplicate prepare/layout work has not yet been removed.",
+    "Payload, Rust/Tauri and NSIS were not re-run for this benchmark; independent release-stage times are unavailable.",
+    "Input fingerprints identify telemetry only; no cache or passed-flag reuse is authorized."
+  ]
+}

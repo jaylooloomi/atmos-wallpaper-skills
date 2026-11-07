@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-07",
+  "version": "0.7.33",
+  "passed": true,
+  "verification": {
+    "elapsedMs": 193352,
+    "tests": [
+      {
+        "name": "product-tests",
+        "tests": 554,
+        "pass": 551,
+        "fail": 0,
+        "skipped": 3
+      },
+      {
+        "name": "core-tests",
+        "tests": 43,
+        "pass": 41,
+        "fail": 0,
+        "skipped": 2
+      }
+    ],
+    "prepareInvocations": 1,
+    "fullLayoutInvocations": 1,
+    "viewports": 12,
+    "componentThemeStates": 336,
+    "weatherCardStates": 720,
+    "negativeControl": {
+      "passed": true,
+      "expectedOverlapRejected": true
+    }
+  },
+  "build": {
+    "elapsedMs": 359906,
+    "phases": [
+      {
+        "name": "full-verification",
+        "elapsedMs": 193354,
+        "exitCode": 0
+      },
+      {
+        "name": "payload",
+        "elapsedMs": 16517,
+        "exitCode": 0
+      },
+      {
+        "name": "tauri-build-and-nsis",
+        "elapsedMs": 124101,
+        "exitCode": 0
+      }
+    ],
+    "installer": {
+      "bytes": 293800675,
+      "sha256": "e62031a73e9fb394cee3b241a1ca0461049ed0270ccd4531d56d3e7f275df747"
+    }
+  },
+  "upgrade": {
+    "silentUpgrade": true,
+    "installedBinaryMatchesNsisStampedBuild": true,
+    "privateSettingsPreimageSaved": true,
+    "configFilesBytePreserved": 11,
+    "startupPreferencePreserved": true,
+    "informationModeCheckedWhenConfigured": true,
+    "embeddedPayloadVerified": true,
+    "servedUiAssetsMatchBuild": true,
+    "embeddedWidgetStylesVerified": true,
+    "removedManagerPanelsAbsent": true,
+    "newNativeHostAttached": true,
+    "genuineWallpaperAndManagerAck": true,
+    "retiredScreensaverFileAbsent": true,
+    "retiredActivationCommandsRejected": true,
+    "retiredSchemaAbsent": true,
+    "windowsAuthenticationAndTimeoutPreserved": true,
+    "unrelatedScreensaverSelectionPreserved": true
+  },
+  "resolvedDuringRelease": [
+    "Initial complete matrix rejected fixed-width square today marker at narrow calendar widths. Marker now fits its date cell, maintains square aspect ratio and centered date; full matrix asserts square shape and overflow."
+  ],
+  "limitations": [
+    "No manual visual or YouTube playback verification.",
+    "Native attachment and genuine renderer reports are not visual proof.",
+    "Existing information-saving preference preserved; weather SVG stays static in that mode.",
+    "Short installed telemetry check only; no new GPU, power or long-duration measurement.",
+    "Installer and private settings backup stay local, not in Git."
+  ]
+}

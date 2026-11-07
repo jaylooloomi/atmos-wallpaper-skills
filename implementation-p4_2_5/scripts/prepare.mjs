@@ -28,6 +28,13 @@ app=app.replace("for(const [key,label] of [['clear'", "Object.assign(weatherIcon
 const particleChoices="['meteor','流星雨'],['firefly','螢火蟲'],['sakura','櫻花雨'],['fireworks','煙火秀'],['galaxy','星際漩渦']";
 app=app.replace("['thunder','打雷']", "['thunder','打雷'],"+particleChoices).replace("thunder:'打雷'","thunder:'打雷',meteor:'流星雨',firefly:'螢火蟲',sakura:'櫻花雨',fireworks:'煙火秀',galaxy:'星際漩渦'");
 app=app.replace("weatherIcons[key]+'</span>'", "(weatherIcons[key]||weatherIcons.snow)+'</span>'");
+// Weather strength is a live visual draft, just like the effect buttons.
+const intensityRender="document.documentElement.style.setProperty('--intensity',state.intensity+'%');";
+if(app.split(intensityRender).length!==2)throw Error('Intensity render anchor changed');
+app=app.replace(intensityRender,intensityRender+"$('intensity').value=String(state.intensity);");
+const intensityAnchor="$('background').addEventListener('input',";
+if(app.split(intensityAnchor).length!==2)throw Error('Intensity binding anchor changed');
+app=app.replace(intensityAnchor,"$('intensity').addEventListener('input',()=>{state.intensity=Number($('intensity').value);render()});\n"+intensityAnchor);
 app=app.replace('frames%2===0',"(window.AtmosShouldDraw?.(t)??frames%2===0)");app=upgradeStormRenderer(app);if((app.match(/requestAnimationFrame\(animate\)/g)||[]).length!==2)throw Error('Animation scheduler baseline changed');app=app.replaceAll('requestAnimationFrame(animate)','(window.AtmosScheduleAnimation?window.AtmosScheduleAnimation(animate):requestAnimationFrame(animate))').replace('function draw(t){','function draw(t){if(window.AtmosAnimationSuspended?.())return;window.AtmosPerformance?.recordDraw?.();');const calendarStart=app.indexOf("$('calendar').innerHTML=",app.indexOf("function render(){")),calendarEnd=app.indexOf(";$('weatherText')",calendarStart);
 if(calendarStart<0||calendarEnd<calendarStart)throw Error('Calendar rendering baseline mismatch');
 app=app.slice(0,calendarStart)+"window.AtmosCalendar?.render()"+app.slice(calendarEnd);
@@ -159,4 +166,5 @@ mediaSource=mediaSource.slice(0,systemStart)+"if(id==='system')return '<p>正在
 const mediaStart=mediaSource.indexOf("return data.mediaState==='demo'?"),mediaLineEnd=mediaSource.indexOf('\n',mediaStart),mediaTail=mediaSource.slice(mediaStart,mediaLineEnd);
 if(mediaStart<0||!mediaTail.endsWith('}'))throw Error('Legacy media presentation hook missing');
 mediaSource=mediaSource.slice(0,mediaStart)+"return '<p>YouTube 音樂</p><small>在管理頁貼上 YouTube 連結播放</small>'}"+mediaSource.slice(mediaLineEnd);
+mediaSource=mediaSource.replace("['todo','timer'].includes(id)?'本機':'示範／未連線'","id==='media'?'YouTube':['todo','timer'].includes(id)?'本機':'示範／未連線'");
 fs.writeFileSync(mediaFile,mediaSource);

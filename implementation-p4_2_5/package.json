@@ -10,7 +10,10 @@
     "audit:layout": "node scripts/audit-layout.mjs",
     "verify": "node scripts/verify.mjs",
     "verify:unit": "node scripts/verify.mjs --unit-only",
-    "test:layout": "node scripts/verify-layout.mjs"
+    "test:layout": "node scripts/verify-layout.mjs",
+    "verify:smoke": "node scripts/verify-smoke.mjs",
+    "release:windows": "node scripts/verify.mjs --release",
+    "verify:quick": "node scripts/verify-quick.mjs"
   },
   "engines": {
     "node": ">=22"

@@ -1,6 +1,6 @@
 # Validation rules
 
-- For manager UI, CSS, localization, widget controls, layout or renderer preparation changes, run `npm run verify` in `implementation-p4_2_5`. It includes the required real Chromium layout gate. `verify:unit` is a diagnostic shortcut and does not establish layout/release readiness.
+- User-approved policy (2026-11-07, latest): normal development runs relevant targeted tests; UI changes also run `npm run verify:quick -- --widget affected --test tests/affected.test.mjs` for desktop/mobile checks. Full `npm run verify` is automatic only for Windows installer/formal release, or when explicitly requested. Frontend prepare and ordinary debug builds do not trigger it. The complete release coverage below is unchanged. Quick/unit/smoke output never authorizes packaging; do not misrepresent it as exhaustive validation.
 - Layout coverage requires all 12 viewport scenarios and all 28 distinct component/theme states per scenario, visiting all three active tabs (desktop, system and appearance) for every state, and asserting that the retired screensaver tab, controls and client script are absent. Also select all three feed widgets in every state (84 feed selections per viewport), asserting compact responsive tiles, one selected settings region below the full grid, and no widget disclosure controls. Also exercise YouTube input/player/stop geometry in all 28 states per viewport using the isolated blank-frame fixture (never real YouTube playback or synthetic playback acknowledgements). Also cover all three information-card templates (84 template visits per viewport), with GitHub, Yahoo and custom RSS fixture cards visible, and information-saving mode in all 28 states per viewport. Missing browser, timeout, incomplete measurements or geometry failures must fail; do not turn them into skipped/passing results or weaken limits to hide a regression.
 - Preserve the injected-overlap negative control: the checker must reject deliberately broken fixture controls before accepting the positive matrix.
 - Build Windows installers through `desktop-host/scripts/build-installer.mjs`, which runs the same gate before packaging. Reused frontend payloads must match the tested files/bytes.
@@ -9,3 +9,9 @@
 - Preserve `prototype-v8.1-frozen` and the original source-release provenance. Refresh `SOURCE-MANIFEST.json` from staged Git blobs when committing source changes.
 
 - Weather-card coverage also requires 60 condition/width cases per viewport (five conditions กั three widths กั four themes), each checking animated icons, static power-saving icons with changed data, unclipped original S-card height, and React root cleanup. Missing weather cases must fail the gate.
+
+## Development versus release policy (2026-11-06)
+
+- Read DEVELOPMENT.md for Windows development paths and staged workflow improvements. Routine source/UI work must not automatically bump versions, build/install NSIS, change real settings, push or deploy. Corresponding user authorization is required.
+- Follow the latest user-approved development-versus-release policy above. Select tests appropriate to the actual changed behavior; UI needs desktop/mobile quick. Formal packaging always retains the complete full validation requirements. Never weaken geometry checks, fabricate ACKs or bypass platform guards.
+- Report actual elapsed times and limits; timeouts/virtual budgets are not measurements. Raw logs stay local. Until P1 artifact/payload manifest acceptance tests pass, do not reuse success records or cached payloads based on a passed flag or commit SHA.

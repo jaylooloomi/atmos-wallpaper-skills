@@ -1,5 +1,5 @@
 // Presentation-only navigation. Existing nodes and their draft/native handlers are retained.
-(()=>{'use strict';let started=false,active='desktop',root,manager,panels={},tabs={},checks=[],save,selectedWidget='clock';
+(()=>{'use strict';let started=false,active='desktop',root,manager,panels={},tabs={},checks=[],save,selectedWidget='clock',openInspector;
 const ids=['clock','calendar','weather','todo','timer','system','media'];
 const copy={
  "zh-TW": [
@@ -83,7 +83,7 @@ const node=(tag,cls)=>{const e=document.createElement(tag);if(cls)e.className=cl
 function enabled(id){return id==='clock'?window.atmosBridgeApp.getState().clockVisible:id==='calendar'?window.atmosBridgeApp.getState().calendarVisible:window.atmosBridgeWidgets.getState().cards[id].enabled}
 function change(id,value){if(id==='clock'||id==='calendar')window.atmosBridgeApp.update({[id+'Visible']:value});else window.atmosBridgeWidgets.updateCard(id,{enabled:value});window.AtmosInspector.refresh();refresh()}
 function select(id,{focus=false}={}){if(!panels[id])throw Error('SETTINGS_TAB_UNKNOWN');active=id;for(const key of Object.keys(panels)){panels[key].hidden=key!==id;tabs[key].setAttribute('aria-selected',String(key===id));tabs[key].tabIndex=key===id?0:-1}if(focus)tabs[id].focus();window.atmosSchedulePanelAlign?.();return panels[id]}
-function selectWidget(id){const rows=[...root.querySelectorAll('[data-settings-widget-card]')];if(!rows.some(e=>e.dataset.settingsWidgetCard===id))throw Error('SETTINGS_WIDGET_UNKNOWN');selectedWidget=id;for(const row of rows){const selected=row.dataset.settingsWidgetCard===id;row.dataset.selected=String(selected);row.querySelector('.settings-widget-select')?.setAttribute('aria-pressed',String(selected));row.querySelector('.settings-widget-content').hidden=!selected}for(const feed of root.querySelectorAll('.daily-feed-settings'))feed.dataset.active=String(['github','yahoo','rss'].includes(id));window.atmosSchedulePanelAlign?.()}
+function selectWidget(id){const rows=[...root.querySelectorAll('[data-settings-widget-card]')];if(!rows.some(e=>e.dataset.settingsWidgetCard===id))throw Error('SETTINGS_WIDGET_UNKNOWN');selectedWidget=id;if(ids.includes(id))openInspector?.(id);for(const row of rows){const selected=row.dataset.settingsWidgetCard===id;row.dataset.selected=String(selected);row.querySelector('.settings-widget-select')?.setAttribute('aria-pressed',String(selected));row.querySelector('.settings-widget-content').hidden=!selected}for(const feed of root.querySelectorAll('.daily-feed-settings'))feed.dataset.active=String(['github','yahoo','rss'].includes(id));window.atmosSchedulePanelAlign?.()}
 function registerWidget(row){const id=row.dataset.settingsWidgetCard,header=row.querySelector('.settings-widget-summary'),name=header.querySelector('span'),control=header.querySelector('.settings-widget-toggle'),button=node('button','settings-widget-select'),content=row.querySelector('.settings-widget-content');button.type='button';button.id='settings-widget-select-'+id;button.setAttribute('aria-controls','settings-widget-content-'+id);button.append(name);button.onclick=()=>selectWidget(id);header.onclick=e=>{if(e.target===header)selectWidget(id)};button.onkeydown=e=>{if(!['ArrowRight','ArrowLeft','Home','End'].includes(e.key))return;const buttons=[...root.querySelectorAll('.settings-widget-select')];let index=buttons.indexOf(button);index=e.key==='Home'?0:e.key==='End'?buttons.length-1:(index+(e.key==='ArrowRight'?1:buttons.length-1))%buttons.length;e.preventDefault();buttons[index].focus();buttons[index].click()};header.replaceChildren(button,control);const title=node('h3','settings-widget-detail-title');title.append(name.cloneNode(true));content.prepend(title);content.id='settings-widget-content-'+id;content.setAttribute('role','region');content.setAttribute('aria-labelledby',button.id);selectWidget(selectedWidget)}
 function label(e,index){e.dataset.settingsCopy=String(index);return e}
 function toggle(id){const wrap=node('label','settings-widget-toggle'),input=node('input');input.type='checkbox';input.dataset.settingsWidget=id;input.onclick=e=>e.stopPropagation();input.onchange=e=>{e.stopPropagation();change(id,input.checked)};const track=node('span','settings-toggle-track');track.setAttribute('aria-hidden','true');wrap.append(input,track);checks.push({id,input});return wrap}
@@ -91,7 +91,7 @@ function refresh(){if(!root)return;const t=words();for(const e of root.querySele
 function start({wallpaper=false}={}){
  if(started||wallpaper||document.body.dataset.renderMode==='wallpaper')return;
  const scroll=document.querySelector('.side .panel-scroll'),section=document.querySelector('.component-section');manager=document.getElementById('widgetManager');const inspector=document.getElementById('componentInspector');if(!scroll||!section||!manager||!inspector)return;
- started=true;root=section;root.classList.add('settings-tabs');const originalSections=[...scroll.children].filter(e=>e!==section);
+ started=true;openInspector=window.AtmosInspector.open.bind(window.AtmosInspector);root=section;root.classList.add('settings-tabs');const originalSections=[...scroll.children].filter(e=>e!==section);
  const bar=node('div','settings-tablist');bar.setAttribute('role','tablist');bar.setAttribute('aria-label','Control panel');
  for(const [id,i]of [['desktop',0],['system',2],['appearance',1]]){
   const button=label(node('button','settings-tab'),i);button.type='button';button.id='settings-tab-'+id;button.setAttribute('role','tab');button.setAttribute('aria-controls','settings-panel-'+id);button.onclick=()=>select(id);
@@ -105,15 +105,17 @@ function start({wallpaper=false}={}){
  const rows=node('div','settings-widget-list');panels.desktop.append(rows);
  for(const [i,id]of ids.entries()){
   const row=node('section','settings-widget-card');row.dataset.settingsWidgetCard=id;const summary=node('div','settings-widget-summary'),name=label(node('span'),6+i);summary.append(name,toggle(id));row.append(summary);
-  const content=node('div','settings-widget-content'),props=document.getElementById('props-'+id);for(const e of [...props.children])if(e.classList.contains('inspect-operations')||e.classList.contains('inspect-extra')||e.classList.contains('calendar-section'))content.append(e);
-  const edit=label(node('button','settings-edit-appearance'),3);edit.type='button';edit.onclick=()=>{select('appearance');window.AtmosInspector.open(id);inspector.querySelector('#inspect-title-'+id)?.focus()};content.append(edit);row.append(content);rows.append(row);registerWidget(row);
+  const content=node('div','settings-widget-content'),props=document.getElementById('props-'+id);content.classList.add('atmos-inspector');
+  for(const e of [...props.querySelectorAll(':scope>.inspect-extra')])props.prepend(e);
+  props.removeAttribute('aria-labelledby');props.removeAttribute('role');content.append(props);row.append(content);rows.append(row);registerWidget(row);
+
  }
  // Native controls live in their own tab; preserve their nodes and save handlers.
  for(const e of originalSections){e.classList.add('settings-native-controls');e.addEventListener('change',event=>event.stopPropagation());if(e.classList.contains('screensaver-settings'))e.remove();else if(e.classList.contains('provider-settings'))rows.querySelector('[data-settings-widget-card="weather"] .settings-widget-content').prepend(e);else if(e.classList.contains('weather-section')||e.classList.contains('preset-settings'))panels.appearance.prepend(e);else panels.system.append(e)}
- const theme=document.getElementById('themeSettings');if(theme){theme.addEventListener('change',event=>event.stopPropagation());panels.desktop.prepend(theme)}
+ const theme=document.getElementById('themeSettings');if(theme){theme.addEventListener('change',event=>event.stopPropagation());const scenes=document.querySelector('.scene-section');if(scenes)scenes.before(theme)}
  for(const empty of document.querySelectorAll('.below-preview,.settings-bottom'))if(!empty.children.length)empty.remove();
  const footer=node('div','settings-tab-footer');save=label(node('button','settings-apply'),4);save.type='button';save.onclick=()=>document.getElementById('applyDraft')?.click();footer.append(save);section.append(footer);
- const oldOpen=window.AtmosInspector.open.bind(window.AtmosInspector);window.AtmosInspector.open=id=>{select('appearance');oldOpen(id)};
+ inspector.hidden=true;const status=inspector.querySelector('.inspect-status');if(status)panels.desktop.append(status);window.AtmosInspector.open=id=>{select('desktop');selectWidget(id)};
  window.AtmosSettingsTabs={start,select,selectWidget,registerWidget,get selectedWidget(){return selectedWidget},get active(){return active},refresh};select('desktop');refresh();setInterval(refresh,500);
 }
 window.AtmosSettingsTabs={start,select,selectWidget,registerWidget,get selectedWidget(){return selectedWidget},get active(){return active},refresh};

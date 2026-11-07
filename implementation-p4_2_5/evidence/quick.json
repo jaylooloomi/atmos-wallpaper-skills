@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "passed": true,
+  "status": "complete",
+  "validationTier": "development-targeted",
+  "diagnosticOnly": false,
+  "releaseEligible": false,
+  "widget": "clock",
+  "tests": [
+    "tests\\settings-tabs.test.mjs"
+  ],
+  "elapsedMs": 16907,
+  "checks": [
+    {
+      "name": "prepare",
+      "exitCode": 0,
+      "elapsedMs": 543,
+      "timedOut": false,
+      "aborted": false
+    },
+    {
+      "name": "targeted-tests",
+      "exitCode": 0,
+      "elapsedMs": 803,
+      "timedOut": false,
+      "aborted": false
+    },
+    {
+      "name": "desktop-mobile",
+      "exitCode": 0,
+      "elapsedMs": 14800,
+      "timedOut": false,
+      "aborted": false
+    }
+  ],
+  "input": {
+    "sha256": "e10df1befa1ee877b90dc6e24b54035f5032f54f5607197513311a609733ad85",
+    "files": 395,
+    "node": "v24.13.0",
+    "cacheHit": false,
+    "scope": "Working-tree source, tests, scripts, frozen prototype and dependency lockfiles; telemetry only, not a cache authorization"
+  }
+}

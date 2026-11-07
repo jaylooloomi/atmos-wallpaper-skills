@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "passed": true,
+  "status": "complete",
+  "cases": [
+    {
+      "name": "normal",
+      "passed": true,
+      "bars": 5,
+      "playingAnimation": true,
+      "prefersReducedMotion": false,
+      "pausedAnimationStopped": true
+    },
+    {
+      "name": "reduced",
+      "passed": true,
+      "bars": 5,
+      "playingAnimation": false,
+      "prefersReducedMotion": true,
+      "pausedAnimationStopped": true
+    }
+  ],
+  "method": "Isolated CSS state fixtures; no real YouTube request, playback or acknowledgement"
+}

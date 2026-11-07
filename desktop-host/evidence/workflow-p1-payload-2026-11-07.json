@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "passed": true,
+  "status": "complete",
+  "date": "2026-11-07",
+  "elapsedMs": 207955,
+  "verificationMs": 175707,
+  "payloadMs": 16439,
+  "invocations": {
+    "prepare": 1,
+    "fullLayout": 1
+  },
+  "artifact": {
+    "inputHash": "d5a30ef342897e0322e51455176e3bc94820a6cea78667fd8de0cc6b3638f146",
+    "sha256": "12cb34c378956beaacc3bdf7a2f565068eced028ac9f9d50ea7ed4968dd03c1d",
+    "files": 88
+  },
+  "checks": {
+    "realPayloadPrepared": true,
+    "completePayloadVerifiedTwice": true,
+    "allSourceMappingsMatch": true,
+    "runtimeManifestStrictSchemaPreserved": true,
+    "fullInputsHashedAsPayloadFile": true,
+    "sourceManifestIncluded": true,
+    "immutableVerifiedFrontendUsed": true,
+    "embeddedPythonPillowChecked": true,
+    "installerBuilt": false,
+    "installedAppChanged": false,
+    "realSettingsChanged": false
+  },
+  "payload": {
+    "files": 2021,
+    "bytes": 184534906,
+    "inputsBytes": 1084778,
+    "runtimes": {
+      "node": "24.22.2",
+      "python": "3.14.10",
+      "pillow": "13.0.0"
+    }
+  },
+  "limitations": [
+    "No NSIS or installation executed; no native desktop/UI automation or visual claim.",
+    "Current-process artifact/payload reuse only. Persisted reports and cross-process cached payloads cannot authorize release.",
+    "Release-plan call counts are also tested with an isolated bundler stub; real Tauri/NSIS stage was not benchmarked."
+  ]
+}

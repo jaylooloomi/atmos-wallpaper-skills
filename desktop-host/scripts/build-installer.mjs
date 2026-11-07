@@ -1,19 +1,18 @@
-import fs from 'node:fs';
-import path from 'node:path';
-import {fileURLToPath} from 'node:url';
-import {spawnSync} from 'node:child_process';
-import {createHash} from 'node:crypto';
-import {verifyReusedFrontend} from './verify-reused-payload.mjs';
+import fs from 'node:fs';import path from 'node:path';import os from 'node:os';import {fileURLToPath,pathToFileURL} from 'node:url';import {createHash} from 'node:crypto';
+import {runProcess,atomicJson} from '../../implementation-p4_2_5/scripts/process-runner.mjs';import {workflowFingerprint} from '../../implementation-p4_2_5/scripts/workflow-fingerprint.mjs';import {verifyWorkflow,assertVerified,disposeVerification} from '../../implementation-p4_2_5/scripts/workflow.mjs';import {preparePayload} from './prepare-payload.mjs';import {payloadPolicy} from './payload-integrity.mjs';import {executeReleasePlan} from './release-plan.mjs';
 const root=fileURLToPath(new URL('../',import.meta.url));
-const env={...process.env,PATH:path.join(process.env.USERPROFILE,'.cargo/bin')+path.delimiter+path.dirname(process.execPath)+path.delimiter+process.env.PATH,CARGO_BUILD_JOBS:process.env.CARGO_BUILD_JOBS||'6'};
-function run(exe,args){const result=spawnSync(exe,args,{cwd:root,env,stdio:'inherit',windowsHide:true});if(result.status!==0)process.exit(result.status||1)}
-run(process.execPath,['../implementation-p4_2_5/scripts/verify-layout.mjs']);
-if(process.argv.includes('--reuse-payload'))verifyReusedFrontend(path.join(root,'../implementation-p4_2_5/dist'),path.join(root,'payload/app/implementation-p4_2_5/dist'));
-if(!process.argv.includes('--reuse-payload'))run(process.execPath,['scripts/prepare-payload.mjs']);
-run(process.execPath,['node_modules/@tauri-apps/cli/tauri.js','build','--bundles','nsis','--','--locked']);
-const dir=path.join(root,'target/release/bundle/nsis');
-const config=JSON.parse(fs.readFileSync(path.join(root,'tauri.conf.json')));
-const artifacts=fs.readdirSync(dir).filter(n=>n===config.productName+'_'+config.version+'_x64-setup.exe').map(name=>{const b=fs.readFileSync(path.join(dir,name));return {name,bytes:b.length,sha256:createHash('sha256').update(b).digest('hex')}});
-if(artifacts.length!==1)throw Error('Expected one NSIS setup executable');
-fs.writeFileSync(path.join(dir,'SHA256SUMS.txt'),artifacts.map(x=>x.sha256+'  '+x.name).join('\n')+'\n');
-console.log(JSON.stringify({windowsInstallers:artifacts,unsigned:true}));
+export async function buildInstaller({proof:provided,reusePayload=false}={}){
+ let proof=provided,owned=false;const input=workflowFingerprint(),phases=[],startedAt=new Date().toISOString(),start=performance.now(),logs=fs.mkdtempSync(path.join(os.tmpdir(),'atmos-installer-build-')),reportFile=path.join(root,'target/build-performance.json');
+ const report=(passed,status,error)=>atomicJson(reportFile,{schemaVersion:1,passed,status,startedAt,input,elapsedMs:Math.round(performance.now()-start),phases,...(error?{error}:{})});report(false,'running');
+ async function stage(name,fn){console.log(JSON.stringify({stage:name,event:'start',inputFingerprint:input.sha256,cacheHit:false}));const t=performance.now();try{const result=await fn();const phase={name,elapsedMs:Math.round(performance.now()-t),exitCode:0};phases.push(phase);console.log(JSON.stringify({event:'complete',...phase}));return result}catch(e){phases.push({name,elapsedMs:Math.round(performance.now()-t),exitCode:1,error:e.message});throw e}}
+ try{
+  if(!proof){proof=(await stage('full-verification',()=>verifyWorkflow())).proof;owned=true}else assertVerified(proof);
+  const checked=assertVerified(proof),env={...checked.env,PATH:path.join(process.env.USERPROFILE,'.cargo/bin')+path.delimiter+path.dirname(process.execPath)+path.delimiter+checked.env.PATH,CARGO_BUILD_JOBS:checked.env.CARGO_BUILD_JOBS||'6'};
+  delete env.TAURI_CONFIG;delete env.CARGO_TARGET_DIR;delete env.CARGO_BUILD_TARGET;
+  await executeReleasePlan({proof,reusePayload,assertProof:assertVerified,preparePayload:p=>stage('payload',()=>preparePayload({proof:p})),verifyPayload:p=>payloadPolicy.verify(p,path.join(root,'payload')),bundle:()=>stage('tauri-build-and-nsis',async()=>{const r=await runProcess(process.execPath,['node_modules/@tauri-apps/cli/tauri.js','build','--bundles','nsis','--','--locked'],{cwd:root,env,timeout:1800000,logFile:path.join(logs,'tauri-nsis.log'),maxBuffer:32*1024*1024});if(r.status!==0||r.error)throw Error(r.error?.code||'TAURI_BUILD_FAILED')})});
+  const dir=path.join(root,'target/release/bundle/nsis'),config=JSON.parse(fs.readFileSync(path.join(root,'tauri.conf.json')));
+  const artifacts=fs.readdirSync(dir).filter(n=>n===config.productName+'_'+config.version+'_x64-setup.exe').map(name=>{const b=fs.readFileSync(path.join(dir,name));return {name,bytes:b.length,sha256:createHash('sha256').update(b).digest('hex')}});if(artifacts.length!==1)throw Error('Expected one NSIS setup executable');
+  fs.writeFileSync(path.join(dir,'SHA256SUMS.txt'),artifacts.map(x=>x.sha256+'  '+x.name).join('\n')+'\n');report(true,'complete');console.log(JSON.stringify({windowsInstallers:artifacts,unsigned:true}));return artifacts;
+ }catch(e){if(proof)disposeVerification(proof);report(false,'failed',e.message);throw e}finally{if(owned&&proof)disposeVerification(proof)}
+}
+if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){try{if(process.argv.includes('--reuse-payload'))throw Error('PAYLOAD_CURRENT_RUN_PROOF_REQUIRED: cross-run cache reuse is not supported; use a normal build');await buildInstaller()}catch(e){console.error(e.message);process.exitCode=1}}
