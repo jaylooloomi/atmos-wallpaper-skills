@@ -23,21 +23,21 @@
     },
     {
       "path": "DEVELOPMENT.md",
-      "bytes": 7183,
-      "sha256": "9c36ab9043bc57131fd0a7b3d94622bee239ee29bbde1a5034d772cfcc8b64ae",
-      "git_blob_sha": "6e74f0979dc59db8436d54fa79e4988ce6100ba0"
+      "bytes": 8377,
+      "sha256": "1098d1a881ca0c21900e1359af3dd3197121b6884c5b79ae0c6bbb25a927b69e",
+      "git_blob_sha": "77ff227790c1e5e3e7e84848492a7d336a380714"
     },
     {
       "path": "README.md",
-      "bytes": 17876,
-      "sha256": "8622dc3a5892a4aac75b41121afafbe92d4e617e4de811f18379917f8dfc68f6",
-      "git_blob_sha": "6dee6056fd01cd500651d7463ef8c4c5ad35a4e3"
+      "bytes": 18122,
+      "sha256": "d6a1d97d652879d69162dd17204a3176ece12501226e803e7712d25ff7bad0e5",
+      "git_blob_sha": "ed3ed5faf370c3ec201ae1e0352751673631d405"
     },
     {
       "path": "TODO.md",
-      "bytes": 31131,
-      "sha256": "da477739f2a036d880f08b66f8888f9e34bd707d929779c3d248f5feb812d2a4",
-      "git_blob_sha": "7e7f139f5853008d9ef1cb0616f7bfe60e782765"
+      "bytes": 32255,
+      "sha256": "381098564324db41419607933fc8f01a40100e4b2d132af972481c6efeb427c5",
+      "git_blob_sha": "cf340dfc2a35b409bc46fd138da9b6fb3c84afd1"
     },
     {
       "path": "desktop-host/Cargo.lock",
@@ -53,9 +53,9 @@
     },
     {
       "path": "desktop-host/README.md",
-      "bytes": 18904,
-      "sha256": "223daf972968263a18a2b7ac46da2d9494b4bc72c90c3407438e2648f3143b1e",
-      "git_blob_sha": "fbd20c8fb12d65813af80e1b5fb6948ccddf206b"
+      "bytes": 19025,
+      "sha256": "4800b82303256d214902f58948442516fe9ab8474555f0889be30e560e7ec374",
+      "git_blob_sha": "d337b857f03577a666101f34dde77c2552f3510f"
     },
     {
       "path": "desktop-host/build.rs",
@@ -200,6 +200,12 @@
       "bytes": 2894,
       "sha256": "7ebf2db6e5cb5cf53b2936535c68fdb0ed4f000c63e665ef9b7b4c12da6c2a90",
       "git_blob_sha": "5a163534d92205eba0c4e504ab6ca39ef97af123"
+    },
+    {
+      "path": "desktop-host/docs/NATIVE-RUNTIME-INTEGRATION-PLAN.md",
+      "bytes": 2973,
+      "sha256": "a10a4311ba57882a9f7c9bc6a2c46e5f960dedbc62d8c2fade1fdbc2aeff2805",
+      "git_blob_sha": "f842b65bd4a69e291b1df09c1f4b826c2ac816a1"
     },
     {
       "path": "desktop-host/docs/PANEL-FLOW-FIX-2026-11-05.md",

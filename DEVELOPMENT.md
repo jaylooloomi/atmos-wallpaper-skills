@@ -77,3 +77,13 @@ P1 同流程去重、完整 payload manifest 與負向驗收已實作，量測�
 ### 獨立 Node 預覽快照
 
 使用者要求不中斷預覽時，可將已 prepare／通過 targeted＋quick 的 dist 複製到本機獨立目錄，設定 `ATMOS_PREVIEW_STATIC_ROOT` 為該絕對路徑再啟動上述 Windows Node 服務。預覽不再直接讀重建中的 dist，新的修改需先測試並建立新快照，再重啟該預覽服務。此覆寫拒絕與 `ATMOS_DESKTOP_HOST_EXE` 同用，不更動安裝版 payload；資料仍使用獨立 `ATMOS_STORE`。這不是 HMR，不能以隱藏載入失敗或偽造 ACK 取代就緒校驗。
+
+### Windows 0.7.36 原生宿主
+
+正式 Windows 建置預設啟用 `native-runtime`。Node 仍用於開發預覽、前端建置、封裝工具與測試，安裝版以 Rust 提供本機 HTTP 並用內嵌 Python／Pillow 解碼圖片。
+
+發版入口依序執行完整 verify、原生 gate、暫存 payload 及安裝自檢，再建置 NSIS。原生 gate 可從 repo 根目錄執行 `node desktop-host/scripts/verify-native-runtime.mjs`。請先在 `implementation-p4_2_5` 執行 `node scripts/prepare.mjs --assets-only`，並備妥 Rust 建置所需的 `desktop-host/payload` 目錄。gate 會編譯正式預設與 fixture，執行契約差異測試及隱藏 WebView2 驗證。
+
+`node desktop-host/scripts/test-native-install-check.mjs` 預設使用 `desktop-host/target/debug/atmos-wallpaper.exe` 與 `desktop-host/payload/runtime/python`。`node desktop-host/scripts/test-library-installed.mjs --install-root <暫存安裝目錄>` 使用旁邊有 payload 的候選執行檔、獨立 store 與 Rust loopback worker。受測執行檔使用空 PATH。
+
+[0.7.36 驗證摘要](desktop-host/docs/NATIVE-RUNTIME-INTEGRATION-PLAN.md) 分開記錄來源驗證、先前安裝驗收及待驗證項目。

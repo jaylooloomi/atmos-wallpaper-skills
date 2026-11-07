@@ -1,6 +1,6 @@
-# Atmos Wallpaper Windows 0.7.32
+# Atmos Wallpaper Windows 0.7.36
 
-**目前已移除螢幕保護功能。** 設定分為桌面元件／桌布與系統設定／外觀字型三個分頁；下方版本記錄中的 `.scr` 與螢幕保護均屬歷史功能。[移除與安全升級清理](docs/SCREENSAVER-REMOVAL-2026-11-06.md)。
+**目前已移除螢幕保護功能。** 設定分為桌面元件／系統設定／沉浸體驗三個分頁；下方版本記錄中的 `.scr` 與螢幕保護均屬歷史功能。[移除與安全升級清理](docs/SCREENSAVER-REMOVAL-2026-11-06.md)。
 
 Tauri 2＋Rust、Windows x64，提供單目標、各螢幕獨立、重複與全景桌布配置（新安裝預設跟隨主螢幕）。保留現有管理頁、場景與元件，日曆顯示為純月曆，由自己的 WebView2 宿主套用，**不使用 Lively**。
 
@@ -20,13 +20,15 @@ Tauri 2＋Rust、Windows x64，提供單目標、各螢幕獨立、重複與全�
 
 0.7.11 減少閒置整頁翻譯／控制項掃描，暫停的番茄鐘及未變動來源文字不再替換節點。既有 `--host-command get` 的 `runtime.rendererMemory` 提供每分鐘原生 heap／DOM 計數與時間戳；只查詢兩個固定 CDP 方法，不開除錯連接埠、不執行任意程式或強制 GC，未知及失敗不填零。原生計數與程序 private bytes 要分開判讀，見同份驗證報告。
 
+0.7.36 預設以 Rust 執行本機服務，安裝內容移除 Node、npm 模組及舊 JS 後端。天氣特效整理為兩列各五個，語言下拉使用主題箭頭。[0.7.36 驗證摘要](docs/NATIVE-RUNTIME-INTEGRATION-PLAN.md)。
+
 ## 安裝與操作
 
 0.7.3 修正展開元件內容超出容器、蓋到螢幕保護設定的高度衝突，改為自然內容高度；包含能重現舊版錯誤的幾何回歸與 16 個修正後案例。見 [設定區重疊修正](docs/PANEL-FLOW-FIX-2026-11-05.md)。
 
 0.7.2 已將天氣元件顯示開關、資料更新狀態與「顯示並定位元件」整合到資料來源區，並拉開螢幕保護按鈕間距。本機已完成保留設定的安裝更新、實際資源比對及原生回報檢查，見 [更新驗證](docs/WEATHER-CONTROLS-UPGRADE-2026-11-05.md)。
 
-執行 `Atmos Wallpaper_0.7.11_x64-setup.exe`，完成頁預設勾選啟動 Atmos；按完成後依已保存目標套用桌布，新安裝預設跟隨主螢幕。安裝器包含 Node、隔離的 Python＋Pillow，以及官方離線 WebView2 安裝程式；一般使用者不必另外安裝 Node、Python 或 Lively，也不需要 Rust 開發工具。
+執行 `Atmos Wallpaper_0.7.36_x64-setup.exe`，完成頁預設勾選啟動 Atmos；按完成後依已保存目標套用桌布，新安裝預設跟隨主螢幕。安裝器包含隔離的 Python＋Pillow，以及官方離線 WebView2 安裝程式；一般使用者不必另外安裝 Node、Python 或 Lively，也不需要 Rust 開發工具。
 
 - 在目前使用者範圍安裝，預設 `%LOCALAPPDATA%\Atmos Wallpaper`；不新增系統 PATH 或 Windows Service。
 - 系統匣「開啟管理頁」調整設定，按「套用變更」保存；再次啟動 Atmos 捷徑也會開啟現有管理頁。
@@ -54,11 +56,11 @@ npm ci --ignore-scripts
 npm run build:windows
 ```
 
-建置腳本預設使用 `C:\Python314\python.exe`，可由 `ATMOS_BUILD_PYTHON` 指定既有 Python；Git 可用 `ATMOS_GIT` 指定。下載快取位於 `%LOCALAPPDATA%\AtmosWallpaper\installer-build-cache`。建置會下載約 200 MiB 的官方離線 WebView2 安裝程式；使用者安裝時不需再下載此元件。
+建置腳本預設使用 `C:\Python314\python.exe`，可由 `ATMOS_BUILD_PYTHON` 指定既有 Python。下載快取位於 `%LOCALAPPDATA%\AtmosWallpaper\installer-build-cache`。建置會下載約 200 MiB 的官方離線 WebView2 安裝程式；使用者安裝時不需再下載此元件。
 
 輸出在 `target/release/bundle/nsis/`。生成的 `payload`、`target`、安裝包、使用者資料與原始測量紀錄不提交 Git；發佈二進位檔應另附對應雜湊。第三方授權放在安裝內容的 `payload/licenses` 及各執行環境目錄。
 
-payload 只包含已追蹤的產品源碼、凍結素材、生成的 web assets、production npm 依賴、官方 Node／Python／Pillow；不複製本機 store、帳號或設定。啟動時核對 payload 內容與必要檔案；內容損壞會拒絕套用。這是完整性檢查，不是不可竄改的簽章機制。
+payload 包含經驗證的前端資產、凍結素材、內嵌 Python／Pillow、圖片解碼器、來源清單及授權。使用者 store、帳號與設定留在原資料目錄。啟動時核對 payload 內容與必要檔案；內容損壞會拒絕套用。這是完整性檢查，不是不可竄改的簽章機制。
 
 ## 診斷與測試
 
@@ -72,7 +74,7 @@ payload 只包含已追蹤的產品源碼、凍結素材、生成的 web assets�
 & "$env:LOCALAPPDATA\Atmos Wallpaper\atmos-wallpaper.exe" --autostart status
 ```
 
-`--check-install` 驗證 payload、內嵌 Node／Python／Pillow，不套用桌布。`--quit` 使用同使用者、同 session、同執行檔路徑的原生 event 關閉自身實例，不暴露網頁 shell／檔案權限。
+`--check-install` 驗證 payload 與內嵌 Python／Pillow，不套用桌布。`--quit` 使用同使用者、同 session、同執行檔路徑的原生 event 關閉自身實例，不暴露網頁 shell／檔案權限。
 
 `--autostart enable`／`disable` 是原生設定操作；管理頁只透過有 manager session、同來源驗證的白名單 API 呼叫這兩種操作。桌布角色不具備這項權限。啟動偏好獨立於桌布設定，不包含於設定草稿、備份或離線匯出。
 
@@ -85,18 +87,18 @@ node scripts/test-startup.mjs --configure-login-startup
 
 整合測試會實際安裝、套用、重裝、解除安裝，最後重新安裝並保留 Atmos 運作。為避免覆寫既有使用者安裝，測試預設拒絕已有的 Atmos 安裝。原生四情境測試另見 `scripts/test-windows-host.mjs --apply-to-primary`，可用 `ATMOS_HOST_EXE` 指定 release／已安裝執行檔；執行前須先退出 Atmos。兩者只用 CLI、真實 renderer ack、Win32 metadata 與程序／port 檢查，不操作瀏覽器或桌面 UI。
 
-如需觀察既有 Atmos 桌布在測試前後的回報，可設定 `ATMOS_BASELINE_PORT`；這只做唯讀健康檢查，不是產品相依。沒有既有管理服務也可以測安裝版。Git clone 的封裝採追蹤檔案列表；來源 ZIP 沒有 `.git` 時，改採 SOURCE-MANIFEST 的已發佈檔案列表。
+如需觀察既有 Atmos 桌布在測試前後的回報，可設定 `ATMOS_BASELINE_PORT`；這只做唯讀健康檢查，不是產品相依。沒有既有管理服務也可以測安裝版。封裝使用同次驗證的前端快照與明確的資產清單。
 
 登入啟動測試需要已有的安裝，會重設 Atmos 自己的新功能偏好作為測試起點、切換實際登錄、重裝／解除安裝，最後保留已安裝且啟動開關開啟的程式。它會執行登錄中的同一條指令，**不重開機、不登出，也不將此模擬呼叫標成真正 Windows 登入實測**。
 
-保留 `scripts/run-prototype.ps1 -RunSeconds 600` 的開發模式：明確指定既有 Node／Python 與獨立測試 store，期限 5..3600 秒，不代表安裝版仍需系統執行環境。
+保留 `scripts/run-prototype.ps1 -RunSeconds 600` 的開發模式：用既有 Node 準備前端，用 Python／Pillow 解碼圖片，並使用獨立測試 store，期限 5..3600 秒。
 
 ## 原生桌面與驗證界線
 
 - 真正掛到背景 WorkerW，驗證 native parent 與主螢幕實體尺寸；不以一般無邊框視窗替代。
 - 沿用有效 WorkerW，只有缺少時才要求 Explorer 建立背景層。WorkerW 是非穩定公開合約，無法宣稱適用所有 Shell 版本。
 - 不覆寫 Windows 桌布設定，不改其他程式視窗樣式／可見性；退出只移除自己的層。原本就故障的其他播放器仍須自行恢復。
-- 自有本機核心先通過啟動 gate，再放入 kill-on-close Job；宿主退出／被終止時清理自有核心。WebView2 亦有真實清理檢查。
+- 先將自有本機核心加入 kill-on-close Job，再開啟啟動閘門；宿主退出／被終止時清理自有核心。WebView2 亦有真實清理檢查。
 - 真實 renderer ack 與 native 掛載分開記錄；初始化無 ack 會失敗退出。啟動完成後遇到鎖屏／遮蔽節流只記錄 stale，不因短期無 ack 永久退出；不把 stale 當成畫面正常。
 - 管理頁與桌布角色仍分離，未授予網頁任何原生檔案／shell capabilities；導覽限制於自己的 loopback 頁面。
 
