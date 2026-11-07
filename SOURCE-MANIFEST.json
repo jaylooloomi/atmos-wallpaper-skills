@@ -3623,9 +3623,9 @@
     },
     {
       "path": "implementation-p4_2_5/src/bridge-toolbar.css",
-      "bytes": 5997,
-      "sha256": "db493cddcc25fe9d67254828633e3faadcdea1df9cd119b0692fc2edf2e6928e",
-      "git_blob_sha": "8c8a409a7fe459b5e9180805caf15d9e84aa9585"
+      "bytes": 6978,
+      "sha256": "b81326d3eb3e8d156681c56d0489c519f827f753d0177d85124e10860ef43817",
+      "git_blob_sha": "bbb08ac44d826eb255c5c1fb1e07944c018d7364"
     },
     {
       "path": "implementation-p4_2_5/src/calendar-client.css",
