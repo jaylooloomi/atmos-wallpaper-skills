@@ -35,7 +35,7 @@ impl Default for Settings {
 }
 #[derive(Serialize, Deserialize)]
 #[serde(rename_all = "camelCase", deny_unknown_fields)]
-struct Update {
+pub(crate) struct Update {
     schema_version: u32,
     request_id: String,
     expected_revision: u64,
@@ -75,10 +75,13 @@ pub fn read(root: &Path) -> Result<Settings, String> {
     validate(&s)?;
     Ok(s)
 }
-fn update(root: &Path, u: Update) -> Result<Value, String> {
-    if u.schema_version != 1 {
-        return Err("AUDIO_ROUTING_INVALID".into());
-    }
+pub(crate) fn update(root: &Path, u: Update) -> Result<Value, String> {
+    validate(&Settings {
+        schema_version: u.schema_version,
+        revision: u.expected_revision,
+        last_request_id: Some(u.request_id.clone()),
+        routing: u.routing.clone(),
+    })?;
     let input = serde_json::to_value(&u).unwrap();
     let id = u.request_id.clone();
     policy_store::commit(

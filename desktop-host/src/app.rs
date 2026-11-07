@@ -178,44 +178,11 @@ fn tray_quick_action(
     target: &str,
     session: &str,
 ) -> Result<(), String> {
-    use std::{
-        os::windows::process::CommandExt,
-        process::{Command, Stdio},
-    };
-    let payload = crate::installed::payload_root()?;
-    crate::installed::verify(&payload)?;
-    let out = Command::new(payload.join("runtime/node/node.exe"))
-        .arg(payload.join("app/implementation-p4_2_5/src/quick-actions.mjs"))
-        .args([
-            action,
-            "--store",
-            &store.to_string_lossy(),
-            "--target",
-            target,
-            "--session",
-            session,
-        ])
-        .env_remove("NODE_OPTIONS")
-        .env_remove("NODE_PATH")
-        .env_remove("PYTHONHOME")
-        .env_remove("PYTHONPATH")
-        .stdin(Stdio::null())
-        .stderr(Stdio::null())
-        .creation_flags(0x08000000)
-        .output()
-        .map_err(|e| e.to_string())?;
-    if out.stdout.len() > 65536 {
-        return Err("QUICK_ACTION_RESPONSE_INVALID".into());
+    if action == "next-preset" {
+        crate::presets::next(store, target)
+    } else {
+        crate::focus::quick_action(action, store, session)
     }
-    let response: serde_json::Value =
-        serde_json::from_slice(&out.stdout).map_err(|_| "QUICK_ACTION_RESPONSE_INVALID")?;
-    if !out.status.success() || response["ok"] != true {
-        return Err(response["error"]["code"]
-            .as_str()
-            .unwrap_or("QUICK_ACTION_FAILED")
-            .into());
-    }
-    Ok(())
 }
 
 fn watch(

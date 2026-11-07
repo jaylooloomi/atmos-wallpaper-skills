@@ -52,7 +52,7 @@ impl Default for Settings {
 }
 #[derive(Serialize, Deserialize)]
 #[serde(rename_all = "camelCase", deny_unknown_fields)]
-struct Update {
+pub(crate) struct Update {
     schema_version: u32,
     request_id: String,
     expected_revision: u64,
@@ -88,6 +88,7 @@ fn validate(s: &Settings) -> Result<(), String> {
 }
 pub fn read(root: &Path) -> Result<Settings, String> {
     let p = root.join("audio-settings.json");
+    crate::policy_store::safe_path(&p).map_err(|_| "AUDIO_READ_FAILED")?;
     if !p.exists() {
         return Ok(Settings::default());
     }
@@ -103,10 +104,13 @@ fn receipt(root: &Path, id: &str) -> PathBuf {
     root.join("audio-requests")
         .join(format!("{:x}.json", Sha256::digest(id.as_bytes())))
 }
-fn update(root: &Path, u: Update) -> Result<Value, String> {
-    if u.schema_version != 1 || !valid_id(&u.request_id) {
-        return Err("AUDIO_SETTINGS_INVALID".into());
-    }
+pub(crate) fn update(root: &Path, u: Update) -> Result<Value, String> {
+    validate(&Settings {
+        schema_version: u.schema_version,
+        revision: u.expected_revision,
+        last_request_id: Some(u.request_id.clone()),
+        audio: u.audio.clone(),
+    })?;
     fs::create_dir_all(root).map_err(|e| e.to_string())?;
     let root = root.canonicalize().map_err(|e| e.to_string())?;
     let _guard = windows::named_singleton(&format!(
@@ -119,16 +123,16 @@ fn update(root: &Path, u: Update) -> Result<Value, String> {
     // Finish the previous pointer-bound receipt before permitting the next commit.
     if let Some(id) = &old.last_request_id {
         let p = receipt(&root, id);
-        if let Ok(b) = fs::read(&p) {
-            if let Ok(mut r) = serde_json::from_slice::<Value>(&b) {
-                if r["pending"] == true && r["result"]["revision"] == old.revision {
-                    r["pending"] = json!(false);
-                    host_settings::atomic(
-                        p.parent().unwrap(),
-                        p.file_name().unwrap().to_str().unwrap(),
-                        &r,
-                    )?;
-                }
+        if let Some(mut r) =
+            crate::policy_store::read_optional(&p, 16384).map_err(|_| "AUDIO_RECEIPT_INVALID")?
+        {
+            if r["pending"] == true && r["result"]["revision"] == old.revision {
+                r["pending"] = json!(false);
+                host_settings::atomic(
+                    p.parent().unwrap(),
+                    p.file_name().unwrap().to_str().unwrap(),
+                    &r,
+                )?;
             }
         }
     }
@@ -218,38 +222,11 @@ pub fn command(args: &[String]) -> Result<i32, String> {
         }
         let input: TestInput =
             serde_json::from_slice(&bytes).map_err(|_| "AUDIO_SETTINGS_INVALID")?;
-        let s = read(&root)?;
-        if input.schema_version != 1 {
-            return Err("AUDIO_SETTINGS_INVALID".into());
-        }
-        if input.expected_revision != s.revision {
-            return Err("AUDIO_REVISION_CONFLICT".into());
-        }
-        if !s.audio.enabled || s.audio.muted || s.audio.volume == 0 {
-            return Err("AUDIO_TEST_BLOCKED".into());
-        }
-        let now = crate::journal::now_ms() as u64;
-        let runtime = fs::read(root.join("audio-status.json"))
-            .ok()
-            .and_then(|b| serde_json::from_slice::<Value>(&b).ok())
-            .filter(|v| {
-                v["pid"]
-                    .as_u64()
-                    .is_some_and(|pid| pid <= u32::MAX as u64 && windows::process_alive(pid as u32))
-                    && v["capturedAtMs"]
-                        .as_u64()
-                        .is_some_and(|at| at <= now && now - at < 3000)
-                    && v["audioSession"].as_str().is_some_and(|id| !id.is_empty())
-                    && v["state"] != "stopped"
-            })
-            .ok_or("AUDIO_HOST_UNAVAILABLE")?;
-        let expires = crate::journal::now_ms() + 3000;
-        host_settings::atomic(
+        Some(request_test(
             &root,
-            "audio-test.json",
-            &json!({"schemaVersion":1,"settingsRevision":s.revision,"expiresAtMs":expires,"hostPid":runtime["pid"],"audioSession":runtime["audioSession"]}),
-        )?;
-        Some(json!({"testRequested":true,"durationMs":3000,"settingsUnchanged":true}))
+            input.schema_version,
+            input.expected_revision,
+        )?)
     } else if args[0] == "diagnose" {
         Some(crate::audio_diagnostics::read(&root)?)
     } else if args[0] == "probe" {
@@ -269,9 +246,51 @@ pub fn command(args: &[String]) -> Result<i32, String> {
     } else {
         None
     };
-    let runtime = fs::read(root.join("audio-status.json"))
+    println!("{}", status(&root, result)?);
+    Ok(0)
+}
+pub(crate) fn request_test(
+    root: &Path,
+    schema_version: u32,
+    expected_revision: u64,
+) -> Result<Value, String> {
+    let s = read(root)?;
+    if schema_version != 1 {
+        return Err("AUDIO_SETTINGS_INVALID".into());
+    }
+    if expected_revision != s.revision {
+        return Err("AUDIO_REVISION_CONFLICT".into());
+    }
+    if !s.audio.enabled || s.audio.muted || s.audio.volume == 0 {
+        return Err("AUDIO_TEST_BLOCKED".into());
+    }
+    let now = crate::journal::now_ms() as u64;
+    let runtime = crate::policy_store::read_optional(&root.join("audio-status.json"), 65536)
         .ok()
-        .and_then(|b| serde_json::from_slice::<Value>(&b).ok())
+        .flatten()
+        .filter(|v| {
+            v["pid"]
+                .as_u64()
+                .is_some_and(|pid| pid <= u32::MAX as u64 && windows::process_alive(pid as u32))
+                && v["capturedAtMs"]
+                    .as_u64()
+                    .is_some_and(|at| at <= now && now - at < 3000)
+                && v["audioSession"].as_str().is_some_and(|id| !id.is_empty())
+                && v["state"] != "stopped"
+        })
+        .ok_or("AUDIO_HOST_UNAVAILABLE")?;
+    let expires = crate::journal::now_ms() + 3000;
+    host_settings::atomic(
+        root,
+        "audio-test.json",
+        &json!({"schemaVersion":1,"settingsRevision":s.revision,"expiresAtMs":expires,"hostPid":runtime["pid"],"audioSession":runtime["audioSession"]}),
+    )?;
+    Ok(json!({"testRequested":true,"durationMs":3000,"settingsUnchanged":true}))
+}
+pub(crate) fn status(root: &Path, result: Option<Value>) -> Result<Value, String> {
+    let runtime = crate::policy_store::read_optional(&root.join("audio-status.json"), 65536)
+        .ok()
+        .flatten()
         .filter(|v| {
             if !v["pid"]
                 .as_u64()
@@ -279,15 +298,15 @@ pub fn command(args: &[String]) -> Result<i32, String> {
             {
                 return false;
             }
-            v["capturedAtMs"]
-                .as_u64()
-                .is_some_and(|t| (crate::journal::now_ms() as u64).abs_diff(t) < 3000)
+            v["capturedAtMs"].as_u64().is_some_and(|t| {
+                crate::journal::now_ms()
+                    .checked_sub(t)
+                    .is_some_and(|age| age < 3000)
+            })
         });
-    println!(
-        "{}",
-        json!({"schemaVersion":1,"available":true,"settings":read(&root)?,"runtime":runtime,"devices":crate::audio_diagnostics::devices(),"defaultDeviceName":crate::audio_diagnostics::default_name(),"result":result})
-    );
-    Ok(0)
+    Ok(
+        json!({"schemaVersion":1,"available":true,"settings":read(root)?,"runtime":runtime,"devices":crate::audio_diagnostics::devices(),"defaultDeviceName":crate::audio_diagnostics::default_name(),"result":result}),
+    )
 }
 struct Synth {
     rng: u32,

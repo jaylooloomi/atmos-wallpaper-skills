@@ -68,6 +68,46 @@ struct Update {
     expected_revision: u64,
     performance: Policy,
 }
+pub(crate) fn update(root: &Path, input: Value) -> Result<Value, String> {
+    let u: Update = serde_json::from_value(input.clone()).map_err(|_| "PERFORMANCE_INVALID")?;
+    valid(&Settings {
+        schema_version: u.schema_version,
+        revision: u.expected_revision,
+        last_request_id: Some(u.request_id.clone()),
+        performance: u.performance.clone(),
+    })?;
+    let explicit_information_mode = input["performance"].get("informationMode").is_some();
+    policy_store::commit(
+        root,
+        "PERFORMANCE",
+        "performance-settings.json",
+        serde_json::to_value(Settings::default()).unwrap(),
+        &u.request_id,
+        u.expected_revision,
+        &input,
+        |record| {
+            let s: Settings =
+                serde_json::from_value(record.clone()).map_err(|_| "PERFORMANCE_INVALID")?;
+            valid(&s)
+        },
+        |old, revision| {
+            let old: Settings = serde_json::from_value(old).map_err(|_| "PERFORMANCE_INVALID")?;
+            valid(&old)?;
+            let mut performance = u.performance;
+            if !explicit_information_mode {
+                performance.information_mode = old.performance.information_mode;
+            }
+            let next = Settings {
+                schema_version: 1,
+                revision,
+                last_request_id: Some(u.request_id.clone()),
+                performance,
+            };
+            valid(&next)?;
+            Ok(serde_json::to_value(next).unwrap())
+        },
+    )
+}
 pub fn command(args: &[String]) -> Result<i32, String> {
     if ![1, 3].contains(&args.len()) || !matches!(args[0].as_str(), "get" | "update") {
         return Err("PERFORMANCE_INVALID".into());
@@ -90,40 +130,9 @@ pub fn command(args: &[String]) -> Result<i32, String> {
         if b.len() > 16384 {
             return Err("PERFORMANCE_INVALID".into());
         }
-        let u: Update = serde_json::from_slice(&b).map_err(|_| "PERFORMANCE_INVALID")?;
-        if u.schema_version != 1 {
-            return Err("PERFORMANCE_INVALID".into());
-        }
-        let input:Value = serde_json::from_slice(&b).map_err(|_| "PERFORMANCE_INVALID")?;
-        let explicit_information_mode=serde_json::from_slice::<Value>(&b).ok().is_some_and(|v|v["performance"].get("informationMode").is_some());
-        Some(policy_store::commit(
+        Some(update(
             &root,
-            "PERFORMANCE",
-            "performance-settings.json",
-            serde_json::to_value(Settings::default()).unwrap(),
-            &u.request_id,
-            u.expected_revision,
-            &input,
-            |record| {
-                let s: Settings =
-                    serde_json::from_value(record.clone()).map_err(|_| "PERFORMANCE_INVALID")?;
-                valid(&s)
-            },
-            |old, revision| {
-                let old: Settings =
-                    serde_json::from_value(old).map_err(|_| "PERFORMANCE_INVALID")?;
-                valid(&old)?;
-                let mut performance=u.performance;
-                if !explicit_information_mode {performance.information_mode=old.performance.information_mode;}
-                let next = Settings {
-                    schema_version: 1,
-                    revision,
-                    last_request_id: Some(u.request_id.clone()),
-                    performance,
-                };
-                valid(&next)?;
-                Ok(serde_json::to_value(next).unwrap())
-            },
+            serde_json::from_slice(&b).map_err(|_| "PERFORMANCE_INVALID")?,
         )?)
     } else {
         None
@@ -202,10 +211,12 @@ pub fn state(policy: &Policy, target: windows::Bounds) -> Value {
             },
             target,
         );
-    policy_state(policy,on_battery,fullscreen)
+    policy_state(policy, on_battery, fullscreen)
 }
-pub fn policy_state(policy:&Policy,on_battery:Option<bool>,fullscreen:bool)->Value{
-    let paused=policy.information_mode||(policy.pause_battery&&on_battery==Some(true))||(policy.pause_fullscreen&&fullscreen);
+pub fn policy_state(policy: &Policy, on_battery: Option<bool>, fullscreen: bool) -> Value {
+    let paused = policy.information_mode
+        || (policy.pause_battery && on_battery == Some(true))
+        || (policy.pause_fullscreen && fullscreen);
     json!({"paused":paused,"fps":policy.fps,"effectiveAnimationFps":if paused{0}else{policy.fps},"informationMode":policy.information_mode,"onBattery":on_battery,"fullscreenCovered":fullscreen,"reason":if policy.information_mode{"information-saving"}else if policy.pause_battery&&on_battery==Some(true){"battery"}else if policy.pause_fullscreen&&fullscreen{"fullscreen"}else{"active"}})
 }
 #[cfg(test)]
@@ -242,12 +253,20 @@ mod tests {
         assert!(application_foreground(false, "Tauri Window"));
     }
     #[test]
-    fn information_mode_is_additive_and_preserves_configured_fps(){
-        let old=serde_json::json!({"fps":15,"pauseFullscreen":false,"pauseBattery":false});
-        let mut policy:Policy=serde_json::from_value(old).unwrap();assert!(!policy.information_mode);
-        policy.information_mode=true;let active=policy_state(&policy,Some(false),false);
-        assert_eq!(active["paused"],true);assert_eq!(active["effectiveAnimationFps"],0);assert_eq!(active["fps"],15);
-        policy.information_mode=false;assert_eq!(policy_state(&policy,Some(false),false)["effectiveAnimationFps"],15);
+    fn information_mode_is_additive_and_preserves_configured_fps() {
+        let old = serde_json::json!({"fps":15,"pauseFullscreen":false,"pauseBattery":false});
+        let mut policy: Policy = serde_json::from_value(old).unwrap();
+        assert!(!policy.information_mode);
+        policy.information_mode = true;
+        let active = policy_state(&policy, Some(false), false);
+        assert_eq!(active["paused"], true);
+        assert_eq!(active["effectiveAnimationFps"], 0);
+        assert_eq!(active["fps"], 15);
+        policy.information_mode = false;
+        assert_eq!(
+            policy_state(&policy, Some(false), false)["effectiveAnimationFps"],
+            15
+        );
     }
     #[test]
     fn malformed_fps_rejected() {

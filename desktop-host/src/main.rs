@@ -2,6 +2,40 @@
 #[cfg(windows)]
 mod agent;
 #[cfg(windows)]
+mod native_http;
+#[cfg(all(windows, feature = "native-core"))]
+mod native_core_http;
+#[cfg(all(windows, feature = "native-core"))]
+mod native_control_http;
+#[cfg(all(windows, feature = "native-core"))]
+mod public_https;
+#[cfg(all(windows, feature = "native-core"))]
+mod native_weather;
+#[cfg(all(windows, feature = "native-core"))]
+mod native_feeds;
+#[cfg(all(windows, feature = "native-core"))]
+mod calendar_storage;
+#[cfg(all(windows, feature = "native-core"))]
+mod calendar_parse;
+#[cfg(all(windows, feature = "native-core"))]
+mod native_calendar;
+#[cfg(all(windows, feature = "native-core"))]
+mod library_audit;
+#[cfg(all(windows, feature = "native-core"))]
+mod library_move;
+#[cfg(all(windows, feature = "native-core"))]
+mod library_archive;
+#[cfg(all(windows, feature = "http-fixture"))]
+mod library_crash_fixture;
+#[cfg(all(windows, feature = "native-core"))]
+mod native_library_cli;
+#[cfg(all(windows, feature = "native-core"))]
+mod native_offline;
+#[cfg(all(windows, feature = "http-fixture"))]
+mod core_http_fixture;
+#[cfg(all(windows, feature = "native-core"))]
+mod native_service;
+#[cfg(windows)]
 mod cli_catalogs;
 #[cfg(windows)]
 mod portable_store;
@@ -23,6 +57,7 @@ mod backup_image;
 mod appearance_agent;
 #[cfg(windows)]
 mod appearance_watch;
+
 #[cfg(windows)]
 mod app;
 #[cfg(windows)]
@@ -55,6 +90,12 @@ mod options;
 #[cfg(windows)]
 mod performance;
 #[cfg(windows)]
+mod presets;
+#[cfg(windows)]
+mod schedule;
+#[cfg(windows)]
+mod native_appearance_cli;
+#[cfg(windows)]
 mod policy_store;
 #[cfg(windows)]
 mod renderer_memory;
@@ -77,6 +118,29 @@ fn main() {
 
 #[cfg(windows)]
 fn main() {
+    #[cfg(feature = "native-core")]
+    {
+        let args: Vec<_> = std::env::args_os().skip(1).collect();
+        let outcome = match args.first().and_then(|arg| arg.to_str()) {
+            #[cfg(feature = "http-fixture")]
+            Some("--core-http-fixture") => Some(core_http_fixture::run(&args[1..])),
+            Some("--native-runtime-worker") => Some(native_service::worker(&args[1..])),
+            #[cfg(feature = "http-fixture")]
+            Some("--native-runtime-host-fixture") => Some(native_service::host_fixture(&args[1..])),
+            #[cfg(feature = "http-fixture")]
+            Some("--native-runtime-webview-fixture") => {
+                Some(native_service::webview_fixture(&args[1..]))
+            }
+            _ => None,
+        };
+        if let Some(outcome) = outcome {
+            if let Err(error) = outcome {
+                eprintln!("Native service: {error}");
+                std::process::exit(2);
+            }
+            return;
+        }
+    }
     match run() {
         Ok(code) => std::process::exit(code),
         Err(error) => {
@@ -200,7 +264,14 @@ fn run() -> Result<i32, String> {
         return library::folder(&args[1..]);
     }
     if args.first().is_some_and(|a| a == "--library-command") {
+        #[cfg(feature = "native-core")]
+        return Ok(native_library_cli::command(&args));
+        #[cfg(not(feature = "native-core"))]
         return library::command(args);
+    }
+    #[cfg(feature = "http-fixture")]
+    if args.first().is_some_and(|a| a == "--library-crash-fixture") {
+        return library_crash_fixture::command(&args[1..]);
     }
     if args == ["--host-help"] {
         println!(

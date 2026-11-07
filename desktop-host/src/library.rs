@@ -1,9 +1,7 @@
 //! User-invoked native folder selection only; no browser-granted arbitrary paths.
 use std::{
-    io::{Read, Write},
-    os::windows::process::CommandExt,
+    io::Read,
     path::PathBuf,
-    process::{Command, Stdio},
     ptr::{null, null_mut},
 };
 use windows_sys::Win32::{
@@ -15,7 +13,7 @@ use windows_sys::Win32::{
     System::WindowsProgramming::{DRIVE_FIXED, DRIVE_REMOVABLE},
     UI::Shell::*,
 };
-fn safe(s: &str) -> Result<PathBuf, String> {
+pub(crate) fn local_path(s: &str) -> Result<PathBuf, String> {
     let p = PathBuf::from(s);
     if !p.is_absolute() || s.starts_with(r"\\") || s.contains(['\0', '\r', '\n']) || s.len() > 30000
     {
@@ -36,6 +34,26 @@ fn safe(s: &str) -> Result<PathBuf, String> {
 fn wide(s: &str) -> Vec<u16> {
     s.encode_utf16().chain([0]).collect()
 }
+pub(crate) fn open_folder(s: &str) -> Result<(), String> {
+    crate::portable_store::no_links(&local_path(s)?).map_err(|_| "LIBRARY_PATH_UNSAFE")?;
+    if !std::path::Path::new(s).is_dir() {
+        return Err("LIBRARY_OFFLINE".into());
+    }
+    let result = unsafe {
+        ShellExecuteW(
+            null_mut(),
+            wide("open").as_ptr(),
+            wide(s).as_ptr(),
+            null(),
+            null(),
+            1,
+        )
+    };
+    if result as isize <= 32 {
+        return Err("LIBRARY_OPEN_FAILED".into());
+    }
+    Ok(())
+}
 pub fn folder(args: &[String]) -> Result<i32, String> {
     if args.len() != 1 {
         return Err("Expected --library-folder choose|open".into());
@@ -51,33 +69,26 @@ pub fn folder(args: &[String]) -> Result<i32, String> {
         }
         let v: serde_json::Value = serde_json::from_slice(&b).map_err(|_| "LIBRARY_PATH_UNSAFE")?;
         let s = v["path"].as_str().ok_or("LIBRARY_PATH_UNSAFE")?;
-        let validated = safe(s)?;
+        local_path(s)?;
         if args[0] == "validate" {
             println!("{}", serde_json::json!({"valid":true}));
             return Ok(0);
         }
-        if !validated.is_dir() {
-            return Err("LIBRARY_OFFLINE".into());
-        }
-        let result = unsafe {
-            ShellExecuteW(
-                null_mut(),
-                wide("open").as_ptr(),
-                wide(s).as_ptr(),
-                null(),
-                null(),
-                1,
-            )
-        };
-        if result as isize <= 32 {
-            return Err("LIBRARY_OPEN_FAILED".into());
-        }
+        open_folder(s)?;
         println!("{}", serde_json::json!({"opened":true}));
         return Ok(0);
     }
     if args[0] != "choose" {
         return Err("Unknown library folder action".into());
     }
+    let result = match choose_folder()? {
+        Some(path) => serde_json::json!({"cancelled":false,"path":path}),
+        None => serde_json::json!({"cancelled":true}),
+    };
+    println!("{result}");
+    Ok(0)
+}
+pub(crate) fn choose_folder() -> Result<Option<PathBuf>, String> {
     unsafe {
         let hr = CoInitializeEx(
             null(),
@@ -102,8 +113,7 @@ pub fn folder(args: &[String]) -> Result<i32, String> {
         let item = SHBrowseForFolderW(&info);
         if item.is_null() {
             CoUninitialize();
-            println!("{}", serde_json::json!({"cancelled":true}));
-            return Ok(0);
+            return Ok(None);
         }
         let mut text = vec![0u16; 32768];
         let ok = SHGetPathFromIDListEx(item, text.as_mut_ptr(), text.len() as u32, 0);
@@ -115,12 +125,16 @@ pub fn folder(args: &[String]) -> Result<i32, String> {
         let s = String::from_utf16_lossy(
             &text[..text.iter().position(|c| *c == 0).unwrap_or(text.len())],
         );
-        safe(&s)?;
-        println!("{}", serde_json::json!({"cancelled":false,"path":s}));
-        Ok(0)
+        Ok(Some(local_path(&s)?))
     }
 }
+#[cfg(not(feature = "native-core"))]
 pub fn command(args: Vec<String>) -> Result<i32, String> {
+    use std::{
+        io::Write,
+        os::windows::process::CommandExt,
+        process::{Command, Stdio},
+    };
     let root = crate::installed::payload_root()?;
     crate::installed::verify(&root)?;
     let mut input = Vec::new();
@@ -176,9 +190,9 @@ pub fn command(args: Vec<String>) -> Result<i32, String> {
 mod tests {
     #[test]
     fn folder_paths_are_local_and_bounded() {
-        assert!(super::safe(r"C:\合法 資料").is_ok());
-        assert!(super::safe(r"\\server\share").is_err());
-        assert!(super::safe("relative").is_err());
-        assert!(super::safe("C:\\a\n").is_err());
+        assert!(super::local_path(r"C:\合法 資料").is_ok());
+        assert!(super::local_path(r"\\server\share").is_err());
+        assert!(super::local_path("relative").is_err());
+        assert!(super::local_path("C:\\a\n").is_err());
     }
 }

@@ -17,7 +17,9 @@ struct Manifest {
     files: Vec<Entry>,
 }
 #[derive(Deserialize, Serialize)]
+#[cfg_attr(feature = "native-runtime", serde(deny_unknown_fields))]
 pub struct Versions {
+    #[cfg(not(feature = "native-runtime"))]
     pub node: String,
     pub python: String,
     pub pillow: String,
@@ -93,11 +95,15 @@ pub fn verify(root: &Path) -> Result<Versions, String> {
         }
     }
     for required in [
+        #[cfg(not(feature = "native-runtime"))]
         "runtime/node/node.exe",
         "runtime/python/python.exe",
+        #[cfg(not(feature = "native-runtime"))]
         "app/implementation-p4_2_5/src/windows-runtime.mjs",
         "app/implementation-p4_2_5/dist/index.html",
         "app/implementation-p1/src/decode-image.py",
+        #[cfg(feature = "native-runtime")]
+        "app/prototype-v8.1-frozen/manifest.json",
     ] {
         if !names.contains(required) {
             return Err(format!("Required bundled file missing: {required}"));
@@ -124,10 +130,11 @@ fn safe_relative(value: &str) -> Result<(), String> {
 
 pub fn configuration(args: Vec<String>) -> Result<Options, String> {
     // Explicit developer/test mode retains the original isolated prototype CLI.
-    if args
-        .iter()
-        .any(|a| ["--runtime-root", "--node", "--python"].contains(&a.as_str()))
-    {
+    let explicit = args.iter().any(|a| {
+        ["--runtime-root", "--python"].contains(&a.as_str())
+            || (cfg!(not(feature = "native-runtime")) && a == "--node")
+    });
+    if explicit {
         return options::parse(args);
     }
     let root = payload_root()?;
@@ -140,6 +147,7 @@ pub fn configuration(args: Vec<String>) -> Result<Options, String> {
         .as_millis();
     let defaults = [
         ("--runtime-root", root.join("app/implementation-p4_2_5")),
+        #[cfg(not(feature = "native-runtime"))]
         ("--node", root.join("runtime/node/node.exe")),
         ("--python", root.join("runtime/python/python.exe")),
         ("--store", local.join("store")),

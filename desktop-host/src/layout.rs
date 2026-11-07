@@ -87,9 +87,19 @@ pub fn read(root: &Path) -> Result<Settings, String> {
     Ok(s)
 }
 pub fn update(root: &Path, u: Update) -> Result<Value, String> {
-    if u.schema_version != 1 {
-        return Err("LAYOUT_INVALID".into());
-    }
+    update_with_displays(root, u, || displays::enumerate())
+}
+pub(crate) fn update_with_displays(
+    root: &Path,
+    u: Update,
+    topology: impl FnOnce() -> Result<Vec<displays::Display>, String>,
+) -> Result<Value, String> {
+    valid(&Settings {
+        schema_version: u.schema_version,
+        revision: u.expected_revision,
+        last_request_id: Some(u.request_id.clone()),
+        layout: u.layout.clone(),
+    })?;
     let input = serde_json::to_value(&u).unwrap();
     let id = u.request_id.clone();
     policy_store::commit(
@@ -126,7 +136,7 @@ pub fn update(root: &Path, u: Update) -> Result<Value, String> {
                 layout: u.layout,
             };
             valid(&next)?;
-            let ds = displays::enumerate()?;
+            let ds = topology()?;
             for target in &next.layout.targets {
                 if !old.layout.targets.contains(target) {
                     displays::select(&ds, target)?;

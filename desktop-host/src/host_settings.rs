@@ -5,11 +5,8 @@ use serde_json::json;
 use sha2::{Digest, Sha256};
 use std::{
     fs,
-    io::{Read, Write},
+    io::Read,
     path::{Path, PathBuf},
-};
-use windows_sys::Win32::Storage::FileSystem::{
-    MoveFileExW, MOVEFILE_REPLACE_EXISTING, MOVEFILE_WRITE_THROUGH,
 };
 #[derive(Clone, Debug, Serialize, Deserialize, PartialEq)]
 #[serde(rename_all = "camelCase", deny_unknown_fields)]
@@ -38,7 +35,7 @@ impl Default for Settings {
 }
 #[derive(Deserialize)]
 #[serde(rename_all = "camelCase", deny_unknown_fields)]
-struct Update {
+pub(crate) struct Update {
     schema_version: u32,
     expected_revision: u64,
     placement: Placement,
@@ -82,40 +79,27 @@ pub fn read(root: &Path) -> Result<Settings, String> {
     Ok(s)
 }
 pub fn atomic(root: &Path, name: &str, value: &impl Serialize) -> Result<(), String> {
+    crate::policy_store::safe_path(&root.join(name))?;
     fs::create_dir_all(root).map_err(|e| e.to_string())?;
-    let file = root.join(name);
-    let temp = root.join(format!(".{name}.{}.tmp", std::process::id()));
-    let result = (|| {
-        let mut f = fs::File::create(&temp).map_err(|e| e.to_string())?;
-        f.write_all(&serde_json::to_vec_pretty(value).map_err(|e| e.to_string())?)
-            .map_err(|e| e.to_string())?;
-        f.sync_all().map_err(|e| e.to_string())?;
-        drop(f);
-        let wide = |p: &Path| {
-            p.as_os_str()
-                .to_string_lossy()
-                .encode_utf16()
-                .chain([0])
-                .collect::<Vec<_>>()
-        };
-        if unsafe {
-            MoveFileExW(
-                wide(&temp).as_ptr(),
-                wide(&file).as_ptr(),
-                MOVEFILE_REPLACE_EXISTING | MOVEFILE_WRITE_THROUGH,
-            )
-        } == 0
-        {
-            return Err("HOST_SETTINGS_WRITE_FAILED".into());
-        }
-        Ok(())
-    })();
-    if result.is_err() {
-        let _ = fs::remove_file(temp);
-    }
-    result
+    let data = serde_json::to_vec_pretty(value).map_err(|e| e.to_string())?;
+    crate::portable_store::atomic_file(&root.join(name), &data)
+        .map_err(|_| "HOST_SETTINGS_WRITE_FAILED".into())
 }
+
 fn update(root: &Path, u: Update) -> Result<Settings, String> {
+    update_with_displays(root, u, || displays::enumerate())
+}
+pub(crate) fn update_with_displays(
+    root: &Path,
+    u: Update,
+    topology: impl FnOnce() -> Result<Vec<displays::Display>, String>,
+) -> Result<Settings, String> {
+    validate(&Settings {
+        schema_version: u.schema_version,
+        revision: u.expected_revision,
+        placement: u.placement.clone(),
+    })?;
+    crate::policy_store::safe_path(&root.join("host-settings.json"))?;
     let canonical = root.canonicalize().map_err(|e| e.to_string())?;
     let lock = format!(
         "Local\\AtmosWallpaper.HostSettings.{:x}",
@@ -141,7 +125,7 @@ fn update(root: &Path, u: Update) -> Result<Settings, String> {
         return Err("HOST_LAYOUT_ACTIVE".into());
     }
     if next.placement.enabled {
-        displays::select(&displays::enumerate()?, &next.placement.target)?;
+        displays::select(&topology()?, &next.placement.target)?;
     }
     // Keep the previous good host document; do not overwrite or migrate appearance transactions.
     atomic(root, "host-settings.previous.json", &old)?;

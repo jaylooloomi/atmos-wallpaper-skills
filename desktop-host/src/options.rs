@@ -3,6 +3,7 @@ use std::path::PathBuf;
 #[derive(Debug)]
 pub struct Options {
     pub runtime_root: PathBuf,
+    #[cfg(not(feature = "native-runtime"))]
     pub node: PathBuf,
     pub python: PathBuf,
     pub store: PathBuf,
@@ -49,6 +50,7 @@ pub fn parse(args: impl IntoIterator<Item = String>) -> Result<Options, String> 
     }
     Ok(Options {
         runtime_root: get_path("--runtime-root")?,
+        #[cfg(not(feature = "native-runtime"))]
         node: get_path("--node")?,
         python: get_path("--python")?,
         store: get_path("--store")?,
