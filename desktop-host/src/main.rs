@@ -180,6 +180,13 @@ fn run() -> Result<i32, String> {
     if args == ["--retire-legacy-screensaver"] {
         return legacy_screensaver::retire();
     }
+    #[cfg(feature = "native-runtime")]
+    if args == ["--retire-node-payload"] {
+        let root = installed::payload_root()?;
+        installed::verify(&root)?;
+        installed::retire_node_payload(&root)?;
+        return Ok(0);
+    }
     let scr = std::env::current_exe()
         .ok()
         .and_then(|p| {

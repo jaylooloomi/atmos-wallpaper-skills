@@ -47,10 +47,11 @@ try{
  current=await ready(started);assert.equal(current.runtime.persistent,true);assert.equal(current.runtime.boundedSeconds,null);
  assert.equal(current.attached.parent.class,'WorkerW');assert.equal(current.attached.window.visible,true);
  const payload=path.join(install,'payload');
- assert.equal(executablePath(current.runtime.pid).toLowerCase(),path.join(payload,'runtime/node/node.exe').toLowerCase());
+ assert.equal(executablePath(current.runtime.pid).toLowerCase(),exe.toLowerCase());
  const installedCheck=JSON.parse(run(exe,['--check-install']));assert.equal(installedCheck.payloadVerified,true);assert.equal(installedCheck.embeddedRuntimesVerified,true);
- const probe=JSON.parse(run(path.join(payload,'runtime/node/node.exe'),[path.join(root,'scripts/probe-bundled-runtime.mjs'),payload,path.join(scratch,'synthetic-store')],{env:{...env,PYTHONHOME:'Z:\\not-an-installed-python',PYTHONPATH:'Z:\\not-installed'}}));
- checks.push({name:'silent-install-and-auto-apply',passed:true,persistent:true,bundledNodeImage:true,payloadAndRuntimeSelfCheck:true,minimalPath:true,syntheticFeatureProbe:probe});console.log(JSON.stringify(checks.at(-1)));
+ for(const p of ['runtime/node','app/implementation-p4_2_5/node_modules','app/implementation-p4_2_5/src'])assert.equal(fs.existsSync(path.join(payload,p)),false,p);
+ assert.equal('node' in installedCheck.versions,false);
+ checks.push({name:'silent-install-and-auto-apply',passed:true,persistent:true,rustWorkerImage:true,noBundledNode:true,payloadAndRuntimeSelfCheck:true,minimalPath:true});console.log(JSON.stringify(checks.at(-1)));
  // Exercise the app's public native CLI, not buttons or an automation driver.
  run(exe,['--manager']);
  let managerReady=false;for(let i=0;i<30;i++){if((await health(current.runtime.port)).renderers.some(r=>r.role==='manager'&&r.recent)){managerReady=true;break}await sleep(300)}assert.ok(managerReady,'Installed manager did not acknowledge');

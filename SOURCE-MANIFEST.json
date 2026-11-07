@@ -42,14 +42,14 @@
     {
       "path": "desktop-host/Cargo.lock",
       "bytes": 119894,
-      "sha256": "1107638246b97df24af9c193939cb569a53af30a3c67a599bf0cb264acaf509f",
-      "git_blob_sha": "1746a14b10c8163e875f79f4922307dee302b5f5"
+      "sha256": "57697c153314eb0680a06fdf6959bc552b901c157344392fd043666bc675bde8",
+      "git_blob_sha": "ab99f9badb3f677cc674fa81b83cab392d0d2297"
     },
     {
       "path": "desktop-host/Cargo.toml",
-      "bytes": 2648,
-      "sha256": "bff5e684725082230ce34ef890187654a3aa98aebea156cf876ca90718c02291",
-      "git_blob_sha": "b10f42ee7d17a79c7c54e6c62510226974c10407"
+      "bytes": 2664,
+      "sha256": "825bb7ea897a7a17b61fd5493d572021cec4f71ecd14a63abb91044497d354a4",
+      "git_blob_sha": "cad5cdb3430097159b302f10e83cf48ea6dc7aca"
     },
     {
       "path": "desktop-host/README.md",
@@ -1427,33 +1427,33 @@
     },
     {
       "path": "desktop-host/installer/NOTICE.txt",
-      "bytes": 461,
-      "sha256": "6b4007b9198869f93d369f10dacf853eaa078989a837d51ee7e015bbc5e3337c",
-      "git_blob_sha": "e545c5bf96db45f0252099aed0947b21d3eac757"
+      "bytes": 447,
+      "sha256": "bd8ac090f617d9a45cd3b431e6bea2dd54fff7887ff5d72d35fe68d0cf254ed9",
+      "git_blob_sha": "1993c0c1587df05e744335dba5e15b71d1ab1d38"
     },
     {
       "path": "desktop-host/installer/hooks.nsh",
-      "bytes": 1957,
-      "sha256": "0cb25b670778728961050b3e86ec25d21078979db5ff1a4e3585a3cce0414bbc",
-      "git_blob_sha": "9b56229dd636723097c1d46aa052fe2b20328c9d"
+      "bytes": 2129,
+      "sha256": "4cb99f3b6c580662446133dc41b6fa4a3e712dfd411cde2a887660f55b513658",
+      "git_blob_sha": "6a0c340e7062ea7acda4720d6f5add97cb0573cf"
     },
     {
       "path": "desktop-host/installer/runtime-lock.json",
-      "bytes": 953,
-      "sha256": "7cf09c804726e7960a711ca789e059cdc01f0a948570f19535dadac3138aac36",
-      "git_blob_sha": "690794a07914a68385fa6e82355ec1f295677207"
+      "bytes": 667,
+      "sha256": "dce294d0ba3ee6c06429e85e716b8e824ebf83018c95c2bfe2f42bb78119bcf9",
+      "git_blob_sha": "d69231108ffc82bb9bd7d8e21314010561d366fc"
     },
     {
       "path": "desktop-host/package-lock.json",
       "bytes": 7248,
-      "sha256": "2e0636b964cc26c0fd27d1bbde19fb392dcb618fcac445bb890ff25044001a96",
-      "git_blob_sha": "f8020b4ce5a8be7a25b43c11357245d9b967d007"
+      "sha256": "e7480f4de074319586733a6f868bb580634a5e88566caa745922e42984c4a65b",
+      "git_blob_sha": "3978922441d1208312cc83daafba8e3ab8da01b6"
     },
     {
       "path": "desktop-host/package.json",
       "bytes": 285,
-      "sha256": "6418a6936fc4a332382837582b377ef3bb4032275ee9d1dd56959dd334b9783b",
-      "git_blob_sha": "81105a210f385c2c26be56f016f80c7e2202b818"
+      "sha256": "ecabb184e08abc27802dd6f164eeb1d9f3e50091330f1be70ddfd642414b536f",
+      "git_blob_sha": "f4551e05c6e48122093ba03939d91f9152aa668b"
     },
     {
       "path": "desktop-host/scripts/analyze-soak.mjs",
@@ -1469,9 +1469,9 @@
     },
     {
       "path": "desktop-host/scripts/build-installer.mjs",
-      "bytes": 3839,
-      "sha256": "55c4aed40abc9404c363dd1b16412f245440e9af7f925662818dd8ec784faea0",
-      "git_blob_sha": "f5e83ceacb89db2dbaa470206c4e4afb6094636e"
+      "bytes": 4422,
+      "sha256": "a5953c85e99b33a92dd5126bee40a14e008262f8bf397dc2e4f87ba3afc719a5",
+      "git_blob_sha": "31b89b2c8e0ea721e822a10c1579e22cde96b2a2"
     },
     {
       "path": "desktop-host/scripts/fixtures/screensaver-parent.rs",
@@ -1517,15 +1517,15 @@
     },
     {
       "path": "desktop-host/scripts/payload-integrity.mjs",
-      "bytes": 4672,
-      "sha256": "511af108ce49f1cf5f7e3b9f02d6b159eeebd435ce5098abe1f73906c18b0c56",
-      "git_blob_sha": "3bbf682b82d1e61282d2a6b606f3184d6d4eb8b6"
+      "bytes": 4492,
+      "sha256": "79d69df91600957421c574a84c52f3eb72936509da71c2c9993eafbbadee1886",
+      "git_blob_sha": "8614c1dfea2767e335ef31fbe88c511619980579"
     },
     {
       "path": "desktop-host/scripts/prepare-payload.mjs",
-      "bytes": 8035,
-      "sha256": "33f9b1a9d710e43f92dcc32ce6d0e42ac971d7527c38f5bd21c07f4d10fa760d",
-      "git_blob_sha": "3c61baa1ca73f9bd5cc6349fe10587f296a925f7"
+      "bytes": 6704,
+      "sha256": "b543f4b846c30948f5b20ade5877830f016cb84218f7a31f17b92773f97ed999",
+      "git_blob_sha": "1ce697aa5af455c1ed4dd230ec7adf81cec42f9b"
     },
     {
       "path": "desktop-host/scripts/probe-bundled-runtime.mjs",
@@ -1643,15 +1643,15 @@
     },
     {
       "path": "desktop-host/scripts/test-installer.mjs",
-      "bytes": 9957,
-      "sha256": "77f273c4c894da30e4a314cc82ffc7d73c777e7ef33503666f086c40238912b4",
-      "git_blob_sha": "4236ab256de76e227f6fc436076c5e28addd5836"
+      "bytes": 9869,
+      "sha256": "c14e1e91d231021784f11ec1fe3f70fc47ec10182a686b6f06945ad01afce6e5",
+      "git_blob_sha": "caf96621a2a7bd25c5cc46ac5ffd8ce75977d7ca"
     },
     {
       "path": "desktop-host/scripts/test-library-installed.mjs",
-      "bytes": 7489,
-      "sha256": "f140123c08086cdbab8ccb14245e22b5280da3af7811791656a4cb31a04cc7f3",
-      "git_blob_sha": "fe5ffcf4807b832d165ef34c8e9c56c8f447b95e"
+      "bytes": 9769,
+      "sha256": "bfb44445bb505dfca04eb5917ed9ad9ee942727959ae308a303567e9b50dac4b",
+      "git_blob_sha": "de6bebe2a7fe14d9c2043365593c6a8e88c119b7"
     },
     {
       "path": "desktop-host/scripts/test-memory-lifecycle.mjs",
@@ -1703,9 +1703,15 @@
     },
     {
       "path": "desktop-host/scripts/test-native-http-boundary.mjs",
-      "bytes": 19570,
-      "sha256": "bddc738caab35d615c1fdc3c71ae2f0cf2f8cfff70f61490971704ab98afbcff",
-      "git_blob_sha": "6120b9292497e59284b566526667bcdda93c37dd"
+      "bytes": 19784,
+      "sha256": "5f0dff6dfe918d89a67fb4bccda4010a6906b87ee59c23d331d08ccc6131503d",
+      "git_blob_sha": "5365ca7759f81b3e32d94a0d2aad52417b771889"
+    },
+    {
+      "path": "desktop-host/scripts/test-native-install-check.mjs",
+      "bytes": 4290,
+      "sha256": "885704799d05ce7efd03f4b8d0c52546e9df8194adc24094670220a8951ef256",
+      "git_blob_sha": "9deb792f94a3704164eb71c13e6bb871f2cde732"
     },
     {
       "path": "desktop-host/scripts/test-native-live-sources.mjs",
@@ -1847,9 +1853,9 @@
     },
     {
       "path": "desktop-host/scripts/verify-native-runtime.mjs",
-      "bytes": 3810,
-      "sha256": "e0b76747990e8a46c0dc7d59139dfe505eb1c28fd0b7581c33cdfc1a4f868520",
-      "git_blob_sha": "e88f50cc1bfadfedaae020eef41f450becf98ea8"
+      "bytes": 3806,
+      "sha256": "f03430e4b5dde02ac940c393e3ce65a15d64da22407eb2708e54ff7f49b438d9",
+      "git_blob_sha": "5624e2711d5d427659a52db9a3669b4df7b93e9d"
     },
     {
       "path": "desktop-host/scripts/verify-network-dashboard.mjs",
@@ -2075,9 +2081,9 @@
     },
     {
       "path": "desktop-host/src/installed.rs",
-      "bytes": 6304,
-      "sha256": "0b634bf72ad44db6a0f3fae7ebd48b22480fe94f84b5a2b2a717765aa44286bd",
-      "git_blob_sha": "dc5d3cde5e0efcedc4646d3d7aa457fbfd7cdbe7"
+      "bytes": 6960,
+      "sha256": "b8006e43fc763a07eafb3760e9e235ea41aea12a32b3acaebdac33bcaa1b7e59",
+      "git_blob_sha": "b8dfa3a7e1fcc377af7a574ce0038a7db811162b"
     },
     {
       "path": "desktop-host/src/journal.rs",
@@ -2141,9 +2147,9 @@
     },
     {
       "path": "desktop-host/src/main.rs",
-      "bytes": 16885,
-      "sha256": "4eb636df7809e27767561b2f5b5f390593e30392c708fdfce07e099f7ec60c54",
-      "git_blob_sha": "2c1a8a47daafff1ced68d39733300db6306120e1"
+      "bytes": 17125,
+      "sha256": "aed4341cda995ed745b5d69f41ad89892c0d4bfb320cf2f6f6b98f562803ba2e",
+      "git_blob_sha": "a9586727b4e57f936bdd6ce845f4dab978fe51be"
     },
     {
       "path": "desktop-host/src/multi.rs",
@@ -2292,8 +2298,8 @@
     {
       "path": "desktop-host/tauri.conf.json",
       "bytes": 976,
-      "sha256": "ceb2f1b1e92a04f92d028d26db78f3f89c8e50a8605c041dac1618aadba947c2",
-      "git_blob_sha": "2617cb0621d09442189d564549ec4f42dd1c743b"
+      "sha256": "babdd040c7b062f557ce7eec0f999b4b866224e515bc2c5f896e22e0818bd58a",
+      "git_blob_sha": "6448e59b55ef0cf5fa90210ad1c14eba203001c0"
     },
     {
       "path": "desktop-host/tests/fixtures/desired-state-contract.json",

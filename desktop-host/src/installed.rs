@@ -40,6 +40,25 @@ pub fn payload_root() -> Result<PathBuf, String> {
         .join("payload"))
 }
 
+#[cfg(feature = "native-runtime")]
+pub fn retire_node_payload(root: &Path) -> Result<(), String> {
+    for relative in [
+        "runtime/node",
+        "app/implementation-p4_2_5/node_modules",
+        "app/implementation-p4_2_5/src",
+        "app/implementation-p4_2_1/src",
+    ] {
+        let target = root.join(relative);
+        crate::portable_store::no_links(&target)?;
+        match fs::remove_dir_all(&target) {
+            Ok(()) => {}
+            Err(error) if error.kind() == std::io::ErrorKind::NotFound => {}
+            Err(error) => return Err(format!("Could not retire legacy payload {relative}: {error}")),
+        }
+    }
+    Ok(())
+}
+
 pub fn verify(root: &Path) -> Result<Versions, String> {
     let manifest_path = root.join("payload-manifest.json");
     if fs::metadata(&manifest_path)

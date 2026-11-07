@@ -12,7 +12,6 @@ if(process.platform!=='win32')throw Error('Windows x64 payload build only');
 const root=fileURLToPath(new URL('../',import.meta.url)),repo=path.dirname(root);
 const payload=path.join(root,'payload');payloadPolicy.invalidate(payload);const cache=path.join(process.env.LOCALAPPDATA,'AtmosWallpaper/installer-build-cache');
 const python=process.env.ATMOS_BUILD_PYTHON||'C:\\Python314\\python.exe';
-const git=process.env.ATMOS_GIT||'C:\\Program Files\\Git\\cmd\\git.exe';
 const cargo=path.join(process.env.USERPROFILE,'.cargo/bin/cargo.exe');
 const pins=JSON.parse(fs.readFileSync(path.join(root,'installer/runtime-lock.json')));
 const sha=b=>createHash('sha256').update(b).digest('hex');
@@ -25,20 +24,17 @@ async function download(pin){
  if(sha(fs.readFileSync(file))!==pin.sha256)throw Error('Pinned archive hash mismatch: '+name);
  return file;
 }
-function extract(zip,destination,mode='all'){
+function extract(zip,destination){
  run(python,['-I','-B','-c',String.raw`import pathlib,sys,zipfile
-source,dest,mode=sys.argv[1:]; dest=pathlib.Path(dest); dest.mkdir(parents=True,exist_ok=True)
+source,dest=sys.argv[1:]; dest=pathlib.Path(dest); dest.mkdir(parents=True,exist_ok=True)
 with zipfile.ZipFile(source) as z:
  for name in z.namelist():
   p=pathlib.PurePosixPath(name)
   if p.is_absolute() or '..' in p.parts or any(':' in part or '\\' in part for part in p.parts): raise ValueError('Unsafe archive path')
   if name.endswith('/'): continue
-  if mode=='node':
-   if p.name not in ('node.exe','LICENSE') or len(p.parts)!=2: continue
-   target=dest/p.name
-  else: target=dest.joinpath(*p.parts)
+  target=dest.joinpath(*p.parts)
   target.parent.mkdir(parents=True,exist_ok=True); target.write_bytes(z.read(name))
-`,zip,destination,mode]);
+`,zip,destination]);
 }
 fs.mkdirSync(cache,{recursive:true});
 // Recursive removal is restricted to this exact generated directory; never a
@@ -49,31 +45,21 @@ fs.mkdirSync(payload,{recursive:true});
 copy(path.join(root,'installer/CPAL-0.18.2-LICENSE.txt'),path.join(payload,'licenses/CPAL-0.18.2-LICENSE.txt'));
 const downloads=await Promise.all(Object.entries(pins).filter(([k])=>k!=='schemaVersion').map(async([k,p])=>[k,await download(p)]));
 const archives=Object.fromEntries(downloads);
-extract(archives.node,path.join(payload,'runtime/node'),'node');
 extract(archives.python,path.join(payload,'runtime/python'));
 extract(archives.pillow,path.join(payload,'runtime/python/site-packages'));
 fs.writeFileSync(path.join(payload,'runtime/python/python314._pth'),'python314.zip\n.\nsite-packages\n');
-// Package only source files tracked by Git, never local stores, tests or logs.
-const gitList=spawnSync(git,['ls-files','-z'],{cwd:repo,encoding:'utf8',windowsHide:true});
-const tracked=gitList.status===0?gitList.stdout.split('\0').filter(Boolean):JSON.parse(fs.readFileSync(path.join(repo,'SOURCE-MANIFEST.json'))).files.map(f=>f.path);
-const prefixes=['implementation-p4_2_5/src/','implementation-p1/src/','implementation-p4_2_1/src/','prototype-v8.1-frozen/'];
-for(const file of tracked.filter(f=>prefixes.some(p=>f.startsWith(p)))){
- if(file.includes('\\')||path.posix.normalize(file)!==file)throw Error('Unsafe published source path');
+const product=path.join(payload,'app/implementation-p4_2_5');
+for(const file of ['implementation-p1/src/decode-image.py','prototype-v8.1-frozen/manifest.json','SOURCE-MANIFEST.json']){
  copy(path.join(repo,file),path.join(payload,'app',file));
 }
-const product=path.join(payload,'app/implementation-p4_2_5');
-for(const name of ['package.json','package-lock.json'])copy(path.join(repo,'implementation-p4_2_5',name),path.join(product,name));
+fs.cpSync(path.join(repo,'prototype-v8.1-frozen/assets'),path.join(payload,'app/prototype-v8.1-frozen/assets'),{recursive:true});
 fs.cpSync(verified.artifact.dist,path.join(product,'dist'),{recursive:true});
 for(const file of walk(path.join(product,'dist')))fs.chmodSync(path.join(product,'dist',file),0o644);
-copy(path.join(repo,'SOURCE-MANIFEST.json'),path.join(payload,'app/SOURCE-MANIFEST.json'));
-const npmCli=path.join(path.dirname(process.execPath),'node_modules/npm/bin/npm-cli.js');
-run(process.execPath,[npmCli,'ci','--omit=dev','--ignore-scripts','--no-audit','--no-fund'],{cwd:product});
 // Isolated embedded Python must be able to import its bundled Pillow codecs.
 const embedded=path.join(payload,'runtime/python/python.exe');
 const check=run(embedded,['-I','-B','-c','import sys,PIL;from PIL import Image,features;assert features.check("webp");print(sys.version.split()[0]+" / Pillow "+PIL.__version__)'],{env:{SystemRoot:process.env.SystemRoot,PATH:path.join(process.env.SystemRoot,'System32')}}).trim();
 const notices=path.join(payload,'licenses');fs.mkdirSync(notices,{recursive:true});
 copy(path.join(root,'installer/NOTICE.txt'),path.join(notices,'NOTICE.txt'));
-copy(path.join(payload,'runtime/node/LICENSE'),path.join(notices,'NODE-LICENSE.txt'));
 copy(path.join(payload,'runtime/python/LICENSE.txt'),path.join(notices,'PYTHON-LICENSE.txt'));
 const metadata=JSON.parse(run(cargo,['metadata','--locked','--format-version','1','--filter-platform','x86_64-pc-windows-msvc'],{cwd:root}));
 const licenses=[];
@@ -85,8 +71,7 @@ for(const pkg of metadata.packages.filter(p=>p.source?.startsWith('registry+')))
 }
 fs.writeFileSync(path.join(notices,'RUST-DEPENDENCIES.json'),JSON.stringify(licenses,null,2)+'\n');
 copy(path.join(root,'installer/runtime-lock.json'),path.join(notices,'RUNTIME-SOURCES.json'));
-const files=walk(payload).map(p=>{const b=fs.readFileSync(path.join(payload,p));return {path:p,bytes:b.length,sha256:sha(b)}});
-const manifest={schemaVersion:1,architecture:'x86_64',versions:{node:pins.node.version,python:pins.python.version,pillow:pins.pillow.version},files};
+const manifest={schemaVersion:1,architecture:'x86_64',versions:{python:pins.python.version,pillow:pins.pillow.version}};
 const sealed=payloadPolicy.seal(proof,payload,manifest);
 console.log(JSON.stringify({payloadPrepared:true,files:sealed.files.length,bytes:sealed.files.reduce((s,x)=>s+x.bytes,0),embeddedPython:check,systemRuntimeRequired:false}));
 

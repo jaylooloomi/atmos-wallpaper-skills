@@ -21,6 +21,11 @@
   ${EndIf}
 !macroend
 !macro NSIS_HOOK_POSTINSTALL
+  nsExec::ExecToLog '"$INSTDIR\atmos-wallpaper.exe" --retire-node-payload'
+  Pop $0
+  ${If} $0 != 0
+    Abort "Legacy Node payload could not be retired safely."
+  ${EndIf}
   nsExec::ExecToLog '"$INSTDIR\atmos-wallpaper.exe" --retire-legacy-screensaver'
   Pop $0
   ${If} $0 != 0

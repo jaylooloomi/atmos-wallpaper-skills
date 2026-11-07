@@ -25,5 +25,8 @@ function releaseTools(){const result={};for(const name of ['cargo','rustc']){con
 export const payloadPolicy=createPayloadPolicy({
  assertProof:assertVerified,
  readInputs(proof,s){return {schemaVersion:1,artifact:s.identity,nativeResources:{icons:inventory(path.join(s.repo,'desktop-host/icons')),buildEnvironmentHash:digest(Object.fromEntries(['RUSTFLAGS','CARGO_ENCODED_RUSTFLAGS','RUSTUP_TOOLCHAIN','RUSTUP_HOME','CARGO_HOME','CC','CXX','CARGO_TARGET_X86_64_PC_WINDOWS_MSVC_LINKER'].map(k=>[k,s.env[k]||null]))),ignoredOverrides:['TAURI_CONFIG','CARGO_TARGET_DIR','CARGO_BUILD_TARGET']},sourceInputs:frontendInputs(s.repo,{dependencies:false}),dependencies:{product:inventory(path.join(s.repo,'implementation-p4_2_5/node_modules')),desktop:inventory(path.join(s.repo,'desktop-host/node_modules'))},tools:{...s.tools,release:releaseTools()},files:Object.fromEntries(relativeFiles.map(p=>[p,fileEntry(path.join(s.repo,p))]))}},
- mappings(proof,s){const root=s.repo;return [...['implementation-p4_2_5/src','implementation-p1/src','implementation-p4_2_1/src','prototype-v8.1-frozen'].map(p=>({source:path.join(root,p),target:'app/'+p})),...['package.json','package-lock.json'].map(p=>({source:path.join(root,'implementation-p4_2_5',p),target:'app/implementation-p4_2_5/'+p})),{source:s.artifact.dist,target:'app/implementation-p4_2_5/dist'},{source:path.join(root,'SOURCE-MANIFEST.json'),target:'app/SOURCE-MANIFEST.json'}]}
+ mappings(proof,s){
+  const inputs=['implementation-p1/src/decode-image.py','prototype-v8.1-frozen/manifest.json','prototype-v8.1-frozen/assets','SOURCE-MANIFEST.json'];
+  return [...inputs.map(p=>({source:path.join(s.repo,p),target:'app/'+p})),{source:s.artifact.dist,target:'app/implementation-p4_2_5/dist'}];
+ }
 });

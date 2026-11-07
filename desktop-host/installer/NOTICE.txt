@@ -1,7 +1,7 @@
 Atmos Wallpaper
 
-This application includes separately licensed software. Bundled Node.js,
-Python, Pillow, JavaScript packages, fonts and Rust dependencies retain their
+This application includes separately licensed software. Bundled Python,
+Pillow, browser assets, fonts and Rust dependencies retain their
 respective notices and licenses, included in payload/licenses and alongside
 the bundled components. Microsoft WebView2 is distributed through Microsoft's
 official runtime installer and remains subject to Microsoft's terms.
