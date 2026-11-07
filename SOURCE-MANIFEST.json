@@ -41,15 +41,15 @@
     },
     {
       "path": "desktop-host/Cargo.lock",
-      "bytes": 108674,
-      "sha256": "e8b23c89adafa1c395831bfe93ee3094a24a40d72d29f71c487fced721256703",
-      "git_blob_sha": "363249c1aed0c5690d44cd2c6d796445819621ae"
+      "bytes": 108908,
+      "sha256": "65d4834fd0467e9aa610a77c30465bac359d1c838360715ffe11884e209b632a",
+      "git_blob_sha": "299f73f1a08e1119461722133dd6318391c8a5ed"
     },
     {
       "path": "desktop-host/Cargo.toml",
-      "bytes": 1444,
-      "sha256": "2be5ce2551b178cbde164073816815f9e8a82ff7e87c9ea9890674976b3e92d8",
-      "git_blob_sha": "fe6a9bf4a31033a0547b7d403fcc1490f65b27a5"
+      "bytes": 1671,
+      "sha256": "d6932009a1cefd7a49243c51a029e5bd8447f229e73a0089b913c82cdbb07bdf",
+      "git_blob_sha": "bc3f99fb6b2131bfc1b982b90114ca6406f0c2bc"
     },
     {
       "path": "desktop-host/README.md",
@@ -1696,6 +1696,12 @@
       "git_blob_sha": "a4bccfaa17150075aa25c77d8657a132ffe155ae"
     },
     {
+      "path": "desktop-host/scripts/test-native-http-boundary.mjs",
+      "bytes": 19570,
+      "sha256": "bddc738caab35d615c1fdc3c71ae2f0cf2f8cfff70f61490971704ab98afbcff",
+      "git_blob_sha": "6120b9292497e59284b566526667bcdda93c37dd"
+    },
+    {
       "path": "desktop-host/scripts/test-native-provider-policy.mjs",
       "bytes": 8859,
       "sha256": "205b6738123974c776561b50fdf962b691f467e3b49e86f9fa721c406c5275af",
@@ -1942,6 +1948,12 @@
       "git_blob_sha": "d4e3416ca84736b6fa2f97bed321de0510947407"
     },
     {
+      "path": "desktop-host/src/bin/http-boundary-fixture.rs",
+      "bytes": 3284,
+      "sha256": "68413d1c00dd981d2263a91f07055caf3ddd6c7c7ac15010ac7355c1f262f4dc",
+      "git_blob_sha": "797ba3a02fe59afb19f32d83e415315c2795a58e"
+    },
+    {
       "path": "desktop-host/src/cli-catalogs/agent-help.json",
       "bytes": 13351,
       "sha256": "0f7f17b6c4427014ee363b3a023c2d2eb15318affc99d9793225e66ad31e5010",
@@ -2072,6 +2084,12 @@
       "bytes": 10671,
       "sha256": "691fa80d2896b3c827c7e7b97055837ffdc05b7b3dafc1431985f33dac97d108",
       "git_blob_sha": "c0611c6ca0345cf20494a4f9cc7b1430eec30b0d"
+    },
+    {
+      "path": "desktop-host/src/native_http.rs",
+      "bytes": 35064,
+      "sha256": "1d84229972ea24bfc2f7da94e270fd2c82e2198858cafc587ecb8334b40d07f1",
+      "git_blob_sha": "9352b18d334261f79b4fbec7f724cc3dafa5c1ab"
     },
     {
       "path": "desktop-host/src/options.rs",
