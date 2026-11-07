@@ -1,0 +1,127 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-07",
+  "version": "0.7.34",
+  "passed": true,
+  "verification": {
+    "elapsedMs": 205211,
+    "tests": [
+      {
+        "name": "product-tests",
+        "tests": 558,
+        "pass": 555,
+        "fail": 0,
+        "skipped": 3
+      },
+      {
+        "name": "core-tests",
+        "tests": 43,
+        "pass": 41,
+        "fail": 0,
+        "skipped": 2
+      }
+    ],
+    "invocations": {
+      "prepare": 1,
+      "fullLayout": 1
+    },
+    "viewports": 12,
+    "componentThemeStates": 336,
+    "weatherCardStates": 720,
+    "negativeControl": {
+      "passed": true,
+      "expectedOverlapRejected": true
+    },
+    "networkFixture": [
+      {
+        "passed": true,
+        "reduced": false,
+        "widths": [
+          224,
+          280,
+          360
+        ],
+        "cardHeight": 178,
+        "noClipping": true,
+        "stableAnimationNode": true,
+        "savingDataUpdates": true,
+        "idleAndUnknownStatic": true,
+        "hiddenStatic": true
+      },
+      {
+        "passed": true,
+        "reduced": true,
+        "widths": [
+          224,
+          280,
+          360
+        ],
+        "cardHeight": 178,
+        "noClipping": true,
+        "stableAnimationNode": true,
+        "savingDataUpdates": true,
+        "idleAndUnknownStatic": true,
+        "hiddenStatic": true
+      }
+    ]
+  },
+  "build": {
+    "elapsedMs": 375051,
+    "phases": [
+      {
+        "name": "full-verification",
+        "elapsedMs": 205213,
+        "exitCode": 0
+      },
+      {
+        "name": "payload",
+        "elapsedMs": 16719,
+        "exitCode": 0
+      },
+      {
+        "name": "tauri-build-and-nsis",
+        "elapsedMs": 126671,
+        "exitCode": 0
+      }
+    ],
+    "installer": {
+      "bytes": 293806015,
+      "sha256": "e7fe5471477c46f1c2a2646e7ec868d0b92a522d00bd0eb385601945ab1f188f"
+    }
+  },
+  "upgrade": {
+    "silentUpgrade": true,
+    "installedBinaryMatchesNsisStampedBuild": true,
+    "privateSettingsPreimageSaved": true,
+    "configFilesBytePreserved": 11,
+    "startupPreferencePreserved": true,
+    "informationModeCheckedWhenConfigured": true,
+    "embeddedPayloadVerified": true,
+    "servedUiAssetsMatchBuild": true,
+    "embeddedWidgetStylesVerified": true,
+    "removedManagerPanelsAbsent": true,
+    "newNativeHostAttached": true,
+    "genuineWallpaperAndManagerAck": true,
+    "retiredScreensaverFileAbsent": true,
+    "retiredActivationCommandsRejected": true,
+    "retiredSchemaAbsent": true,
+    "windowsAuthenticationAndTimeoutPreserved": true,
+    "unrelatedScreensaverSelectionPreserved": true
+  },
+  "installedReadOnlyChecks": {
+    "weatherAvailable": true,
+    "systemFreshSamples": 6,
+    "observedSeconds": 12.931
+  },
+  "notIncluded": [
+    "C/D disk capacity is planned only.",
+    "refactor/remove-node-runtime is not merged."
+  ],
+  "limitations": [
+    "No manual visibility, GPU/power or new soak verification.",
+    "Genuine native attachment and renderer reports are not visual proof.",
+    "Animation geometry/motion fixtures use explicitly synthetic data; no fake live ACKs.",
+    "Existing information-saving preference is preserved, so network arrows remain static while enabled.",
+    "Installer, private backups and raw browser/system logs stay local."
+  ]
+}

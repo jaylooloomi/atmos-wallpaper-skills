@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-07",
+  "passed": true,
+  "method": "Actual provider renderer and production CSS in isolated Chromium CLI, synthetic telemetry only",
+  "cases": [
+    {
+      "passed": true,
+      "reduced": false,
+      "widths": [
+        224,
+        280,
+        360
+      ],
+      "cardHeight": 178,
+      "noClipping": true,
+      "stableAnimationNode": true,
+      "savingDataUpdates": true,
+      "idleAndUnknownStatic": true,
+      "hiddenStatic": true
+    },
+    {
+      "passed": true,
+      "reduced": true,
+      "widths": [
+        224,
+        280,
+        360
+      ],
+      "cardHeight": 178,
+      "noClipping": true,
+      "stableAnimationNode": true,
+      "savingDataUpdates": true,
+      "idleAndUnknownStatic": true,
+      "hiddenStatic": true
+    }
+  ],
+  "limitations": [
+    "No real network measurement, user-browser automation, installed update or native renderer acknowledgement."
+  ]
+}

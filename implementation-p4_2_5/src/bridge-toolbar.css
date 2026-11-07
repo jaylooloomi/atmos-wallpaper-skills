@@ -33,3 +33,5 @@ body[data-render-mode=manager] .bridge-commands #localeControl{order:2;display:f
 body[data-render-mode=manager] .bridge-commands #localeControl select{width:130px;min-width:0;max-width:100%;min-height:44px;padding:8px 10px;border:1px solid var(--line,#294a65);border-radius:8px;background:var(--control,#0d1d30);color:var(--text,#e8f2fc);font:inherit}
 body[data-render-mode=manager] .bridge-commands #localeControl select:focus-visible{outline:2px solid var(--accent,#71d9ff);outline-offset:2px}
 body[data-render-mode=manager] .bridge-commands .information-saving-quick{order:3}
+
+body[data-render-mode=manager] .bridge-commands #localeControl{border-inline-start:1px solid var(--line,#294a65);padding-inline-start:12px;box-sizing:border-box}

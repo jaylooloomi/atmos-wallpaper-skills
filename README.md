@@ -10,6 +10,8 @@ Atmos 是可客製化的個人資訊桌面（Personal Dashboard）：把關心�
 
 ## 最新功能
 
+- 0.7.34 整合分頁互斥收合、番茄鐘／舊元件管理修正、標題與單列欄位、系統設定排序，以及上傳／下載 SVG 動畫；保留原設定更新安裝版。[更新與驗證](desktop-host/docs/UI-BATCH-0.7.34-2026-11-07.md)。
+
 - 0.7.33 整合近期管理頁與元件修改，修正月曆正方形標記的窄格溢出；已完成保留設定的本機更新。[更新與完整驗證](desktop-host/docs/UI-BATCH-RELEASE-2026-11-07.md)。
 
 - 0.7.33 修正 GitHub／Yahoo／RSS 開關未隨上方「套用」保存：現在支援本頁預覽、共用套用與取消，保留衝突與失敗草稿。[驗證](desktop-host/docs/FEED-GLOBAL-APPLY-2026-11-06.md)。

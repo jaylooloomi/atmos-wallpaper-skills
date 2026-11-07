@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-07",
+  "passed": true,
+  "targetedTests": 26,
+  "elapsedMs": 16978,
+  "cases": [
+    {
+      "width": 390,
+      "accordion": {
+        "passed": true,
+        "visits": [
+          {
+            "tab": "system",
+            "title": "桌布音訊⌄"
+          },
+          {
+            "tab": "system",
+            "title": "桌布素材庫⌄"
+          },
+          {
+            "tab": "system",
+            "title": "螢幕與桌布放置⌄"
+          },
+          {
+            "tab": "system",
+            "title": "Windows 啟動⌄"
+          },
+          {
+            "tab": "system",
+            "title": "多螢幕配置⌄"
+          },
+          {
+            "tab": "system",
+            "title": "效能與省電⌄"
+          },
+          {
+            "tab": "appearance",
+            "title": "我的外觀配置⌄"
+          },
+          {
+            "tab": "appearance",
+            "title": "天氣⌄"
+          },
+          {
+            "tab": "appearance",
+            "title": "元件管理⌄"
+          }
+        ],
+        "failures": []
+      }
+    },
+    {
+      "width": 1280,
+      "accordion": {
+        "passed": true,
+        "visits": [
+          {
+            "tab": "system",
+            "title": "Wallpaper audio⌄"
+          },
+          {
+            "tab": "system",
+            "title": "Wallpaper library⌄"
+          },
+          {
+            "tab": "system",
+            "title": "Displays and wallpaper placement⌄"
+          },
+          {
+            "tab": "system",
+            "title": "Windows startup⌄"
+          },
+          {
+            "tab": "system",
+            "title": "多螢幕配置⌄"
+          },
+          {
+            "tab": "system",
+            "title": "效能與省電⌄"
+          },
+          {
+            "tab": "appearance",
+            "title": "我的外觀配置⌄"
+          },
+          {
+            "tab": "appearance",
+            "title": "Weather⌄"
+          },
+          {
+            "tab": "appearance",
+            "title": "Widget settings⌄"
+          }
+        ],
+        "failures": []
+      }
+    }
+  ],
+  "checks": [
+    "Initially collapsed",
+    "Exclusive open per tab",
+    "Reclick closes current section",
+    "Original inputs and native handlers preserved",
+    "Draft retention and no save during navigation",
+    "Opened-section geometry checked"
+  ],
+  "limitations": [
+    "Development targeted tests and two isolated Chromium viewport fixtures only.",
+    "Installed application and private settings unchanged; no full release or human verification."
+  ]
+}

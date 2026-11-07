@@ -4,8 +4,8 @@
   "platform": "win32",
   "node": "v24.13.0",
   "input": {
-    "sha256": "e0aa09b11540054b805dfbaed130b67609d71a199cda0837fd268d676123c8dd",
-    "files": 395,
+    "sha256": "00684a538b5d648554eebe3090c5cdb7b2ba6c1dda0278f29d8cbfdce17fece8",
+    "files": 398,
     "node": "v24.13.0",
     "cacheHit": false,
     "scope": "Working-tree source, tests, scripts, frozen prototype and dependency lockfiles; telemetry only, not a cache authorization"
@@ -23,24 +23,24 @@
     ],
     "cacheReuseEnabled": false
   },
-  "startedAt": "2026-11-07T01:31:37.122Z",
-  "elapsedMs": 193352,
+  "startedAt": "2026-11-07T02:23:00.130Z",
+  "elapsedMs": 205211,
   "checks": [
     {
       "name": "prepare",
       "exitCode": 0,
-      "elapsedMs": 507,
+      "elapsedMs": 582,
       "timedOut": false,
       "aborted": false
     },
     {
       "name": "product-tests",
       "exitCode": 0,
-      "tests": 554,
-      "pass": 551,
+      "tests": 558,
+      "pass": 555,
       "fail": 0,
       "skipped": 3,
-      "elapsedMs": 11171,
+      "elapsedMs": 12256,
       "timedOut": false,
       "aborted": false
     },
@@ -51,53 +51,53 @@
       "pass": 41,
       "fail": 0,
       "skipped": 2,
-      "elapsedMs": 8001,
+      "elapsedMs": 8035,
       "timedOut": false,
       "aborted": false
     },
     {
       "name": "draft-review",
       "exitCode": 0,
-      "elapsedMs": 147,
+      "elapsedMs": 138,
       "timedOut": false,
       "aborted": false
     },
     {
       "name": "path-review",
       "exitCode": 0,
-      "elapsedMs": 163,
+      "elapsedMs": 152,
       "timedOut": false,
       "aborted": false
     },
     {
       "name": "cli-help",
       "exitCode": 0,
-      "elapsedMs": 149,
+      "elapsedMs": 144,
       "timedOut": false,
       "aborted": false
     },
     {
       "name": "feed-global-apply",
       "exitCode": 0,
-      "elapsedMs": 7765,
+      "elapsedMs": 8026,
       "timedOut": false,
       "aborted": false
     },
     {
       "name": "layout-regression",
       "exitCode": 0,
-      "elapsedMs": 149872,
+      "elapsedMs": 160241,
       "timedOut": false,
       "aborted": false
     }
   ],
-  "integrityCheckMs": 4795,
-  "artifactCaptureMs": 6533,
+  "integrityCheckMs": 4661,
+  "artifactCaptureMs": 6492,
   "passed": true,
   "status": "complete",
   "artifact": {
-    "inputHash": "096bdc010a55b82184639d0633265c1d8f1aa6d4d05847fc289af68fec6f6fe7",
-    "sha256": "a4a1cf98f4325388ef1afb3f2481d96ba53ed7aaa29bd8e258226f585bd14062",
+    "inputHash": "8eb6d6ce15d023437eaef082d234685c62ce2d93304fefcad5653450d3d87589",
+    "sha256": "586a32f2bc87b1ed90ea46df438768bccfe520dfc8f92d1ea881ca4ab56d0fd9",
     "files": 88
   },
   "invocations": {

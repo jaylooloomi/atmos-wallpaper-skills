@@ -16,7 +16,7 @@ body[data-render-mode=manager] .settings-tabpanel[hidden]{display:none!important
 .settings-widget-toggle{position:relative;display:flex!important;align-items:center;justify-content:center;width:44px;min-height:44px;margin:0!important;flex:0 0 44px;cursor:pointer}
 .settings-widget-toggle input{position:absolute;inset:0;width:44px;height:44px;margin:0;opacity:0;z-index:1;cursor:pointer}
 .settings-toggle-track{display:block;width:36px;height:22px;border:1px solid var(--line,#637787);border-radius:20px;background:color-mix(in srgb,currentColor 20%,transparent);pointer-events:none}.settings-toggle-track::after{content:'';display:block;width:16px;height:16px;margin:2px;border-radius:50%;background:#fff}.settings-widget-toggle input:checked+.settings-toggle-track{background:var(--accent,#71d9ff)}.settings-widget-toggle input:checked+.settings-toggle-track::after{transform:translateX(14px)}.settings-widget-toggle input:focus-visible+.settings-toggle-track{outline:2px solid var(--accent,#71d9ff);outline-offset:3px}
-.settings-widget-content{grid-column:1/-1;order:1;padding:14px;border:1px solid var(--line,#637787);border-radius:10px;background:var(--control,transparent);min-width:0}.settings-widget-content[hidden]{display:none!important}
+.settings-widget-content{grid-column:1/-1;order:1;padding:10px 14px 14px;border:1px solid var(--line,#637787);border-radius:10px;background:var(--control,transparent);min-width:0}.settings-widget-content[hidden]{display:none!important}
 .settings-tabs button{max-width:100%;white-space:normal;overflow-wrap:anywhere}
 .settings-widget-content>.provider-settings{margin:0;border:0;padding:0;background:transparent}
 .settings-tabs .provider-weather-controls>label{display:none}
@@ -46,3 +46,14 @@ body[data-render-mode=manager] .settings-tabpanel #themeSettings.theme-banner>.t
 .settings-tabs .settings-widget-summary .settings-widget-select:is(:hover,:active,:focus-visible){background:transparent!important;box-shadow:none!important}
 .settings-tabs .settings-widget-summary .settings-widget-select:focus-visible{outline:none}
 .settings-widget-summary:has(.settings-widget-select:focus-visible){outline:2px solid var(--accent,#71d9ff);outline-offset:2px}
+
+.settings-section-accordion{min-width:0;max-width:100%;border:1px solid var(--line,#637787);border-radius:10px;background:var(--control,transparent);overflow:clip}.settings-section-accordion>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:44px;padding:8px 14px;cursor:pointer;list-style:none;font-weight:600;color:var(--text,inherit);overflow-wrap:anywhere}.settings-section-accordion>summary::-webkit-details-marker{display:none}.settings-section-accordion>summary:hover{background:color-mix(in srgb,var(--accent,#71d9ff) 14%,transparent)}.settings-section-accordion>summary:focus-visible{outline:2px solid var(--accent,#71d9ff);outline-offset:-3px}.settings-section-accordion[open]>summary{border-bottom:1px solid var(--line,#637787)}.settings-section-chevron{flex:none;font-size:18px}.settings-section-accordion[open]>summary .settings-section-chevron{transform:rotate(180deg)}.settings-section-accordion>.settings-accordion-body{margin:0!important;border:0!important;border-radius:0;padding:14px;min-width:0;max-width:100%;box-sizing:border-box}.settings-section-accordion [data-accordion-heading]{display:none!important}
+
+body[data-render-mode=manager] .retired-manager-chrome{display:none!important}
+
+.settings-tabs .layout-settings .layout-inline-field{display:flex;flex-wrap:nowrap;align-items:center;gap:12px;min-width:0}.settings-tabs .layout-inline-field>span{white-space:nowrap;flex:0 0 auto}.settings-tabs .layout-inline-field>select{flex:1 1 0;width:0;min-width:0;max-width:100%}.settings-tabs .layout-inline-field[hidden]{display:none!important}
+
+/* Compact card headings without shrinking controls or disclosure hit areas. */
+body[data-render-mode=manager] .settings-tabs .settings-widget-content>.settings-widget-detail-title{margin:0 0 10px!important;padding:0;font-size:14px;line-height:1.4}
+.settings-widget-content>.inspect-props>.inspect-extra:first-child{margin-top:0}
+.settings-tabs .settings-section-accordion>.settings-accordion-body{padding-top:10px}

@@ -73,3 +73,7 @@ npm run release:windows
 P1 同流程去重、完整 payload manifest 與負向驗收已實作，量測／界線見 desktop-host/docs/WORKFLOW-IMPROVEMENT-2026-11-07.md 與 TODO。前後條件不同、quick 覆蓋較少，不能把 quick 耗時說成完整 verify 加速。
 
 Chromium 有限並行／process 重用屬另一步實驗，不先對共享 core 做 Promise.all。來源轉換先依 WORKFLOW-P0 的來源圖定位；逐步補替換斷言與小模組，不改 frozen/provenance、不一次重寫產品。
+
+### 獨立 Node 預覽快照
+
+使用者要求不中斷預覽時，可將已 prepare／通過 targeted＋quick 的 dist 複製到本機獨立目錄，設定 `ATMOS_PREVIEW_STATIC_ROOT` 為該絕對路徑再啟動上述 Windows Node 服務。預覽不再直接讀重建中的 dist，新的修改需先測試並建立新快照，再重啟該預覽服務。此覆寫拒絕與 `ATMOS_DESKTOP_HOST_EXE` 同用，不更動安裝版 payload；資料仍使用獨立 `ATMOS_STORE`。這不是 HMR，不能以隱藏載入失敗或偽造 ACK 取代就緒校驗。

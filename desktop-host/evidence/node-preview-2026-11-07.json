@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-07",
+  "passed": true,
+  "checks": {
+    "targetedTestsPassed": 28,
+    "desktopMobileQuickPassed": true,
+    "quickElapsedMs": 16929,
+    "isolatedNodeRuntimeReachedReady": true,
+    "stablePreviewSnapshotTested": true,
+    "previewManagerAndUpdatedCssHttp200": true,
+    "languageDividerPresent": true,
+    "nativeExecutableNotConfigured": true
+  },
+  "limitations": [
+    "Readiness checked in a fresh isolated Chromium CLI profile and synthetic Node store, not in the user browser.",
+    "Original user-browser loading failure was not directly observed; isolating assets removes rebuild interference but does not prove the exact original cause.",
+    "No installed application, Windows wallpaper or private installation settings changed."
+  ]
+}
