@@ -50,7 +50,7 @@
 - [x] WF-P1-PAYLOAD：完整輸入 sidecar／輸出 hash，涵蓋後端、依賴、runtime、凍結、工具、source manifest；真實 2021 檔 payload 建立與兩次核對通過，保留 Rust schema。僅同次程序重用，跨次 flag fail closed。
 - [x] WF-P1-ACCEPTANCE：上述來源失效、僅後端變更、產物多檔／少檔／同大小改寫／symlink、未確認結果／中斷／負控制／覆蓋失敗、serialized green／quick／unit 不可發版等負向測試通過；545 產品＋43 核心與完整矩陣通過（既有 skip 5）。
 - [x] WF-P2-SMOKE：診斷 smoke 實測通過；正式局部小改 quick 含針對測試及 390/1280px，17.161 秒；相較舊小改完成流程平均 167.094 秒，等待少 89.73%（不同覆蓋範圍，非完整驗證加速）。
-- [ ] WF-P2-BROWSER：依量測再評估有限並行／process 重用；隔離狀態、取消清理與完整覆蓋。
+- [x] WF-P2-BROWSER：正向版面矩陣最多三個 Chromium 並行，每個視窗使用獨立設定、HTTP 服務與瀏覽器 profile。保留完整覆蓋與獨立重疊負控制，驗證瀏覽器失敗時會停止並清理。同條件實測版面驗收由 184.1 秒降至 99.6 秒，完整驗證由 236.4 秒降至 151.9 秒。
 - [x] WF-P3-MAP：WORKFLOW-P0 文件先列來源→轉換→dist 維護入口圖。
 - [ ] WF-P3-SOURCE：逐個 replace 錨點補恰好替換一次斷言，再小步模組化，保留 frozen/provenance。
 - [x] WF-RELOAD：隔離測試既有檔案新 bytes、新增／刪除需重建索引、Node 模組需重啟通過；不宣稱完整 HMR。

@@ -23,9 +23,9 @@
     },
     {
       "path": "DEVELOPMENT.md",
-      "bytes": 7114,
-      "sha256": "dabeb2e2f1d991068cec559ad451ea0a69d4136b9fa4fc97c7ae3e9cb743e138",
-      "git_blob_sha": "61ba9dd7f05a681d206910d857a082d0f07ddac4"
+      "bytes": 7183,
+      "sha256": "9c36ab9043bc57131fd0a7b3d94622bee239ee29bbde1a5034d772cfcc8b64ae",
+      "git_blob_sha": "6e74f0979dc59db8436d54fa79e4988ce6100ba0"
     },
     {
       "path": "README.md",
@@ -35,9 +35,9 @@
     },
     {
       "path": "TODO.md",
-      "bytes": 30918,
-      "sha256": "35103ae23f8b0906cba1d21512a28f186ae5dc08fd14fa32a9d205d0f4a98ca2",
-      "git_blob_sha": "df0903222da7f1054cf2dc8697ce6f0be479664a"
+      "bytes": 31131,
+      "sha256": "da477739f2a036d880f08b66f8888f9e34bd707d929779c3d248f5feb812d2a4",
+      "git_blob_sha": "7e7f139f5853008d9ef1cb0616f7bfe60e782765"
     },
     {
       "path": "desktop-host/Cargo.lock",
@@ -3047,9 +3047,9 @@
     },
     {
       "path": "implementation-p4_2_5/scripts/audit-layout.mjs",
-      "bytes": 19752,
-      "sha256": "696c6a38e842e06bcb0ec85d45013b3d3a597a8adb5649878a2536af0c0f0c7a",
-      "git_blob_sha": "4be36339e54311d7b41d048d6a98f94aba688e00"
+      "bytes": 21375,
+      "sha256": "d34e8f25e8ef1acae4471af8c9c9bd8421b9f4820a9107f1030c5cda8224dd52",
+      "git_blob_sha": "45e7f649f51f8890d9f1904b0c567c962eb4fef6"
     },
     {
       "path": "implementation-p4_2_5/scripts/audit-library-controls.mjs",
@@ -4114,12 +4114,6 @@
       "git_blob_sha": "9d7cd82f84a60a49bdd160a0ec227495d746c753"
     },
     {
-      "path": "implementation-p4_2_5/tests/edge-snap.test.mjs",
-      "bytes": 3365,
-      "sha256": "63f21193e2b737b7ceb42a8620823289cf1f426ed471db97ae42817f7c9739d6",
-      "git_blob_sha": "92776fe73d69a2149bf0026c91a71354c04bdfb1"
-    },
-    {
       "path": "implementation-p4_2_5/tests/effect-preview.test.mjs",
       "bytes": 3774,
       "sha256": "7665d8d7dcbd21098b26da39423b326d91ad5b1507d717813934b0b3661bfae7",
@@ -4127,9 +4121,9 @@
     },
     {
       "path": "implementation-p4_2_5/tests/explanation-height.test.mjs",
-      "bytes": 1706,
-      "sha256": "60de2c2ecd63a611120984ac97b187c20115d007e16221b046bc84fe2c1695a2",
-      "git_blob_sha": "64d0f5e93fb6027773a294f44854fb7167964466"
+      "bytes": 797,
+      "sha256": "97f340d17735f13b103029970b906f4a1f0aa767290660a9795d67ed26c36bee",
+      "git_blob_sha": "38c9c17fc3ea5c6774c7ab5da2f3970a82bf221a"
     },
     {
       "path": "implementation-p4_2_5/tests/fixtures/monitor-4x3.json",
@@ -4276,12 +4270,6 @@
       "git_blob_sha": "3b3f880bcc8c66afa5e64e9b887bdde1806f0e6b"
     },
     {
-      "path": "implementation-p4_2_5/tests/panel-align.test.mjs",
-      "bytes": 1085,
-      "sha256": "41bcf960e79dd008d3a60c652cb211dee6af74863117483bf58f8b1aaae2a240",
-      "git_blob_sha": "78ae08d34bc46d5e8cb33f24541d60f45228adf0"
-    },
-    {
       "path": "implementation-p4_2_5/tests/particles.test.mjs",
       "bytes": 3873,
       "sha256": "3a88b7c73ffaca4701b37bb4f0543cc6b3dfd206a9c2dc81ba4742aeee5e6419",
@@ -4358,12 +4346,6 @@
       "bytes": 24925,
       "sha256": "b14045425061d4db27c18ae14adb4cf1e9a182877951ffd5503020e11d77e11a",
       "git_blob_sha": "48964e15ebf766822088ea06fe752bc209e777e9"
-    },
-    {
-      "path": "implementation-p4_2_5/tests/reused-payload-gate.test.mjs",
-      "bytes": 1090,
-      "sha256": "2d046583b35600ce92c5f5ab2e1ab988ecec6f2820f826b64d1f316936a29e6e",
-      "git_blob_sha": "1ba88245b0fa872ac448185935fe2fe09f4b24cd"
     },
     {
       "path": "implementation-p4_2_5/tests/roles.test.mjs",

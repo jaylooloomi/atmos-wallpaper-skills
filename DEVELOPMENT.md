@@ -72,7 +72,7 @@ npm run release:windows
 
 P1 同流程去重、完整 payload manifest 與負向驗收已實作，量測／界線見 desktop-host/docs/WORKFLOW-IMPROVEMENT-2026-11-07.md 與 TODO。前後條件不同、quick 覆蓋較少，不能把 quick 耗時說成完整 verify 加速。
 
-Chromium 有限並行／process 重用屬另一步實驗，不先對共享 core 做 Promise.all。來源轉換先依 WORKFLOW-P0 的來源圖定位；逐步補替換斷言與小模組，不改 frozen/provenance、不一次重寫產品。
+正式版面矩陣最多並行三個 Chromium，依可用邏輯核心數限制並行度。各視窗使用自己的設定、HTTP 服務與瀏覽器 profile。重疊負控制先單獨執行。來源轉換依 WORKFLOW-P0 的來源圖定位，逐步補替換斷言與小模組，保留 frozen 與 provenance。
 
 ### 獨立 Node 預覽快照
 
