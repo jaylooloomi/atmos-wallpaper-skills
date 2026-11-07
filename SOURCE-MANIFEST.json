@@ -3425,9 +3425,9 @@
     },
     {
       "path": "implementation-p4_2_5/scripts/layout-regression-probe.js",
-      "bytes": 22175,
-      "sha256": "c3dce7c80db90f61192bad8da0f9d8f36d411a6f05a997cd0d96a4f425a53a55",
-      "git_blob_sha": "450aa4987a4bd252badd9ed2b75e0f6233069c0a"
+      "bytes": 23153,
+      "sha256": "839b16aa885772dc0e155a8f8d4af40502354630fae478c5f5c58f8b3741d24f",
+      "git_blob_sha": "b468bc103b9fc41d6ed3c88717bb11e3b688bbd0"
     },
     {
       "path": "implementation-p4_2_5/scripts/measure-windows-host.ps1",
@@ -4163,9 +4163,9 @@
     },
     {
       "path": "implementation-p4_2_5/src/settings-tabs.css",
-      "bytes": 9751,
-      "sha256": "0697361dc1cee2c20e32e46eca73b977f50104cd2a80888e7402dafd2148b705",
-      "git_blob_sha": "50e1307babc72b77025c5dbfb4e2801c7e9cc6eb"
+      "bytes": 9884,
+      "sha256": "32dfdd4d40570ff6398dab5e1ec6c46433e0b9303b4411ac3d63295390ec967d",
+      "git_blob_sha": "087bab35dcf0e6ae1658d563be6fc6b819a7ec45"
     },
     {
       "path": "implementation-p4_2_5/src/settings-tabs.js",
