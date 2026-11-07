@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "commands": [
+    "--library-command get",
+    "--library-command audit [--store DIR]",
+    "--library-command archive [--store DIR] (JSON stdin)",
+    "--library-command move [--store DIR] (JSON stdin)",
+    "--library-command reset [--store DIR] (JSON stdin)",
+    "--library-command result [--store DIR] (JSON stdin)"
+  ],
+  "example": {
+    "schemaVersion": 1,
+    "requestId": "library.move.001",
+    "expectedRevision": 0,
+    "path": "D:\\My wallpapers\\Atmos Wallpaper Library"
+  },
+  "rules": [
+    "Read current library revision immediately before moving. It is separate from appearance and placement revisions.",
+    "Use a dedicated local writable folder. Source files are retained. No automatic deletion is provided.",
+    "Move/reset use requestId and durable replay; reuse only identical input. On conflicts reread and reconcile.",
+    "If the result is lost, query result with requestId. Never edit library-config.json or internal receipts.",
+    "No network paths, shell commands, runtime/store/calendar/profile directories. HTTP folder selection uses the native picker and accepts no paths.",
+    "get reports offline without recreating the selected library. A saved move receipt does not prove current availability.",
+    "audit checks all retained owner and offline display references. archive requires auditHash, expectedRevision and requestId. It archives only verified unreferenced pairs; changed references invalidate the audit.",
+    "Archive files are retained locally, not permanently deleted; no disk-space saving is claimed. Interrupted removals restore the active originals. Never delete archive/journal files manually while Atmos runs."
+  ]
+}

@@ -2,6 +2,28 @@
 #[cfg(windows)]
 mod agent;
 #[cfg(windows)]
+mod cli_catalogs;
+#[cfg(windows)]
+mod portable_store;
+#[cfg(windows)]
+mod providers;
+#[cfg(windows)]
+mod focus;
+#[cfg(windows)]
+mod js_json;
+#[cfg(windows)]
+mod desired_state;
+#[cfg(windows)]
+mod asset_store;
+#[cfg(windows)]
+mod appearance_core;
+#[cfg(windows)]
+mod backup_image;
+#[cfg(windows)]
+mod appearance_agent;
+#[cfg(windows)]
+mod appearance_watch;
+#[cfg(windows)]
 mod app;
 #[cfg(windows)]
 mod audio;

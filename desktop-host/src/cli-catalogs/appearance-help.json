@@ -1,0 +1,45 @@
+{
+  "apiVersion": 1,
+  "commands": [
+    "--preset-command get|save|apply|delete [--store DIR] [--target display-ID]",
+    "--schedule-command get|update [--store DIR] [--target display-ID]",
+    "--focus-command get|update [--store DIR]",
+    "--providers-command get|update [--store DIR]",
+    "--appearance-help"
+  ],
+  "input": "Mutations read bounded UTF-8 JSON on stdin; no shell or paths in JSON.",
+  "rules": [
+    "Read namespace revision and the current appearance revision before mutation. Independent display mode requires an explicit selected --target display-ID for presets and schedules.",
+    "Preset save/apply/delete JSON matches /api/presets: schemaVersion,action,requestId,expectedRevision,expectedCatalogRevision plus name(save) or presetId(apply/delete).",
+    "Preset contents include appearance only. Calendar credentials/sources, todos, timer progress, language, preview and host device policies remain unchanged.",
+    "Schedule update JSON: schemaVersion,requestId,expectedRevision,policy. Policy requires enabled,mode(interval|times),intervalMinutes(1..1440),presetIds,entries[{time:HH:mm,presetId}],manualGraceMinutes(1..1440). Use presetIds only for interval and entries only for times. Fixed times use the Windows local timezone; interval slots align to wall-clock intervals.",
+    "Provider update JSON: schemaVersion,requestId,expectedRevision,weather:{enabled:boolean,city:台北|東京|倫敦|紐約}. Global owner settings; no --target, network request, telemetry sample or desktop launch. Read --host-schema for exact JSON Schemas.",
+    "Focus update JSON: schemaVersion,requestId,expectedRevision,mode(normal|focus|showcase). Applies to all wallpaper views for the current live host session; resets at host restart. Screensaver privacy is isolated.",
+    "Replay identical request IDs and full payloads after unknown results. Reconcile revision/catalog conflicts; never silently substitute current revisions.",
+    "Committed settings or policy do not prove renderer application or OS visibility. This CLI does not forge acknowledgements or launch a desktop host."
+  ],
+  "examples": {
+    "save": {
+      "schemaVersion": 1,
+      "action": "save",
+      "requestId": "preset.work.001",
+      "expectedRevision": 4,
+      "expectedCatalogRevision": 0,
+      "name": "Work"
+    },
+    "apply": {
+      "schemaVersion": 1,
+      "action": "apply",
+      "requestId": "preset.apply.001",
+      "expectedRevision": 4,
+      "expectedCatalogRevision": 1,
+      "presetId": "<exact listed SHA256 ID>"
+    },
+    "focus": {
+      "schemaVersion": 1,
+      "requestId": "focus.001",
+      "expectedRevision": 0,
+      "mode": "focus"
+    }
+  }
+}

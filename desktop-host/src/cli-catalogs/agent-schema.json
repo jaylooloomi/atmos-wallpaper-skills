@@ -1,0 +1,771 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:atmos:agent:settings-update:1",
+  "title": "Atmos Agent settings.update v1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "requestId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,79}$"
+    },
+    "expectedRevision": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "type": {
+      "const": "settings.update"
+    },
+    "changes": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "visual": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "hourCycle": {
+              "enum": [
+                12,
+                24
+              ]
+            },
+            "showSeconds": {
+              "type": "boolean"
+            },
+            "previewMode": {
+              "enum": [
+                "auto",
+                "manual"
+              ]
+            },
+            "previewWidth": {
+              "type": "integer",
+              "minimum": 320,
+              "maximum": 7680
+            },
+            "previewHeight": {
+              "type": "integer",
+              "minimum": 320,
+              "maximum": 7680
+            },
+            "locale": {
+              "enum": [
+                "zh-TW",
+                "zh-CN",
+                "en",
+                "ja",
+                "ko"
+              ]
+            },
+            "clockFont": {
+              "enum": [
+                "theme",
+                "system",
+                "sans",
+                "serif",
+                "mono",
+                "rounded"
+              ]
+            },
+            "calendarFont": {
+              "enum": [
+                "theme",
+                "system",
+                "sans",
+                "serif",
+                "mono",
+                "rounded"
+              ]
+            },
+            "clockFontSize": {
+              "anyOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "number",
+                  "minimum": 12,
+                  "maximum": 160
+                }
+              ]
+            },
+            "calendarFontSize": {
+              "anyOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "number",
+                  "minimum": 12,
+                  "maximum": 160
+                }
+              ]
+            },
+            "clockColor": {
+              "anyOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "string",
+                  "pattern": "^#[0-9a-fA-F]{6}$"
+                }
+              ]
+            },
+            "calendarColor": {
+              "anyOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "type": "string",
+                  "pattern": "^#[0-9a-fA-F]{6}$"
+                }
+              ]
+            },
+            "background": {
+              "enum": [
+                "forest",
+                "city",
+                "future",
+                "coast",
+                "alpine",
+                "desert"
+              ]
+            },
+            "effect": {
+              "enum": [
+                "clear",
+                "rain",
+                "snow",
+                "typhoon",
+                "thunder",
+                "meteor",
+                "firefly",
+                "sakura",
+                "fireworks",
+                "galaxy"
+              ]
+            },
+            "reduced": {
+              "const": false
+            },
+            "lightning": {
+              "const": true
+            },
+            "clockVisible": {
+              "type": "boolean"
+            },
+            "clockX": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "clockY": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "clockSize": {
+              "type": "number",
+              "minimum": 60,
+              "maximum": 130
+            },
+            "calendarVisible": {
+              "type": "boolean"
+            },
+            "calendarX": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "calendarY": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "calendarWidth": {
+              "type": "number",
+              "minimum": 15,
+              "maximum": 37
+            },
+            "calendarMode": {
+              "enum": [
+                "off",
+                "demo",
+                "ics"
+              ]
+            },
+            "layout": {
+              "const": "A"
+            },
+            "theme": {
+              "enum": [
+                "natural",
+                "neon",
+                "warm",
+                "minimal"
+              ]
+            },
+            "intensity": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "paused": {
+              "const": false
+            },
+            "lockScene": {
+              "const": true
+            },
+            "mobileClockX": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "mobileClockY": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "mobileCalendarX": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "mobileCalendarY": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            }
+          },
+          "minProperties": 1
+        },
+        "widgets": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "schema": {
+              "const": 1
+            },
+            "desktopZone": {
+              "enum": [
+                null,
+                "scene",
+                "tray"
+              ]
+            },
+            "cards": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "weather": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "enabled": {
+                      "type": "boolean"
+                    },
+                    "font": {
+                      "enum": [
+                        "theme",
+                        "system",
+                        "sans",
+                        "serif",
+                        "mono",
+                        "rounded"
+                      ]
+                    },
+                    "fontSize": {
+                      "anyOf": [
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "type": "number",
+                          "minimum": 12,
+                          "maximum": 48
+                        }
+                      ]
+                    },
+                    "color": {
+                      "anyOf": [
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^#[0-9a-fA-F]{6}$"
+                        }
+                      ]
+                    },
+                    "size": {
+                      "enum": [
+                        "S",
+                        "M"
+                      ]
+                    },
+                    "custom": {
+                      "type": "boolean"
+                    },
+                    "mobileCustom": {
+                      "type": "boolean"
+                    },
+                    "x": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 100
+                    },
+                    "y": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 100
+                    },
+                    "mx": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 100
+                    },
+                    "my": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 100
+                    }
+                  }
+                },
+                "todo": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "enabled": {
+                      "type": "boolean"
+                    },
+                    "font": {
+                      "enum": [
+                        "theme",
+                        "system",
+                        "sans",
+                        "serif",
+                        "mono",
+                        "rounded"
+                      ]
+                    },
+                    "fontSize": {
+                      "anyOf": [
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "type": "number",
+                          "minimum": 12,
+                          "maximum": 48
+                        }
+                      ]
+                    },
+                    "color": {
+                      "anyOf": [
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^#[0-9a-fA-F]{6}$"
+                        }
+                      ]
+                    },
+                    "size": {
+                      "enum": [
+                        "S",
+                        "M"
+                      ]
+                    },
+                    "custom": {
+                      "type": "boolean"
+                    },
+                    "mobileCustom": {
+                      "type": "boolean"
+                    },
+                    "x": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 100
+                    },
+                    "y": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 100
+                    },
+                    "mx": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 100
+                    },
+                    "my": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 100
+                    }
+                  }
+                },
+                "timer": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "enabled": {
+                      "type": "boolean"
+                    },
+                    "font": {
+                      "enum": [
+                        "theme",
+                        "system",
+                        "sans",
+                        "serif",
+                        "mono",
+                        "rounded"
+                      ]
+                    },
+                    "fontSize": {
+                      "anyOf": [
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "type": "number",
+                          "minimum": 12,
+                          "maximum": 48
+                        }
+                      ]
+                    },
+                    "color": {
+                      "anyOf": [
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^#[0-9a-fA-F]{6}$"
+                        }
+                      ]
+                    },
+                    "size": {
+                      "enum": [
+                        "S",
+                        "M"
+                      ]
+                    },
+                    "custom": {
+                      "type": "boolean"
+                    },
+                    "mobileCustom": {
+                      "type": "boolean"
+                    },
+                    "x": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 100
+                    },
+                    "y": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 100
+                    },
+                    "mx": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 100
+                    },
+                    "my": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 100
+                    }
+                  }
+                },
+                "system": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "enabled": {
+                      "type": "boolean"
+                    },
+                    "font": {
+                      "enum": [
+                        "theme",
+                        "system",
+                        "sans",
+                        "serif",
+                        "mono",
+                        "rounded"
+                      ]
+                    },
+                    "fontSize": {
+                      "anyOf": [
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "type": "number",
+                          "minimum": 12,
+                          "maximum": 48
+                        }
+                      ]
+                    },
+                    "color": {
+                      "anyOf": [
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^#[0-9a-fA-F]{6}$"
+                        }
+                      ]
+                    },
+                    "size": {
+                      "enum": [
+                        "S",
+                        "M"
+                      ]
+                    },
+                    "custom": {
+                      "type": "boolean"
+                    },
+                    "mobileCustom": {
+                      "type": "boolean"
+                    },
+                    "x": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 100
+                    },
+                    "y": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 100
+                    },
+                    "mx": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 100
+                    },
+                    "my": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 100
+                    }
+                  }
+                },
+                "media": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "enabled": {
+                      "type": "boolean"
+                    },
+                    "font": {
+                      "enum": [
+                        "theme",
+                        "system",
+                        "sans",
+                        "serif",
+                        "mono",
+                        "rounded"
+                      ]
+                    },
+                    "fontSize": {
+                      "anyOf": [
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "type": "number",
+                          "minimum": 12,
+                          "maximum": 48
+                        }
+                      ]
+                    },
+                    "color": {
+                      "anyOf": [
+                        {
+                          "type": "null"
+                        },
+                        {
+                          "type": "string",
+                          "pattern": "^#[0-9a-fA-F]{6}$"
+                        }
+                      ]
+                    },
+                    "size": {
+                      "enum": [
+                        "S",
+                        "M"
+                      ]
+                    },
+                    "custom": {
+                      "type": "boolean"
+                    },
+                    "mobileCustom": {
+                      "type": "boolean"
+                    },
+                    "x": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 100
+                    },
+                    "y": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 100
+                    },
+                    "mx": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 100
+                    },
+                    "my": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 100
+                    }
+                  }
+                }
+              }
+            },
+            "todos": {
+              "type": "array",
+              "maxItems": 50,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 80
+                  },
+                  "text": {
+                    "type": "string",
+                    "maxLength": 160
+                  },
+                  "done": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "id",
+                  "text",
+                  "done"
+                ]
+              }
+            },
+            "undo": {
+              "type": "null"
+            },
+            "city": {
+              "enum": [
+                "台北",
+                "東京",
+                "倫敦",
+                "紐約"
+              ]
+            },
+            "weatherState": {
+              "enum": [
+                "demo",
+                "denied",
+                "offline",
+                "empty"
+              ]
+            },
+            "systemState": {
+              "enum": [
+                "demo",
+                "unavailable"
+              ]
+            },
+            "mediaState": {
+              "enum": [
+                "demo",
+                "empty"
+              ]
+            },
+            "metrics": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "cpu": {
+                  "type": "boolean"
+                },
+                "ram": {
+                  "type": "boolean"
+                },
+                "up": {
+                  "type": "boolean"
+                },
+                "down": {
+                  "type": "boolean"
+                },
+                "diskC": {
+                  "type": "boolean",
+                  "default": true
+                },
+                "diskD": {
+                  "type": "boolean",
+                  "default": true
+                }
+              }
+            },
+            "timer": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "phase": {
+                  "enum": [
+                    "work",
+                    "break"
+                  ]
+                },
+                "minutes": {
+                  "type": "number",
+                  "minimum": 1,
+                  "maximum": 120
+                },
+                "running": {
+                  "type": "boolean"
+                },
+                "deadlineUtc": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 9007199254740991
+                },
+                "pausedRemaining": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 7200000
+                },
+                "finished": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "minProperties": 1
+        }
+      },
+      "minProperties": 1
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "requestId",
+    "expectedRevision",
+    "type",
+    "changes"
+  ],
+  "description": "Partial object merge; arrays replace entirely. Runtime validates the merged state, including unique todo IDs, timer consistency and at least one enabled metric. This schema does not grant shell, network or file-write capabilities."
+}
